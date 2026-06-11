@@ -115,37 +115,39 @@ function TwoPanelMenu({ data, onClose }) {
   const [activeSection, setActiveSection] = useState(data.sections[0]);
 
   return (
-    <div className="grid w-full max-w-6xl max-h-[calc(100vh-120px)] overflow-hidden rounded-lg border border-slate-100 bg-white shadow-[0_40px_100px_-15px_rgba(0,0,0,0.25)] ring-1 ring-white/80 lg:grid-cols-[320px_minmax(0,1fr)]">
-      <div className="flex min-h-[360px] max-h-[calc(100vh-120px)] overflow-y-auto flex-col bg-slate-50/80 p-3 scrollbar-hide">
+    <div className="grid w-full max-w-6xl max-h-[calc(100vh-120px)] overflow-hidden rounded-xl border border-indigo-100/50 bg-white shadow-[0_45px_90px_-15px_rgba(11,25,44,0.15)] ring-1 ring-white/80 lg:grid-cols-[320px_minmax(0,1fr)]">
+      <div className="flex min-h-[360px] max-h-[calc(100vh-120px)] overflow-y-auto flex-col bg-indigo-50/20 p-3.5 scrollbar-hide">
         {data.sections.map((section) => (
           <button
             key={section.title}
             type="button"
             className={`group flex w-full items-center gap-3 rounded-lg px-3.5 py-3 text-left text-sm font-extrabold transition-all duration-200 ${
               activeSection?.title === section.title
-                ? "bg-white text-primary shadow-sm ring-1 ring-slate-100"
-                : "text-slate-600 hover:bg-white/80 hover:text-slate-950"
+                ? "bg-white text-primary border-l-4 border-secondary shadow-sm ring-1 ring-indigo-100/10 pl-2.5"
+                : "text-slate-600 hover:bg-white/80 hover:text-primary hover:pl-4"
             }`}
             onClick={() => setActiveSection(section)}
             onMouseEnter={() => setActiveSection(section)}
           >
             <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg transition-colors ${
-              activeSection?.title === section.title ? "bg-indigo-50" : "bg-white"
+              activeSection?.title === section.title ? "bg-primary/10" : "bg-white/80"
             }`}>
               <img src={section.icon || sectionIcons.business} alt="" className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
             </span>
             <span className="min-w-0 flex-1">{section.title}</span>
-            <ChevronRight size={16} className="shrink-0 text-slate-300 transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
+            <ChevronRight size={16} className={`shrink-0 text-slate-300 transition-transform ${
+              activeSection?.title === section.title ? "text-primary translate-x-0.5" : "group-hover:translate-x-0.5 group-hover:text-primary"
+            }`} />
           </button>
         ))}
 
-        <div className="mt-auto rounded-lg border border-slate-100 bg-white p-4 shadow-sm">
-          <div className="mb-3 grid h-11 w-11 place-items-center rounded-lg bg-amber-50 text-amber-600">
+        <div className="mt-auto rounded-xl border border-indigo-100/40 bg-white p-4 shadow-sm">
+          <div className="mb-3 grid h-11 w-11 place-items-center rounded-lg bg-secondary/10 text-secondary">
             <Phone size={18} />
           </div>
           <div className="text-sm font-bold leading-6 text-slate-600">
             <span>Prefer to talk to a business advisor first?</span>
-            <Link href="/talk-to-expert" className="mt-1 inline-flex text-primary transition-colors hover:text-indigo-700" onClick={onClose}>
+            <Link href="/talk-to-expert" className="mt-1 inline-flex text-primary transition-colors hover:text-primary-dark font-black underline decoration-secondary decoration-2 underline-offset-4" onClick={onClose}>
               Book a call back
             </Link>
           </div>
@@ -155,8 +157,8 @@ function TwoPanelMenu({ data, onClose }) {
       <div className="p-6 lg:p-8 max-h-[calc(100vh-120px)] overflow-y-auto scrollbar-hide">
         {activeSection && (
           <>
-            <div className="mb-5 flex items-center gap-3 border-b border-slate-100 pb-5">
-              <span className="grid h-12 w-12 place-items-center rounded-lg bg-indigo-50">
+            <div className="mb-5 flex items-center gap-3 border-b border-indigo-100/40 pb-5">
+              <span className="grid h-12 w-12 place-items-center rounded-lg bg-primary/10">
                 <img src={activeSection.icon || sectionIcons.business} alt="" className="h-7 w-7 object-contain" loading="lazy" decoding="async" />
               </span>
               <span className="font-serif text-xl font-black text-slate-950">{activeSection.title}</span>
@@ -166,27 +168,31 @@ function TwoPanelMenu({ data, onClose }) {
                 <Link
                   key={`${activeSection.title}-${item.label}-${item.href}`}
                   href={item.href}
-                  className={`group flex min-h-11 items-center justify-between gap-3 rounded-lg px-3 text-sm font-bold text-slate-600 transition-all hover:bg-slate-50 hover:text-primary ${
+                  className={`group flex min-h-11 items-center justify-between gap-3 rounded-lg px-3 text-sm font-semibold text-slate-600 transition-all hover:bg-primary/5 hover:text-primary hover:translate-x-1.5 duration-200 ${
                     item.isNew ? "text-primary" : ""
                   }`}
                   onClick={onClose}
                 >
                   <span className="min-w-0">{item.label}</span>
-                  {item.isNew && <span className="badge badge-warning badge-sm border-0 text-[0.65rem] font-black text-slate-950">New</span>}
+                  {item.isNew && (
+                    <span className="bg-secondary/15 text-secondary border border-secondary/20 px-2 py-0.5 text-[0.62rem] font-bold tracking-wider rounded-md">
+                      New
+                    </span>
+                  )}
                 </Link>
               ))}
             </div>
             
             {activeSection.title === "Web Development" && (
-              <div className="col-span-full mt-6 rounded-xl overflow-hidden bg-gradient-to-br from-indigo-900 via-[#0B1727] to-slate-900 p-6 shadow-xl relative isolate group">
+              <div className="col-span-full mt-6 rounded-xl overflow-hidden bg-gradient-to-br from-indigo-950 via-[#0B1727] to-indigo-900 p-6 shadow-xl border border-indigo-900/30 relative isolate group">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
                 <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-indigo-500/20 blur-3xl group-hover:bg-indigo-400/30 transition-all duration-700"></div>
                 <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
                   <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur-md overflow-hidden">
-                    <img src="/veaglespace-logo.png" alt="Veaglespace" className="h-full w-full object-cover scale-110" onError={(e) => { e.target.onerror = null; e.target.src = "https://ui-avatars.com/api/?name=V&background=0D8ABC&color=fff"; }} />
+                    <img src="/veagle-logo.webp" alt="Veaglespace" className="h-full w-full object-cover scale-110" onError={(e) => { e.target.onerror = null; e.target.src = "https://ui-avatars.com/api/?name=V&background=0D8ABC&color=fff"; }} />
                   </div>
                   <div className="text-center sm:text-left flex-1">
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/20 px-2.5 py-0.5 text-[0.65rem] font-black tracking-widest text-indigo-300 uppercase mb-2 ring-1 ring-indigo-500/30">
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-secondary/20 px-2.5 py-0.5 text-[0.65rem] font-black tracking-widest text-secondary uppercase mb-2 ring-1 ring-secondary/30">
                       Technology Partner
                     </div>
                     <h4 className="text-lg font-black text-white tracking-tight">Veaglespace Tech</h4>
@@ -194,7 +200,7 @@ function TwoPanelMenu({ data, onClose }) {
                       Elevate your business with state-of-the-art Web & E-Commerce solutions designed for maximum scale and conversion.
                     </p>
                   </div>
-                  <a href="https://veaglespace.com" target="_blank" rel="noopener noreferrer" className="shrink-0 rounded-lg bg-white px-5 py-2.5 text-sm font-extrabold text-slate-900 shadow-lg shadow-white/10 transition-all hover:scale-105 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-white/50 w-full sm:w-auto text-center">
+                  <a href="https://veaglespace.com" target="_blank" rel="noopener noreferrer" className="shrink-0 rounded-lg bg-secondary px-5 py-2.5 text-sm font-extrabold text-white shadow-lg shadow-secondary/10 transition-all hover:scale-105 hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-white/50 w-full sm:w-auto text-center">
                     Visit Website
                   </a>
                 </div>
@@ -444,11 +450,12 @@ export default function Header() {
 
       <div className="relative z-[201]">
         <div className="mx-auto flex h-[70px] w-full max-w-[1288px] items-center gap-4 px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="group flex shrink-0 items-center rounded-xl p-1.5 transition-all duration-500 hover:-translate-y-1 hover:scale-[1.04] hover:bg-white hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15)]" onClick={closeAll}>
-            <span className="text-base font-semibold text-slate-700">
-              Your Website Logo
-            </span>
-          </Link>
+          <BrandLogo 
+            href="/" 
+            className="group flex shrink-0 items-center rounded-xl p-1.5 transition-all duration-200" 
+            onClick={closeAll} 
+            height={40} 
+          />
 
           <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:flex" aria-label="Main navigation">
             {mainNav.map((item) => {
@@ -458,10 +465,10 @@ export default function Header() {
                 <div key={item.key} className="relative" onMouseLeave={delayedClose}>
                   <button
                     type="button"
-                    className={`group flex h-9 items-center gap-1.5 whitespace-nowrap rounded-full px-4 text-[0.75rem] font-bold tracking-tight transition-all duration-300 ${
+                    className={`group flex h-9 items-center gap-1.5 whitespace-nowrap rounded-full px-4 text-xs font-bold transition-all duration-200 ${
                       isCta
-                        ? "bg-gradient-to-r from-indigo-600 to-primary text-white shadow-md hover:shadow-lg hover:shadow-indigo-500/20 hover:-translate-y-0.5"
-                        : `text-slate-700 hover:bg-indigo-50/80 hover:text-primary ${activeMenu === item.key ? "bg-indigo-50 text-primary shadow-sm ring-1 ring-indigo-100/50" : ""}`
+                        ? "bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md active:scale-[0.98]"
+                        : `text-slate-700 hover:bg-indigo-50/40 hover:text-primary ${activeMenu === item.key ? "bg-indigo-50/60 text-primary shadow-sm ring-1 ring-indigo-100/30" : ""}`
                     }`}
                     onClick={() => (activeMenu === item.key ? closeAll() : openMenu(item.key))}
                     onMouseEnter={() => openMenu(item.key)}
@@ -470,7 +477,7 @@ export default function Header() {
                     {!isCta && (
                       <ChevronDown 
                         size={11} 
-                        className={`transition-transform duration-300 ${activeMenu === item.key ? "rotate-180" : ""} opacity-40 group-hover:opacity-100`} 
+                        className={`transition-transform duration-300 ${activeMenu === item.key ? "rotate-180" : ""} opacity-40 group-hover:opacity-100 group-hover:text-primary`} 
                       />
                     )}
                   </button>
@@ -481,15 +488,15 @@ export default function Header() {
                       className="absolute left-0 top-full -mt-2 pt-4 z-[250]"
                       onMouseEnter={() => openMenu(item.key)}
                     >
-                      <div className="grid min-w-72 gap-1 rounded-2xl border border-indigo-100/50 bg-white/95 backdrop-blur-xl p-3 shadow-xl shadow-indigo-500/10">
+                      <div className="grid min-w-72 gap-1 rounded-2xl border border-indigo-100/30 bg-white/98 backdrop-blur-xl p-3 shadow-[0_20px_48px_-10px_rgba(11,25,44,0.12)]">
                         {getMegaData(item.key).data.map((itemLink, idx) => (
                           <Link 
                             key={`${itemLink.label}-${itemLink.href}-${idx}`} 
                             href={itemLink.href} 
-                            className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold text-slate-600 transition-colors hover:bg-indigo-50 hover:text-primary whitespace-nowrap" 
+                            className="group/link flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold text-slate-700 transition-all hover:bg-primary/5 hover:text-primary hover:translate-x-1 whitespace-nowrap duration-200" 
                             onClick={closeAll}
                           >
-                            <ChevronRight size={14} className="text-slate-400 shrink-0" />
+                            <ChevronRight size={14} className="text-slate-400 shrink-0 group-hover/link:text-primary transition-colors" />
                             {itemLink.label}
                           </Link>
                         ))}
@@ -563,9 +570,9 @@ export default function Header() {
                   className="absolute right-0 top-full -mt-2 pt-5 z-[250]"
                   onMouseEnter={() => setDesktopMoreOpen(true)}
                 >
-                  <div className="w-64 overflow-hidden rounded-2xl border border-indigo-100/50 bg-white/95 backdrop-blur-xl p-2 shadow-xl shadow-indigo-500/10">
+                  <div className="w-64 overflow-hidden rounded-2xl border border-indigo-100/30 bg-white/98 backdrop-blur-xl p-2 shadow-[0_20px_48px_-10px_rgba(11,25,44,0.12)]">
                     {moreMenu.map((item, idx) => (
-                      <Link key={`${item.label}-${idx}`} href={item.href} className="block rounded-lg px-4 py-3 text-sm font-bold text-slate-600 transition-colors hover:bg-indigo-50 hover:text-primary" onClick={closeAll}>
+                      <Link key={`${item.label}-${idx}`} href={item.href} className="block rounded-lg px-4 py-2.5 text-xs font-bold text-slate-700 hover:bg-primary/5 hover:text-primary hover:translate-x-1.5 transition-all duration-200" onClick={closeAll}>
                         {item.label}
                       </Link>
                     ))}
@@ -602,9 +609,9 @@ export default function Header() {
       )}
 
       {mobileOpen && (
-        <div className="fixed inset-x-0 top-[76px] z-[180] max-h-[calc(100vh-76px)] overflow-y-auto border-b border-slate-100 bg-white/95 shadow-2xl backdrop-blur-xl xl:hidden">
+        <div className="fixed inset-x-0 top-[76px] z-[180] max-h-[calc(100vh-76px)] overflow-y-auto border-b border-indigo-55 bg-white/98 shadow-2xl backdrop-blur-xl xl:hidden">
           <div className="mx-auto w-full max-w-[1288px] px-4 py-4 sm:px-6">
-            <div className="mb-3 flex items-center gap-2 rounded-lg bg-indigo-50 px-4 py-3 text-sm font-extrabold text-primary">
+            <div className="mb-3 flex items-center gap-2 rounded-xl bg-primary/5 border border-primary/10 px-4 py-3 text-sm font-extrabold text-primary">
               <Phone size={15} />
               <span>{siteMeta.phone}</span>
             </div>
@@ -612,32 +619,32 @@ export default function Header() {
             {mainNav.map((item) => {
               const data = getMegaData(item.key);
               return (
-                <div key={item.key} className="border-b border-slate-100 py-1">
+                <div key={item.key} className="border-b border-slate-100/60 py-1">
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-extrabold text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary"
+                    className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-extrabold text-slate-800 transition-colors hover:bg-primary/5 hover:text-primary"
                     onClick={() => setMobileExpanded(mobileExpanded === item.key ? null : item.key)}
                   >
                     <span className="flex items-center gap-3">
                       <img src={item.icon} alt="" className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
                       {item.label}
                     </span>
-                    <ChevronDown className={`transition-transform ${mobileExpanded === item.key ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`transition-transform text-slate-400 ${mobileExpanded === item.key ? "rotate-180 text-primary" : ""}`} />
                   </button>
                   {mobileExpanded === item.key && data && (
                     <div className="grid gap-1 px-3 pb-3">
                       {data.type === "simple" &&
                         data.data.map((itemLink) => (
-                          <Link key={`${itemLink.label}-${itemLink.href}`} href={itemLink.href} className="rounded-lg px-3 py-2 text-sm font-bold text-slate-500 hover:bg-indigo-50 hover:text-primary" onClick={() => setMobileOpen(false)}>
+                          <Link key={`${itemLink.label}-${itemLink.href}`} href={itemLink.href} className="rounded-lg px-3 py-2 text-sm font-bold text-slate-600 hover:bg-primary/5 hover:text-primary hover:pl-5 transition-all duration-200" onClick={() => setMobileOpen(false)}>
                             {itemLink.label}
                           </Link>
                         ))}
                       {data.type === "two-panel" &&
                         data.data.sections.map((section) => (
                           <div key={section.title}>
-                            <p className="px-3 pb-1 pt-3 text-xs font-black uppercase tracking-[0.16em] text-slate-400">{section.title}</p>
+                            <p className="px-3 pb-1 pt-3 text-xs font-black uppercase tracking-[0.16em] text-secondary border-b border-slate-100/50">{section.title}</p>
                             {section.links.map((itemLink) => (
-                              <Link key={`${section.title}-${itemLink.label}-${itemLink.href}`} href={itemLink.href} className="block rounded-lg px-3 py-2 text-sm font-bold text-slate-500 hover:bg-indigo-50 hover:text-primary" onClick={() => setMobileOpen(false)}>
+                              <Link key={`${section.title}-${itemLink.label}-${itemLink.href}`} href={itemLink.href} className="block rounded-lg px-3 py-2.5 text-sm font-bold text-slate-600 hover:bg-primary/5 hover:text-primary hover:pl-5 transition-all duration-200" onClick={() => setMobileOpen(false)}>
                                 {itemLink.label}
                               </Link>
                             ))}
@@ -649,22 +656,22 @@ export default function Header() {
               );
             })}
 
-            <div className="border-b border-slate-100 py-1">
+            <div className="border-b border-slate-100/60 py-1">
               <button
                 type="button"
-                className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-extrabold text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary"
+                className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-extrabold text-slate-800 transition-colors hover:bg-primary/5 hover:text-primary"
                 onClick={() => setMobileExpanded(mobileExpanded === "more" ? null : "more")}
               >
                 <span className="flex items-center gap-3">
                   <Search size={18} />
                   More
                 </span>
-                <ChevronDown className={`transition-transform ${mobileExpanded === "more" ? "rotate-180" : ""}`} />
+                <ChevronDown className={`transition-transform text-slate-400 ${mobileExpanded === "more" ? "rotate-180 text-primary" : ""}`} />
               </button>
               {mobileExpanded === "more" && (
                 <div className="grid gap-1 px-3 pb-3">
                   {moreMenu.map((item) => (
-                    <Link key={item.label} href={item.href} className="rounded-lg px-3 py-2 text-sm font-bold text-slate-500 hover:bg-indigo-50 hover:text-primary" onClick={() => setMobileOpen(false)}>
+                    <Link key={item.label} href={item.href} className="rounded-lg px-3 py-2 text-sm font-bold text-slate-600 hover:bg-primary/5 hover:text-primary hover:pl-5 transition-all duration-200" onClick={() => setMobileOpen(false)}>
                       {item.label}
                     </Link>
                   ))}
@@ -675,7 +682,7 @@ export default function Header() {
             <div className="grid gap-3 pt-4">
               {user ? (
                 <>
-                  <Link href={dashboardHref} className="btn btn-primary rounded-full flex items-center justify-center" onClick={() => setMobileOpen(false)} title="Dashboard">
+                  <Link href={dashboardHref} className="btn btn-primary bg-primary text-white border-0 rounded-full flex items-center justify-center shadow-md hover:bg-primary-dark" onClick={() => setMobileOpen(false)} title="Dashboard">
                     <User size={20} />
                   </Link>
                   <button type="button" className="btn btn-outline rounded-full border-slate-200 text-slate-700 flex items-center justify-center hover:border-primary hover:bg-primary hover:text-white" onClick={handleLogout} disabled={isLoggingOut} title="Logout">
@@ -687,7 +694,7 @@ export default function Header() {
                   <LogIn size={20} />
                 </Link>
               )}
-              <Link href="/talk-to-expert" className="btn btn-primary rounded-full shadow-lg shadow-indigo-500/15" onClick={() => setMobileOpen(false)}>
+              <Link href="/talk-to-expert" className="btn btn-primary bg-primary border-0 rounded-full shadow-lg shadow-indigo-500/15 text-white hover:bg-primary-dark" onClick={() => setMobileOpen(false)}>
                 Talk to an Expert
               </Link>
             </div>

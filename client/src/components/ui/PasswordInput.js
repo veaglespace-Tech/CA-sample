@@ -61,12 +61,12 @@ export default function PasswordInput({
           placeholder={placeholder}
           required={required}
           autoComplete={showStrength ? "new-password" : "current-password"}
-          className={`w-full rounded-xl border pr-11 transition-all duration-200
+          className={`w-full rounded-xl border px-4 py-3 pr-11 text-sm font-medium text-slate-900 shadow-sm outline-none transition-all duration-200
             ${error
-              ? "border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+              ? "border-rose-300 bg-rose-50/20 focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10"
               : value && !error && touched
-                ? "border-emerald-400 bg-emerald-50/30 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
-                : "border-slate-300 bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                ? "border-emerald-300 bg-emerald-50/20 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10"
+                : "border-slate-200 bg-white hover:border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10"
             }
             ${inputClassName}`}
         />

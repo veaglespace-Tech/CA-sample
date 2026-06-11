@@ -322,7 +322,7 @@ function NextStepForm() {
                 </span>
                 <input
                   type="text"
-                  placeholder="E.g. Your Company Name Pvt Ltd"
+                  placeholder="E.g. Veagle Space Technology Pvt. Ltd. Pvt Ltd"
                   className={`input input-bordered w-full pl-11 rounded-2xl bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:border-primary focus:bg-white focus:shadow-md transition-all duration-300 ${errors.businessName ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("businessName", form.businessName) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
                   value={form.businessName}
                   onChange={(e) => handleFieldChange("businessName", e.target.value)}

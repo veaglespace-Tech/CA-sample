@@ -2,8 +2,8 @@ import Link from "next/link";
 import { CheckCircle, Link2, Layers, Users } from "lucide-react";
 
 export const metadata = {
-  title: "Partner With Us - Your Company Name",
-  description: "Partner with Your Company Name Consulting Pvt Ltd to support businesses with legal, tax, compliance, registration, and advisory services.",
+  title: "Partner With Us - Veagle Space Technology Pvt. Ltd.",
+  description: "Partner with Veagle Space Technology Pvt. Ltd. Consulting Pvt Ltd to support businesses with legal, tax, compliance, registration, and advisory services.",
 };
 
 const partnerTypes = [
@@ -40,7 +40,7 @@ export default function PartnerWithUsPage() {
           <div className="vs-breadcrumb">
             <Link href="/">Home</Link><span className="sep">&gt;</span><span>Partner With Us</span>
           </div>
-          <h1>Partner With Your Company Name</h1>
+          <h1>Partner With Veagle Space Technology Pvt. Ltd.</h1>
           <p className="vs-hero-sub">Collaborate with a business consulting platform focused on registration, legal, tax, compliance, and IP services.</p>
         </div>
       </section>
@@ -64,7 +64,7 @@ export default function PartnerWithUsPage() {
           <div>
             <span className="vx-eyebrow">Partner standards</span>
             <h2 className="vs-section-title">How We Work Together</h2>
-            <p className="vx-muted">Your Company Name partners should help clients make confident decisions with clear documents, predictable timelines, and professional communication.</p>
+            <p className="vx-muted">Veagle Space Technology Pvt. Ltd. partners should help clients make confident decisions with clear documents, predictable timelines, and professional communication.</p>
           </div>
           <div className="vx-feature-list">
             {expectations.map((item) => (
@@ -82,7 +82,7 @@ export default function PartnerWithUsPage() {
           <div className="vs-refer">
             <div>
               <h2>Interested in Partnering?</h2>
-              <p>Share your profile, city, practice area, and collaboration idea with the Your Company Name team.</p>
+              <p>Share your profile, city, practice area, and collaboration idea with the Veagle Space Technology Pvt. Ltd. team.</p>
             </div>
             <Link href="/contact" className="vs-refer-btn">Submit Partner Interest</Link>
           </div>

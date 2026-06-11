@@ -2,8 +2,8 @@ import AuthForm from "../../../../components/auth/AuthForm";
 import PublicOnlyRoute from "../../../../components/auth/PublicOnlyRoute";
 
 export const metadata = {
-  title: "Admin Registration | Your Company Name",
-  description: "Create a Your Company Name admin account with your registration key.",
+  title: "Admin Registration | Veagle Space Technology Pvt. Ltd.",
+  description: "Create a Veagle Space Technology Pvt. Ltd. admin account with your registration key.",
 };
 
 export default function AdminRegisterPage() {

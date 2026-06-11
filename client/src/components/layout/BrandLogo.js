@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { democaAssets } from "../../lib/navigation-data";
 
@@ -6,17 +5,26 @@ export default function BrandLogo({
   href = "/",
   className = "",
   imageClassName = "",
-  width = 240,
-  height = 72,
+  width,
+  height = 40,
   priority = false,
-  alt = "Your Company Name logo",
+  alt = "Veagle Space Technology Pvt. Ltd. Logo",
 }) {
   return (
     <Link href={href} className={`${className} flex items-center`}>
-      <div className={`text-2xl font-bold tracking-wide flex items-center gap-2 ${imageClassName}`}>
-        <span className="bg-indigo-600 text-white px-3 py-1 rounded-md shadow-sm">Demo</span>
-        <span className="text-slate-800 dark:text-white">CA</span>
-      </div>
+      <img
+        src={democaAssets.logo || "/veagle-logo.webp"}
+        alt={alt}
+        className={`${imageClassName} object-contain`}
+        style={{ 
+          height: typeof height === "number" ? `${height}px` : height, 
+          width: width ? (typeof width === "number" ? `${width}px` : width) : "auto" 
+        }}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = "https://ui-avatars.com/api/?name=VS&background=0D8ABC&color=fff";
+        }}
+      />
     </Link>
   );
 }

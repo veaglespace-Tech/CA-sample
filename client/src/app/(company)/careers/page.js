@@ -3,8 +3,8 @@ import { ArrowRight, Briefcase, CheckCircle } from "lucide-react";
 import { siteMeta } from "../../../lib/navigation-data";
 
 export const metadata = {
-  title: "Careers - Your Company Name",
-  description: "Join Your Company Name Consulting Pvt Ltd and help businesses simplify legal, tax, registration, and compliance work.",
+  title: "Careers - Veagle Space Technology Pvt. Ltd.",
+  description: "Join Veagle Space Technology Pvt. Ltd. Consulting Pvt Ltd and help businesses simplify legal, tax, registration, and compliance work.",
 };
 
 const openings = [
@@ -31,7 +31,7 @@ export default function CareersPage() {
           <div className="vs-breadcrumb">
             <Link href="/">Home</Link><span className="sep">&gt;</span><span>Careers</span>
           </div>
-          <h1>Careers at Your Company Name</h1>
+          <h1>Careers at Veagle Space Technology Pvt. Ltd.</h1>
           <p className="vs-hero-sub">Build the future of business consulting with a team focused on legal, tax, registration, and compliance services.</p>
         </div>
       </section>

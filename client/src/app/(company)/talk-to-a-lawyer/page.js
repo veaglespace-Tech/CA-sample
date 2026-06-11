@@ -23,7 +23,7 @@ const LANGUAGES = ["English", "Hindi", "Tamil", "Telugu", "Marathi", "Bengali", 
 
 const TESTIMONIALS = [
   {
-    text: "The Your Company Name team is truly amazing. They helped me resolve my property dispute efficiently and professionally.",
+    text: "The Veagle Space Technology Pvt. Ltd. team is truly amazing. They helped me resolve my property dispute efficiently and professionally.",
     name: "Kalpesh Salunke",
     verified: true,
   },
@@ -33,12 +33,12 @@ const TESTIMONIALS = [
     verified: true,
   },
   {
-    text: "I had a great experience with Your Company Name. Their team helped me resolve my GST issue smoothly and guided me through the process.",
+    text: "I had a great experience with Veagle Space Technology Pvt. Ltd.. Their team helped me resolve my GST issue smoothly and guided me through the process.",
     name: "Sumit Kumar",
     verified: true,
   },
   {
-    text: "As an entrepreneur, I value efficiency and clarity — and Your Company Name delivered both. Their legal team is proactive and professional.",
+    text: "As an entrepreneur, I value efficiency and clarity — and Veagle Space Technology Pvt. Ltd. delivered both. Their legal team is proactive and professional.",
     name: "Rishabh Parihaar",
     verified: true,
   },
@@ -441,7 +441,7 @@ export default function TalkToLawyerPage() {
       <section className="bg-white border-y border-slate-200/60 py-12 relative z-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-bold text-slate-500 mb-8 uppercase tracking-widest">
-            Trusted on Google and Trustpilot - Your Company Name, India leading legal-tech platform
+            Trusted on Google and Trustpilot - Veagle Space Technology Pvt. Ltd., India leading legal-tech platform
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
             <div className="flex flex-col items-center">

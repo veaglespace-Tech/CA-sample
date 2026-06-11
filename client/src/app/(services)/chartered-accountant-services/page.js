@@ -143,7 +143,7 @@ const faqs = [
     a: "While basic ITR forms can be DIY, businesses and self-employed professionals face complex tax codes. Our verified CAs do not just file your returns—they optimize your business expenses, maximize your eligible deductions (such as under Sec 80C, 10AA, etc.), ensure robust GST credit matching, and secure your filings against tax notices."
   },
   {
-    q: "How does the Your Company Name digital CA model work?",
+    q: "How does the Veagle Space Technology digital CA model work?",
     a: "It's 100% digital and seamless. Once you choose a service, you are assigned a dedicated Chartered Accountant. You upload all documents (bank statements, purchase sheets, invoices) to a secure encrypted portal. Your CA reviews, compiles reports, shares calculations for your approval, and files your taxes digitally. You receive all filing copies instantly."
   },
   {
@@ -468,7 +468,7 @@ export default function CharteredAccountantLanding() {
                 <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-blue-500/25 blur-3xl" />
                 
                 <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">
-                  Your Company Name Retainer Plan
+                  Veagle Space Technology Retainer Plan
                 </span>
                 
                 <h4 className="relative z-10 font-heading text-3xl font-black tracking-tight mt-3 text-white">
@@ -533,7 +533,7 @@ export default function CharteredAccountantLanding() {
             Setting the Gold Standard for Business Taxes.
           </h2>
           <p className="mt-5 font-body text-base font-semibold leading-relaxed text-slate-500">
-            Hiring a local consultant can lead to communication gaps, missed schedules, and costly penalties. Your Company Name builds accountability directly into every workflow.
+            Hiring a local consultant can lead to communication gaps, missed schedules, and costly penalties. Veagle Space Technology builds accountability directly into every workflow.
           </p>
         </div>
 
@@ -676,7 +676,7 @@ export default function CharteredAccountantLanding() {
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Hotline Number</p>
-                  <p className="font-heading text-base font-extrabold text-white mt-0.5">+91 00000 00000</p>
+                  <p className="font-heading text-base font-extrabold text-white mt-0.5">+91 82379 99101</p>
                 </div>
               </div>
             </div>

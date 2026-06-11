@@ -400,7 +400,7 @@ export const serviceData = {
     title: "Company Registration Online in India",
     shortTitle: "Company Registration",
     subtitle: "Choose the right company structure and complete registration with expert support.",
-    intro: "Your Company Name helps founders compare Private Limited, LLP, OPC, Section 8, and Partnership options before moving into documentation and filing. Choose the right entity type with guidance from our experts.",
+    intro: "Veagle Space Technology helps founders compare Private Limited, LLP, OPC, Section 8, and Partnership options before moving into documentation and filing. Choose the right entity type with guidance from our experts.",
     category: "Business Registration",
     price: "Rs. 6,999",
     oldPrice: "Rs. 9,999",
@@ -713,7 +713,7 @@ export const serviceData = {
     title: "Income Tax Return (ITR) Filing Online",
     shortTitle: "Income Tax Return Filing",
     subtitle: "File ITR for salary, business, capital gains, and professional income with CA support.",
-    intro: "Your Company Name helps individuals, professionals, and businesses choose the correct ITR form, review eligible deductions, and file income tax returns accurately. Avoid notices and late fees with CA-led filing support.",
+    intro: "Veagle Space Technology helps individuals, professionals, and businesses choose the correct ITR form, review eligible deductions, and file income tax returns accurately. Avoid notices and late fees with CA-led filing support.",
     category: "GST & Income Tax",
     price: "Talk to Expert",
     oldPrice: "Custom Quote",
@@ -1602,7 +1602,7 @@ export const contentTabs = [
   { id: "documents", label: "Documents Required" },
   { id: "process", label: "Process" },
   { id: "timeline", label: "Timeline" },
-  { id: "why-democa", label: "Why Your Company Name?" },
+  { id: "why-democa", label: "Why Veagle Space Technology?" },
   { id: "faqs", label: "FAQs" },
 ];
 

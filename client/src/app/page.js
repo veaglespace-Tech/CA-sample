@@ -222,7 +222,7 @@ const processSteps = [
   },
   {
     title: "Expert Callback",
-    desc: "A Your Company Name professional confirms eligibility, documents, and quote.",
+    desc: "A Veagle Space Technology professional confirms eligibility, documents, and quote.",
     icon: <Phone />,
     num: "03",
     color: "emerald",
@@ -361,7 +361,7 @@ export default function Home() {
           <div className="hidden lg:flex flex-1 items-center justify-center animate-fade-in-up" style={{ animationDelay: "400ms" }}>
             <img
               src={localAssets.heroIllustration}
-              alt="Your Company Name - Online Company Registration, GST & Legal Services Dashboard India"
+              alt="Veagle Space Technology - Online Company Registration, GST & Legal Services Dashboard India"
               className="w-full max-w-2xl object-contain"
               loading="lazy"
               decoding="async"
@@ -444,23 +444,23 @@ export default function Home() {
               <Link
                 href={card.href}
                 key={card.title}
-                className={`group relative flex flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white p-8 shadow-xl ${card.shadow} transition-all duration-500 hover:-translate-y-3 ${card.borderGlow}`}
+                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md ${card.borderGlow}`}
                 style={{ animationDelay: `${idx * 80}ms` }}
               >
                 {/* Animated glow background */}
                 <div
-                  className={`absolute inset-0 rounded-3xl opacity-0 transition-all duration-500 group-hover:opacity-100`}
+                  className={`absolute inset-0 rounded-2xl opacity-0 transition-all duration-500 group-hover:opacity-100`}
                   style={{ background: `radial-gradient(circle at 30% 20%, ${card.glowColor} 0%, transparent 70%)` }}
                 />
                 {/* Shimmer sweep on hover */}
-                <div className="absolute inset-0 -translate-x-full rounded-3xl bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <div className="absolute inset-0 -translate-x-full rounded-2xl bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
 
                 {/* Accent blob */}
                 <div className={`absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-10 blur-3xl transition-all duration-500 group-hover:opacity-40 group-hover:scale-125 ${card.bg}`} />
 
                 {/* Professional illustration */}
                 <div className="relative z-10 mb-4">
-                  <div className="overflow-hidden rounded-2xl">
+                  <div className="overflow-hidden rounded-xl">
                     <img
                       src={journeyImages[idx]}
                       alt={card.title}
@@ -471,16 +471,16 @@ export default function Home() {
                   </div>
                 </div>
 
-                <h3 className="relative z-10 mt-4 font-heading text-2xl font-bold text-slate-900 transition-colors group-hover:text-indigo-600">
+                <h3 className="relative z-10 mt-4 font-heading text-xl font-bold text-slate-900 transition-colors group-hover:text-indigo-600">
                   {card.title}
                 </h3>
-                <p className="relative z-10 mt-4 flex-1 font-body text-base font-medium leading-relaxed text-slate-500">
+                <p className="relative z-10 mt-3 flex-1 font-body text-sm font-medium leading-relaxed text-slate-500">
                   {card.desc}
                 </p>
 
-                <div className="relative z-10 mt-8 flex items-center gap-2 font-bold text-indigo-600">
+                <div className="relative z-10 mt-6 flex items-center gap-2 font-semibold text-indigo-600 text-sm">
                   Explore Services
-                  <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
+                  <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" size={16} />
                 </div>
               </Link>
             );
@@ -515,11 +515,11 @@ export default function Home() {
                 <Link
                   href={step.href || "#"}
                   key={step.title}
-                  className={`group relative flex flex-col h-full rounded-2xl border border-slate-200 bg-white p-5 sm:p-8 shadow-sm transition-all duration-400 hover:-translate-y-2 hover:border-slate-300 hover:shadow-xl ${step.glow}`}
+                  className="group relative flex flex-col h-full rounded-xl border border-slate-200/60 bg-white p-5 sm:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
                 >
                   {/* Glowing icon */}
                   <div
-                    className={`mb-4 sm:mb-5 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl ${c.bg} ${c.text} text-xl sm:text-2xl ring-1 ${c.ring} transition-all duration-300 group-hover:scale-110 group-hover:shadow-md`}
+                    className={`mb-4 sm:mb-5 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl ${c.bg} ${c.text} text-xl sm:text-2xl ring-1 ${c.ring} transition-all duration-300 group-hover:scale-110 group-hover:shadow-md`}
                   >
                     {step.icon}
                   </div>
@@ -568,14 +568,14 @@ export default function Home() {
               return (
                 <div
                   key={track.title}
-                  className={`group relative flex flex-col overflow-hidden rounded-[2rem] border bg-gradient-to-br bg-white shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${bgGradient}`}
+                  className={`group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}
                 >
                   {/* Card Header */}
                   <div className="relative p-8 pb-6">
                     <div className="relative z-10 flex flex-col gap-5">
                       <div className="flex items-center justify-between">
                         <div
-                          className={`flex items-center justify-center rounded-2xl bg-white ${c.text} shadow-md transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
+                          className={`flex items-center justify-center rounded-xl bg-white ${c.text} shadow-md transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
                           style={{ width: "60px", height: "60px" }}
                         >
                           <img src={track.image} alt="" className="h-8 w-8 object-contain" loading="lazy" decoding="async" />
@@ -584,7 +584,7 @@ export default function Home() {
                           {track.items.length} Services
                         </span>
                       </div>
-                      <h3 className="font-heading text-2xl font-black leading-tight text-slate-900 group-hover:text-slate-800">
+                      <h3 className="font-heading text-xl font-bold leading-tight text-slate-900 group-hover:text-slate-800">
                         {track.title}
                       </h3>
                     </div>
@@ -618,7 +618,7 @@ export default function Home() {
             {serviceGroups.map((group) => (
               <div
                 key={group.title}
-                className={`group flex flex-col h-full rounded-3xl border border-slate-100 p-6 shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${group.glowClass}`}
+                className="group flex flex-col h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
               >
                 <div className="mb-6 flex items-center gap-4">
                   <div
@@ -679,11 +679,11 @@ export default function Home() {
               return (
               <div
                 key={review.name}
-                className={`group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 p-8 shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fade-in-up ${bgColors[idx % 3]} ${hoverShadows[idx % 3]}`}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md animate-fade-in-up"
                 style={{ animationDelay: `${idx * 150}ms` }}
               >
                 {/* Shimmer on hover */}
-                <div className={`absolute inset-0 -translate-x-full rounded-3xl bg-gradient-to-r from-transparent to-transparent transition-transform duration-700 group-hover:translate-x-full ${glowSweeps[idx % 3]}`} />
+                <div className={`absolute inset-0 -translate-x-full rounded-2xl bg-gradient-to-r from-transparent to-transparent transition-transform duration-700 group-hover:translate-x-full ${glowSweeps[idx % 3]}`} />
 
                 {/* Quote mark */}
                 <span className="absolute right-8 top-6 font-heading text-7xl font-black text-slate-200/50 select-none leading-none transition-colors duration-500 group-hover:text-white">&ldquo;</span>
@@ -710,7 +710,7 @@ export default function Home() {
 
           {/* Google rating badge */}
           <div className="mt-12 flex justify-center">
-            <div className="group flex items-center gap-5 rounded-[2.5rem] border border-slate-200 bg-gradient-to-br from-white to-slate-50 px-8 py-5 shadow-lg shadow-slate-100/80 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/15 hover:-translate-y-1 hover:border-indigo-200 relative overflow-hidden">
+            <div className="group flex items-center gap-5 rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 px-8 py-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:border-indigo-200 relative overflow-hidden">
               {/* Rotating background glow on hover */}
               <div className="absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(99,102,241,0.3)_360deg)] animate-[spin_3s_linear_infinite]" />
 
@@ -733,11 +733,11 @@ export default function Home() {
           9. CTA SECTION — Intense glow & animations
       ═══════════════════════════════════════════ */}
       <section className="bg-white px-4 pt-14 pb-16 sm:px-6 lg:px-8">
-        <div className="group/cta relative mx-auto max-w-7xl rounded-[2.1rem] sm:rounded-[3.5rem] p-[2px] sm:p-[3px] shadow-2xl shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all duration-500 overflow-hidden">
+        <div className="group/cta relative mx-auto max-w-7xl rounded-3xl p-[2px] sm:p-[3px] shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden">
           {/* Rotating gradient border wrapper */}
           <div className="absolute inset-[-100%] bg-[conic-gradient(from_0deg,theme(colors.fuchsia.400),theme(colors.indigo.400),theme(colors.cyan.400),theme(colors.amber.400),theme(colors.fuchsia.400))] animate-[spin_6s_linear_infinite] opacity-40 group-hover/cta:opacity-80 transition-opacity duration-500" />
 
-          <div className="relative h-full overflow-hidden rounded-[2rem] sm:rounded-[3.4rem] bg-slate-50/90 backdrop-blur-2xl px-5 py-10 sm:px-20 sm:py-20 border border-white/50">
+          <div className="relative h-full overflow-hidden rounded-2xl bg-slate-50/90 backdrop-blur-2xl px-5 py-10 sm:px-20 sm:py-20 border border-white/50">
             {/* Multi-layer animated glow blobs inside */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
               <div className="absolute -right-[15%] -top-[15%] h-[60%] w-[45%] animate-[float_12s_ease-in-out_infinite] rounded-full bg-pink-400/20 blur-[120px]" />
@@ -761,7 +761,7 @@ export default function Home() {
                 {trustStats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="group/stat rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-indigo-200 hover:-translate-y-0.5 hover:shadow-md"
+                    className="group/stat rounded-xl border border-slate-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:border-indigo-200 hover:-translate-y-0.5 hover:shadow-md"
                   >
                     <div className={`mb-1 transition-transform duration-300 group-hover/stat:scale-110 ${stat.color}`}>{stat.icon}</div>
                     <div className="font-heading text-2xl font-black text-slate-900">{stat.value}</div>
@@ -772,7 +772,7 @@ export default function Home() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 {["No hidden charges", "Verified professionals", "Dedicated support"].map((item) => (
-                  <div key={item} className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm transition-all duration-200 hover:border-indigo-200">
+                  <div key={item} className="flex items-center gap-2 rounded-full border border-slate-200/60 bg-white px-4 py-2 shadow-sm transition-all duration-200 hover:border-indigo-200">
                     <Check className="text-slate-600 shrink-0" />
                     <span className="text-sm font-semibold text-slate-700">{item}</span>
                   </div>
@@ -783,8 +783,8 @@ export default function Home() {
             {/* Right — Lead Form with inner glow */}
             <div className="relative">
               {/* Glow ring */}
-              <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-fuchsia-300 via-indigo-300 to-cyan-300 blur-xl opacity-40 animate-pulse" />
-              <div className="relative rounded-3xl bg-white/90 backdrop-blur-xl p-8 shadow-2xl ring-1 ring-white/60 lg:p-10">
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-fuchsia-300 via-indigo-300 to-cyan-300 blur-xl opacity-40 animate-pulse" />
+              <div className="relative rounded-2xl bg-white/90 backdrop-blur-xl p-8 shadow-xl border border-slate-200/60 ring-1 ring-white/60 lg:p-10">
 
                 <h3 className="mb-2 font-heading text-2xl font-bold text-slate-900">Request Callback</h3>
                 <p className="mb-7 text-sm font-medium text-slate-500">Fill in your details and our team will contact you within 2 hours.</p>

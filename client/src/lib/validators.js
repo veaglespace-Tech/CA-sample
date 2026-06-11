@@ -1,5 +1,5 @@
 /**
- * Form Validation Utilities for Your Company Name
+ * Form Validation Utilities for Veagle Space Technology Pvt. Ltd.
  *
  * Central validation library used by every client-side form.
  * Each validator returns a string error message or null if valid.

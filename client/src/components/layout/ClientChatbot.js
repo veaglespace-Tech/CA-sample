@@ -22,7 +22,7 @@ const starterMessages = [
   {
     id: "welcome",
     from: "bot",
-    text: "Hi! I am the Your Company Name AI Assistant. I can help you find forms for Company Registration, GST, ITR, Trademarks, and much more. How can I help you today?",
+    text: "Hi! I am the Veagle Space Technology AI Assistant. I can help you find forms for Company Registration, GST, ITR, Trademarks, and much more. How can I help you today?",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function ClientChatbot() {
 
   const isDashboard = pathname?.startsWith("/dashboard") || pathname?.startsWith("/admin");
   const whatsappNumber = siteMeta.whatsapp?.replace(/\D/g, "") || "910000000000";
-  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi Your Company Name, I need help using the website.")}`;
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi Veagle Space Technology, I need help using the website.")}`;
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -123,7 +123,7 @@ export default function ClientChatbot() {
       {open && (
         <section
           className="mb-4 mr-4 sm:mr-8 flex h-[min(600px,calc(100vh-8rem))] w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-[2rem] border border-indigo-100 bg-white/95 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(79,70,229,0.2)] animate-in slide-in-from-bottom-8 fade-in duration-500"
-          aria-label="Your Company Name AI Assistant"
+          aria-label="Veagle Space Technology AI Assistant"
         >
           {/* Header */}
           <div className="relative flex items-center justify-between gap-3 overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-700 to-blue-800 px-5 py-4 text-white">
@@ -135,7 +135,7 @@ export default function ClientChatbot() {
               </div>
               <div className="min-w-0">
                 <h2 className="truncate text-sm font-black tracking-tight flex items-center gap-1.5">
-                  Your Company Name AI <Zap size={12} className="text-amber-300 fill-amber-300" />
+                  Veagle Space Technology AI <Zap size={12} className="text-amber-300 fill-amber-300" />
                 </h2>
                 <p className="truncate text-[11px] font-semibold text-indigo-200">Instant help & form finder</p>
               </div>

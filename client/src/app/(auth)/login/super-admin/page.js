@@ -4,7 +4,7 @@ import PublicOnlyRoute from "../../../../components/auth/PublicOnlyRoute";
 
 export const metadata = {
   title: "Super Admin Login",
-  description: "Login to the Your Company Name super admin dashboard.",
+  description: "Login to the Veagle Space Technology Pvt. Ltd. super admin dashboard.",
 };
 
 export default function SuperAdminLoginPage() {

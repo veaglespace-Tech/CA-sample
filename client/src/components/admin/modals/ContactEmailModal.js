@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export default function ContactEmailModal({ emailingContact, onClose, onSendEmail }) {
-  const [subject, setSubject] = useState(`Response to Your Company Name Inquiry`);
-  const [messageText, setMessageText] = useState(`Hi ${emailingContact?.name || "there"},\n\nThank you for reaching out to Your Company Name.\n\nRegarding your query:\n"${emailingContact?.message || ""}"\n\n`);
+  const [subject, setSubject] = useState(`Response to Veagle Space Technology Pvt. Ltd. Inquiry`);
+  const [messageText, setMessageText] = useState(`Hi ${emailingContact?.name || "there"},\n\nThank you for reaching out to Veagle Space Technology Pvt. Ltd..\n\nRegarding your query:\n"${emailingContact?.message || ""}"\n\n`);
   const [isSending, setIsSending] = useState(false);
 
   if (!emailingContact) return null;

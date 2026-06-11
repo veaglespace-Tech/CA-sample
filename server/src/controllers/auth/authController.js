@@ -139,11 +139,11 @@ export async function login(req, res, next) {
       import("../../utils/mailer.js").then(({ sendEmail }) => {
         sendEmail({
           to: user.email,
-          subject: "Admin Login OTP - Your Company Name",
+          subject: "Admin Login OTP - Veagle Space Technology Pvt. Ltd.",
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
               <h2>Your Admin Login OTP</h2>
-              <p>Your one-time password to access the Your Company Name Admin Dashboard is:</p>
+              <p>Your one-time password to access the Veagle Space Technology Pvt. Ltd. Admin Dashboard is:</p>
               <h1 style="background: #f4f4f5; padding: 10px 20px; letter-spacing: 5px; text-align: center;">${otp}</h1>
               <p>This OTP will expire in 10 minutes.</p>
               <p>If you did not request this, please secure your account immediately.</p>
@@ -226,11 +226,11 @@ export async function requestAdminPasswordReset(req, res) {
     import("../../utils/mailer.js").then(({ sendEmail }) => {
       sendEmail({
         to: user.email,
-        subject: "Password Reset OTP - Your Company Name",
+        subject: "Password Reset OTP - Veagle Space Technology Pvt. Ltd.",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h2>Reset Your Password</h2>
-            <p>Use the one-time password below to reset your Your Company Name password:</p>
+            <p>Use the one-time password below to reset your Veagle Space Technology Pvt. Ltd. password:</p>
             <h1 style="background: #f4f4f5; padding: 10px 20px; letter-spacing: 5px; text-align: center;">${otp}</h1>
             <p>This OTP will expire in 10 minutes.</p>
             <p>If you did not request this reset, please ignore this email and contact support if needed.</p>

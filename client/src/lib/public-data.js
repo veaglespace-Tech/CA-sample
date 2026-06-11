@@ -1,8 +1,8 @@
 export const siteMeta = {
-  name: "Your Company Name",
-  phone: "+91 00000 00000",
-  email: "support@yourdomain.com",
-  address: "Your Company Name Consulting Pvt Ltd",
+  name: "Veagle Space Technology",
+  phone: "+91 82379 99101",
+  email: "info@veaglespace.com",
+  address: "Veagle Space Technology Pvt. Ltd.",
 };
 
 export const primaryNav = [

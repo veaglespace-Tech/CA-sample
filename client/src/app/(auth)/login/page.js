@@ -3,7 +3,7 @@ import PublicOnlyRoute from "../../../components/auth/PublicOnlyRoute";
 
 export const metadata = {
   title: "Login",
-  description: "Login to your Your Company Name account.",
+  description: "Login to your Veagle Space Technology Pvt. Ltd. account.",
 };
 
 export default function LoginPage() {
@@ -12,7 +12,7 @@ export default function LoginPage() {
       <section className="vs-auth-shell">
         <div className="vs-auth-card">
 
-          <h1 className="mb-6 text-3xl font-bold">Login to Your Company Name</h1>
+          <h1 className="mb-6 text-3xl font-bold">Login to Veagle Space Technology Pvt. Ltd.</h1>
 
           <AuthForm mode="login" expectedRole="USER" switchHref="/register" switchLabel="Choose registration" switchText="Need a user account?" allowPasswordReset={true} />
         </div>

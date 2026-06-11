@@ -140,7 +140,7 @@ export default function ReferralsSection({ user }) {
           <button
             onClick={() => {
               const registerLink = `${window.location.origin}/register/user?ref=${myRefCode}`;
-              const text = `Hey! I highly recommend Your Company Name for Company Registration, Tax, and Compliance. Use my link to sign up: ${registerLink}`;
+              const text = `Hey! I highly recommend Veagle Space Technology for Company Registration, Tax, and Compliance. Use my link to sign up: ${registerLink}`;
               window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, "_blank");
             }}
             className="group flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 p-5 h-full bg-white border border-slate-200 hover:border-emerald-200 hover:bg-emerald-50/50 rounded-2xl transition-all hover:shadow-md"
@@ -157,9 +157,9 @@ export default function ReferralsSection({ user }) {
           {/* Action 2: Email */}
           <button
             onClick={() => {
-              const subject = encodeURIComponent("Business Professional Support - Your Company Name");
+              const subject = encodeURIComponent("Business Professional Support - Veagle Space Technology");
               const body = encodeURIComponent(
-                `Hey,\n\nI highly recommend Your Company Name for Company Registration, Trademark filing, GST, Income Tax, and all professional business licenses.\n\nUse my direct link to sign up and get started: ${typeof window !== "undefined" ? window.location.origin : ""}/register/user?ref=${myRefCode}\n\nBest regards!`
+                `Hey,\n\nI highly recommend Veagle Space Technology for Company Registration, Trademark filing, GST, Income Tax, and all professional business licenses.\n\nUse my direct link to sign up and get started: ${typeof window !== "undefined" ? window.location.origin : ""}/register/user?ref=${myRefCode}\n\nBest regards!`
               );
               window.open(`https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}`, "_blank");
             }}

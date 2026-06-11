@@ -30,8 +30,8 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const title = titleFromSlug(slug);
   return {
-    title: `${title} | Demo CA Tools`,
-    description: `Free ${title} tool by Your Company Name.`,
+    title: `${title} | Veagle Space Technology Tools`,
+    description: `Free ${title} tool by Veagle Space Technology.`,
   };
 }
 

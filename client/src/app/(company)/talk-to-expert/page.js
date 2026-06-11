@@ -23,7 +23,7 @@ const LANGUAGES = ["English", "Hindi", "Tamil", "Telugu", "Marathi", "Bengali", 
 
 const TESTIMONIALS = [
   {
-    text: "The Your Company Name team helped me resolve my property dispute efficiently and professionally.",
+    text: "The Veagle Space Technology team helped me resolve my property dispute efficiently and professionally.",
     name: "Kalpesh Salunke",
     verified: true,
   },
@@ -38,7 +38,7 @@ const TESTIMONIALS = [
     verified: true,
   },
   {
-    text: "As an entrepreneur, I value efficiency and clarity, and Your Company Name delivered both.",
+    text: "As an entrepreneur, I value efficiency and clarity, and Veagle Space Technology delivered both.",
     name: "Rishabh Parihaar",
     verified: true,
   },
@@ -445,7 +445,7 @@ export default function TalkToExpertPage() {
                 <div className="flex items-center gap-2 mb-2 text-slate-900 mt-1">
                   <Phone size={18} className="text-primary" />
                 </div>
-                <p className="text-xl font-black text-slate-900">+91 00000 00000</p>
+                <p className="text-xl font-black text-slate-900">+91 82379 99101</p>
                 <p className="text-xs font-semibold text-slate-500 mt-1">Mon-Sat, 10 AM - 7 PM IST</p>
               </div>
             </div>
@@ -453,21 +453,21 @@ export default function TalkToExpertPage() {
 
           {/* Contact Cards Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a href="tel:+910000000000" className="group bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 block">
+            <a href="tel:+918237999101" className="group bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 block">
               <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Call Us Directly</h3>
-              <p className="text-sm font-black text-slate-800 mb-1">+91 00000 00000</p>
+              <p className="text-sm font-black text-slate-800 mb-1">+91 82379 99101</p>
               <p className="text-xs text-slate-500 font-medium">Mon-Sat, 10 AM to 7 PM</p>
             </a>
             
-            <a href="mailto:support@yourdomain.com" className="group bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 block">
+            <a href="mailto:info@veaglespace.com" className="group bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 block">
               <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Email Us</h3>
-              <p className="text-sm font-black text-slate-800 mb-1">support@yourdomain.com</p>
+              <p className="text-sm font-black text-slate-800 mb-1">info@veaglespace.com</p>
               <p className="text-xs text-slate-500 font-medium">Send your requirement and our team will respond shortly.</p>
             </a>
             
-            <a href="https://www.google.com/maps/place/Your Company Name+Consulting+LLP" target="_blank" rel="noopener noreferrer" className="group bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 block">
+            <a href="https://www.google.com/maps/place/Veagle+Space+Technology+Pvt.+Ltd." target="_blank" rel="noopener noreferrer" className="group bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 block">
               <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Office Address</h3>
-              <p className="text-sm font-black text-slate-800 mb-1">Your Company Name Consulting Pvt Ltd</p>
+              <p className="text-sm font-black text-slate-800 mb-1">Veagle Space Technology Pvt. Ltd.</p>
               <p className="text-xs text-slate-500 font-medium">Business consulting & online service support across India.</p>
             </a>
             
