@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" role="img" aria-label="Start business">
+  <rect x="25" y="84" width="104" height="96" rx="14" fill="#ffffff" stroke="#0b63a6" stroke-width="5"/>
+  <rect x="55" y="52" width="92" height="128" rx="14" fill="#f6fbff" stroke="#0b63a6" stroke-width="5"/>
+  <path d="M72 84h58M72 110h45M72 136h56" stroke="#ca970b" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="205" cy="101" r="46" fill="#fff1c4"/>
+  <path d="M205 61l46 23v52l-46 23-46-23V84l46-23z" fill="#ffffff" stroke="#0b63a6" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M188 111l14 14 28-34" fill="none" stroke="#22a06b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 196h205" stroke="#d8e6f5" stroke-width="7" stroke-linecap="round"/>
+</svg>

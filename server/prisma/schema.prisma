@@ -1,0 +1,761 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String             @id @default(cuid())
+  name                  String
+  email                 String             @unique
+  phone                 String?            @unique
+  passwordHash          String
+  role                  User_role          @default(USER)
+  createdAt             DateTime           @default(now())
+  updatedAt             DateTime           @updatedAt
+  referralCode          String?            @unique
+  referredByCode        String?
+  assignedLeads         Lead[]             @relation("AssignedLeads")
+  leads                 Lead[]             @relation("CustomerLeads")
+  referredUsers         Referral[]         @relation("ReferralReferrerUser")
+  referralSignup        Referral[]         @relation("ReferralFriendUser")
+  leadNotes             LeadNote[]
+  receivedMessages      Message[]          @relation("ReceivedMessages")
+  sentMessages          Message[]          @relation("SentMessages")
+  paymentRecords        PaymentRecord[]
+  referralRedemptions   ReferralRewardRedemption[]
+  assignedRegistrations RegistrationLead[] @relation("AssignedRegistrations")
+  registrationLeads     RegistrationLead[] @relation("CustomerRegistrations")
+  documents             UserDocument[]
+
+  @@index([email])
+}
+
+model Message {
+  id               String            @id @default(cuid())
+  senderId         String
+  receiverId       String
+  registrationId   String?
+  leadId           String?
+  content          String            @db.Text
+  isRead           Boolean           @default(false)
+  createdAt        DateTime          @default(now())
+  isDocRequest     Boolean           @default(false)
+  requestedDocName String?
+  lead             Lead?             @relation(fields: [leadId], references: [id])
+  receiver         User              @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+  registrationLead RegistrationLead? @relation(fields: [registrationId], references: [id])
+  sender           User              @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  documents        UserDocument[]
+
+  @@index([senderId])
+  @@index([receiverId])
+  @@index([isRead])
+  @@index([leadId], map: "Message_leadId_fkey")
+  @@index([registrationId], map: "Message_registrationId_fkey")
+}
+
+model ServiceCategory {
+  id            String               @id @default(cuid())
+  name          String
+  slug          String               @unique
+  sortOrder     Int                  @default(0)
+  isActive      Boolean              @default(true)
+  createdAt     DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+  services      Service[]
+  subcategories ServiceSubcategory[]
+}
+
+model ServiceSubcategory {
+  id         String          @id @default(cuid())
+  categoryId String
+  name       String
+  slug       String
+  sortOrder  Int             @default(0)
+  isActive   Boolean         @default(true)
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+  services   Service[]
+  category   ServiceCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([categoryId, slug])
+  @@index([categoryId])
+}
+
+model Service {
+  id             String               @id @default(cuid())
+  categoryId     String
+  subcategoryId  String?
+  name           String
+  slug           String               @unique
+  shortDesc      String?
+  longDesc       String?              @db.Text
+  heroTitle      String?
+  heroSubtitle   String?              @db.Text
+  price          String?
+  govtFees       String?
+  timeToComplete String?
+  guarantee      String?
+  formTitle      String?
+  iconUrl        String?
+  imageUrl       String?
+  content        Json?
+  isActive       Boolean              @default(true)
+  createdAt      DateTime             @default(now())
+  updatedAt      DateTime             @updatedAt
+  leads          Lead[]
+  purchasePlans  PurchasePlan[]
+  registrations  RegistrationLead[]
+  category       ServiceCategory      @relation(fields: [categoryId], references: [id])
+  subcategory    ServiceSubcategory?  @relation(fields: [subcategoryId], references: [id])
+  benefits       ServiceBenefit[]
+  documents      ServiceDocument[]
+  faqs           ServiceFaq[]
+  features       ServiceFeature[]
+  pricingPlans   ServicePricingPlan[]
+  processes      ServiceProcessStep[]
+
+  @@index([categoryId])
+  @@index([subcategoryId])
+}
+
+model ServicePricingPlan {
+  id            String   @id @default(cuid())
+  serviceId     String
+  name          String
+  description   String?  @db.Text
+  price         String
+  oldPrice      String?
+  tag           String?
+  isHighlighted Boolean  @default(false)
+  features      Json
+  sortOrder     Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  service       Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@index([serviceId])
+}
+
+model ServiceFeature {
+  id        String   @id @default(cuid())
+  serviceId String
+  title     String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  service   Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@index([serviceId])
+}
+
+model ServiceBenefit {
+  id        String   @id @default(cuid())
+  serviceId String
+  icon      String?
+  title     String
+  desc      String   @db.Text
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  service   Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@index([serviceId])
+}
+
+model ServiceProcessStep {
+  id        String   @id @default(cuid())
+  serviceId String
+  title     String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  service   Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@index([serviceId])
+}
+
+model ServiceDocument {
+  id        String   @id @default(cuid())
+  serviceId String
+  title     String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  service   Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@index([serviceId])
+}
+
+model ServiceFaq {
+  id        String   @id @default(cuid())
+  serviceId String
+  question  String
+  answer    String   @db.Text
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  service   Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@index([serviceId])
+}
+
+model Lead {
+  id             String          @id @default(cuid())
+  fullName       String
+  email          String?
+  phone          String
+  city           String?
+  serviceName    String?
+  businessName   String?
+  preferredTime  String?
+  message        String?
+  sourcePageSlug String?
+  pagePath       String?
+  source         Lead_source     @default(WEBSITE)
+  formType       Lead_formType   @default(CONTACT)
+  status         Lead_status     @default(NEW)
+  utmSource      String?
+  utmMedium      String?
+  utmCampaign    String?
+  ipAddress      String?
+  userAgent      String?
+  metadata       Json?
+  serviceId      String?
+  assignedToId   String?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  userId         String?
+  assignedTo     User?           @relation("AssignedLeads", fields: [assignedToId], references: [id])
+  service        Service?        @relation(fields: [serviceId], references: [id])
+  user           User?           @relation("CustomerLeads", fields: [userId], references: [id])
+  notes          LeadNote[]
+  messages       Message[]
+  paymentRecords PaymentRecord[]
+  documents      UserDocument[]
+
+  @@index([status, createdAt])
+  @@index([source, createdAt])
+  @@index([serviceId])
+  @@index([phone])
+  @@index([assignedToId], map: "Lead_assignedToId_fkey")
+  @@index([userId], map: "Lead_userId_fkey")
+}
+
+model LeadNote {
+  id               String            @id @default(cuid())
+  leadId           String?
+  registrationId   String?
+  userId           String?
+  note             String            @db.Text
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  lead             Lead?             @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  registrationLead RegistrationLead? @relation(fields: [registrationId], references: [id], onDelete: Cascade)
+  user             User?             @relation(fields: [userId], references: [id])
+
+  @@index([leadId])
+  @@index([registrationId])
+  @@index([userId])
+}
+
+model ContactQuery {
+  id        String   @id @default(cuid())
+  name      String
+  email     String?
+  phone     String
+  subject   String?
+  message   String   @db.Text
+  isRead    Boolean  @default(false)
+  status    ContactQuery_status @default(NEW)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isRead])
+}
+
+model PurchasePlan {
+  id            String   @id @default(cuid())
+  serviceId     String?
+  serviceSlug   String
+  name          String
+  description   String?  @db.Text
+  price         String
+  oldPrice      String?
+  tag           String?
+  isHighlighted Boolean  @default(false)
+  features      Json
+  sortOrder     Int      @default(0)
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  service       Service? @relation(fields: [serviceId], references: [id])
+
+  @@index([serviceSlug])
+  @@index([serviceId])
+}
+
+model RegistrationLead {
+  id               String                            @id @default(cuid())
+  fullName         String
+  email            String?
+  phone            String
+  city             String?
+  businessName     String?
+  registrationType RegistrationLead_registrationType @default(OTHER)
+  message          String?
+  sourcePageSlug   String?
+  status           RegistrationLead_status           @default(NEW)
+  utmSource        String?
+  utmMedium        String?
+  utmCampaign      String?
+  serviceId        String?
+  assignedToId     String?
+  createdAt        DateTime                          @default(now())
+  updatedAt        DateTime                          @updatedAt
+  formType         RegistrationLead_formType         @default(REGISTRATION)
+  ipAddress        String?
+  metadata         Json?
+  source           RegistrationLead_source           @default(WEBSITE)
+  userAgent        String?
+  mainCategory     String?
+  userId           String?
+  address          String?
+  natureOfBusiness String?
+  pinCode          String?
+  state            String?
+  messages         Message[]
+  paymentRecords   PaymentRecord[]
+  assignedTo       User?                             @relation("AssignedRegistrations", fields: [assignedToId], references: [id])
+  service          Service?                          @relation(fields: [serviceId], references: [id])
+  user             User?                             @relation("CustomerRegistrations", fields: [userId], references: [id])
+  documents        UserDocument[]
+  notes            LeadNote[]
+
+  @@index([registrationType, status, createdAt])
+  @@index([serviceId])
+  @@index([phone])
+  @@index([assignedToId], map: "RegistrationLead_assignedToId_fkey")
+  @@index([userId], map: "RegistrationLead_userId_fkey")
+}
+
+model UserDocument {
+  id               String              @id @default(cuid())
+  userId           String?
+  registrationId   String?
+  documentType     String
+  fileUrl          String
+  fileName         String
+  status           UserDocument_status @default(PENDING)
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+  leadId           String?
+  messageId        String?
+  isSentByAdmin    Boolean             @default(false)
+  lead             Lead?               @relation(fields: [leadId], references: [id])
+  message          Message?            @relation(fields: [messageId], references: [id])
+  registrationLead RegistrationLead?   @relation(fields: [registrationId], references: [id])
+  user             User?               @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([registrationId])
+  @@index([leadId])
+  @@index([messageId])
+}
+
+model AdminRepositoryDocument {
+  id          String   @id @default(cuid())
+  fileName    String
+  fileUrl     String
+  description String?
+  category    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SearchQuery {
+  id             String   @id @default(cuid())
+  query          String
+  sourcePageSlug String?
+  pagePath       String?
+  matchedSlug    String?
+  ipAddress      String?
+  userAgent      String?
+  createdAt      DateTime @default(now())
+
+  @@index([query])
+  @@index([createdAt])
+}
+
+model LoginOtp {
+  id         String           @id @default(cuid())
+  phone      String
+  otpHash    String
+  purpose    LoginOtp_purpose @default(LOGIN)
+  expiresAt  DateTime
+  consumedAt DateTime?
+  attempts   Int              @default(0)
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  @@index([phone, purpose])
+  @@index([expiresAt])
+}
+
+model Referral {
+  id              String          @id @default(cuid())
+  referrerName    String
+  referrerPhone   String
+  referrerEmail   String?
+  friendName      String
+  friendPhone     String
+  friendEmail     String?
+  serviceName     String?
+  status          Referral_status @default(NEW)
+  message         String?         @db.Text
+  convertedLeadId String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  referrerId      String?
+  referrerUserId  String?
+  friendUserId    String?
+  referrer        Referrer?       @relation(fields: [referrerId], references: [id])
+  referrerUser    User?           @relation("ReferralReferrerUser", fields: [referrerUserId], references: [id])
+  friendUser      User?           @relation("ReferralFriendUser", fields: [friendUserId], references: [id])
+
+  @@index([status, createdAt])
+  @@index([referrerPhone])
+  @@index([friendPhone])
+  @@index([referrerId])
+  @@index([referrerUserId])
+  @@index([friendUserId])
+}
+
+model Referrer {
+  id            String     @id @default(cuid())
+  name          String
+  phone         String     @unique
+  email         String?
+  totalReferred Int        @default(0)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  referrals     Referral[]
+}
+
+model Review {
+  id          String        @id @default(cuid())
+  name        String
+  company     String?
+  location    String?
+  service     String?
+  serviceSlug String?
+  isGeneral   Boolean       @default(true)
+  rating      Int           @default(5)
+  text        String        @db.Text
+  imageUrl    String?
+  status      Review_status @default(PUBLISHED)
+  sortOrder   Int           @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+  @@index([serviceSlug])
+}
+
+
+model Article {
+  id          String         @id @default(cuid())
+  title       String
+  slug        String         @unique
+  excerpt     String?
+  content     String         @db.Text
+  category    String?
+  imageUrl    String?
+  status      Article_status @default(DRAFT)
+  publishedAt DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  videoUrl    String?
+
+  @@index([status, publishedAt])
+  @@index([category])
+}
+
+model Offer {
+  id            String       @id @default(cuid())
+  title         String
+  slug          String       @unique
+  description   String?      @db.Text
+  price         String?
+  originalPrice String?
+  tag           String?
+  ctaLabel      String?
+  ctaHref       String?
+  status        Offer_status @default(PUBLISHED)
+  startsAt      DateTime?
+  endsAt        DateTime?
+  sortOrder     Int          @default(0)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model SiteSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Event {
+  id          String       @id @default(cuid())
+  title       String
+  slug        String       @unique
+  description String?      @db.Text
+  date        DateTime
+  time        String?
+  location    String?
+  imageUrl    String?
+  regLink     String?
+  videoUrl    String?
+  speakers    Json?
+  status      Event_status @default(PUBLISHED)
+  sortOrder   Int          @default(0)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  registrations EventRegistration[]
+  @@index([status, date])
+}
+
+model EventRegistration {
+  id        String   @id @default(cuid())
+  eventId   String
+  name      String
+  email     String
+  phone     String
+  city      String?
+  status    String   @default("REGISTERED")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@index([eventId])
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PaymentRecord {
+  id               String            @id @default(cuid())
+  userId           String?
+  leadId           String?
+  registrationId   String?
+  serviceName      String
+  amount           String
+  status           String            @default("SUCCESS")
+  createdAt        DateTime          @default(now())
+  customerEmail    String?
+  customerName     String?
+  customerPhone    String?
+  lead             Lead?             @relation(fields: [leadId], references: [id])
+  registrationLead RegistrationLead? @relation(fields: [registrationId], references: [id])
+  user             User?             @relation(fields: [userId], references: [id])
+  referralRewardRedemption ReferralRewardRedemption?
+
+  @@index([userId])
+  @@index([leadId])
+  @@index([registrationId])
+}
+
+model ReferralRewardSetting {
+  id                String   @id @default(cuid())
+  title             String
+  requiredReferrals Int      @default(5)
+  discountPercent   Int      @default(20)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  redemptions       ReferralRewardRedemption[]
+
+  @@index([isActive])
+}
+
+model ReferralRewardRedemption {
+  id               String                @id @default(cuid())
+  userId           String
+  rewardSettingId  String
+  paymentRecordId  String?               @unique
+  discountPercent  Int
+  discountAmount   String
+  originalAmount   String
+  finalAmount      String
+  createdAt        DateTime              @default(now())
+  paymentRecord    PaymentRecord?        @relation(fields: [paymentRecordId], references: [id])
+  rewardSetting    ReferralRewardSetting @relation(fields: [rewardSettingId], references: [id])
+  user             User                  @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([rewardSettingId])
+}
+
+enum LoginOtp_purpose {
+  LOGIN
+  PHONE_VERIFICATION
+}
+
+enum User_role {
+  SUPER_ADMIN
+  ADMIN
+  USER
+}
+
+enum RegistrationLead_registrationType {
+  COMPANY_REGISTRATION
+  GST_REGISTRATION
+  TRADEMARK_REGISTRATION
+  FSSAI_REGISTRATION
+  MSME_REGISTRATION
+  LLP_REGISTRATION
+  OTHER
+}
+
+enum UserDocument_status {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum Article_status {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum Review_status {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum Referral_status {
+  NEW
+  CONTACTED
+  CONVERTED
+  COMPLETED
+  REJECTED
+}
+
+enum Offer_status {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum RegistrationLead_status {
+  NEW
+  IN_PROGRESS
+  QUALIFIED
+  CONVERTED
+  CLOSED
+  REJECTED
+}
+
+enum Event_status {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+  UPCOMING
+  PAST
+}
+
+enum Lead_source {
+  WEBSITE
+  HOME_PAGE
+  SERVICE_PAGE
+  CONTACT_PAGE
+  TALK_TO_EXPERT_PAGE
+  FLOATING_WIDGET
+  LOGIN_MODAL
+  REFERRAL_PAGE
+  API
+  OTHER
+}
+
+enum Lead_formType {
+  CONTACT
+  CALLBACK
+  CONSULTATION
+  LOGIN
+  REFERRAL
+  SUPPORT
+  REGISTRATION
+  OTHER
+}
+
+enum Lead_status {
+  NEW
+  IN_PROGRESS
+  QUALIFIED
+  CONVERTED
+  CLOSED
+  REJECTED
+}
+
+enum RegistrationLead_formType {
+  CONTACT
+  CALLBACK
+  CONSULTATION
+  LOGIN
+  REFERRAL
+  SUPPORT
+  REGISTRATION
+  OTHER
+}
+
+enum RegistrationLead_source {
+  WEBSITE
+  HOME_PAGE
+  SERVICE_PAGE
+  CONTACT_PAGE
+  TALK_TO_EXPERT_PAGE
+  FLOATING_WIDGET
+  LOGIN_MODAL
+  REFERRAL_PAGE
+  API
+  OTHER
+}
+
+enum ContactQuery_status {
+  NEW
+  IN_PROGRESS
+  CONVERTED
+  CLOSED
+  REJECTED
+}
+
+model ArchivedData {
+  id              String   @id @default(cuid())
+  originalUserId  String?
+  userEmail       String?
+  userName        String?
+  dataType        String   // "USER_DELETION"
+  data            Json     // Stores all deleted leads, documents, payment records
+  deletedAt       DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  deletedByAdminId String?
+}

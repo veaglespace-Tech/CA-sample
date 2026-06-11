@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" role="img" aria-label="IP and legal services">
+  <path d="M180 28l92 38v64c0 58-39 87-92 104-53-17-92-46-92-104V66l92-38z" fill="#ffffff" stroke="#0b63a6" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M180 59l62 26v45c0 37-25 58-62 72-37-14-62-35-62-72V85l62-26z" fill="#eef6ff"/>
+  <path d="M151 132h58M180 103v58" stroke="#ca970b" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="261" cy="78" r="28" fill="#fff7df" stroke="#ca970b" stroke-width="5"/>
+  <path d="M52 226h256" stroke="#d8e6f5" stroke-width="8" stroke-linecap="round"/>
+</svg>

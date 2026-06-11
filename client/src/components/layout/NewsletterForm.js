@@ -1,0 +1,94 @@
+"use client";
+
+import { useState } from "react";
+import { Send, CheckCircle, AlertCircle } from "lucide-react";
+
+export default function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle"); // 'idle' | 'loading' | 'success' | 'error'
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003";
+      const res = await fetch(`${API_URL}/api/newsletter/subscribe`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.ok) {
+        setStatus("success");
+        setMessage("Subscribed successfully!");
+        setEmail("");
+      } else {
+        setStatus("error");
+        setMessage(data.message || "Failed to subscribe. Please try again.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setMessage("Network error. Please try again later.");
+    }
+  };
+
+  return (
+    <div className="w-full lg:max-w-md flex flex-col items-center text-center lg:items-start lg:text-left">
+      <h4 className="mb-2 text-lg font-bold tracking-tight text-slate-900">Get GST, Tax & Compliance Updates Monthly</h4>
+      <p className="mb-5 text-sm font-medium leading-relaxed text-slate-500">
+        Get the latest legal &amp; tax updates delivered to your inbox.
+      </p>
+      
+      <form 
+        className="flex w-full flex-col gap-2 rounded-2xl bg-white border border-slate-200 p-1.5 shadow-sm focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/20 transition-all duration-300 sm:flex-row relative" 
+        onSubmit={handleSubmit}
+      >
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            if (status !== "idle") setStatus("idle");
+          }}
+          disabled={status === "loading" || status === "success"}
+          className="min-w-0 flex-1 bg-transparent px-4 py-2.5 text-sm font-medium text-slate-900 placeholder:text-slate-400 outline-none border-none disabled:opacity-50"
+          required
+        />
+        <button
+          type="submit"
+          disabled={status === "loading" || status === "success"}
+          className="rounded-xl bg-blue-600 px-5 py-2.5 font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:-translate-y-0.5 disabled:opacity-50 disabled:bg-blue-600 flex items-center justify-center shrink-0"
+          aria-label="Subscribe"
+        >
+          {status === "loading" ? (
+            <span className="loading loading-spinner loading-sm"></span>
+          ) : (
+            <Send size={15} className="text-white" />
+          )}
+        </button>
+      </form>
+
+      {/* Status Messages */}
+      {status === "success" && (
+        <div className="mt-3 flex items-center gap-2 text-sm font-bold text-emerald-400">
+          <CheckCircle size={15} />
+          {message}
+        </div>
+      )}
+      {status === "error" && (
+        <div className="mt-3 flex items-center gap-2 text-sm font-bold text-rose-400">
+          <AlertCircle size={15} />
+          {message}
+        </div>
+      )}
+    </div>
+  );
+}

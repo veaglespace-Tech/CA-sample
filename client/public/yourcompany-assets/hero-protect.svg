@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" role="img" aria-label="Protect business">
+  <path d="M150 26l82 34v57c0 51-35 76-82 91-47-15-82-40-82-91V60l82-34z" fill="#ffffff" stroke="#0b63a6" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M150 52l55 23v42c0 32-21 51-55 64-34-13-55-32-55-64V75l55-23z" fill="#eef6ff"/>
+  <rect x="115" y="103" width="70" height="48" rx="12" fill="#ca970b"/>
+  <path d="M128 103V89c0-15 9-25 22-25s22 10 22 25v14" fill="none" stroke="#0b63a6" stroke-width="8" stroke-linecap="round"/>
+  <path d="M150 119v15" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M78 195h144" stroke="#d8e6f5" stroke-width="7" stroke-linecap="round"/>
+</svg>

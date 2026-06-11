@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Law">
+  <rect width="64" height="64" rx="16" fill="#f2f4ff"/>
+  <path d="M32 13v34M20 21h24M23 49h18" stroke="#0b63a6" stroke-width="3" stroke-linecap="round"/>
+  <path d="M20 21l-8 15h16L20 21zM44 21l-8 15h16L44 21z" fill="#ffffff" stroke="#ca970b" stroke-width="3" stroke-linejoin="round"/>
+</svg>
