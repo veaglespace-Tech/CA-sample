@@ -75,12 +75,12 @@ const journeyCards = [
     desc: "Trademark, copyright, patents, contracts, legal notices and IP protection support.",
     image: localAssets.protect,
     tone: "protect",
-    gradient: "from-slate-800 to-slate-600",
-    bg: "bg-slate-700",
-    shadow: "shadow-slate-500/25 hover:shadow-slate-500/50",
-    glow: "group-hover:shadow-[0_0_60px_-10px_rgba(30,41,59,0.6)]",
-    glowColor: "rgba(30,41,59,0.15)",
-    borderGlow: "hover:border-slate-300/40",
+    gradient: "from-sky-500 to-cyan-400",
+    bg: "bg-sky-500",
+    shadow: "shadow-sky-500/25 hover:shadow-sky-500/50",
+    glow: "group-hover:shadow-[0_0_60px_-10px_rgba(14,165,233,0.6)]",
+    glowColor: "rgba(14,165,233,0.15)",
+    borderGlow: "hover:border-sky-300/40",
   },
 ];
 
@@ -320,10 +320,10 @@ export default function Home() {
               Launch & Scale Your
               <br />
               <span className="relative inline-block">
-                <span className="animate-[gradient-xy_6s_ease_infinite] bg-[length:300%_300%] bg-gradient-to-r from-indigo-900 via-indigo-600 to-teal-500 bg-clip-text text-transparent drop-shadow-sm">
+                <span className="animate-[gradient-xy_6s_ease_infinite] bg-[length:300%_300%] bg-gradient-to-r from-primary via-indigo-500 to-secondary bg-clip-text text-transparent drop-shadow-sm">
                   Business With Total Confidence.
                 </span>
-                <span className="absolute -bottom-2 left-0 h-4 w-3/4 rounded-full bg-indigo-500/10 blur-xl" />
+                <span className="absolute -bottom-2 left-0 h-4 w-3/4 rounded-full bg-primary/10 blur-xl" />
               </span>
             </h1>
 
@@ -444,16 +444,16 @@ export default function Home() {
               <Link
                 href={card.href}
                 key={card.title}
-                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md ${card.borderGlow}`}
+                className={`group relative flex flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-slate-200 hover:shadow-xl ${card.borderGlow}`}
                 style={{ animationDelay: `${idx * 80}ms` }}
               >
                 {/* Animated glow background */}
                 <div
-                  className={`absolute inset-0 rounded-2xl opacity-0 transition-all duration-500 group-hover:opacity-100`}
+                  className={`absolute inset-0 rounded-3xl opacity-0 transition-all duration-500 group-hover:opacity-100`}
                   style={{ background: `radial-gradient(circle at 30% 20%, ${card.glowColor} 0%, transparent 70%)` }}
                 />
                 {/* Shimmer sweep on hover */}
-                <div className="absolute inset-0 -translate-x-full rounded-2xl bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <div className="absolute inset-0 -translate-x-full rounded-3xl bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
 
                 {/* Accent blob */}
                 <div className={`absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-10 blur-3xl transition-all duration-500 group-hover:opacity-40 group-hover:scale-125 ${card.bg}`} />

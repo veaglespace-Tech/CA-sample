@@ -184,23 +184,23 @@ function TwoPanelMenu({ data, onClose }) {
             </div>
             
             {activeSection.title === "Web Development" && (
-              <div className="col-span-full mt-6 rounded-xl overflow-hidden bg-gradient-to-br from-indigo-950 via-[#0B1727] to-indigo-900 p-6 shadow-xl border border-indigo-900/30 relative isolate group">
+              <div className="col-span-full mt-6 rounded-xl overflow-hidden bg-gradient-to-br from-primary via-indigo-500 to-secondary p-6 shadow-xl border border-indigo-200/30 relative isolate group">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-indigo-500/20 blur-3xl group-hover:bg-indigo-400/30 transition-all duration-700"></div>
+                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/20 blur-3xl group-hover:bg-white/30 transition-all duration-700"></div>
                 <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur-md overflow-hidden">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur-md overflow-hidden shadow-lg">
                     <img src="/veagle-logo.webp" alt="Veaglespace" className="h-full w-full object-cover scale-110" onError={(e) => { e.target.onerror = null; e.target.src = "https://ui-avatars.com/api/?name=V&background=0D8ABC&color=fff"; }} />
                   </div>
                   <div className="text-center sm:text-left flex-1">
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-secondary/20 px-2.5 py-0.5 text-[0.65rem] font-black tracking-widest text-secondary uppercase mb-2 ring-1 ring-secondary/30">
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-2.5 py-0.5 text-[0.65rem] font-black tracking-widest text-white uppercase mb-2 ring-1 ring-white/30 shadow-sm">
                       Technology Partner
                     </div>
                     <h4 className="text-lg font-black text-white tracking-tight">Veaglespace Tech</h4>
-                    <p className="mt-1 text-sm font-medium text-slate-300 leading-snug">
+                    <p className="mt-1 text-sm font-medium text-indigo-50 leading-snug">
                       Elevate your business with state-of-the-art Web & E-Commerce solutions designed for maximum scale and conversion.
                     </p>
                   </div>
-                  <a href="https://veaglespace.com" target="_blank" rel="noopener noreferrer" className="shrink-0 rounded-lg bg-secondary px-5 py-2.5 text-sm font-extrabold text-white shadow-lg shadow-secondary/10 transition-all hover:scale-105 hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-white/50 w-full sm:w-auto text-center">
+                  <a href="https://veaglespace.com" target="_blank" rel="noopener noreferrer" className="shrink-0 rounded-lg bg-white px-5 py-2.5 text-sm font-extrabold text-primary shadow-lg shadow-black/5 transition-all hover:scale-105 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-white/50 w-full sm:w-auto text-center">
                     Visit Website
                   </a>
                 </div>
@@ -428,22 +428,22 @@ export default function Header() {
       {activeToast && <Toast toast={activeToast} onClose={() => setActiveToast(null)} />}
       
       {/* Top Strip */}
-      <div className="hidden lg:block bg-[#0B1727] text-slate-200 text-[0.8rem] py-1.5">
+      <div className="hidden lg:block bg-slate-50/80 backdrop-blur-sm border-b border-indigo-100 text-slate-500 text-[0.8rem] py-1.5">
         <div className="mx-auto flex w-full max-w-[1288px] items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
-            <Link href="/about-us" className="hover:text-white font-medium transition-colors">About Us</Link>
-            <span className="text-slate-600">|</span>
-            <Link href="/contact" className="hover:text-white font-medium transition-colors">Contact</Link>
-            <span className="text-slate-600">|</span>
-            <Link href="/resources" className="hover:text-white font-medium transition-colors">Blogs</Link>
+            <Link href="/about-us" className="hover:text-primary font-medium transition-colors">About Us</Link>
+            <span className="text-slate-300">|</span>
+            <Link href="/contact" className="hover:text-primary font-medium transition-colors">Contact</Link>
+            <span className="text-slate-300">|</span>
+            <Link href="/resources" className="hover:text-primary font-medium transition-colors">Blogs</Link>
           </div>
           <div className="flex items-center gap-4">
-            <a href={`tel:${siteMeta.phone}`} className="flex items-center font-bold text-amber-500 hover:text-amber-400 transition-colors">
+            <a href={`tel:${siteMeta.phone}`} className="flex items-center font-bold text-secondary hover:text-emerald-600 transition-colors">
               <Phone size={14} className="mr-1.5" />
               {siteMeta.phone}
             </a>
-            <span className="text-slate-600">|</span>
-            <Link href="/talk-to-expert" className="hover:text-white font-medium transition-colors">Talk to an Expert</Link>
+            <span className="text-slate-300">|</span>
+            <Link href="/talk-to-expert" className="hover:text-primary font-medium transition-colors">Talk to an Expert</Link>
           </div>
         </div>
       </div>
@@ -712,9 +712,9 @@ export default function Header() {
             <button
               id="vs-notification-bell"
               type="button"
-              className="btn btn-circle btn-md border-0 shadow-[0_15px_35px_rgba(1,43,93,0.3)] transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+              className="btn btn-circle btn-md border-0 shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
               style={{
-                background: "linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)",
+                background: "linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)",
                 color: "white"
               }}
               onClick={(event) => {
@@ -783,7 +783,7 @@ export default function Header() {
                   flexDirection: "column",
                   animation: "vs-slide-in-right 0.3s ease-out"
                 }}>
-                  <div className="bg-gradient-to-r from-indigo-900 to-indigo-700 text-white p-6 sm:p-8 flex justify-between items-center shadow-lg" style={{ background: "linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)" }}>
+                  <div className="bg-gradient-to-r from-primary to-indigo-500 text-white p-6 sm:p-8 flex justify-between items-center shadow-md">
                     <div>
                       <h3 className="m-0 text-2xl font-black tracking-tight text-white">Notifications</h3>
                       <span className="text-sm font-medium text-indigo-100 mt-1 block">{unreadCount} pending queries</span>
