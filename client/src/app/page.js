@@ -320,7 +320,7 @@ export default function Home() {
               Launch & Scale Your
               <br />
               <span className="relative inline-block">
-                <span className="animate-[gradient-xy_6s_ease_infinite] bg-[length:300%_300%] bg-gradient-to-r from-primary via-indigo-500 to-secondary bg-clip-text text-transparent drop-shadow-sm">
+                <span className="animate-[gradient-xy_6s_ease_infinite] bg-[length:300%_300%] bg-gradient-to-r from-primary via-blue-500 to-secondary bg-clip-text text-transparent drop-shadow-sm">
                   Business With Total Confidence.
                 </span>
                 <span className="absolute -bottom-2 left-0 h-4 w-3/4 rounded-full bg-primary/10 blur-xl" />

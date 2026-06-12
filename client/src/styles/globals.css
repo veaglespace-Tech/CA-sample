@@ -4,12 +4,12 @@
 /* Last Deployment Update: 2026-06-08 */
 
 @theme {
-  /* Modern Vibrant Light Theme */
-  --color-primary: #4f46e5;      /* Indigo 600 */
+  /* Ocean Breeze Light Theme */
+  --color-primary: #2563eb;      /* Blue 600 */
   --color-primary-content: #ffffff;
-  --color-primary-dark: #4338ca; /* Indigo 700 */
-  --color-primary-light: #e0e7ff;/* Indigo 100 */
-  --color-secondary: #10b981;    /* Emerald 500 */
+  --color-primary-dark: #1d4ed8; /* Blue 700 */
+  --color-primary-light: #dbeafe;/* Blue 100 */
+  --color-secondary: #06b6d4;    /* Cyan 500 */
   --color-accent: #0ea5e9;       /* Sky 500 */
   --color-success: #059669;
   --color-warning: #f59e0b;
@@ -21,18 +21,18 @@
   --radius-2xl: 2rem;
   --radius-3xl: 3rem;
 
-  /* Redefine tailwind colors globally to match Modern Theme */
-  --color-indigo-50: #eef2ff;
-  --color-indigo-100: #e0e7ff;
-  --color-indigo-200: #c7d2fe;
-  --color-indigo-300: #a5b4fc;
-  --color-indigo-400: #818cf8;
-  --color-indigo-500: #6366f1; 
-  --color-indigo-600: #4f46e5; /* Primary */
-  --color-indigo-700: #4338ca; 
-  --color-indigo-800: #3730a3;
-  --color-indigo-900: #312e81;
-  --color-indigo-950: #1e1b4b;
+  /* Redefine tailwind colors globally */
+  --color-indigo-50: #eff6ff;
+  --color-indigo-100: #dbeafe;
+  --color-indigo-200: #bfdbfe;
+  --color-indigo-300: #93c5fd;
+  --color-indigo-400: #60a5fa;
+  --color-indigo-500: #3b82f6; 
+  --color-indigo-600: #2563eb; /* Re-mapped to Royal Blue */
+  --color-indigo-700: #1d4ed8; 
+  --color-indigo-800: #1e40af;
+  --color-indigo-900: #1e3a8a;
+  --color-indigo-950: #172554;
 
   --color-blue-50: #eff6ff;
   --color-blue-100: #dbeafe;
@@ -45,35 +45,35 @@
   --color-blue-800: #1e40af;
   --color-blue-900: #1e3a8a;
   
-  --color-teal-50: #f0fdfa;
-  --color-teal-100: #ccfbf1;
-  --color-teal-200: #99f6e4;
-  --color-teal-300: #5eead4;
-  --color-teal-400: #2dd4bf;
-  --color-teal-500: #14b8a6; 
-  --color-teal-600: #0d9488;
-  --color-teal-700: #0f766e;
-  --color-teal-800: #115e59;
-  --color-teal-900: #134e4a;
+  --color-teal-50: #ecfeff;
+  --color-teal-100: #cffafe;
+  --color-teal-200: #a5f3fc;
+  --color-teal-300: #67e8f9;
+  --color-teal-400: #22d3ee;
+  --color-teal-500: #06b6d4; /* Re-mapped to Cyan */
+  --color-teal-600: #0891b2;
+  --color-teal-700: #0e7490;
+  --color-teal-800: #155e75;
+  --color-teal-900: #164e63;
 
-  --color-emerald-50: #ecfdf5;
-  --color-emerald-100: #d1fae5;
-  --color-emerald-200: #a7f3d0;
-  --color-emerald-300: #6ee7b7;
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
-  --color-emerald-700: #047857;
+  --color-emerald-50: #ecfeff;
+  --color-emerald-100: #cffafe;
+  --color-emerald-200: #a5f3fc;
+  --color-emerald-300: #67e8f9;
+  --color-emerald-400: #22d3ee;
+  --color-emerald-500: #06b6d4; /* Re-mapped to Cyan */
+  --color-emerald-600: #0891b2;
+  --color-emerald-700: #0e7490;
 }
 
 :root {
   --font-heading: var(--font-display), "Outfit", sans-serif;
   --font-body: var(--font-body), "Inter", sans-serif;
-  --orange: #10b981;       /* Re-mapping legacy orange to Emerald */
-  --orange-dk: #059669;    
-  --orange-lt: #ecfdf5;    
-  --navy: #312e81;         /* Re-mapping Navy to Deep Indigo */
-  --navy2: #3730a3;
+  --orange: #06b6d4;       /* Re-mapping legacy orange to Cyan */
+  --orange-dk: #0891b2;    
+  --orange-lt: #ecfeff;    
+  --navy: #1e3a8a;         /* Re-mapping Navy to Deep Blue */
+  --navy2: #1e40af;
   --white: #ffffff;
   --bg: #f8fafc;
   --bg-warm: #f1f5f9;
@@ -82,16 +82,16 @@
   --light: #94a3b8;
   --border: #e2e8f0;
   --border-lt: #f1f5f9;
-  --green: #10b981;
-  --blue: #4f46e5;         /* Indigo Primary */
-  --gold: #10b981;         /* Re-mapping Gold to Emerald */
+  --green: #06b6d4;
+  --blue: #2563eb;         /* Royal Blue Primary */
+  --gold: #06b6d4;         /* Re-mapping Gold to Cyan */
   
   /* Aliases for legacy class usage */
-  --vs-orange: #10b981;
-  --vs-orange-dark: #059669;
-  --vs-orange-light: #ecfdf5;
-  --vs-navy: #312e81;
-  --vs-navy-light: #3730a3;
+  --vs-orange: #06b6d4;
+  --vs-orange-dark: #0891b2;
+  --vs-orange-light: #ecfeff;
+  --vs-navy: #1e3a8a;
+  --vs-navy-light: #1e40af;
   --vs-white: #ffffff;
   --vs-bg: #f8fafc;
   --vs-bg-warm: #f1f5f9;
@@ -100,9 +100,9 @@
   --vs-text-light: #94a3b8;
   --vs-border: #e2e8f0;
   --vs-border-light: #f1f5f9;
-  --vs-green: #10b981;
-  --vs-blue: #4f46e5;
-  --vs-gold: #10b981;
+  --vs-green: #06b6d4;
+  --vs-blue: #2563eb;
+  --vs-gold: #06b6d4;
 }
 
 
