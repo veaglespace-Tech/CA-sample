@@ -681,26 +681,19 @@ export default function ServicePageClient({ slug }) {
                   <Shield className="mx-auto mb-3 text-primary" size={24} />
                   <span className="text-xs font-bold text-slate-700">Verified<br/>Professionals</span>
                 </div>
-              ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-                    <Shield className="mx-auto mb-3 text-primary" size={24} />
-                    <span className="text-xs font-bold text-slate-700">Verified<br/>Professionals</span>
-                  </div>
-                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-                    <Clock className="mx-auto mb-3 text-primary" size={24} />
-                    <span className="text-xs font-bold text-slate-700">Clear<br/>Timelines</span>
-                  </div>
-                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-                    <Award className="mx-auto mb-3 text-primary" size={24} />
-                    <span className="text-xs font-bold text-slate-700">Transparent<br/>Pricing</span>
-                  </div>
-                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-                    <FileText className="mx-auto mb-3 text-primary" size={24} />
-                    <span className="text-xs font-bold text-slate-700">Document-led<br/>Process</span>
-                  </div>
+                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                  <Clock className="mx-auto mb-3 text-primary" size={24} />
+                  <span className="text-xs font-bold text-slate-700">Clear<br/>Timelines</span>
                 </div>
-              )}
+                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                  <Award className="mx-auto mb-3 text-primary" size={24} />
+                  <span className="text-xs font-bold text-slate-700">Transparent<br/>Pricing</span>
+                </div>
+                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                  <FileText className="mx-auto mb-3 text-primary" size={24} />
+                  <span className="text-xs font-bold text-slate-700">Document-led<br/>Process</span>
+                </div>
+              </div>
             </article>
 
             <article id="faqs" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
