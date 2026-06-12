@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Shield } from "lucide-react";
 
-export const metadata = { title: "Privacy Policy" };
+export const metadata = { title: "Privacy Policy - Veagle Space Technology" };
 
 export default function PrivacyPolicyPage() {
   return (
@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
               </div>
               <div>
                 <h2 className="font-heading text-2xl font-black text-slate-900 mb-4">5. Contact Us</h2>
-                <p>For privacy-related queries, contact us at <a href="mailto:support@yourdomain.com" className="text-primary hover:underline font-bold">support@yourdomain.com</a> or call <span className="font-bold">+91 00000 00000</span>.</p>
+                <p>For privacy-related queries, contact us at <a href="mailto:info@veaglespace.com" className="text-primary hover:underline font-bold">info@veaglespace.com</a> or call <span className="font-bold">+91 82379 99101</span>.</p>
               </div>
             </div>
           </div>

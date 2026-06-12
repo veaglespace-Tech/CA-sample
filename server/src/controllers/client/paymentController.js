@@ -153,7 +153,7 @@ export async function initiatePayuPayment(req, res) {
     const gstAmount = taxableAmount * 0.18;
     const finalAmount = toPayuAmount(taxableAmount + gstAmount);
 
-    const serviceName = lead.service?.name || lead.serviceName || "ValueXpert Service";
+    const serviceName = lead.service?.name || lead.serviceName || "Veagle Space Technology Service";
     const productinfo = `${serviceName} - ${planName}`.slice(0, 100);
 
     const txnid = generateTxnId(leadId);

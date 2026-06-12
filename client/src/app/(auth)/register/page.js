@@ -3,8 +3,8 @@ import PublicOnlyRoute from "../../../components/auth/PublicOnlyRoute";
 import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 
 export const metadata = {
-  title: "Register | Valuexpert",
-  description: "Create a standard Valuexpert user account.",
+  title: "Register | Veagle Space Technology Pvt. Ltd.",
+  description: "Create a standard Veagle Space Technology Pvt. Ltd. user account.",
 };
 
 export default function RegisterPage() {
@@ -16,7 +16,7 @@ export default function RegisterPage() {
           {/* Left Section: Info/Marketing */}
           <div className="md:col-span-2 bg-gradient-to-br from-slate-50 to-indigo-50/50 p-8 md:p-12 border-b md:border-b-0 md:border-r border-slate-100 flex flex-col justify-center">
 
-            <h1 className="text-3xl font-black text-slate-900 mt-2 mb-4 leading-tight">Register on Valuexpert</h1>
+            <h1 className="text-3xl font-black text-slate-900 mt-2 mb-4 leading-tight">Register on Veagle Space Technology Pvt. Ltd.</h1>
             <p className="text-slate-600 font-medium leading-relaxed">
               Create a standard user account and continue directly to your own secure dashboard.
             </p>

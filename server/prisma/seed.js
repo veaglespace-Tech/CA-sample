@@ -272,15 +272,15 @@ async function main() {
     where: { key: "site_contact" },
     update: {
       value: {
-        phone: "+91 88881 72349",
-        email: "support@valuexpert.in",
+        phone: "+91 82379 99101",
+        email: "info@veaglespace.com",
       },
     },
     create: {
       key: "site_contact",
       value: {
-        phone: "+91 88881 72349",
-        email: "support@valuexpert.in",
+        phone: "+91 82379 99101",
+        email: "info@veaglespace.com",
       },
     },
   });

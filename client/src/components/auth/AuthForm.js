@@ -224,7 +224,7 @@ function AuthFormInner({
   if (step === "otp") {
     return (
       <form className="flex w-full flex-col gap-4" onSubmit={handleSubmit} noValidate>
-        <div className="rounded-xl border border-indigo-200 bg-indigo-50 px-4 py-3 text-sm font-semibold text-indigo-800">
+        <div className="rounded-xl border border-indigo-100 bg-indigo-50/60 px-4 py-3 text-sm font-medium text-indigo-800">
           An OTP has been sent to your email address. Please enter it below to securely access the dashboard.
         </div>
         <FormField label="One-Time Password (OTP)" htmlFor="auth-otp" required>
@@ -234,15 +234,15 @@ function AuthFormInner({
             value={otpValue}
             onChange={(e) => setOtpValue(e.target.value.replace(/\D/g, "").slice(0, 6))}
             placeholder="000000"
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-4 text-[1.5rem] font-black tracking-[1em] text-center text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10"
+            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-4 text-[1.5rem] font-black tracking-[1em] text-center text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10"
           />
         </FormField>
         
-        <button type="submit" className="mt-2 w-full rounded-xl bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+        <button type="submit" className="mt-2 w-full rounded-xl bg-indigo-600 py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
           {isLoading ? "Verifying..." : "Verify & Login"}
         </button>
-        {message && <p className="mt-2 rounded-lg bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
-        <button type="button" onClick={() => { setStep("credentials"); setMessage(""); setOtpValue(""); }} className="mt-2 text-sm font-bold text-slate-500 hover:text-slate-800 underline underline-offset-2">
+        {message && <p className="mt-2 rounded-xl bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
+        <button type="button" onClick={() => { setStep("credentials"); setMessage(""); setOtpValue(""); }} className="mt-2 text-sm font-semibold text-slate-500 hover:text-slate-800 underline underline-offset-2">
           &larr; Back to Login
         </button>
       </form>
@@ -544,11 +544,11 @@ function AuthFormInner({
         </>
       )}
 
-      <button type="submit" className="mt-4 w-full rounded-xl bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+      <button type="submit" className="mt-4 w-full rounded-xl bg-indigo-600 py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
         {isLoading ? "Please wait..." : isRegister ? "Create Account" : "Login"}
       </button>
 
-      {message && <p className="mt-2 rounded-lg bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
+      {message && <p className="mt-2 rounded-xl bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
 
       {!isRegister && allowPasswordReset && (
         <button
@@ -563,7 +563,7 @@ function AuthFormInner({
             setMessage("");
             setStep("forgot-request");
           }}
-          className="text-right text-sm font-bold text-primary hover:text-indigo-700 underline underline-offset-2"
+          className="text-right text-sm font-semibold text-indigo-600 hover:text-indigo-700 underline underline-offset-2"
         >
           Forgot password?
         </button>
@@ -572,7 +572,7 @@ function AuthFormInner({
       {!hideRegisterLink && (
         <p className="mt-2 text-center text-sm font-medium text-slate-500">
           {switchText || (isRegister ? "Already have an account?" : "Need a new account?")}{" "}
-          <Link href={switchHref || (isRegister ? "/login" : "/register")} className="font-bold text-slate-900 hover:text-primary transition-colors">
+          <Link href={switchHref || (isRegister ? "/login" : "/register")} className="font-semibold text-slate-900 hover:text-indigo-600 transition-colors">
             {switchLabel || (isRegister ? "Login" : "Register")}
           </Link>
         </p>

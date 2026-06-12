@@ -268,16 +268,16 @@ export async function sendEmailReminder(req, res) {
     
     await sendEmail({
       to: user.email,
-      subject: `Action Required: Pending Document Upload for Valuexpert`,
+      subject: `Action Required: Pending Document Upload for Veagle Space Technology Pvt. Ltd.`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; line-height: 1.6;">
           <h2 style="color: #3b82f6;">Document Upload Reminder</h2>
           <p>Hi ${user.name || "Client"},</p>
           <p>This is a gentle reminder that we are waiting on a pending document${serviceText}.</p>
           <p><strong>Required Document:</strong> <span style="background: #f4f4f5; padding: 4px 8px; border-radius: 4px; font-family: monospace;">${documentName}</span></p>
-          <p>Please log in to your Valuexpert dashboard and upload this document as soon as possible so we can proceed with your service.</p>
+          <p>Please log in to your Veagle Space Technology Pvt. Ltd. dashboard and upload this document as soon as possible so we can proceed with your service.</p>
           <br/>
-          <p>Thank you,<br/><strong>Valuexpert Team</strong></p>
+          <p>Thank you,<br/><strong>Veagle Space Technology Team</strong></p>
         </div>
       `,
     });

@@ -3,8 +3,8 @@ import { ArrowRight, Briefcase, FileText, Shield, TrendingUp } from "lucide-reac
 import { featuredServices } from "../../../lib/public-page-data";
 
 export const metadata = {
-  title: "Products - Valuexpert",
-  description: "Explore Valuexpert products and service bundles for business setup, compliance, IP protection, and expert consultation.",
+  title: "Products - Veagle Space Technology",
+  description: "Explore Veagle Space Technology products and service bundles for business setup, compliance, IP protection, and expert consultation.",
 };
 
 const productSuites = [
@@ -42,7 +42,7 @@ export default function ProductsPage() {
           <div className="vs-breadcrumb">
             <Link href="/">Home</Link><span className="sep">&gt;</span><span>Products</span>
           </div>
-          <h1>Valuexpert Products and Service Suites</h1>
+          <h1>Veagle Space Technology Products and Service Suites</h1>
           <p className="vs-hero-sub">Structured solutions for starting, managing, and protecting your business.</p>
         </div>
       </section>

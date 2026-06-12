@@ -1,8 +1,8 @@
 export const siteMeta = {
-  name: "Valuexpert",
-  phone: "+91 00000 00000",
-  email: "support@yourdomain.com",
-  address: "Valuexpert Consulting Pvt Ltd",
+  name: "Veagle Space Technology",
+  phone: "+91 82379 99101",
+  email: "info@veaglespace.com",
+  address: "Veagle Space Technology Pvt. Ltd.",
 };
 
 export const primaryNav = [

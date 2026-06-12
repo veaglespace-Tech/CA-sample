@@ -45,12 +45,12 @@ export default function SearchableDropdown({
       {/* Select Trigger */}
       <button
         type="button"
-        className={`w-full text-left flex items-center justify-between pl-11 pr-4 h-12 rounded-2xl bg-slate-50/50 text-sm font-semibold border focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
+        className={`w-full text-left flex items-center justify-between pl-11 pr-4 h-11 rounded-xl text-sm font-medium border focus:outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition-all duration-300 ${
           error
-            ? "border-rose-500 bg-rose-50/10 text-rose-700"
+            ? "border-rose-300 bg-rose-50/20 text-rose-700"
             : success
-            ? "border-emerald-500 bg-emerald-50/40 text-slate-900"
-            : "border-slate-200 hover:border-primary/50 text-slate-900 bg-white shadow-sm"
+            ? "border-emerald-300 bg-emerald-50/20 text-slate-900"
+            : "border-slate-200 hover:border-slate-300 text-slate-900 bg-white shadow-sm"
         }`}
         onClick={() => {
           setIsOpen(!isOpen);
@@ -79,7 +79,7 @@ export default function SearchableDropdown({
               />
               <input
                 type="text"
-                className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all"
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}

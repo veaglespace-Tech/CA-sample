@@ -246,7 +246,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
     });
 
     if (!finalUserId) {
-      alert("Cannot send message: This record is not linked to a registered user account. Please ensure the client has registered on Valuexpert with the same email address.");
+      alert("Cannot send message: This record is not linked to a registered user account. Please ensure the client has registered on Veagle Space Technology Pvt. Ltd. with the same email address.");
       return;
     }
 

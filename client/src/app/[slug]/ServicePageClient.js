@@ -130,7 +130,7 @@ function buildGenericService(slug) {
     title,
     shortTitle: title,
     subtitle: `Get expert-led support for ${ title } with complete compliance and fast turnaround.`,
-    intro: `Valuexpert is your trusted partner for seamlessly navigating the complexities of ${title}. Our dedicated team ensures that every aspect of your application—from eligibility checks to document preparation and final filing—is handled with precision. Whether you are a startup or a large enterprise, we provide tailored, end-to-end solutions that guarantee regulatory compliance. With fast-track processing and transparent pricing, you can focus on growing your business while we manage statutory requirements. Trust Valuexpert to deliver reliable and expert-led services across India.`,
+    intro: `Veagle Space Technology helps you seamlessly navigate eligibility, documents, timelines, and filing steps for ${ title } across India.`,
     category,
     price,
     oldPrice,
@@ -260,7 +260,7 @@ function ServiceTabs() {
                     : "text-slate-500 hover:bg-indigo-50 hover:text-indigo-600"
                 }`}
               >
-                {tab.label === "Why Valuexpert?" ? "Why Us?" : tab.label}
+                {tab.label === "Why Veagle Space Technology?" ? "Why Us?" : tab.label}
               </a>
             );
           })}
@@ -284,7 +284,7 @@ function TestimonialsSection({ slug }) {
 
   // Fallback static reviews if nothing in DB yet
   const fallback = [
-    { name: "Rahul D.", text: "Valuexpert made my company registration so smooth. Highly recommended!", rating: 5, company: "Entrepreneur", location: "Mumbai" },
+    { name: "Rahul D.", text: "Veagle Space Technology made my company registration so smooth. Highly recommended!", rating: 5, company: "Entrepreneur", location: "Mumbai" },
     { name: "Sneha M.", text: "The GST registration was done in 2 days. Excellent CA support.", rating: 5, company: "CA Firm", location: "Pune" },
     { name: "Amit K.", text: "Trademark registration was always confusing to me, but they simplified it.", rating: 5, company: "Startup Founder", location: "Bangalore" },
   ];
@@ -675,15 +675,11 @@ export default function ServicePageClient({ slug }) {
             </article>
 
             <article id="why-democa" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-xl font-black text-slate-800 mb-6 border-b border-slate-100 pb-3">Why Us?</h2>
-              {service.whyUs ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
-                  {service.whyUs.map((reason, i) => (
-                    <div key={i} className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col items-center justify-center">
-                      <Shield className="mx-auto mb-3 text-primary" size={24} />
-                      <span className="text-sm font-bold text-slate-700">{reason}</span>
-                    </div>
-                  ))}
+              <h2 className="text-xl font-black text-slate-800 mb-6 border-b border-slate-100 pb-3">Why Veagle Space Technology?</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                  <Shield className="mx-auto mb-3 text-primary" size={24} />
+                  <span className="text-xs font-bold text-slate-700">Verified<br/>Professionals</span>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">

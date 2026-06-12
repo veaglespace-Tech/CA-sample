@@ -210,7 +210,7 @@ export default function ClientOverview({
               Hello, {user?.name?.split(" ")[0]}!
             </h1>
             <p className="max-w-2xl text-base font-medium leading-8 text-slate-600 md:text-lg">
-              Welcome back to your Valuexpert client portal. Track your application status, view dynamic progress maps, and securely upload verification documents.
+              Welcome back to your Veagle Space Technology client portal. Track your application status, view dynamic progress maps, and securely upload verification documents.
             </p>
           </div>
 

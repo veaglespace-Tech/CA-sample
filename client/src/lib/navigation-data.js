@@ -1,16 +1,16 @@
 export const democaAssets = {
   mark: "/yourcompany-assets/checkmark.png",
-  logo: "/yourcompany-assets/logo.webp",
-  serviceLogo: "/yourcompany-assets/logo.webp",
-  bannerPrimary: "https://yourdomain.com/assets2/images/banner-1.jpg",
-  bannerSecondary: "https://yourdomain.com/assets2/images/banner.jpg",
-  audit: "https://yourdomain.com/assets/img/audit.jpg",
-  welcome: "https://yourdomain.com/assets2/images/welcome-img.jpg",
-  stepSelect: "https://yourdomain.com/assets/img/card1.png",
-  stepPayment: "https://yourdomain.com/assets/img/card2.png",
-  stepDocuments: "https://yourdomain.com/assets/img/card3.png",
-  stepRelax: "https://yourdomain.com/assets/img/card4.png",
-  whatsapp: "https://yourdomain.com/assets/img/whats-app.gif",
+  logo: "/veagle-logo.webp",
+  serviceLogo: "/veagle-logo.webp",
+  bannerPrimary: "https://veaglespace.com/assets2/images/banner-1.jpg",
+  bannerSecondary: "https://veaglespace.com/assets2/images/banner.jpg",
+  audit: "https://veaglespace.com/assets/img/audit.jpg",
+  welcome: "https://veaglespace.com/assets2/images/welcome-img.jpg",
+  stepSelect: "https://veaglespace.com/assets/img/card1.png",
+  stepPayment: "https://veaglespace.com/assets/img/card2.png",
+  stepDocuments: "https://veaglespace.com/assets/img/card3.png",
+  stepRelax: "https://veaglespace.com/assets/img/card4.png",
+  whatsapp: "https://veaglespace.com/assets/img/whats-app.gif",
 };
 
 const sectionIcons = {
@@ -171,21 +171,21 @@ function uniqueLinks(links) {
 }
 
 export const siteMeta = {
-  name: "Valuexpert",
+  name: "Veagle Space Technology",
   tagline: "Legal wings to let your dreams soar higher.",
-  phone: "+91 00000 00000",
-  whatsapp: "+910000000000",
-  email: "support@yourdomain.com",
-  address: "Your Company Address, City, State - 000000",
-  companyName: "Valuexpert Pvt Ltd",
+  phone: "+91 82379 99101",
+  whatsapp: "+918237999101",
+  email: "info@veaglespace.com",
+  address: "Office no 207, Kudale Patil Chambers, Heritage, near Bhairavnath Temple, Jadhav Nagar, Vadgaon Budruk, Pune, Maharashtra 411041",
+  companyName: "Veagle Space Technology Pvt. Ltd.",
   cin: "",
   gstin: "",
-  developer: "Your Developer Name",
+  developer: "Veagle Space Technology Pvt. Ltd.",
   social: {
-    facebook: "https://facebook.com/yourcompany",
-    instagram: "https://instagram.com/yourcompany",
-    linkedin: "https://linkedin.com/company/yourcompany",
-    twitter: "https://twitter.com/yourcompany",
+    facebook: "https://www.facebook.com/VeagleSpaceTech",
+    instagram: "https://www.instagram.com/veagle_space_tech",
+    linkedin: "https://www.linkedin.com/company/veagle-space-technology-pvt-ltd/",
+    twitter: "",
   }
 };
 

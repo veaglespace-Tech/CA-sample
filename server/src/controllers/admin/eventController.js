@@ -127,7 +127,7 @@ export async function sendEventInvite(req, res) {
 
     htmlContent += `
         <p style="margin-top: 30px;">We look forward to seeing you there!</p>
-        <p style="color: #64748b; font-size: 12px; margin-top: 20px;">- Valuexpert Team</p>
+        <p style="color: #64748b; font-size: 12px; margin-top: 20px;">- Veagle Space Technology Team</p>
       </div>
     `;
 

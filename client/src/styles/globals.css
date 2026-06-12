@@ -4,31 +4,75 @@
 /* Last Deployment Update: 2026-06-08 */
 
 @theme {
-  /* Sleek modern indigo as primary */
-  --color-primary: #4F46E5;
+  /* Sleek professional Sapphire Blue as primary */
+  --color-primary: #0F5298;
   --color-primary-content: #ffffff;
-  --color-primary-dark: #3730A3;
-  --color-primary-light: #E0E7FF;
-  --color-secondary: #0D9488; /* Teal */
-  --color-accent: #F59E0B; /* Amber */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-primary-dark: #0A3C70;
+  --color-primary-light: #E0F2FE;
+  --color-secondary: #B89047; /* Champagne Gold */
+  --color-accent: #C5A880; /* Light Gold */
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
   --font-sans: var(--font-body), "Inter", sans-serif;
   --font-serif: var(--font-display), "Outfit", sans-serif;
   /* Spacing scale extensions */
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
   --radius-3xl: 3rem;
+
+  /* Redefine tailwind colors globally to match Sapphire Blue & Slate Navy corporate theme */
+  --color-indigo-50: #f0f7ff;
+  --color-indigo-100: #e0f2fe;
+  --color-indigo-200: #bae6fd;
+  --color-indigo-300: #7dd3fc;
+  --color-indigo-400: #38bdf8;
+  --color-indigo-500: #0F5298; /* Executive Sapphire Blue */
+  --color-indigo-600: #0A3C70; /* Deep Sapphire Blue */
+  --color-indigo-700: #0B2545; /* Dark Slate Navy */
+  --color-indigo-800: #132238;
+  --color-indigo-900: #08121e;
+  --color-indigo-950: #040910;
+
+  --color-blue-50: #f8fafc;
+  --color-blue-100: #f1f5f9;
+  --color-blue-200: #e2e8f0;
+  --color-blue-300: #cbd5e1;
+  --color-blue-400: #94a3b8;
+  --color-blue-500: #0F5298; /* Mapped to Sapphire Blue */
+  --color-blue-600: #0A3C70; /* Mapped to Deep Sapphire Blue */
+  --color-blue-700: #0B2545;
+  --color-blue-800: #132238;
+  --color-blue-900: #08121e;
+  
+  --color-teal-50: #faf6eb;
+  --color-teal-100: #f3e8ce;
+  --color-teal-200: #e7d19c;
+  --color-teal-300: #dab66b;
+  --color-teal-400: #cd9b42;
+  --color-teal-500: #B89047; /* Executive Gold */
+  --color-teal-600: #9c7533;
+  --color-teal-700: #7a5822;
+  --color-teal-800: #5c4118;
+  --color-teal-900: #422d0f;
+
+  --color-amber-50: #faf6eb;
+  --color-amber-100: #f3e8ce;
+  --color-amber-200: #e7d19c;
+  --color-amber-300: #dab66b;
+  --color-amber-400: #cd9b42;
+  --color-amber-500: #B89047;
+  --color-amber-600: #9c7533;
+  --color-amber-700: #7a5822;
 }
 
 :root {
   --font-heading: var(--font-display), "Outfit", sans-serif;
   --font-body: var(--font-body), "Inter", sans-serif;
-  --orange: #F59E0B;
-  --orange-dk: #D97706;
-  --orange-lt: #FEF3C7;
-  --navy: #0F172A;
+  --orange: #B89047;       /* Champagne Gold */
+  --orange-dk: #9c7533;    /* Dark Gold */
+  --orange-lt: #faf6eb;    /* Light Gold wash */
+  --navy: #0B192C;         /* Premium Slate Navy */
   --navy2: #1E293B;
   --white: #ffffff;
   --bg: #F8FAFC;
@@ -38,14 +82,14 @@
   --light: #94A3B8;
   --border: #E2E8F0;
   --border-lt: #F1F5F9;
-  --green: #10B981;
-  --blue: #4F46E5; /* Indigo */
-  --gold: #14B8A6; /* Teal */
+  --green: #059669;
+  --blue: #0F5298;         /* Sapphire Blue */
+  --gold: #B89047;         /* Champagne Gold */
   /* Aliases for legacy class usage */
-  --vs-orange: #F59E0B;
-  --vs-orange-dark: #D97706;
-  --vs-orange-light: #FEF3C7;
-  --vs-navy: #0F172A;
+  --vs-orange: #B89047;
+  --vs-orange-dark: #9c7533;
+  --vs-orange-light: #faf6eb;
+  --vs-navy: #0B192C;
   --vs-navy-light: #1E293B;
   --vs-white: #ffffff;
   --vs-bg: #F8FAFC;
@@ -55,9 +99,9 @@
   --vs-text-light: #94A3B8;
   --vs-border: #E2E8F0;
   --vs-border-light: #F1F5F9;
-  --vs-green: #10B981;
-  --vs-blue: #4F46E5;
-  --vs-gold: #14B8A6;
+  --vs-green: #059669;
+  --vs-blue: #0F5298;
+  --vs-gold: #B89047;
 }
 
 
@@ -194,8 +238,9 @@
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 48px -12px rgba(15, 82, 152, 0.12), 0 0 25px rgba(184, 144, 71, 0.15);
+  border-color: var(--orange) !important;
 }
 
 /* ── Premium button pulse ── */
@@ -215,17 +260,17 @@
    ══════════════════════════════════════════ */
 
 /* ── Colored glow shadows ── */
-.glow-blue    { box-shadow: 0 0 30px rgba(59,  130, 246, 0.35), 0 8px 32px rgba(59,  130, 246, 0.15); }
-.glow-violet  { box-shadow: 0 0 30px rgba(139,  92, 246, 0.35), 0 8px 32px rgba(139,  92, 246, 0.15); }
-.glow-emerald { box-shadow: 0 0 30px rgba(16,  185, 129, 0.35), 0 8px 32px rgba(16,  185, 129, 0.15); }
-.glow-orange  { box-shadow: 0 0 30px rgba(249, 115,  22, 0.35), 0 8px 32px rgba(249, 115,  22, 0.15); }
+.glow-blue    { box-shadow: 0 0 30px rgba(15,  82, 152, 0.35), 0 8px 32px rgba(15,  82, 152, 0.15); }
+.glow-violet  { box-shadow: 0 0 30px rgba(184, 144,  71, 0.35), 0 8px 32px rgba(184, 144,  71, 0.15); }
+.glow-emerald { box-shadow: 0 0 30px rgba(5,   150, 105, 0.35), 0 8px 32px rgba(5,   150, 105, 0.15); }
+.glow-orange  { box-shadow: 0 0 30px rgba(184, 144,  71, 0.35), 0 8px 32px rgba(184, 144,  71, 0.15); }
 .glow-white   { box-shadow: 0 0 40px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(255, 255, 255, 0.08); }
 
 /* ── Hover glow variants ── */
-.hover\:glow-blue:hover    { box-shadow: 0 0 40px rgba(59,  130, 246, 0.45), 0 16px 48px rgba(59,  130, 246, 0.2); }
-.hover\:glow-violet:hover  { box-shadow: 0 0 40px rgba(139,  92, 246, 0.45), 0 16px 48px rgba(139,  92, 246, 0.2); }
-.hover\:glow-emerald:hover { box-shadow: 0 0 40px rgba(16,  185, 129, 0.45), 0 16px 48px rgba(16,  185, 129, 0.2); }
-.hover\:glow-orange:hover  { box-shadow: 0 0 40px rgba(249, 115,  22, 0.45), 0 16px 48px rgba(249, 115,  22, 0.2); }
+.hover\:glow-blue:hover    { box-shadow: 0 0 40px rgba(15,  82, 152, 0.45), 0 16px 48px rgba(15,  82, 152, 0.2); }
+.hover\:glow-violet:hover  { box-shadow: 0 0 40px rgba(184, 144,  71, 0.45), 0 16px 48px rgba(184, 144,  71, 0.2); }
+.hover\:glow-emerald:hover { box-shadow: 0 0 40px rgba(5,   150, 105, 0.45), 0 16px 48px rgba(5,   150, 105, 0.2); }
+.hover\:glow-orange:hover  { box-shadow: 0 0 40px rgba(184, 144,  71, 0.45), 0 16px 48px rgba(184, 144,  71, 0.2); }
 
 /* ── Neon border glow ── */
 .neon-border-blue   { border-color: rgba(59,  130, 246, 0.5); box-shadow: 0 0 0 1px rgba(59,  130, 246, 0.3), inset 0 0 12px rgba(59,  130, 246, 0.05); }
@@ -848,7 +893,7 @@
   position: relative;
   isolation: isolate;
   overflow: clip;
-  background: #012b5d !important;
+  background: linear-gradient(135deg, #071220 0%, var(--navy) 100%) !important;
   color: #fff;
   padding-top: 6rem;
 }
@@ -892,7 +937,7 @@
 
 /* ── NAVBAR ── */
 .vs-navbar {
-  background: #012b5d !important;
+  background: var(--navy) !important;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   position: sticky;
   top: 0;
@@ -3921,27 +3966,36 @@
   display: grid;
   place-items: center;
   padding: 6.5rem 1rem 4.5rem;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08), transparent 28%),
-    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.06), transparent 30%),
-    linear-gradient(180deg, #f0f4ff 0%, #e8eeff 50%, #f5f7ff 100%);
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(184, 144, 71, 0.1) 0%, transparent 42%),
+    radial-gradient(circle at 90% 80%, rgba(15, 82, 152, 0.12) 0%, transparent 50%),
+    linear-gradient(135deg, #071220 0%, #0B192C 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 .vs-auth-card {
   width: min(100%, 480px);
-  background: #fff;
-  border: 1px solid rgba(6, 53, 87, 0.12);
-  border-radius: 16px;
-  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1.5px solid rgba(184, 144, 71, 0.18);
+  border-radius: 24px;
+  padding: 3rem;
   margin-top: 2rem;
-  box-shadow: 0 24px 70px rgba(1, 18, 32, 0.24);
+  box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.45), 0 0 40px rgba(15, 82, 152, 0.06);
+  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.vs-auth-card:hover {
+  box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.5), 0 0 50px rgba(184, 144, 71, 0.1);
 }
 
 .vs-auth-card--wide {
   width: min(100%, 960px);
   padding: 0;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 24px;
   margin-top: 2rem;
 }
 
@@ -3953,10 +4007,11 @@
   padding: 0.28rem 0.65rem;
   border-radius: 999px;
   background: var(--orange-lt);
-  color: #594505;
+  color: #7b581e;
   font-size: 0.74rem;
   font-weight: 900;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .vs-auth-card h1,
@@ -3965,12 +4020,13 @@
   font-size: clamp(1.7rem, 4vw, 2.35rem);
   line-height: 1.15;
   font-weight: 900;
+  letter-spacing: -0.02em;
 }
 
 .vs-auth-card p,
 .vs-dashboard-top p,
 .vs-dashboard-panel p {
-  color: #60758a;
+  color: #52637a;
 }
 
 .vs-auth-form {
@@ -3984,27 +4040,37 @@
 .vs-auth-link-btn,
 .vs-auth-ghost {
   border: 0;
-  border-radius: 7px;
-  padding: 0.85rem 1rem;
-  font-weight: 900;
+  border-radius: 12px;
+  padding: 0.95rem 1rem;
+  font-weight: 800;
   font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .vs-auth-submit,
 .vs-auth-link-btn {
-  background: var(--orange);
-  color: #061f35;
+  background: linear-gradient(135deg, var(--blue) 0%, #0A3C70 100%) !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
   text-align: center;
+  box-shadow: 0 4px 14px rgba(15, 82, 152, 0.25);
+  cursor: pointer;
 }
 
 .vs-auth-submit:hover,
 .vs-auth-link-btn:hover {
-  background: #ffd735;
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0A3C70 0%, #082D54 100%) !important;
+  box-shadow: 0 6px 20px rgba(15, 82, 152, 0.35);
 }
 
 .vs-auth-submit:disabled {
   opacity: 0.72;
   cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .vs-auth-switch {
@@ -10675,10 +10741,10 @@ svg {
 }
 
 .problem-category-item.active {
-  background: #e8edf5;
-  border-left-color: var(--navy, #001A3D);
+  background: #eef2ff;
+  border-left-color: #4f46e5;
   font-weight: 600;
-  color: var(--navy, #001A3D);
+  color: #4f46e5;
 }
 
 .problem-category-icon {
@@ -10697,7 +10763,7 @@ svg {
 }
 
 .problem-category-item.active .problem-category-arrow {
-  color: var(--navy, #001A3D);
+  color: #4f46e5;
 }
 
 /* Right Panel — Sub-problems */
@@ -11979,4 +12045,150 @@ svg {
   border-color: #16a34a !important;
   background-color: rgba(240, 253, 244, 0.65) !important;
 }
+
+/* ═══════════════════════════════════════════
+   PREMIUM SAAS & AIRBNB STYLE UI OVERRIDES
+   ═══════════════════════════════════════════ */
+
+/* Inputs, Selects, and Textareas */
+.vs-form-group input,
+.vs-form-group select,
+.vs-form-group textarea,
+.input-bordered,
+.textarea-bordered,
+.select-bordered,
+.vs-login-modal input,
+.vx-contact-form input,
+.vx-contact-form textarea,
+.vxlp-form-shell input,
+.vxlp-form-shell textarea,
+.vs-auth-field input {
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 0.75rem !important; /* 12px rounded-xl */
+  padding: 0.75rem 1rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: #0F172A !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  outline: none !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.vs-form-group input:hover,
+.vs-form-group select:hover,
+.vs-form-group textarea:hover,
+.input-bordered:hover,
+.textarea-bordered:hover,
+.select-bordered:hover,
+.vs-login-modal input:hover,
+.vx-contact-form input:hover,
+.vx-contact-form textarea:hover,
+.vxlp-form-shell input:hover,
+.vxlp-form-shell textarea:hover,
+.vs-auth-field input:hover {
+  border-color: #CBD5E1 !important;
+}
+
+.vs-form-group input:focus,
+.vs-form-group select:focus,
+.vs-form-group textarea:focus,
+.input-bordered:focus,
+.textarea-bordered:focus,
+.select-bordered:focus,
+.vs-login-modal input:focus,
+.vx-contact-form input:focus,
+.vx-contact-form textarea:focus,
+.vxlp-form-shell input:focus,
+.vxlp-form-shell textarea:focus,
+.vs-auth-field input:focus,
+.otp-input:focus {
+  border-color: #4F46E5 !important;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  background-color: #FFFFFF !important;
+  outline: none !important;
+}
+
+/* Form Success & Error states overrides */
+.vx-form-field--success input,
+.vx-form-field--success select,
+.vx-form-field--success textarea {
+  border-color: #10B981 !important;
+  background-color: rgba(240, 253, 244, 0.4) !important;
+}
+.vx-form-field--success input:focus,
+.vx-form-field--success select:focus,
+.vx-form-field--success textarea:focus {
+  border-color: #10B981 !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12) !important;
+}
+
+/* Button Overrides */
+.btn,
+.vs2-btn-primary,
+.vs2-btn-secondary,
+.vs2-btn-ghost,
+.vs-form-submit {
+  font-family: var(--font-sans), 'Inter', sans-serif !important;
+  border-radius: 0.75rem !important; /* rounded-xl */
+  font-weight: 600 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  cursor: pointer !important;
+  height: auto !important;
+  font-size: 0.875rem !important;
+}
+
+.btn:not(.btn-sm):not(.btn-xs),
+.vs-form-submit {
+  min-height: 2.75rem !important;
+  padding: 0.625rem 1.25rem !important;
+}
+
+/* Primary Button */
+.btn-primary,
+.vs-form-submit {
+  background-color: #4F46E5 !important;
+  border-color: transparent !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+.btn-primary:hover,
+.vs-form-submit:hover {
+  background-color: #3730A3 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15) !important;
+}
+.btn-primary:active,
+.vs-form-submit:active {
+  transform: translateY(0);
+}
+
+/* Secondary & Outline Buttons */
+.btn-secondary,
+.btn-outline,
+.vs2-btn-secondary,
+.vs2-btn-ghost {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #334155 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+.btn-secondary:hover,
+.btn-outline:hover,
+.vs2-btn-secondary:hover,
+.vs2-btn-ghost:hover {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  transform: translateY(-1px);
+}
+.btn-secondary:active,
+.btn-outline:active {
+  transform: translateY(0);
+}
+
 

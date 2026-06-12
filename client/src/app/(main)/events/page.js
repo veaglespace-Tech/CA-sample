@@ -99,7 +99,7 @@ export default function EventsPage() {
       <section className="vs-page-hero vx-page-hero">
         <div className="vs-container">
           <h1>Events and Masterclasses</h1>
-          <p className="vs-hero-sub">Learn from Valuexpert advisors and stay ahead with curated legal, tax, registration, and compliance sessions.</p>
+          <p className="vs-hero-sub">Learn from Veagle Space Technology Pvt. Ltd. advisors and stay ahead with curated legal, tax, registration, and compliance sessions.</p>
         </div>
       </section>
 
@@ -117,7 +117,7 @@ export default function EventsPage() {
           {isLoading ? (
             <div className="vx-empty-state">
               <h2>Loading events...</h2>
-              <p>Fetching the latest Valuexpert sessions.</p>
+              <p>Fetching the latest Veagle Space Technology Pvt. Ltd. sessions.</p>
             </div>
           ) : !showFallback ? (
             <div className="vs-events-grid">
@@ -140,7 +140,7 @@ export default function EventsPage() {
                     <p className="vx-muted">{event.description?.substring(0, 140)}...</p>
                   </div>
                   <div className="vs-event-speakers">
-                    <span className="vx-muted">{event.speakers?.[0]?.name || "Valuexpert Expert"}</span>
+                    <span className="vx-muted">{event.speakers?.[0]?.name || "Veagle Space Technology Pvt. Ltd. Expert"}</span>
                     <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", justifyContent: "flex-end", alignItems: "center" }}>
                       {event.videoUrl && (
                         <a 

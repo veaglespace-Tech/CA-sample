@@ -14,9 +14,9 @@ export function generateInvoicePdf(paymentData) {
 
       // Header
       doc.fontSize(20).text('INVOICE', { align: 'right' });
-      doc.fontSize(10).text('Valuexpert', 50, 50);
-      doc.text('123 Legal Street, City', 50, 65);
-      doc.text('contact@yourdomain.com', 50, 80);
+      doc.fontSize(10).text('Veagle Space Technology Pvt. Ltd.', 50, 50);
+      doc.text('Office no 207, Kudale Patil Chambers, Heritage, Vadgaon Budruk, Pune, MH 411041', 50, 65);
+      doc.text('info@veaglespace.com', 50, 80);
 
       doc.moveDown();
 
@@ -57,7 +57,7 @@ export function generateInvoicePdf(paymentData) {
       doc.text(`Rs. ${paymentData.amount}`, 450, tableTop + 70, { align: 'right' });
 
       doc.moveDown(4);
-      doc.font('Helvetica').fontSize(10).text('Thank you for choosing Valuexpert!', 50, 600, { align: 'center' });
+      doc.font('Helvetica').fontSize(10).text('Thank you for choosing Veagle Space Technology Pvt. Ltd.!', 50, 600, { align: 'center' });
 
       doc.end();
     } catch (err) {

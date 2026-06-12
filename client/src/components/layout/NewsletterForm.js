@@ -47,7 +47,7 @@ export default function NewsletterForm() {
       </p>
       
       <form 
-        className="flex w-full flex-col gap-2 rounded-2xl bg-white border border-slate-200 p-1.5 shadow-sm focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/20 transition-all duration-300 sm:flex-row relative" 
+        className="flex w-full flex-col gap-2 rounded-xl bg-white border border-slate-200 p-1.5 shadow-sm focus-within:border-indigo-500 focus-within:ring-4 focus-within:ring-indigo-500/10 transition-all duration-300 sm:flex-row relative" 
         onSubmit={handleSubmit}
       >
         <input
@@ -65,7 +65,7 @@ export default function NewsletterForm() {
         <button
           type="submit"
           disabled={status === "loading" || status === "success"}
-          className="rounded-xl bg-blue-600 px-5 py-2.5 font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:-translate-y-0.5 disabled:opacity-50 disabled:bg-blue-600 flex items-center justify-center shrink-0"
+          className="rounded-lg bg-indigo-600 px-5 py-2.5 font-semibold text-white shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:bg-indigo-700 hover:-translate-y-0.5 disabled:opacity-50 disabled:bg-indigo-600 flex items-center justify-center shrink-0 border border-transparent"
           aria-label="Subscribe"
         >
           {status === "loading" ? (
@@ -78,13 +78,13 @@ export default function NewsletterForm() {
 
       {/* Status Messages */}
       {status === "success" && (
-        <div className="mt-3 flex items-center gap-2 text-sm font-bold text-emerald-400">
+        <div className="mt-3 flex items-center gap-2 text-sm font-bold text-emerald-600">
           <CheckCircle size={15} />
           {message}
         </div>
       )}
       {status === "error" && (
-        <div className="mt-3 flex items-center gap-2 text-sm font-bold text-rose-400">
+        <div className="mt-3 flex items-center gap-2 text-sm font-bold text-rose-600">
           <AlertCircle size={15} />
           {message}
         </div>

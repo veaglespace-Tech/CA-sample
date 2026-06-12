@@ -2,6 +2,7 @@ import Link from "next/link";
 import { footerLinks, siteMeta, democaAssets } from "../../lib/navigation-data";
 import { Mail, Phone, MapPin } from "lucide-react";
 import NewsletterForm from "./NewsletterForm";
+import BrandLogo from "./BrandLogo";
 
 /* -- Brand SVG Icons --------------------------------------- */
 const FacebookIcon = () => (
@@ -38,11 +39,12 @@ export default function Footer() {
           
           {/* Brand logo + info */}
           <div className="flex flex-col items-start text-left lg:max-w-md w-full">
-            <Link href="/" className="mb-5 inline-flex rounded-2xl bg-white p-2.5 shadow-sm border border-slate-200 transition-transform hover:scale-[1.03] duration-300" aria-label="Valuexpert home">
-              <span className="text-base font-semibold text-slate-700">
-                Your Website Logo
-              </span>
-            </Link>
+            <BrandLogo 
+              href="/" 
+              className="mb-5 inline-flex transition-transform hover:scale-[1.02] duration-200" 
+              height={40} 
+              alt="Veagle Space Technology Pvt. Ltd. Logo"
+            />
             <p className="mb-4 text-sm font-medium leading-relaxed text-slate-500">
               {siteMeta.tagline}
             </p>
@@ -111,7 +113,7 @@ export default function Footer() {
                 <span className="text-slate-600 transition-colors group-hover:text-slate-900">{siteMeta.email}</span>
               </a>
               <a 
-                href="https://www.google.com/maps/place/Valuexpert+Consulting+LLP/@18.6101637,73.8176721,17z/data=!3m1!4b1!4m6!3m5!1s0x3bdd170bbb3afd21:0x36357b73a2636f91!8m2!3d18.6101586!4d73.820247!16s%2Fg%2F11pc9jtm0x?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+                href="https://www.google.com/maps/place/Veagle+Space+Technology+Pvt.+Ltd./@18.6101637,73.8176721,17z/data=!3m1!4b1!4m6!3m5!1s0x3bdd170bbb3afd21:0x36357b73a2636f91!8m2!3d18.6101586!4d73.820247!16s%2Fg%2F11pc9jtm0x?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-2.5 group"
@@ -130,7 +132,7 @@ export default function Footer() {
             <p className="text-[0.75rem] font-normal text-slate-500 order-2 sm:order-1">
               All rights reserved &copy; {new Date().getFullYear()}{" "}
               <Link href="/" className="font-semibold text-slate-900 hover:text-indigo-600 transition-colors">
-                Valuexpert
+                {siteMeta.companyName}
               </Link>
             </p>
 
