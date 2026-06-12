@@ -8,7 +8,7 @@ import { useGetMeQuery } from "../../../store/api/authApi";
 
 const steps = [
   { icon: <Share2 />, title: "Share a Requirement", desc: "Refer a founder, business owner, or professional who needs registration, compliance, tax, IP, or documentation help." },
-  { icon: <UserCheck />, title: "We Guide the Client", desc: "The Your Company Name team connects, confirms the requirement, explains documents, and shares the next steps." },
+  { icon: <UserCheck />, title: "We Guide the Client", desc: "The Valuexpert team connects, confirms the requirement, explains documents, and shares the next steps." },
   { icon: <Gift />, title: "Earn After Success", desc: "Rewards are processed after the referred client completes an eligible paid service." },
 ];
 
@@ -25,7 +25,7 @@ export default function ReferEarnPage() {
           <div className="vs-breadcrumb">
             <Link href="/">Home</Link><span className="sep">&gt;</span><span>Refer and Earn</span>
           </div>
-          <h1>Refer and Earn with Your Company Name</h1>
+          <h1>Refer and Earn with Valuexpert</h1>
           <p className="vs-hero-sub">Help another business get reliable professional support and earn when the referral becomes a successful client.</p>
         </div>
       </section>
@@ -47,10 +47,10 @@ export default function ReferEarnPage() {
       <section className="vs-section vs-section-alt">
         <div className="vs-container vx-static-grid">
           <div className="vs-page-content">
-            <h2>Best Referrals for Your Company Name</h2>
+            <h2>Best Referrals for Valuexpert</h2>
             <p>Refer startups, SMEs, brand owners, food businesses, exporters, NGOs, and companies that need professional help with registrations, licences, GST, income tax, trademark, compliance, or legal documents.</p>
             <h2>Reward Terms</h2>
-            <p>Referral rewards are confirmed after the referred person successfully completes an eligible paid service. Your Company Name may update the referral program based on service category, campaign, and operational rules.</p>
+            <p>Referral rewards are confirmed after the referred person successfully completes an eligible paid service. Valuexpert may update the referral program based on service category, campaign, and operational rules.</p>
           </div>
           <div className="vx-feature-list">
             {["Company Registration", "GST and Income Tax", "Trademark Registration", "FSSAI and Licences", "Annual Compliance", "Legal Documents"].map((item) => (
@@ -125,7 +125,7 @@ export default function ReferEarnPage() {
                 <button
                   onClick={() => {
                     const registerLink = `${window.location.origin}/register/user?ref=${myRefCode}`;
-                    const text = `Hey! I highly recommend Your Company Name for Company Registration, Tax, and Compliance. Use my link to sign up: ${registerLink}`;
+                    const text = `Hey! I highly recommend Valuexpert for Company Registration, Tax, and Compliance. Use my link to sign up: ${registerLink}`;
                     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, "_blank");
                   }}
                   style={{
@@ -146,9 +146,9 @@ export default function ReferEarnPage() {
                 <button
                   onClick={() => {
                     const registerLink = `${window.location.origin}/register/user?ref=${myRefCode}`;
-                    const subject = encodeURIComponent("Business Professional Support - Your Company Name");
+                    const subject = encodeURIComponent("Business Professional Support - Valuexpert");
                     const body = encodeURIComponent(
-                      `Hey,\n\nI highly recommend Your Company Name for Company Registration, Trademark filing, GST, Income Tax, and all professional business licences.\n\nUse my direct link to sign up and get started: ${registerLink}\n\nBest regards!`
+                      `Hey,\n\nI highly recommend Valuexpert for Company Registration, Trademark filing, GST, Income Tax, and all professional business licences.\n\nUse my direct link to sign up and get started: ${registerLink}\n\nBest regards!`
                     );
                     window.open(`https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}`, "_blank");
                   }}

@@ -3,15 +3,15 @@ import { Download, Mail, MessageSquare, Radio } from "lucide-react";
 import { siteMeta } from "../../../lib/navigation-data";
 
 export const metadata = {
-  title: "Media - Your Company Name",
-  description: "Media resources, announcements, and brand information for Your Company Name Consulting Pvt Ltd.",
+  title: "Media - Valuexpert",
+  description: "Media resources, announcements, and brand information for Valuexpert Consulting Pvt Ltd.",
 };
 
 const mediaItems = [
   {
     icon: <Radio />,
     title: "Brand Story",
-    copy: "Your Company Name helps startups, SMEs, and growing companies simplify legal, tax, registration, and compliance workflows.",
+    copy: "Valuexpert helps startups, SMEs, and growing companies simplify legal, tax, registration, and compliance workflows.",
   },
   {
     icon: <MessageSquare />,
@@ -21,7 +21,7 @@ const mediaItems = [
   {
     icon: <Download />,
     title: "Media Kit",
-    copy: "Use Your Company Name Consulting Pvt Ltd as the official company name and support@yourdomain.com for press coordination.",
+    copy: "Use Valuexpert Consulting Pvt Ltd as the official company name and support@yourdomain.com for press coordination.",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function MediaPage() {
             <Link href="/">Home</Link><span className="sep">&gt;</span><span>Media</span>
           </div>
           <h1>Media and Brand Resources</h1>
-          <p className="vs-hero-sub">Information for announcements, collaborations, and expert comments from Your Company Name.</p>
+          <p className="vs-hero-sub">Information for announcements, collaborations, and expert comments from Valuexpert.</p>
         </div>
       </section>
 

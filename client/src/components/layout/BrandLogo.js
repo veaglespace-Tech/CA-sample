@@ -9,7 +9,7 @@ export default function BrandLogo({
   width = 240,
   height = 72,
   priority = false,
-  alt = "Your Company Name logo",
+  alt = "Valuexpert logo",
 }) {
   return (
     <Link href={href} className={`${className} flex items-center`}>

@@ -25,7 +25,7 @@ const contactCards = [
     title: "Office", 
     value: siteMeta.companyName, 
     note: "Business consulting and online service support across India.",
-    href: "https://www.google.com/maps/place/Your Company Name+Consulting+LLP/@18.6101637,73.8176721,17z/data=!3m1!4b1!4m6!3m5!1s0x3bdd170bbb3afd21:0x36357b73a2636f91!8m2!3d18.6101586!4d73.820247!16s%2Fg%2F11pc9jtm0x?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+    href: "https://www.google.com/maps/place/Valuexpert+Consulting+LLP/@18.6101637,73.8176721,17z/data=!3m1!4b1!4m6!3m5!1s0x3bdd170bbb3afd21:0x36357b73a2636f91!8m2!3d18.6101586!4d73.820247!16s%2Fg%2F11pc9jtm0x?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
   },
   { 
     icon: <Clock size={20} className="text-primary" />, 
@@ -51,7 +51,7 @@ export default function ContactContent() {
             <Mail size={16} /> Contact Support
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-            Get in Touch with <br className="sm:hidden" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-600">Your Company Name</span>
+            Get in Touch with <br className="sm:hidden" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-600">Valuexpert</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 font-medium leading-relaxed animate-fade-in-up" style={{ animationDelay: "200ms" }}>
             Need help with online company registration, tax filing, or legal compliance? Send us an email or call between 10 AM and 7 PM. We are here to help.

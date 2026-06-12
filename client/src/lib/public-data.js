@@ -1,8 +1,8 @@
 export const siteMeta = {
-  name: "Your Company Name",
+  name: "Valuexpert",
   phone: "+91 00000 00000",
   email: "support@yourdomain.com",
-  address: "Your Company Name Consulting Pvt Ltd",
+  address: "Valuexpert Consulting Pvt Ltd",
 };
 
 export const primaryNav = [

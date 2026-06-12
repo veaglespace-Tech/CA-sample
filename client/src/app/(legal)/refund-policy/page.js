@@ -3,8 +3,8 @@ import Link from "next/link";
 import { RefreshCcw } from "lucide-react";
 
 export const metadata = {
-  title: "Refund Policy - Your Company Name",
-  description: "Read Your Company Name's refund policy for legal and compliance services.",
+  title: "Refund Policy - Valuexpert",
+  description: "Read Valuexpert's refund policy for legal and compliance services.",
 };
 
 export default function RefundPolicyPage() {
@@ -34,11 +34,11 @@ export default function RefundPolicyPage() {
             <div className="space-y-8 text-slate-600 font-medium leading-relaxed">
               <div>
                 <h2 className="font-heading text-2xl font-black text-slate-900 mb-4">1. General Policy</h2>
-                <p>At Your Company Name, we strive to deliver quality services. If you are not satisfied with our services, we offer a refund under the following conditions.</p>
+                <p>At Valuexpert, we strive to deliver quality services. If you are not satisfied with our services, we offer a refund under the following conditions.</p>
               </div>
               <div>
                 <h2 className="font-heading text-2xl font-black text-slate-900 mb-4">2. Eligibility for Refund</h2>
-                <p>Refunds are applicable if: (a) the service was not initiated within 7 working days of payment, (b) a duplicate payment was made by error, or (c) the service cannot be completed due to reasons attributable to Your Company Name.</p>
+                <p>Refunds are applicable if: (a) the service was not initiated within 7 working days of payment, (b) a duplicate payment was made by error, or (c) the service cannot be completed due to reasons attributable to Valuexpert.</p>
               </div>
               <div>
                 <h2 className="font-heading text-2xl font-black text-slate-900 mb-4">3. Non-Refundable Services</h2>

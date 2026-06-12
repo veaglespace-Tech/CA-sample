@@ -3,8 +3,8 @@ import AuthForm from "../../../../components/auth/AuthForm";
 import PublicOnlyRoute from "../../../../components/auth/PublicOnlyRoute";
 
 export const metadata = {
-  title: "Admin Login | Your Company Name",
-  description: "Administrative login for Your Company Name staff and super admins.",
+  title: "Admin Login | Valuexpert",
+  description: "Administrative login for Valuexpert staff and super admins.",
 };
 
 export default function AdminLoginPage() {

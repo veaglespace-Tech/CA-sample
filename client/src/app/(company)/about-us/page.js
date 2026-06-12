@@ -4,8 +4,8 @@ import { featuredServices, democaHighlights } from "../../../lib/public-page-dat
 import { siteMeta } from "../../../lib/navigation-data";
 
 export const metadata = {
-  title: "About Us - Your Company Name | Online Business Registration & Legal Services",
-  description: "Learn about Your Company Name Consulting Pvt Ltd, India's premier business consulting platform for online company registration, trademark filing, tax returns, and legal compliance services.",
+  title: "About Us - Valuexpert | Online Business Registration & Legal Services",
+  description: "Learn about Valuexpert Consulting Pvt Ltd, India's premier business consulting platform for online company registration, trademark filing, tax returns, and legal compliance services.",
 };
 
 const stats = [
@@ -29,7 +29,7 @@ const pillars = [
   {
     icon: <Shield />,
     title: "Legal Wings for Growth",
-    copy: "From incorporation to licences, filings, IP, and contracts, Your Company Name keeps the path practical and compliant.",
+    copy: "From incorporation to licences, filings, IP, and contracts, Valuexpert keeps the path practical and compliant.",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function AboutUsPage() {
             <Users size={16} /> Who We Are
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-600">Your Company Name</span>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-600">Valuexpert</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 font-medium leading-relaxed animate-fade-in-up" style={{ animationDelay: "200ms" }}>
             We offer legal wings to let your dreams soar higher.
@@ -77,7 +77,7 @@ export default function AboutUsPage() {
               <div>
                 <h2 className="font-heading text-3xl font-black text-slate-900 mb-4 tracking-tight">Who We Are</h2>
                 <p className="text-slate-600 font-medium leading-relaxed">
-                  Your Company Name is a leading online business registration platform and top CA firm that provides certified legal, tax, and compliance services to new businesses, SMEs, and startups across India. Over time, Your Company Name has grown into a one-stop solution for companies that want to securely set up business operations and manage ongoing compliance.
+                  Valuexpert is a leading online business registration platform and top CA firm that provides certified legal, tax, and compliance services to new businesses, SMEs, and startups across India. Over time, Valuexpert has grown into a one-stop solution for companies that want to securely set up business operations and manage ongoing compliance.
                 </p>
               </div>
               <div>
@@ -95,7 +95,7 @@ export default function AboutUsPage() {
             </div>
             
             <div className="bg-white p-8 rounded-[2rem] shadow-[0_8px_40px_rgb(0,0,0,0.06)] border border-slate-100">
-              <h3 className="font-heading text-xl font-bold text-slate-900 mb-6">Your Company Name Highlights</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900 mb-6">Valuexpert Highlights</h3>
               <div className="space-y-4">
                 {democaHighlights.map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
@@ -133,7 +133,7 @@ export default function AboutUsPage() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="inline-block rounded-full bg-white border border-slate-200 shadow-sm px-4 py-1.5 text-xs font-black uppercase tracking-widest text-primary mb-4">Popular Services</span>
             <h2 className="font-heading text-3xl md:text-4xl font-black mb-4 text-slate-900">Core Services We Help With</h2>
-            <p className="text-slate-600 font-medium text-lg">Popular Your Company Name services from the live platform, arranged in a cleaner format for faster scanning.</p>
+            <p className="text-slate-600 font-medium text-lg">Popular Valuexpert services from the live platform, arranged in a cleaner format for faster scanning.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {featuredServices.slice(0, 6).map((service, index) => (
@@ -155,7 +155,7 @@ export default function AboutUsPage() {
       {/* CTA Section */}
       <section className="relative py-16 lg:py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-black text-slate-900 mb-4">Start Your Business with Your Company Name</h2>
+          <h2 className="font-heading text-3xl md:text-4xl font-black text-slate-900 mb-4">Start Your Business with Valuexpert</h2>
           <p className="text-xl text-slate-600 font-medium mb-10">Call {siteMeta.phone} or email {siteMeta.email}. We would be delighted to speak.</p>
           <Link href="/talk-to-expert" className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-primary hover:bg-primary-600 rounded-full shadow-[0_4px_20px_rgb(59,130,246,0.4)] hover:shadow-[0_8px_30px_rgb(59,130,246,0.6)] transition-all duration-300 hover:-translate-y-1">
             Talk to an Expert

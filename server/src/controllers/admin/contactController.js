@@ -98,7 +98,7 @@ export async function replyToContact(req, res) {
 
     await sendEmail({
       to: email,
-      subject: subject || "Reply to your inquiry at Your Company Name",
+      subject: subject || "Reply to your inquiry at Valuexpert",
       html: `<p>${message.replace(/\n/g, '<br/>')}</p>`,
       attachments: attachments.length > 0 ? attachments : undefined
     });

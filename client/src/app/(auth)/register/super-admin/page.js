@@ -2,8 +2,8 @@ import AuthForm from "../../../../components/auth/AuthForm";
 import PublicOnlyRoute from "../../../../components/auth/PublicOnlyRoute";
 
 export const metadata = {
-  title: "Super Admin Registration | Your Company Name",
-  description: "Create a Your Company Name super admin account with your registration key.",
+  title: "Super Admin Registration | Valuexpert",
+  description: "Create a Valuexpert super admin account with your registration key.",
 };
 
 export default function SuperAdminRegisterPage() {

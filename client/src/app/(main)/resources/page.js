@@ -91,7 +91,7 @@ export default function ResourcesPage() {
                 <BookOpen className="h-8 w-8 text-slate-400" />
               </div>
               <h3 className="font-heading text-2xl font-bold text-slate-900 mb-2">Articles are being updated</h3>
-              <p className="text-slate-500 max-w-md mx-auto font-medium">Meanwhile, explore common regulatory topics from Your Company Name&apos;s live site.</p>
+              <p className="text-slate-500 max-w-md mx-auto font-medium">Meanwhile, explore common regulatory topics from Valuexpert&apos;s live site.</p>
             </div>
           )}
         </div>
@@ -127,7 +127,7 @@ export default function ResourcesPage() {
                   {item}
                 </h3>
                 <p className="relative z-10 text-sm font-medium text-slate-500 leading-relaxed flex-1">
-                  Speak with a Your Company Name advisor to understand applicability, documents, timeline, and next steps.
+                  Speak with a Valuexpert advisor to understand applicability, documents, timeline, and next steps.
                 </p>
                 <div className="relative z-10 mt-6 flex items-center gap-2 text-sm font-bold text-violet-600">
                   Ask an expert

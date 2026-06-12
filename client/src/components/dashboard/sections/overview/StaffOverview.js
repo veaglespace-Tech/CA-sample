@@ -145,7 +145,7 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
           <div className="max-w-3xl space-y-4 text-left">
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200/50 bg-emerald-50 px-3.5 py-1 text-[10px] font-black uppercase tracking-widest text-emerald-700">
               <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
-              Your Company Name Admin Control Center
+              Valuexpert Admin Control Center
             </span>
             <h1 className="text-4xl font-black leading-[0.95] tracking-tight text-slate-900 md:text-5xl lg:text-[3.7rem]">
               Hello, {user?.name?.split(" ")[0]}.

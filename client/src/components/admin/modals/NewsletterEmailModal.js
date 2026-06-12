@@ -4,8 +4,8 @@ import { useGetRepositoryQuery } from "../../../store/api/adminApi";
 import { useReplyToContactMutation } from "../../../store/api/contactApi"; // We can reuse this or create a new one.
 
 export default function NewsletterEmailModal({ subscriber, onClose }) {
-  const [subject, setSubject] = useState("Update from Your Company Name");
-  const [messageText, setMessageText] = useState("Hi,\n\nWe have some updates for you!\n\nBest,\nYour Company Name Team");
+  const [subject, setSubject] = useState("Update from Valuexpert");
+  const [messageText, setMessageText] = useState("Hi,\n\nWe have some updates for you!\n\nBest,\nValuexpert Team");
   const [selectedRepoDocId, setSelectedRepoDocId] = useState("");
   const [replyToContact, { isLoading: isSending }] = useReplyToContactMutation();
 

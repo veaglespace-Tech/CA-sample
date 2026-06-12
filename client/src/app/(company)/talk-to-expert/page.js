@@ -23,7 +23,7 @@ const LANGUAGES = ["English", "Hindi", "Tamil", "Telugu", "Marathi", "Bengali", 
 
 const TESTIMONIALS = [
   {
-    text: "The Your Company Name team helped me resolve my property dispute efficiently and professionally.",
+    text: "The Valuexpert team helped me resolve my property dispute efficiently and professionally.",
     name: "Kalpesh Salunke",
     verified: true,
   },
@@ -38,7 +38,7 @@ const TESTIMONIALS = [
     verified: true,
   },
   {
-    text: "As an entrepreneur, I value efficiency and clarity, and Your Company Name delivered both.",
+    text: "As an entrepreneur, I value efficiency and clarity, and Valuexpert delivered both.",
     name: "Rishabh Parihaar",
     verified: true,
   },
@@ -465,9 +465,9 @@ export default function TalkToExpertPage() {
               <p className="text-xs text-slate-500 font-medium">Send your requirement and our team will respond shortly.</p>
             </a>
             
-            <a href="https://www.google.com/maps/place/Your Company Name+Consulting+LLP" target="_blank" rel="noopener noreferrer" className="group bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 block">
+            <a href="https://www.google.com/maps/place/Valuexpert+Consulting+LLP" target="_blank" rel="noopener noreferrer" className="group bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 block">
               <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Office Address</h3>
-              <p className="text-sm font-black text-slate-800 mb-1">Your Company Name Consulting Pvt Ltd</p>
+              <p className="text-sm font-black text-slate-800 mb-1">Valuexpert Consulting Pvt Ltd</p>
               <p className="text-xs text-slate-500 font-medium">Business consulting & online service support across India.</p>
             </a>
             

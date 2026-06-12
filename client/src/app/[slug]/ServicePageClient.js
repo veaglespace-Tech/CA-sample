@@ -130,7 +130,7 @@ function buildGenericService(slug) {
     title,
     shortTitle: title,
     subtitle: `Get expert-led support for ${ title } with complete compliance and fast turnaround.`,
-    intro: `Your Company Name helps you seamlessly navigate eligibility, documents, timelines, and filing steps for ${ title } across India.`,
+    intro: `Valuexpert is your trusted partner for seamlessly navigating the complexities of ${title}. Our dedicated team ensures that every aspect of your application—from eligibility checks to document preparation and final filing—is handled with precision. Whether you are a startup or a large enterprise, we provide tailored, end-to-end solutions that guarantee regulatory compliance. With fast-track processing and transparent pricing, you can focus on growing your business while we manage statutory requirements. Trust Valuexpert to deliver reliable and expert-led services across India.`,
     category,
     price,
     oldPrice,
@@ -143,6 +143,13 @@ function buildGenericService(slug) {
     benefits,
     documents,
     process,
+    faqs: [
+      { q: `What is the step-by-step process for ${title}?`, a: `The process for ${title} begins with an initial consultation where our experts evaluate your specific requirements. We then gather the required paperwork, draft the necessary applications, and file them directly with the relevant government authorities on your behalf.` },
+      { q: `What documents do I need to provide for ${title}?`, a: `While requirements vary, you typically need basic identity proofs (PAN, Aadhaar), address proofs, and your business registration details. Once you start the process for ${title}, our team will provide a customized, exact document checklist.` },
+      { q: `How much time does it take to complete ${title}?`, a: `The timeline for ${title} depends heavily on government processing speeds and how quickly you can provide the required documents. However, Valuexpert guarantees fast-track preparation and filing to ensure the quickest possible completion.` },
+      { q: `Can I complete the ${title} procedure entirely online?`, a: `Yes! Valuexpert offers a 100% digital and paperless process for ${title}. You can securely upload your documents to our portal, and our experts will handle all the regulatory filings without you needing to visit any offices.` },
+      { q: `Why should I choose Valuexpert for ${title}?`, a: `Choosing Valuexpert for ${title} means you get transparent pricing with no hidden charges, support from dedicated legal professionals, and guaranteed compliance. We take care of all the legalities so you can focus entirely on running your business.` }
+    ]
   };
 }
 
@@ -253,7 +260,7 @@ function ServiceTabs() {
                     : "text-slate-500 hover:bg-indigo-50 hover:text-indigo-600"
                 }`}
               >
-                {tab.label === "Why Your Company Name?" ? "Why Us?" : tab.label}
+                {tab.label === "Why Valuexpert?" ? "Why Us?" : tab.label}
               </a>
             );
           })}
@@ -277,7 +284,7 @@ function TestimonialsSection({ slug }) {
 
   // Fallback static reviews if nothing in DB yet
   const fallback = [
-    { name: "Rahul D.", text: "Your Company Name made my company registration so smooth. Highly recommended!", rating: 5, company: "Entrepreneur", location: "Mumbai" },
+    { name: "Rahul D.", text: "Valuexpert made my company registration so smooth. Highly recommended!", rating: 5, company: "Entrepreneur", location: "Mumbai" },
     { name: "Sneha M.", text: "The GST registration was done in 2 days. Excellent CA support.", rating: 5, company: "CA Firm", location: "Pune" },
     { name: "Amit K.", text: "Trademark registration was always confusing to me, but they simplified it.", rating: 5, company: "Startup Founder", location: "Bangalore" },
   ];
@@ -549,25 +556,52 @@ export default function ServicePageClient({ slug }) {
             </article>
 
             <article id="eligibility" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-xl font-black text-slate-800 mb-4 border-b border-slate-100 pb-3">Eligibility</h2>
-              <p className="text-slate-600 text-[0.95rem] leading-relaxed mb-6">
-                You may need this service when you are starting a business, regularising an existing business, expanding operations, handling filings, or responding to a compliance requirement.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                {[ "Businesses", "Professionals", "Startups", "Existing firms" ].map((item) => (
-                  <div key={item} className="flex items-center gap-2.5 bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
-                    <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
-                    <span className="text-sm font-bold text-slate-700">{item}</span>
+              <h2 className="text-xl font-black text-slate-800 mb-4 border-b border-slate-100 pb-3">Eligibility & Requirements</h2>
+              {service.eligibility ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {service.eligibility.map((item, i) => (
+                    <div key={i} className="flex items-start gap-3 bg-slate-50 rounded-xl p-4 border border-slate-100">
+                      <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={18} />
+                      <span className="text-sm font-medium text-slate-700 leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <>
+                  <p className="text-slate-600 text-[0.95rem] leading-relaxed mb-6">
+                    You may need this service when you are starting a business, regularising an existing business, expanding operations, handling filings, or responding to a compliance requirement.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                    {[ "Businesses", "Professionals", "Startups", "Existing firms" ].map((item) => (
+                      <div key={item} className="flex items-center gap-2.5 bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                        <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
+                        <span className="text-sm font-bold text-slate-700">{item}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </>
+              )}
             </article>
 
             <article id="types" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-800 mb-4 border-b border-slate-100 pb-3">Types and Coverage</h2>
-              <p className="text-slate-600 text-[0.95rem] leading-relaxed">
-                Based on your requirement, experts can assist with fresh applications, amendments, documentation, renewals, notices, and ongoing compliance support.
-              </p>
+              {service.types ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {service.types.map((type, i) => (
+                    <div key={i} className="bg-slate-50 rounded-xl p-4 border border-slate-100 flex flex-col">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">{i + 1}</div>
+                        <h3 className="font-bold text-slate-800">{type.title}</h3>
+                      </div>
+                      <p className="text-sm text-slate-600 leading-relaxed">{type.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-slate-600 text-[0.95rem] leading-relaxed">
+                  Based on your requirement, experts can assist with fresh applications, amendments, documentation, renewals, notices, and ongoing compliance support.
+                </p>
+              )}
             </article>
 
             <article id="benefits" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
@@ -588,7 +622,7 @@ export default function ServicePageClient({ slug }) {
             </article>
 
             <article id="fees" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-xl font-black text-slate-800 mb-6 border-b border-slate-100 pb-3">Fees & Timeline</h2>
+              <h2 className="text-xl font-black text-slate-800 mb-6 border-b border-slate-100 pb-3">Fees</h2>
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-100">
                   <span className="text-sm font-semibold text-slate-600">Professional fee starts at</span>
@@ -598,6 +632,12 @@ export default function ServicePageClient({ slug }) {
                   <span className="text-sm font-semibold text-slate-600">Government fees</span>
                   <strong className="text-base font-bold text-slate-700">{service.govtFees}</strong>
                 </div>
+              </div>
+            </article>
+
+            <article id="timeline" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <h2 className="text-xl font-black text-slate-800 mb-6 border-b border-slate-100 pb-3">Timeline</h2>
+              <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between bg-blue-50/50 p-4 rounded-xl border border-blue-100/50">
                   <span className="text-sm font-semibold text-primary">Estimated completion</span>
                   <strong className="text-base font-bold text-primary">{service.timeframe}</strong>
@@ -635,30 +675,41 @@ export default function ServicePageClient({ slug }) {
             </article>
 
             <article id="why-democa" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-xl font-black text-slate-800 mb-6 border-b border-slate-100 pb-3">Why Your Company Name?</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-                  <Shield className="mx-auto mb-3 text-primary" size={24} />
-                  <span className="text-xs font-bold text-slate-700">Verified<br/>Professionals</span>
+              <h2 className="text-xl font-black text-slate-800 mb-6 border-b border-slate-100 pb-3">Why Us?</h2>
+              {service.whyUs ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                  {service.whyUs.map((reason, i) => (
+                    <div key={i} className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col items-center justify-center">
+                      <Shield className="mx-auto mb-3 text-primary" size={24} />
+                      <span className="text-sm font-bold text-slate-700">{reason}</span>
+                    </div>
+                  ))}
                 </div>
-                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-                  <Clock className="mx-auto mb-3 text-primary" size={24} />
-                  <span className="text-xs font-bold text-slate-700">Clear<br/>Timelines</span>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                    <Shield className="mx-auto mb-3 text-primary" size={24} />
+                    <span className="text-xs font-bold text-slate-700">Verified<br/>Professionals</span>
+                  </div>
+                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                    <Clock className="mx-auto mb-3 text-primary" size={24} />
+                    <span className="text-xs font-bold text-slate-700">Clear<br/>Timelines</span>
+                  </div>
+                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                    <Award className="mx-auto mb-3 text-primary" size={24} />
+                    <span className="text-xs font-bold text-slate-700">Transparent<br/>Pricing</span>
+                  </div>
+                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                    <FileText className="mx-auto mb-3 text-primary" size={24} />
+                    <span className="text-xs font-bold text-slate-700">Document-led<br/>Process</span>
+                  </div>
                 </div>
-                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-                  <Award className="mx-auto mb-3 text-primary" size={24} />
-                  <span className="text-xs font-bold text-slate-700">Transparent<br/>Pricing</span>
-                </div>
-                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-                  <FileText className="mx-auto mb-3 text-primary" size={24} />
-                  <span className="text-xs font-bold text-slate-700">Document-led<br/>Process</span>
-                </div>
-              </div>
+              )}
             </article>
 
             <article id="faqs" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-800 mb-6 border-b border-slate-100 pb-3">Frequently Asked Questions</h2>
-              <FAQ faqs={standardFaqs} />
+              <FAQ faqs={service.faqs || standardFaqs} />
             </article>
           </div>
           </div>

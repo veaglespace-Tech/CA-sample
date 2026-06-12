@@ -31,7 +31,7 @@ export async function generateMetadata({ params }) {
   const title = titleFromSlug(slug);
   return {
     title: `${title} | Demo CA Tools`,
-    description: `Free ${title} tool by Your Company Name.`,
+    description: `Free ${title} tool by Valuexpert.`,
   };
 }
 

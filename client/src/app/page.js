@@ -222,7 +222,7 @@ const processSteps = [
   },
   {
     title: "Expert Callback",
-    desc: "A Your Company Name professional confirms eligibility, documents, and quote.",
+    desc: "A Valuexpert professional confirms eligibility, documents, and quote.",
     icon: <Phone />,
     num: "03",
     color: "emerald",
@@ -361,7 +361,7 @@ export default function Home() {
           <div className="hidden lg:flex flex-1 items-center justify-center animate-fade-in-up" style={{ animationDelay: "400ms" }}>
             <img
               src={localAssets.heroIllustration}
-              alt="Your Company Name - Online Company Registration, GST & Legal Services Dashboard India"
+              alt="Valuexpert - Online Company Registration, GST & Legal Services Dashboard India"
               className="w-full max-w-2xl object-contain"
               loading="lazy"
               decoding="async"

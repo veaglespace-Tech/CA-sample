@@ -31,7 +31,7 @@ export function getPaymentSuccessEmailHtml({
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
       <h2 style="color: #4f46e5;">Payment Received!</h2>
       <p>Hi ${userName},</p>
-      <p>Thank you for choosing Your Company Name. Your payment for <strong>${serviceTitle}</strong> has been successfully processed and your registration is now complete.</p>
+      <p>Thank you for choosing Valuexpert. Your payment for <strong>${serviceTitle}</strong> has been successfully processed and your registration is now complete.</p>
       <p>You can track the progress of this service, view updates, and access your invoice directly from your secure dashboard.</p>
       
       ${loginBox}

@@ -171,13 +171,13 @@ function uniqueLinks(links) {
 }
 
 export const siteMeta = {
-  name: "Your Company Name",
+  name: "Valuexpert",
   tagline: "Legal wings to let your dreams soar higher.",
   phone: "+91 00000 00000",
   whatsapp: "+910000000000",
   email: "support@yourdomain.com",
   address: "Your Company Address, City, State - 000000",
-  companyName: "Your Company Name Pvt Ltd",
+  companyName: "Valuexpert Pvt Ltd",
   cin: "",
   gstin: "",
   developer: "Your Developer Name",

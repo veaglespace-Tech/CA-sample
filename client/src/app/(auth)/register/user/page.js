@@ -3,8 +3,8 @@ import PublicOnlyRoute from "../../../../components/auth/PublicOnlyRoute";
 import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 
 export const metadata = {
-  title: "User Register | Your Company Name",
-  description: "Create a Your Company Name user account.",
+  title: "User Register | Valuexpert",
+  description: "Create a Valuexpert user account.",
 };
 
 export default function UserRegisterPage() {

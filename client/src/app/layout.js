@@ -21,11 +21,11 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: "Your Company Name — Online Company Registration, GST & Legal Services in India",
-    template: "%s | Your Company Name",
+    default: "Valuexpert — Online Company Registration, GST & Legal Services in India",
+    template: "%s | Valuexpert",
   },
   description:
-    "Your Company Name is India's premier platform for online company registration, GST filing, trademark registration, income tax returns, and top-tier legal and CA consultations. Trusted by 15,000+ growing businesses.",
+    "Valuexpert is India's premier platform for online company registration, GST filing, trademark registration, income tax returns, and top-tier legal and CA consultations. Trusted by 15,000+ growing businesses.",
   keywords: [
     "company registration India",
     "online company registration",
@@ -47,15 +47,15 @@ export const metadata = {
     "legal consulting for SMEs",
     "compliance services India"
   ],
-  authors: [{ name: "Your Company Name Consulting Pvt Ltd" }],
-  creator: "Your Company Name Consulting Pvt Ltd",
+  authors: [{ name: "Valuexpert Consulting Pvt Ltd" }],
+  creator: "Valuexpert Consulting Pvt Ltd",
   metadataBase: new URL("https://yourdomain.com"),
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://yourdomain.com",
-    siteName: "Your Company Name",
-    title: "Your Company Name — Business Registration, GST & Legal Services in India",
+    siteName: "Valuexpert",
+    title: "Valuexpert — Business Registration, GST & Legal Services in India",
     description:
       "Incorporate your company, file GST returns, register trademarks, and consult legal experts—all on one modern platform. Trusted by 15,000+ founders.",
     images: [
@@ -63,13 +63,13 @@ export const metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Your Company Name — Online Company Registration Dashboard India",
+        alt: "Valuexpert — Online Company Registration Dashboard India",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Company Name — Online Business Registration & Legal Services in India",
+    title: "Valuexpert — Online Business Registration & Legal Services in India",
     description:
       "Online Company registration, GST, trademark & more. Expert CA & legal services for modern Indian businesses.",
     images: ["/og-image.png"],
