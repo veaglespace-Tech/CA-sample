@@ -122,14 +122,14 @@ export default function ClientChatbot() {
       {/* Chat Window */}
       {open && (
         <section
-          className="mb-4 mr-4 sm:mr-8 flex h-[min(600px,calc(100vh-8rem))] w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-[2rem] border border-indigo-100 bg-white/95 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(79,70,229,0.2)] animate-in slide-in-from-bottom-8 fade-in duration-500"
+          className="mb-4 mr-4 sm:mr-8 flex h-[min(600px,calc(100vh-8rem))] w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-[2rem] border border-gold/20 bg-white/95 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(79,70,229,0.2)] animate-in slide-in-from-bottom-8 fade-in duration-500"
           aria-label="Veagle Space Technology AI Assistant"
         >
           {/* Header */}
           <div className="relative flex items-center justify-between gap-3 overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-700 to-blue-800 px-5 py-4 text-white">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_0%,rgba(255,255,255,0.1),transparent_50%)]"></div>
             <div className="relative z-10 flex min-w-0 items-center gap-3">
-              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/30 backdrop-blur-md shadow-inner">
+              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-white/15 ring-1 ring-white/30 backdrop-blur-md shadow-inner">
                 <Sparkles size={18} className="text-blue-100" />
                 <div className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full border-2 border-indigo-700 bg-green-400"></div>
               </div>
@@ -155,12 +155,12 @@ export default function ClientChatbot() {
             {messages.map((message) => (
               <div key={message.id} className={`flex ${message.from === "user" ? "justify-end" : "justify-start"} animate-in fade-in slide-in-from-bottom-2`}>
                 {message.from === "bot" && (
-                  <div className="mr-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 mt-1">
+                  <div className="mr-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-gold mt-1">
                     <Bot size={14} />
                   </div>
                 )}
                 <div
-                  className={`max-w-[85%] rounded-2xl px-4 py-3 text-[13px] leading-relaxed shadow-sm ${
+                  className={`max-w-[85%] rounded-none px-4 py-3 text-[13px] leading-relaxed shadow-sm ${
                     message.from === "user"
                       ? "rounded-tr-sm bg-gradient-to-br from-indigo-600 to-blue-600 text-white font-medium shadow-indigo-600/20"
                       : "rounded-tl-sm border border-slate-100 bg-white text-slate-700"
@@ -174,11 +174,11 @@ export default function ClientChatbot() {
                          <Link
                           key={link.href}
                           href={link.href}
-                          className="group inline-flex items-center justify-between gap-2 rounded-xl border border-indigo-50 bg-indigo-50/50 px-3 py-2.5 text-[11px] font-black text-indigo-700 transition-all hover:border-indigo-200 hover:bg-indigo-100 hover:shadow-sm"
+                          className="group inline-flex items-center justify-between gap-2 rounded-sm border border-indigo-50 bg-gold/10/50 px-3 py-2.5 text-[11px] font-black text-gold transition-all hover:border-gold/30 hover:bg-indigo-100 hover:shadow-sm"
                           onClick={() => setOpen(false)}
                         >
                           <span className="truncate">{link.label}</span>
-                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white text-indigo-500 shadow-sm transition-transform group-hover:translate-x-0.5">
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white text-gold shadow-sm transition-transform group-hover:translate-x-0.5">
                             <ChevronRight size={12} />
                           </span>
                         </Link>
@@ -192,10 +192,10 @@ export default function ClientChatbot() {
             {/* Typing Indicator */}
             {isTyping && (
               <div className="flex justify-start animate-in fade-in">
-                <div className="mr-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 mt-1">
+                <div className="mr-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-gold mt-1">
                   <Bot size={14} />
                 </div>
-                <div className="rounded-2xl rounded-tl-sm border border-slate-100 bg-white px-4 py-3 shadow-sm flex items-center gap-1.5 h-[42px]">
+                <div className="rounded-none rounded-tl-sm border border-slate-100 bg-white px-4 py-3 shadow-sm flex items-center gap-1.5 h-[42px] transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                   <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: '0ms' }}></span>
                   <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: '150ms' }}></span>
                   <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: '300ms' }}></span>
@@ -207,7 +207,7 @@ export default function ClientChatbot() {
           </div>
 
           {/* Input Area */}
-          <div className="border-t border-slate-100 bg-white/80 backdrop-blur-md p-4">
+          <div className="border-t border-slate-100 bg-white/80 backdrop-blur-md p-4 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
             {/* Quick Suggestions */}
             {!isTyping && (
               <div className="mb-3 flex flex-wrap gap-1.5">
@@ -216,7 +216,7 @@ export default function ClientChatbot() {
                     key={item.id}
                     type="button"
                     onClick={() => askAction(item.id)}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-indigo-100 bg-white px-3 py-1.5 text-[11px] font-bold text-indigo-700 shadow-sm transition-all hover:border-indigo-300 hover:bg-indigo-50 hover:shadow-md"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-gold/20 bg-white px-3 py-1.5 text-[11px] font-bold text-gold shadow-sm transition-all hover:border-indigo-300 hover:bg-gold/10 hover:shadow-md"
                   >
                     {item.label}
                   </button>
@@ -224,17 +224,17 @@ export default function ClientChatbot() {
               </div>
             )}
 
-            <form onSubmit={submitMessage} className="relative flex items-center">
+            <form onSubmit={submitMessage} className="relative flex items-center transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30">
               <input
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask me anything..."
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3.5 pl-4 pr-12 text-[13px] font-semibold text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-300 focus:bg-white focus:ring-4 focus:ring-indigo-100/50"
+                className="w-full rounded-none border border-slate-200 bg-slate-50 py-3.5 pl-4 pr-12 text-[13px] font-semibold text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-300 focus:bg-white focus:ring-4 focus:ring-indigo-100/50"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isTyping}
-                className="absolute right-1.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-600/20 transition-all hover:bg-indigo-700 hover:scale-105 disabled:opacity-50 disabled:pointer-events-none"
+                className="absolute right-1.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-sm bg-gold text-white shadow-md shadow-indigo-600/20 transition-all hover:bg-gold hover:scale-105 disabled:opacity-50 disabled:pointer-events-none"
                 aria-label="Send message"
               >
                 <Send size={15} className="ml-0.5" />

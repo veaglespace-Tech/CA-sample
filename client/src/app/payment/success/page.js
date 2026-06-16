@@ -28,11 +28,11 @@ function PaymentSuccess() {
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 flex items-center justify-center p-4">
       <div className="max-w-lg w-full">
         {/* Success Card */}
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-emerald-100">
+        <div className="bg-white rounded-none shadow-2xl overflow-hidden border border-emerald-100">
           {/* Top decoration */}
           <div className="h-2 bg-gradient-to-r from-emerald-400 to-teal-500" />
 
-          <div className="p-10 text-center">
+          <div className="p-4 md:p-10 text-center">
             {/* Icon */}
             <div className="flex justify-center mb-6">
               <div className="relative">
@@ -49,7 +49,7 @@ function PaymentSuccess() {
             </p>
 
             {txnid && (
-              <div className="mt-4 p-3 bg-gray-50 rounded-xl border border-gray-100">
+              <div className="mt-4 p-3 bg-gray-50 rounded-sm border border-gray-100">
                 <p className="text-xs text-gray-400 font-medium">Transaction Reference</p>
                 <p className="text-sm font-mono font-bold text-gray-700 mt-0.5">{txnid}</p>
               </div>
@@ -67,13 +67,13 @@ function PaymentSuccess() {
             <div className="flex flex-col sm:flex-row gap-3 mt-8">
               <Link
                 href="/dashboard/user"
-                className="flex-1 btn btn-primary rounded-2xl h-12 font-bold text-sm gap-2"
+                className="flex-1 btn btn-primary rounded-none h-12 font-bold text-sm gap-2"
               >
                 Go to Dashboard <ArrowRight size={16} />
               </Link>
               <Link
                 href="/"
-                className="flex-1 btn btn-ghost rounded-2xl h-12 font-bold text-sm border border-gray-200"
+                className="flex-1 btn btn-ghost rounded-none h-12 font-bold text-sm border border-gray-200"
               >
                 Back to Home
               </Link>
@@ -98,7 +98,7 @@ export default function PaymentSuccessPage() {
     <Suspense
       fallback={
         <div className="flex h-screen w-full items-center justify-center">
-          <span className="loading loading-spinner loading-lg text-primary"></span>
+          <span className="loading loading-spinner loading-lg text-gold"></span>
         </div>
       }
     >

@@ -41,13 +41,13 @@ export default function NewsletterForm() {
 
   return (
     <div className="w-full lg:max-w-md flex flex-col items-center text-center lg:items-start lg:text-left">
-      <h4 className="mb-2 text-lg font-bold tracking-tight text-slate-900">Get GST, Tax & Compliance Updates Monthly</h4>
-      <p className="mb-5 text-sm font-medium leading-relaxed text-slate-500">
+      <h4 className="mb-2 text-lg font-bold tracking-tight text-white">Get GST, Tax & Compliance Updates Monthly</h4>
+      <p className="mb-5 text-sm font-medium leading-relaxed text-white/70">
         Get the latest legal &amp; tax updates delivered to your inbox.
       </p>
       
       <form 
-        className="flex w-full flex-col gap-2 rounded-xl bg-white border border-slate-200 p-1.5 shadow-sm focus-within:border-indigo-500 focus-within:ring-4 focus-within:ring-indigo-500/10 transition-all duration-300 sm:flex-row relative" 
+        className="flex w-full flex-col gap-2 rounded-none bg-navy-light border border-white/10 p-1.5 shadow-sm focus-within:border-gold focus-within:ring-1 focus-within:ring-gold transition-all duration-300 sm:flex-row relative transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" 
         onSubmit={handleSubmit}
       >
         <input
@@ -59,13 +59,13 @@ export default function NewsletterForm() {
             if (status !== "idle") setStatus("idle");
           }}
           disabled={status === "loading" || status === "success"}
-          className="min-w-0 flex-1 bg-transparent px-4 py-2.5 text-sm font-medium text-slate-900 placeholder:text-slate-400 outline-none border-none disabled:opacity-50"
+          className="min-w-0 flex-1 bg-transparent px-4 py-2.5 text-sm font-medium text-white placeholder:text-white/40 outline-none border-none disabled:opacity-50"
           required
         />
         <button
           type="submit"
           disabled={status === "loading" || status === "success"}
-          className="rounded-lg bg-indigo-600 px-5 py-2.5 font-semibold text-white shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:bg-indigo-700 hover:-translate-y-0.5 disabled:opacity-50 disabled:bg-indigo-600 flex items-center justify-center shrink-0 border border-transparent"
+          className="rounded-sm bg-gold px-5 py-2.5 font-semibold text-white shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:bg-gold hover:-translate-y-0.5 disabled:opacity-50 disabled:bg-gold flex items-center justify-center shrink-0 border border-transparent"
           aria-label="Subscribe"
         >
           {status === "loading" ? (

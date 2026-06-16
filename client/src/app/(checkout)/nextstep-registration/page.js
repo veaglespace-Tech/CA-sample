@@ -171,7 +171,7 @@ function NextStepForm() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-14 px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="max-w-4xl mx-auto py-8 md:py-14 px-4 sm:px-6 lg:px-8 relative z-10">
 
       <div className="mb-10 text-center">
         <ul className="steps w-full max-w-md mx-auto">
@@ -188,7 +188,7 @@ function NextStepForm() {
       </div>
 
       {/* ─── Glassmorphism / Sleek Form Card ─── */}
-      <div className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden transition-all duration-300">
+      <div className="bg-white rounded-none shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden transition-all duration-300">
 
         {/* Card Premium Header */}
         <div className="bg-gradient-to-r from-[#061A34] to-[#1e3a8a] px-8 py-7 text-white flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
@@ -200,7 +200,7 @@ function NextStepForm() {
               <p className="text-slate-200 text-xs font-medium mt-1">Provide proposed business details to quickly register.</p>
            </div>
            {planName && (
-             <div className="bg-white/10 border border-white/15 rounded-2xl px-5 py-3 text-left shrink-0 min-w-[180px]">
+             <div className="bg-white/10 border border-white/15 rounded-none px-5 py-3 text-left shrink-0 min-w-[180px]">
                <span className="block text-[9px] font-black uppercase tracking-widest text-white/60 mb-1">Selected Plan</span>
                <span className="block text-sm font-black text-white">{planName}</span>
                {planPrice && (
@@ -210,8 +210,8 @@ function NextStepForm() {
                )}
              </div>
            )}
-           <div className="shrink-0 flex items-center gap-2.5 bg-white/5 border border-white/10 px-4 py-2.5 rounded-2xl">
-             <Shield size={24} className="text-primary-content" />
+           <div className="shrink-0 flex items-center gap-2.5 bg-white/5 border border-white/10 px-4 py-2.5 rounded-none transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+             <Shield size={24} className="text-gold-content" />
              <div className="text-left">
                <div className="text-xs font-black leading-none text-white">ISO 27001</div>
                <span className="text-[9px] font-bold text-slate-300">Data Encrypted</span>
@@ -221,10 +221,10 @@ function NextStepForm() {
 
         {/* Card Form Body */}
         <div className="p-8 sm:p-10 md:p-12">
-          <form onSubmit={handleSubmit} className="space-y-7" noValidate>
+          <form onSubmit={handleSubmit} className="space-y-7 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" noValidate>
 
             {/* Grid 1: City & State */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-6">
               <div className="form-control w-full">
                 <label className="label pt-0 pb-1.5"><span className="label-text font-black text-slate-700 text-xs uppercase tracking-wider">City / Location <span className="text-rose-500">*</span></span></label>
                 <div className="relative">
@@ -234,7 +234,7 @@ function NextStepForm() {
                   <input
                     type="text"
                     placeholder="E.g. Mumbai"
-                    className={`input input-bordered w-full pl-11 rounded-2xl bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:border-primary focus:bg-white focus:shadow-md transition-all duration-300 ${errors.city ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("city", form.city) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+                    className={`input input-bordered w-full pl-11 rounded-none bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:border-primary focus:bg-white focus:shadow-md transition-all duration-300 ${errors.city ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("city", form.city) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
                     value={form.city}
                     onChange={(e) => handleFieldChange("city", e.target.value)}
                     maxLength={50}
@@ -259,7 +259,7 @@ function NextStepForm() {
             </div>
 
             {/* Grid 2: PIN Code & Nature of Business */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-6">
               <div className="form-control w-full">
                 <label className="label pt-0 pb-1.5"><span className="label-text font-black text-slate-700 text-xs uppercase tracking-wider">PIN Code <span className="text-rose-500">*</span></span></label>
                 <div className="relative">
@@ -269,7 +269,7 @@ function NextStepForm() {
                   <input
                     type="text"
                     placeholder="E.g. 400001"
-                    className={`input input-bordered w-full pl-11 rounded-2xl bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:border-primary focus:bg-white focus:shadow-md transition-all duration-300 ${errors.pinCode ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("pinCode", form.pinCode) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+                    className={`input input-bordered w-full pl-11 rounded-none bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:border-primary focus:bg-white focus:shadow-md transition-all duration-300 ${errors.pinCode ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("pinCode", form.pinCode) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
                     value={form.pinCode}
                     onChange={(e) => handleFieldChange("pinCode", e.target.value)}
                     maxLength={6}
@@ -304,7 +304,7 @@ function NextStepForm() {
                 <input
                   type="text"
                   placeholder="E.g. 101, Business Park, Andheri East"
-                  className={`input input-bordered w-full pl-11 rounded-2xl bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:border-primary focus:bg-white focus:shadow-md transition-all duration-300 ${errors.address ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("address", form.address) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+                  className={`input input-bordered w-full pl-11 rounded-none bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:border-primary focus:bg-white focus:shadow-md transition-all duration-300 ${errors.address ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("address", form.address) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
                   value={form.address}
                   onChange={(e) => handleFieldChange("address", e.target.value)}
                   maxLength={300}
@@ -323,7 +323,7 @@ function NextStepForm() {
                 <input
                   type="text"
                   placeholder="E.g. Veagle Space Technology Pvt. Ltd. Pvt Ltd"
-                  className={`input input-bordered w-full pl-11 rounded-2xl bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:border-primary focus:bg-white focus:shadow-md transition-all duration-300 ${errors.businessName ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("businessName", form.businessName) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+                  className={`input input-bordered w-full pl-11 rounded-none bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:border-primary focus:bg-white focus:shadow-md transition-all duration-300 ${errors.businessName ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("businessName", form.businessName) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
                   value={form.businessName}
                   onChange={(e) => handleFieldChange("businessName", e.target.value)}
                   maxLength={100}
@@ -341,7 +341,7 @@ function NextStepForm() {
                 </span>
                 <textarea
                   placeholder="Tell us more about your business needs..."
-                  className={`textarea textarea-bordered w-full pl-11 rounded-2xl bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:textarea-primary focus:bg-white focus:shadow-md transition-all duration-300 min-h-[120px] ${errors.message ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("message", form.message) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+                  className={`textarea textarea-bordered w-full pl-11 rounded-none bg-slate-50/50 text-sm font-semibold text-slate-900 border-slate-200 focus:textarea-primary focus:bg-white focus:shadow-md transition-all duration-300 min-h-[120px] ${errors.message ? "border-rose-500 bg-rose-50/10 focus:border-rose-500" : getFieldSuccess("message", form.message) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
                   value={form.message}
                   onChange={(e) => handleFieldChange("message", e.target.value)}
                   maxLength={1000}
@@ -355,7 +355,7 @@ function NextStepForm() {
             {/* CTA Button */}
             <button
               type="submit"
-              className="btn btn-primary btn-block rounded-2xl h-14 text-base font-black gap-2 shadow-lg shadow-primary/25 bg-gradient-to-r from-primary to-indigo-600 border-none hover:from-primary hover:to-indigo-700 active:scale-98 transition-all duration-300 mt-4 group"
+              className="btn btn-primary btn-block rounded-none h-14 text-base font-black gap-2 shadow-lg shadow-primary/25 bg-gradient-to-r from-primary to-indigo-600 border-none hover:from-primary hover:to-indigo-700 active:scale-98 transition-all duration-300 mt-4 group"
               disabled={loading}
             >
               {loading ? (
@@ -384,12 +384,12 @@ export default function NextStepRegistrationPage() {
   return (
     <div className="bg-slate-50/60 min-h-screen relative overflow-hidden">
       {/* Dynamic Background Blur Accents */}
-      <div className="absolute top-0 right-0 w-[40vw] h-[40vw] rounded-full bg-indigo-50/30 blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] rounded-full bg-blue-50/30 blur-3xl -z-10" />
+      <div className="absolute top-0 right-0 w-[40vw] h-[40vw] rounded-full bg-gold/10/30 blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] rounded-full bg-gold/10/30 blur-3xl -z-10" />
 
       <Suspense fallback={
         <div className="flex h-screen w-full items-center justify-center bg-white">
-          <span className="loading loading-spinner loading-lg text-primary"></span>
+          <span className="loading loading-spinner loading-lg text-gold"></span>
         </div>
       }>
         <NextStepForm />

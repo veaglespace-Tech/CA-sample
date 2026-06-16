@@ -201,7 +201,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
     }
     if (s === "IN_PROGRESS" || s === "QUALIFIED") {
       return (
-        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200/40">
+        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-gold/10 text-gold border border-gold/30/40">
           Active
         </span>
       );
@@ -342,11 +342,11 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
     const regs = currentItem.registrations || [];
     return (
       <dialog className="modal modal-open">
-        <div className="modal-box w-11/12 max-w-4xl rounded-[2rem] p-0 overflow-hidden bg-slate-50 shadow-2xl border border-slate-100 flex flex-col h-[85vh]">
+        <div className="modal-box w-11/12 max-w-4xl rounded-[2rem] p-0 overflow-hidden bg-navy-light shadow-2xl border border-slate-800 flex flex-col h-[85vh] transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
           {/* Header */}
-          <div className="bg-indigo-600 px-6 py-5 text-white flex justify-between items-center shrink-0">
+          <div className="bg-gold px-6 py-5 text-white flex justify-between items-center shrink-0">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-indigo-500/50 rounded-xl text-indigo-100">
+              <div className="p-2.5 bg-gold/50 rounded-sm text-indigo-100">
                 <Calendar size={20} />
               </div>
               <div>
@@ -358,18 +358,18 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
           </div>
 
           {/* Content */}
-          <div className="p-6 overflow-y-auto flex-1 bg-slate-50">
+          <div className="p-6 overflow-y-auto flex-1 bg-navy-light">
             {selectedRegForMsg ? (
               <div className="space-y-6">
                 <button 
                   onClick={() => setSelectedRegForMsg(null)} 
-                  className="btn btn-sm btn-ghost gap-2 text-slate-500 hover:text-slate-800"
+                  className="btn btn-sm btn-ghost gap-2 text-slate-400 hover:text-white"
                 >
                   ← Back to Registrations
                 </button>
-                <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
+                <div className="bg-gold/10 border border-gold/20 rounded-none p-5">
                   <h4 className="font-black text-indigo-900 text-lg">Send Event Materials & Message</h4>
-                  <p className="text-sm font-semibold text-indigo-700/70 mt-1">
+                  <p className="text-sm font-semibold text-gold/70 mt-1">
                     To: {selectedRegForMsg.name} ({selectedRegForMsg.email})
                   </p>
                 </div>
@@ -385,11 +385,11 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
                 />
               </div>
             ) : regs.length === 0 ? (
-              <div className="text-center py-20 text-slate-400 italic">No registrations found for this event.</div>
+              <div className="text-center py-8 md:py-20 text-slate-400 italic">No registrations found for this event.</div>
             ) : (
               <div className="overflow-x-auto">
-                <table className="table table-sm w-full bg-white rounded-xl shadow-sm border border-slate-200">
-                  <thead className="bg-slate-50 text-slate-500 font-bold text-[10px] uppercase tracking-wider">
+                <table className="table table-sm w-full bg-navy rounded-sm shadow-sm border border-slate-700">
+                  <thead className="bg-navy-light text-slate-400 font-bold text-[10px] uppercase tracking-wider">
                     <tr>
                       <th className="rounded-tl-xl py-3 px-4">Name</th>
                       <th className="py-3 px-4">Email</th>
@@ -401,18 +401,18 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
                   </thead>
                   <tbody>
                     {regs.map(r => (
-                      <tr key={r.id} className="hover:bg-slate-50/50 border-b border-slate-100 last:border-0 transition-colors">
-                        <td className="py-3 px-4 font-bold text-slate-800">{r.name}</td>
-                        <td className="py-3 px-4 text-slate-600">{r.email}</td>
-                        <td className="py-3 px-4 text-slate-600 font-mono text-xs">{r.phone}</td>
-                        <td className="py-3 px-4 text-slate-600">{r.city || "—"}</td>
-                        <td className="py-3 px-4 text-slate-500 text-xs">
+                      <tr key={r.id} className="hover:bg-navy-light/50 border-b border-slate-800 last:border-0 transition-colors">
+                        <td className="py-3 px-4 font-bold text-white">{r.name}</td>
+                        <td className="py-3 px-4 text-slate-300">{r.email}</td>
+                        <td className="py-3 px-4 text-slate-300 font-mono text-xs">{r.phone}</td>
+                        <td className="py-3 px-4 text-slate-300">{r.city || "—"}</td>
+                        <td className="py-3 px-4 text-slate-400 text-xs">
                           {new Date(r.createdAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" })}
                         </td>
                         <td className="py-3 px-4 text-right">
                           <button
                             onClick={() => handleSendInvite(r)}
-                            className="btn btn-xs bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border-none px-3 font-bold"
+                            className="btn btn-xs bg-gold/10 text-gold hover:bg-indigo-100 border-none px-3 font-bold"
                           >
                             <Mail size={12} className="mr-1" /> Invite / Send Docs
                           </button>
@@ -425,7 +425,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
             )}
           </div>
         </div>
-        <form method="dialog" className="modal-backdrop bg-slate-900/40 backdrop-blur-sm" onClick={onClose}><button>close</button></form>
+        <form method="dialog" className="modal-backdrop bg-slate-900/40 backdrop-blur-sm transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onClick={onClose}><button>close</button></form>
       </dialog>
     );
   }
@@ -436,12 +436,12 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
   if (isContactQuery) {
     return (
       <dialog className="modal modal-open">
-        <div className="modal-box w-11/12 max-w-xl rounded-[2rem] p-0 overflow-hidden bg-white shadow-2xl border border-slate-100 flex flex-col animate-in zoom-in-95 duration-200">
+        <div className="modal-box w-11/12 max-w-xl rounded-[2rem] p-0 overflow-hidden bg-navy shadow-2xl border border-slate-800 flex flex-col animate-in zoom-in-95 duration-200 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
           
           {/* Header */}
           <div className="bg-slate-900 px-6 py-5 text-white flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-violet-500/20 rounded-xl text-violet-300">
+              <div className="p-2.5 bg-violet-500/20 rounded-sm text-violet-300">
                 <MessageSquare size={20} />
               </div>
               <div>
@@ -460,35 +460,35 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
           <div className="p-6 space-y-5">
 
             {/* Sender Info */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex items-center gap-3 bg-navy-light rounded-sm px-4 py-3 border border-slate-800 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                 <Mail size={15} className="text-slate-400 shrink-0" />
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Email</p>
-                  <p className="text-sm font-bold text-slate-800 truncate">{currentItem.email || "—"}</p>
+                  <p className="text-sm font-bold text-white truncate">{currentItem.email || "—"}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+              <div className="flex items-center gap-3 bg-navy-light rounded-sm px-4 py-3 border border-slate-800 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                 <Phone size={15} className="text-slate-400 shrink-0" />
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Phone</p>
-                  <p className="text-sm font-bold text-slate-800">{currentItem.phone || "—"}</p>
+                  <p className="text-sm font-bold text-white">{currentItem.phone || "—"}</p>
                 </div>
               </div>
               {currentItem.subject && (
-                <div className="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-3 border border-slate-100 sm:col-span-2">
+                <div className="flex items-center gap-3 bg-navy-light rounded-sm px-4 py-3 border border-slate-800 sm:col-span-2 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                   <Info size={15} className="text-slate-400 shrink-0" />
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Subject</p>
-                    <p className="text-sm font-bold text-slate-800">{currentItem.subject}</p>
+                    <p className="text-sm font-bold text-white">{currentItem.subject}</p>
                   </div>
                 </div>
               )}
-              <div className="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-3 border border-slate-100 sm:col-span-2">
+              <div className="flex items-center gap-3 bg-navy-light rounded-sm px-4 py-3 border border-slate-800 sm:col-span-2 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                 <Calendar size={15} className="text-slate-400 shrink-0" />
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Received On</p>
-                  <p className="text-sm font-bold text-slate-800">
+                  <p className="text-sm font-bold text-white">
                     {new Date(currentItem.createdAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}
                   </p>
                 </div>
@@ -498,7 +498,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
             {/* Message */}
             <div>
               <p className="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-2">Message</p>
-              <div className="bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-sm text-slate-700 font-medium leading-relaxed whitespace-pre-wrap">
+              <div className="bg-navy-light border border-slate-800 rounded-none px-5 py-4 text-sm text-slate-200 font-medium leading-relaxed whitespace-pre-wrap">
                 {currentItem.message}
               </div>
             </div>
@@ -506,12 +506,12 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
             {/* Quick Actions & Status */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-1">
               <div className="flex items-center gap-2">
-                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Status:</span>
+                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Status:</span>
                  <select 
                    value={currentItem.status || "NEW"} 
                    onChange={(e) => handleContactStatusChange(e.target.value)}
                    disabled={isUpdatingContactStatus}
-                   className="select select-bordered select-sm rounded-lg text-xs font-bold"
+                   className="select select-bordered select-sm rounded-sm text-xs font-bold"
                  >
                    <option value="NEW">New</option>
                    <option value="IN_PROGRESS">In Progress</option>
@@ -524,7 +524,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
                 {currentItem.email && (
                   <button
                     onClick={() => setEmailingContact && setEmailingContact(currentItem)}
-                    className="btn btn-primary btn-sm rounded-xl flex-1 sm:flex-none font-black gap-2"
+                    className="btn btn-primary btn-sm rounded-sm flex-1 sm:flex-none font-black gap-2"
                   >
                     <Mail size={14} /> Reply via Email
                   </button>
@@ -532,7 +532,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
                 {currentItem.phone && (
                   <a
                     href={`tel:${currentItem.phone}`}
-                    className="btn btn-outline btn-sm rounded-xl flex-1 sm:flex-none font-black gap-2 border-slate-200 text-slate-700 hover:bg-slate-100 hover:border-slate-300"
+                    className="btn btn-outline btn-sm rounded-sm flex-1 sm:flex-none font-black gap-2 border-slate-700 text-slate-200 hover:bg-navy-light hover:border-slate-300"
                   >
                     <Phone size={14} /> Call
                   </a>
@@ -548,12 +548,12 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
   // --- Full modal for leads & registrations ---
   return (
     <dialog className="modal modal-open">
-      <div className="modal-box w-11/12 max-w-7xl rounded-[2.5rem] p-0 overflow-hidden bg-base-100 shadow-2xl border border-base-200 flex flex-col max-h-[92vh] animate-in zoom-in-95 duration-200">
+      <div className="modal-box w-11/12 max-w-7xl rounded-[2.5rem] p-0 overflow-hidden bg-navy-light shadow-2xl border border-base-200 flex flex-col max-h-[92vh] animate-in zoom-in-95 duration-200 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
         
         {/* Header with deep premium slate styling */}
         <div className="bg-slate-900 px-8 py-6 text-white flex justify-between items-center shrink-0 z-10 sticky top-0 border-b border-slate-800">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-primary/10 rounded-2xl border border-primary/20 text-primary">
+            <div className="p-3 bg-gold/10 rounded-none border border-primary/20 text-gold">
               <User size={26} />
             </div>
             <div>
@@ -571,9 +571,9 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
           </button>
         </div>
         
-        <div className="flex-1 overflow-y-auto bg-slate-50/50">
+        <div className="flex-1 overflow-y-auto bg-navy-light/50">
           {currentItem.isUserOnly ? (
-            <div className="p-8 space-y-8 bg-white min-h-full">
+            <div className="p-8 space-y-8 bg-navy min-h-full">
               <div className="flex items-center justify-between">
                 <div>
                   <h4 className="text-2xl font-black">All Shared Documents</h4>
@@ -583,15 +583,15 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
               </div>
 
               {pendingRequests.length > 0 && (
-                <div className="bg-amber-50/50 border border-amber-200 rounded-2xl p-5 space-y-3">
+                <div className="bg-amber-50/50 border border-amber-200 rounded-none p-5 space-y-3">
                   <h5 className="text-[11px] font-black text-amber-600 uppercase tracking-widest flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
                     Pending Client Uploads
                   </h5>
                   <div className="flex flex-col gap-2">
                     {pendingRequests.map(req => (
-                      <div key={req.id} className="bg-white border border-amber-100 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                        <span className="font-bold text-slate-700 text-sm">{req.requestedDocName}</span>
+                      <div key={req.id} className="bg-navy border border-amber-100 p-3.5 rounded-sm flex items-center justify-between shadow-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+                        <span className="font-bold text-slate-200 text-sm">{req.requestedDocName}</span>
                         <div className="flex items-center gap-2">
                           <span className="text-[10px] font-black bg-amber-100 text-amber-700 px-2 py-1 rounded-md uppercase tracking-wider">Awaiting</span>
                           <button 
@@ -622,7 +622,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
           ) : (
             <div className="flex flex-col lg:flex-row min-h-full">
               {/* Left Column: Details & Dynamic Form Fields */}
-              <div className="flex-1 p-6 md:p-8 lg:border-r border-slate-200/60 space-y-8 bg-white/40">
+              <div className="flex-1 p-6 md:p-8 lg:border-r border-slate-700/60 space-y-8 bg-navy/40 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                 
                 {/* 1. Inquiry Overview Card */}
                 <InquiryOverview 
@@ -655,25 +655,25 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
               </div>
 
               {/* Right Column: Case Documents & Messaging */}
-              <div className="flex-1 p-6 md:p-8 space-y-8 bg-white">
+              <div className="flex-1 p-6 md:p-8 space-y-8 bg-navy">
                 <div>
-                  <h4 className="text-xl font-black mb-6 flex items-center gap-2 text-slate-900 border-b border-slate-100 pb-4">
-                    <span className="p-1.5 bg-primary/10 rounded-lg text-primary">
+                  <h4 className="text-xl font-black mb-6 flex items-center gap-2 text-white border-b border-slate-800 pb-4">
+                    <span className="p-1.5 bg-gold/10 rounded-sm text-gold">
                       <FileText size={18} />
                     </span>
                     Case Documents
                   </h4>
 
                   {pendingRequests.length > 0 && (
-                    <div className="mb-6 bg-amber-50/50 border border-amber-200 rounded-2xl p-5 space-y-3">
+                    <div className="mb-6 bg-amber-50/50 border border-amber-200 rounded-none p-5 space-y-3">
                       <h5 className="text-[11px] font-black text-amber-600 uppercase tracking-widest flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
                         Pending Client Uploads ({pendingRequests.length})
                       </h5>
                       <div className="flex flex-col gap-2">
                         {pendingRequests.map((req, idx) => (
-                          <div key={req.id || idx} className="bg-white border border-amber-100 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                            <span className="font-bold text-slate-700 text-sm">{req.requestedDocName}</span>
+                          <div key={req.id || idx} className="bg-navy border border-amber-100 p-3.5 rounded-sm flex items-center justify-between shadow-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+                            <span className="font-bold text-slate-200 text-sm">{req.requestedDocName}</span>
                             <div className="flex items-center gap-2">
                               <span className="text-[10px] font-black bg-amber-100 text-amber-700 px-2 py-1 rounded-md uppercase tracking-wider">Awaiting</span>
                               <button 
@@ -685,7 +685,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
                               <button 
                                 onClick={() => handleSendEmailReminder(req.id, req.requestedDocName)}
                                 disabled={sendingEmailId === req.id}
-                                className="btn btn-xs bg-indigo-600 hover:bg-indigo-700 text-white border-none rounded-md px-3 text-[10px] uppercase tracking-wider disabled:opacity-50"
+                                className="btn btn-xs bg-gold hover:bg-gold text-white border-none rounded-md px-3 text-[10px] uppercase tracking-wider disabled:opacity-50"
                               >
                                 {sendingEmailId === req.id ? "Sending..." : "Email"}
                               </button>

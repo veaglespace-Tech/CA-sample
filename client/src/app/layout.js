@@ -1,21 +1,14 @@
-import { Inter, Outfit } from "next/font/google";
+import { Lexend } from "next/font/google";
 import "../styles/globals.css";
 import SiteHeader from "../components/layout/SiteHeader";
 import SiteFooter from "../components/layout/SiteFooter";
 import Providers from "./providers";
 import { Toaster } from "react-hot-toast";
 
-const outfit = Outfit({
-  variable: "--font-display",
+const lexend = Lexend({
+  variable: "--font-lexend",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -91,8 +84,9 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${outfit.variable}`}
+      className={`${lexend.variable}`}
       data-theme="light"
+      data-scroll-behavior="smooth"
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -102,7 +96,7 @@ export default function RootLayout({ children }) {
         <Toaster 
           position="top-right"
           toastOptions={{
-            className: '!bg-white/80 !backdrop-blur-xl !border !border-white/50 !shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] !text-slate-800 !font-bold !rounded-2xl',
+            className: '!bg-white/80 !backdrop-blur-xl !border !border-white/50 !shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] !text-slate-800 !font-bold !rounded-none',
             duration: 4000,
             success: {
               iconTheme: {
@@ -120,7 +114,7 @@ export default function RootLayout({ children }) {
         />
         <Providers>
           <SiteHeader />
-          <main>{children}</main>
+          <main className="pt-[80px] lg:pt-[112px] min-h-screen">{children}</main>
           <SiteFooter />
         </Providers>
       </body>

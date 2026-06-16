@@ -24,12 +24,12 @@ function PagerButton({ disabled, active, onClick, children }) {
       type="button"
       disabled={disabled}
       onClick={onClick}
-      className={`inline-flex h-10 min-w-10 items-center justify-center rounded-xl border px-3 text-sm font-black transition-all ${
+      className={`inline-flex h-10 min-w-10 items-center justify-center rounded-sm border px-3 text-sm font-black transition-all ${
         active
-          ? "border-indigo-500 bg-indigo-600 text-white shadow-[0_12px_28px_rgba(79,70,229,0.25)]"
+          ? "border-indigo-500 bg-gold text-white shadow-[0_12px_28px_rgba(79,70,229,0.25)]"
           : disabled
-            ? "cursor-not-allowed border-slate-200 bg-slate-100 text-slate-300"
-            : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+            ? "cursor-not-allowed border-slate-700 bg-navy-light text-slate-300"
+            : "border-slate-700 bg-navy text-slate-200 hover:border-slate-300 hover:bg-navy-light"
       }`}
     >
       {children}
@@ -176,29 +176,29 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
 
   return (
     <div className="space-y-6">
-      <div className="overflow-visible rounded-[2rem] border border-slate-200/80 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.015)]">
+      <div className="overflow-visible rounded-[2rem] border border-slate-700/80 bg-navy shadow-[0_4px_20px_rgba(0,0,0,0.015)]">
         <div className="flex flex-col gap-6 px-6 py-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-navy-light px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
               <SlidersHorizontal size={13} />
               Database Filters
             </div>
-            <h3 className="text-xl font-black tracking-tight text-slate-900">Plan Search & Segmentation</h3>
-            <p className="max-w-2xl text-sm font-medium text-slate-500">
+            <h3 className="text-xl font-black tracking-tight text-white">Plan Search & Segmentation</h3>
+            <p className="max-w-2xl text-sm font-medium text-slate-400">
               Search plans directly from the database and narrow results by service hierarchy. Only 10 records are loaded per page for a faster admin experience.
             </p>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-right">
+          <div className="rounded-none border border-slate-700 bg-navy-light px-4 py-3 text-right">
             <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Plan Inventory</p>
-            <p className="mt-1 text-sm font-black text-slate-700">{summaryLabel}</p>
+            <p className="mt-1 text-sm font-black text-slate-200">{summaryLabel}</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 border-t border-slate-100 px-6 py-6 xl:grid-cols-[1.2fr,repeat(3,minmax(0,0.85fr)),auto]">
+        <div className="grid grid-cols-1 gap-4 border-t border-slate-800 px-6 py-6 xl:grid-cols-[1.2fr,repeat(3,minmax(0,0.85fr)),auto]">
           <label className="space-y-2">
             <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-400">Search Plans</span>
-            <div className="flex h-12 items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 transition-all focus-within:border-indigo-400 focus-within:bg-white focus-within:ring-4 focus-within:ring-indigo-100">
+            <div className="flex h-12 items-center gap-3 rounded-none border border-slate-700 bg-navy-light px-4 transition-all focus-within:border-indigo-400 focus-within:bg-navy focus-within:ring-4 focus-within:ring-indigo-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
               <Search size={16} className="text-slate-400" />
               <input
                 type="text"
@@ -208,7 +208,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                   setPage(1);
                 }}
                 placeholder="Name, service slug, tag, price..."
-                className="w-full bg-transparent text-sm font-semibold text-slate-800 outline-none placeholder:text-slate-400"
+                className="w-full bg-transparent text-sm font-semibold text-white outline-none placeholder:text-slate-400"
               />
             </div>
           </label>
@@ -216,7 +216,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
           <label className="space-y-2">
             <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-400">Main Service</span>
             <select
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 text-sm font-bold text-slate-700 outline-none transition-all focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
+              className="h-12 w-full rounded-none border border-slate-700 bg-navy-light px-4 text-sm font-bold text-slate-200 outline-none transition-all focus:border-indigo-400 focus:bg-navy focus:ring-4 focus:ring-indigo-100"
               value={categoryFilter}
               onChange={(e) => {
                 setCategoryFilter(e.target.value);
@@ -235,7 +235,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
           <label className="space-y-2">
             <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-400">Sub Service</span>
             <select
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 text-sm font-bold text-slate-700 outline-none transition-all focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
+              className="h-12 w-full rounded-none border border-slate-700 bg-navy-light px-4 text-sm font-bold text-slate-200 outline-none transition-all focus:border-indigo-400 focus:bg-navy focus:ring-4 focus:ring-indigo-100 disabled:cursor-not-allowed disabled:bg-navy-light disabled:text-slate-400"
               value={subcategoryFilter}
               disabled={categoryFilter === "ALL" || subcategoryOptions.length === 0}
               onChange={(e) => {
@@ -254,7 +254,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
           <label className="space-y-2">
             <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-400">Target Service</span>
             <select
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 text-sm font-bold text-slate-700 outline-none transition-all focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
+              className="h-12 w-full rounded-none border border-slate-700 bg-navy-light px-4 text-sm font-bold text-slate-200 outline-none transition-all focus:border-indigo-400 focus:bg-navy focus:ring-4 focus:ring-indigo-100 disabled:cursor-not-allowed disabled:bg-navy-light disabled:text-slate-400"
               value={serviceFilter}
               disabled={categoryFilter === "ALL" || targetServices.length === 0}
               onChange={(e) => {
@@ -290,7 +290,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
             <button
               type="button"
               onClick={clearFilters}
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 text-sm font-black text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 hover:text-slate-700 xl:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-none border border-slate-700 bg-navy px-4 text-sm font-black text-slate-300 transition-all hover:border-slate-300 hover:bg-navy-light hover:text-slate-200 xl:w-auto"
             >
               <FilterX size={15} />
               Clear
@@ -299,11 +299,11 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
         </div>
 
         {activeChips.length > 0 && (
-          <div className="flex flex-wrap items-center gap-2 border-t border-slate-100 px-6 pb-6">
+          <div className="flex flex-wrap items-center gap-2 border-t border-slate-800 px-6 pb-6">
             {activeChips.map((chip) => (
               <span
                 key={chip}
-                className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-[11px] font-black tracking-wide text-indigo-700"
+                className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[11px] font-black tracking-wide text-gold"
               >
                 {chip}
               </span>
@@ -312,17 +312,17 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
         )}
       </div>
 
-      <div className="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-[0_4px_18px_rgba(0,0,0,0.015)]">
-        <div className="flex flex-col gap-4 border-b border-slate-100 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="overflow-hidden rounded-[1.8rem] border border-slate-700 bg-navy shadow-[0_4px_18px_rgba(0,0,0,0.015)]">
+        <div className="flex flex-col gap-4 border-b border-slate-800 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="text-[1.75rem] font-black tracking-tight text-slate-900">Purchase Plans</h2>
-            <p className="text-sm font-semibold text-slate-500">Database-backed plans with service-aware filtering.</p>
+            <h2 className="text-[1.75rem] font-black tracking-tight text-white">Purchase Plans</h2>
+            <p className="text-sm font-semibold text-slate-400">Database-backed plans with service-aware filtering.</p>
           </div>
 
           {onAdd && (
             <button
               type="button"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-black text-white shadow-[0_10px_24px_rgba(79,70,229,0.25)] transition-all hover:bg-indigo-700"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-sm bg-gold px-4 text-sm font-black text-white shadow-[0_10px_24px_rgba(79,70,229,0.25)] transition-all hover:bg-gold"
               onClick={onAdd}
             >
               <Plus size={16} />
@@ -334,7 +334,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
         <div className="overflow-x-auto">
           <table className="w-full min-w-[820px]">
             <thead>
-              <tr className="border-b border-slate-100 bg-slate-50/80">
+              <tr className="border-b border-slate-800 bg-navy-light/80">
                 <th className="px-6 py-4 text-left text-[11px] font-black uppercase tracking-[0.16em] text-slate-400">Name</th>
                 <th className="px-6 py-4 text-left text-[11px] font-black uppercase tracking-[0.16em] text-slate-400">Service Slug</th>
                 <th className="px-6 py-4 text-left text-[11px] font-black uppercase tracking-[0.16em] text-slate-400">Price</th>
@@ -344,21 +344,21 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
             </thead>
             <tbody>
               {isLoading && Array.from({ length: PAGE_SIZE }).map((_, idx) => (
-                <tr key={`skeleton-${idx}`} className="border-b border-slate-100/80">
+                <tr key={`skeleton-${idx}`} className="border-b border-slate-800/80">
                   <td className="px-6 py-4">
-                    <div className="h-4 w-40 animate-pulse rounded bg-slate-100" />
+                    <div className="h-4 w-40 animate-pulse rounded bg-navy-light" />
                   </td>
                   <td className="px-6 py-4">
-                    <div className="h-4 w-48 animate-pulse rounded bg-slate-100" />
+                    <div className="h-4 w-48 animate-pulse rounded bg-navy-light" />
                   </td>
                   <td className="px-6 py-4">
-                    <div className="h-4 w-20 animate-pulse rounded bg-slate-100" />
+                    <div className="h-4 w-20 animate-pulse rounded bg-navy-light" />
                   </td>
                   <td className="px-6 py-4">
-                    <div className="h-4 w-28 animate-pulse rounded bg-slate-100" />
+                    <div className="h-4 w-28 animate-pulse rounded bg-navy-light" />
                   </td>
                   <td className="px-6 py-4">
-                    <div className="ml-auto h-8 w-24 animate-pulse rounded bg-slate-100" />
+                    <div className="ml-auto h-8 w-24 animate-pulse rounded bg-navy-light" />
                   </td>
                 </tr>
               ))}
@@ -368,15 +368,15 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                 const canAssignThisPlan = numericPrice && !Number.isNaN(Number.parseFloat(numericPrice));
 
                 return (
-                <tr key={plan.id} className="border-b border-slate-100/80 transition-colors hover:bg-slate-50/70">
-                  <td className="px-6 py-4 text-sm font-bold text-slate-900">{plan.name}</td>
+                <tr key={plan.id} className="border-b border-slate-800/80 transition-colors hover:bg-navy-light/70">
+                  <td className="px-6 py-4 text-sm font-bold text-white">{plan.name}</td>
                   <td className="px-6 py-4">
-                    <span className="inline-flex rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-bold text-slate-600">
+                    <span className="inline-flex rounded-sm border border-slate-700 bg-navy-light px-2.5 py-1 text-xs font-bold text-slate-300">
                       {plan.serviceSlug}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-sm font-bold text-slate-800">{plan.price}</td>
-                  <td className="px-6 py-4 text-sm font-semibold text-slate-600">{plan.tag || "—"}</td>
+                  <td className="px-6 py-4 text-sm font-bold text-white">{plan.price}</td>
+                  <td className="px-6 py-4 text-sm font-semibold text-slate-300">{plan.tag || "—"}</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center justify-end gap-2">
                       {onAssignPlan && (
@@ -384,7 +384,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                           type="button"
                           onClick={() => openAssignModal(plan)}
                           disabled={!canAssignThisPlan}
-                          className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-600 transition-all hover:border-emerald-300 hover:bg-emerald-100 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-300"
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-emerald-200 bg-emerald-50 text-emerald-600 transition-all hover:border-emerald-300 hover:bg-emerald-100 disabled:cursor-not-allowed disabled:border-slate-700 disabled:bg-navy-light disabled:text-slate-300"
                           aria-label="Assign plan to user"
                           title={canAssignThisPlan ? "Assign plan to user" : "Custom quote plans cannot open direct payment"}
                         >
@@ -395,7 +395,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                         <button
                           type="button"
                           onClick={() => onEdit(plan)}
-                          className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-all hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-600"
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-slate-700 text-slate-400 transition-all hover:border-indigo-300 hover:bg-gold/10 hover:text-gold"
                           aria-label="Edit plan"
                         >
                           <Pencil size={14} />
@@ -405,7 +405,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                         <button
                           type="button"
                           onClick={() => onDelete(plan.id)}
-                          className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-rose-500 transition-all hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600"
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-slate-700 text-rose-500 transition-all hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600"
                           aria-label="Delete plan"
                         >
                           <Trash2 size={14} />
@@ -419,8 +419,8 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
 
               {!isLoading && plans.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="px-6 py-16 text-center">
-                    <p className="text-base font-black text-slate-700">No plans matched your current filters.</p>
+                  <td colSpan={5} className="px-6 py-8 md:py-16 text-center">
+                    <p className="text-base font-black text-slate-200">No plans matched your current filters.</p>
                     <p className="mt-1 text-sm font-semibold text-slate-400">Try clearing filters or changing service selection.</p>
                   </td>
                 </tr>
@@ -431,18 +431,18 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
       </div>
 
       {isError && (
-        <div className="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-semibold text-rose-700">
+        <div className="rounded-none border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-semibold text-rose-700">
           Failed to load plans from database. {error?.data?.message || error?.data?.error || "Please retry."}
         </div>
       )}
 
-      <div className="flex flex-col gap-4 rounded-[1.75rem] border border-slate-200 bg-white px-5 py-4 shadow-[0_4px_18px_rgba(0,0,0,0.015)] sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-3 text-sm font-semibold text-slate-500">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
+      <div className="flex flex-col gap-4 rounded-[1.75rem] border border-slate-700 bg-navy px-5 py-4 shadow-[0_4px_18px_rgba(0,0,0,0.015)] sm:flex-row sm:items-center sm:justify-between transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+        <div className="flex items-center gap-3 text-sm font-semibold text-slate-400">
+          <span className="flex h-10 w-10 items-center justify-center rounded-none bg-gold/10 text-gold">
             <LayoutGrid size={18} />
           </span>
           <div>
-            <p className="font-black text-slate-800">{isLoading ? "Loading plans..." : summaryLabel}</p>
+            <p className="font-black text-white">{isLoading ? "Loading plans..." : summaryLabel}</p>
             <p className="text-xs text-slate-400">Server-side filtered results with 10 plans per page.</p>
           </div>
         </div>
@@ -473,23 +473,23 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
         <div className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950/45 px-4 py-6 backdrop-blur-sm">
           <form
             onSubmit={submitAssignment}
-            className="w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl"
+            className="w-full max-w-2xl overflow-hidden rounded-none border border-slate-700 bg-navy shadow-2xl transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30"
           >
-            <div className="flex items-start justify-between border-b border-slate-100 px-6 py-5">
+            <div className="flex items-start justify-between border-b border-slate-800 px-6 py-5">
               <div>
                 <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-emerald-700">
                   <UserPlus size={13} />
                   Assign Plan
                 </div>
-                <h3 className="text-xl font-black text-slate-900">{assigningPlan.name}</h3>
-                <p className="mt-1 text-sm font-semibold text-slate-500">
+                <h3 className="text-xl font-black text-white">{assigningPlan.name}</h3>
+                <p className="mt-1 text-sm font-semibold text-slate-400">
                   {assigningPlan.serviceSlug} - {assigningPlan.price === "Custom Quote" ? "Custom Quote" : `Rs. ${assigningPlan.price}`}
                 </p>
               </div>
               <button
                 type="button"
                 onClick={closeAssignModal}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition-all hover:bg-slate-50"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-sm border border-slate-700 text-slate-400 transition-all hover:bg-navy-light"
                 aria-label="Close assign plan modal"
               >
                 <X size={16} />
@@ -499,14 +499,14 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
             <div className="space-y-5 px-6 py-5">
               <label className="block space-y-2">
                 <span className="text-[11px] font-black uppercase tracking-[0.16em] text-slate-400">Find Client</span>
-                <div className="flex h-11 items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-3 focus-within:border-emerald-400 focus-within:bg-white focus-within:ring-4 focus-within:ring-emerald-100">
+                <div className="flex h-11 items-center gap-3 rounded-sm border border-slate-700 bg-navy-light px-3 focus-within:border-emerald-400 focus-within:bg-navy focus-within:ring-4 focus-within:ring-emerald-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                   <Search size={15} className="text-slate-400" />
                   <input
                     type="text"
                     value={userSearch}
                     onChange={(event) => setUserSearch(event.target.value)}
                     placeholder="Search by name, email, or phone..."
-                    className="w-full bg-transparent text-sm font-semibold text-slate-800 outline-none placeholder:text-slate-400"
+                    className="w-full bg-transparent text-sm font-semibold text-white outline-none placeholder:text-slate-400"
                   />
                 </div>
               </label>
@@ -519,20 +519,20 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                       type="button"
                       key={user.id}
                       onClick={() => setSelectedUserId(user.id)}
-                      className={`flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
+                      className={`flex w-full items-center gap-3 rounded-sm border px-4 py-3 text-left transition-all ${
                         isSelected
                           ? "border-emerald-300 bg-emerald-50"
-                          : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50"
+                          : "border-slate-700 bg-navy hover:border-slate-300 hover:bg-navy-light"
                       }`}
                     >
-                      <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-black ${
-                        isSelected ? "bg-emerald-600 text-white" : "bg-slate-100 text-slate-600"
+                      <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-sm text-sm font-black ${
+                        isSelected ? "bg-emerald-600 text-white" : "bg-navy-light text-slate-300"
                       }`}>
                         {user.name?.charAt(0)?.toUpperCase() || "U"}
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className="block truncate text-sm font-black text-slate-900">{user.name}</span>
-                        <span className="block truncate text-xs font-semibold text-slate-500">
+                        <span className="block truncate text-sm font-black text-white">{user.name}</span>
+                        <span className="block truncate text-xs font-semibold text-slate-400">
                           {user.email || "No email"} - {user.phone || "No phone"}
                         </span>
                       </span>
@@ -546,8 +546,8 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                 })}
 
                 {filteredUsers.length === 0 && (
-                  <div className="rounded-xl border border-dashed border-slate-200 px-4 py-8 text-center">
-                    <p className="text-sm font-black text-slate-700">No client account found</p>
+                  <div className="rounded-sm border border-dashed border-slate-700 px-4 py-8 text-center">
+                    <p className="text-sm font-black text-slate-200">No client account found</p>
                     <p className="mt-1 text-xs font-semibold text-slate-400">Create the client user first, then assign this plan.</p>
                   </div>
                 )}
@@ -560,30 +560,30 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                   onChange={(event) => setAssignNote(event.target.value)}
                   rows={3}
                   placeholder="Optional note for this assignment..."
-                  className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-semibold text-slate-800 outline-none transition-all focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-100"
+                  className="w-full resize-none rounded-sm border border-slate-700 bg-navy-light px-3 py-3 text-sm font-semibold text-white outline-none transition-all focus:border-emerald-400 focus:bg-navy focus:ring-4 focus:ring-emerald-100"
                 />
               </label>
 
               {assignError && (
-                <div className="flex items-start gap-2 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm font-semibold text-rose-700">
+                <div className="flex items-start gap-2 rounded-sm border border-rose-200 bg-rose-50 px-3 py-2 text-sm font-semibold text-rose-700">
                   <AlertCircle size={16} className="mt-0.5 shrink-0" />
                   {assignError}
                 </div>
               )}
             </div>
 
-            <div className="flex flex-col-reverse gap-3 border-t border-slate-100 px-6 py-4 sm:flex-row sm:justify-end">
+            <div className="flex flex-col-reverse gap-3 border-t border-slate-800 px-6 py-4 sm:flex-row sm:justify-end">
               <button
                 type="button"
                 onClick={closeAssignModal}
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-200 px-5 text-sm font-black text-slate-600 transition-all hover:bg-slate-50"
+                className="inline-flex h-11 items-center justify-center rounded-sm border border-slate-700 px-5 text-sm font-black text-slate-300 transition-all hover:bg-navy-light"
                 disabled={isAssigning}
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 text-sm font-black text-white shadow-[0_10px_24px_rgba(5,150,105,0.2)] transition-all hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-sm bg-emerald-600 px-5 text-sm font-black text-white shadow-[0_10px_24px_rgba(5,150,105,0.2)] transition-all hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
                 disabled={isAssigning || !selectedUserId || filteredUsers.length === 0}
               >
                 {isAssigning ? <span className="loading loading-spinner loading-sm" /> : <UserPlus size={16} />}

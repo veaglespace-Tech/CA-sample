@@ -18,46 +18,46 @@ function PaymentRow({ payment, onEmail, onMessage }) {
   const customReqs = getCustomRequirements(payment);
 
   return (
-    <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition-colors group">
+    <tr className="border-b border-slate-800 hover:bg-navy-light/50 transition-colors group">
       <td className="py-4 pl-6">
-        <div className="font-extrabold text-slate-800 text-xs">#{payment.id.slice(-8).toUpperCase()}</div>
+        <div className="font-extrabold text-white text-xs">#{payment.id.slice(-8).toUpperCase()}</div>
         <div className="text-[10px] font-bold text-slate-400 flex items-center gap-1 mt-0.5">
           <Calendar size={10} /> {new Date(payment.createdAt).toLocaleString()}
         </div>
       </td>
       <td className="py-4">
         <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-indigo-50 text-indigo-700 flex items-center justify-center font-black text-xs shrink-0">
+            <div className="w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center font-black text-xs shrink-0">
               {(payment.user?.name || payment.customerName)?.charAt(0) || <User size={14} />}
             </div>
             <div>
-              <div className="font-extrabold text-slate-800 text-sm leading-tight flex items-center">
+              <div className="font-extrabold text-white text-sm leading-tight flex items-center">
                 {payment.user?.name || payment.customerName || "Guest User"}
                 {payment.user ? (
-                  <span className="ml-2 text-[9px] bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded-full font-bold">Registered Client</span>
+                  <span className="ml-2 text-[9px] bg-indigo-100 text-gold px-1.5 py-0.5 rounded-full font-bold">Registered Client</span>
                 ) : (
-                  <span className="ml-2 text-[9px] bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded-full font-bold">Guest User</span>
+                  <span className="ml-2 text-[9px] bg-navy-light text-slate-400 px-1.5 py-0.5 rounded-full font-bold">Guest User</span>
                 )}
               </div>
-              <div className="text-[10px] font-semibold text-slate-500 mt-0.5">{payment.user?.email || payment.customerEmail || "No email"} • {payment.user?.phone || payment.customerPhone || "No phone"}</div>
+              <div className="text-[10px] font-semibold text-slate-400 mt-0.5">{payment.user?.email || payment.customerEmail || "No email"} • {payment.user?.phone || payment.customerPhone || "No phone"}</div>
             </div>
         </div>
       </td>
       <td className="py-4">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-50 text-slate-700 border border-slate-200">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-navy-light text-slate-200 border border-slate-700">
             {payment.serviceName}
         </span>
         {customReqs && (
           <div className="mt-2">
             <button 
               onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 bg-orange-50 text-orange-600 hover:bg-orange-100 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-colors border border-orange-200 shadow-sm"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 bg-orange-50 text-orange-600 hover:bg-orange-100 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-colors border border-orange-200 shadow-sm"
             >
               <Eye size={12} /> View Requirements
             </button>
             {isExpanded && (
-              <div className="mt-2 text-xs text-slate-600 bg-orange-50 p-3 rounded-xl border border-orange-200 italic relative animate-in fade-in slide-in-from-top-2 duration-200 shadow-inner">
-                <button onClick={() => setIsExpanded(false)} className="absolute top-2 right-2 text-slate-400 hover:text-orange-600 transition-colors bg-white rounded-full p-0.5 shadow-sm border border-slate-100">
+              <div className="mt-2 text-xs text-slate-300 bg-orange-50 p-3 rounded-sm border border-orange-200 italic relative animate-in fade-in slide-in-from-top-2 duration-200 shadow-inner">
+                <button onClick={() => setIsExpanded(false)} className="absolute top-2 right-2 text-slate-400 hover:text-orange-600 transition-colors bg-navy rounded-full p-0.5 shadow-sm border border-slate-800">
                   <X size={14} />
                 </button>
                 <strong className="text-[10px] uppercase tracking-wider text-orange-600 not-italic block mb-1.5">User&apos;s Request:</strong>
@@ -78,13 +78,13 @@ function PaymentRow({ payment, onEmail, onMessage }) {
           <div className="flex gap-2 justify-end mt-2">
             <button 
               onClick={() => onEmail && onEmail({ ...payment, customRequirements: customReqs })}
-              className="px-3 py-1 bg-orange-100 text-orange-700 hover:bg-orange-200 text-[10px] font-bold rounded-lg transition-colors flex items-center gap-1"
+              className="px-3 py-1 bg-orange-100 text-orange-700 hover:bg-orange-200 text-[10px] font-bold rounded-sm transition-colors flex items-center gap-1"
             >
               <Mail size={12} /> Negotiate via Email
             </button>
             <button 
               onClick={() => onMessage && onMessage(payment)}
-              className="px-3 py-1 bg-indigo-100 text-indigo-700 hover:bg-indigo-200 text-[10px] font-bold rounded-lg transition-colors flex items-center gap-1"
+              className="px-3 py-1 bg-indigo-100 text-gold hover:bg-indigo-200 text-[10px] font-bold rounded-sm transition-colors flex items-center gap-1"
             >
               <MessageSquare size={12} /> System Message
             </button>
@@ -122,11 +122,11 @@ export default function PaymentsView({ payments = [], onEmail, onMessage }) {
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h2 className="text-3xl font-black text-slate-800 tracking-tight flex items-center gap-3">
-            <span className="p-2.5 bg-emerald-100 text-emerald-600 rounded-2xl"><DollarSign size={28} /></span>
+          <h2 className="text-3xl font-black text-white tracking-tight flex items-center gap-3">
+            <span className="p-2.5 bg-emerald-100 text-emerald-600 rounded-none"><DollarSign size={28} /></span>
             Paid Services Log
           </h2>
-          <p className="text-slate-500 font-semibold text-sm mt-1">Trace users who successfully paid for specific services.</p>
+          <p className="text-slate-400 font-semibold text-sm mt-1">Trace users who successfully paid for specific services.</p>
         </div>
         <div className="flex items-center gap-4">
           <div className="relative">
@@ -134,7 +134,7 @@ export default function PaymentsView({ payments = [], onEmail, onMessage }) {
             <input
               type="text"
               placeholder="Search payments..."
-              className="input input-bordered h-12 pl-10 rounded-2xl shadow-sm text-sm font-semibold w-full md:w-64"
+              className="input input-bordered h-12 pl-10 rounded-none shadow-sm text-sm font-semibold w-full md:w-64"
               value={searchTerm}
               onChange={(e) => {
                 setSearchTerm(e.target.value);
@@ -150,18 +150,18 @@ export default function PaymentsView({ payments = [], onEmail, onMessage }) {
           <span className="text-[10px] font-black uppercase text-emerald-700 tracking-wider block mb-1">Total Verified Revenue (Filtered)</span>
           <span className="text-4xl font-black text-emerald-900">₹{totalRevenue.toLocaleString("en-IN", { minimumFractionDigits: 2 })}</span>
         </div>
-        <div className="bg-white/60 px-5 py-3 rounded-2xl border border-emerald-200/50 backdrop-blur-sm">
+        <div className="bg-navy/60 px-5 py-3 rounded-none border border-emerald-200/50 backdrop-blur-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
            <span className="text-xs font-bold text-emerald-800">
              Showing {filteredPayments.length} records, {successfulPayments.length} successful
            </span>
         </div>
       </div>
 
-      <div className="bg-white border border-slate-100 shadow-sm rounded-[2.5rem] overflow-hidden">
+      <div className="bg-navy border border-slate-800 shadow-sm rounded-[2.5rem] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="table w-full border-collapse">
             <thead>
-              <tr className="bg-slate-50/50 border-b border-slate-100 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+              <tr className="bg-navy-light/50 border-b border-slate-800 text-[10px] font-black text-slate-400 uppercase tracking-widest">
                 <th className="py-4 pl-6">Transaction ID & Date</th>
                 <th className="py-4">Client Details</th>
                 <th className="py-4">Service Paid For</th>
@@ -179,11 +179,11 @@ export default function PaymentsView({ payments = [], onEmail, onMessage }) {
               ))}
               {filteredPayments.length === 0 && (
                 <tr>
-                  <td colSpan={4} className="py-20 text-center">
-                    <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <td colSpan={4} className="py-8 md:py-20 text-center">
+                    <div className="w-16 h-16 bg-navy-light rounded-full flex items-center justify-center mx-auto mb-3">
                        <DollarSign className="text-slate-300" size={24} />
                     </div>
-                    <div className="text-sm font-bold text-slate-500">No payment records found</div>
+                    <div className="text-sm font-bold text-slate-400">No payment records found</div>
                   </td>
                 </tr>
               )}

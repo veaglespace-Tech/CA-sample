@@ -175,18 +175,18 @@ export default function RoleDashboardPage() {
 
   if (isUserLoading || (!user && !isUserError)) {
     return (
-      <div className="flex h-screen w-full items-center justify-center bg-base-100">
-        <span className="loading loading-spinner loading-lg text-primary"></span>
+      <div className="flex h-screen w-full items-center justify-center bg-[#1a2327]">
+        <span className="loading loading-spinner loading-lg text-[#d29052]"></span>
       </div>
     );
   }
 
   if (isUserError || !user) {
     return (
-      <div className="flex flex-col h-screen w-full items-center justify-center bg-base-100 p-6 text-center">
-        <h2 className="text-2xl font-bold text-slate-800 mb-2">Session Expired</h2>
-        <p className="text-slate-500 mb-6">Please sign in again to access your dashboard.</p>
-        <Link href="/login" className="btn btn-primary rounded-xl px-8 font-bold uppercase tracking-wider">
+      <div className="flex flex-col h-screen w-full items-center justify-center bg-[#1a2327] p-6 text-center">
+        <h2 className="text-2xl font-bold text-white mb-2">Session Expired</h2>
+        <p className="text-slate-400 mb-6">Please sign in again to access your dashboard.</p>
+        <Link href="/login" className="btn btn-primary rounded-sm px-8 font-bold uppercase tracking-wider">
           Sign In
         </Link>
       </div>
@@ -227,7 +227,7 @@ export default function RoleDashboardPage() {
     <div className="drawer lg:drawer-open">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
       
-      <div className="drawer-content flex flex-col bg-white overflow-hidden h-screen">
+      <div className="drawer-content flex flex-col bg-[#131a1d] overflow-hidden h-screen">
         <DashboardHeader 
           activeSection={currentSection}
           user={user}
@@ -236,7 +236,7 @@ export default function RoleDashboardPage() {
           onNavigateToSection={handleSectionChange}
         />
 
-        <main className="flex-1 overflow-y-auto p-4 md:p-8 bg-white">
+        <main className="flex-1 overflow-y-auto p-4 md:p-8 bg-[#131a1d]">
           <div className="max-w-7xl mx-auto space-y-8">
             
             {currentSection === "overview" && (

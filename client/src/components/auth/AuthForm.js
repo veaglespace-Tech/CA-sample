@@ -223,8 +223,8 @@ function AuthFormInner({
 
   if (step === "otp") {
     return (
-      <form className="flex w-full flex-col gap-4" onSubmit={handleSubmit} noValidate>
-        <div className="rounded-xl border border-indigo-100 bg-indigo-50/60 px-4 py-3 text-sm font-medium text-indigo-800">
+      <form className="flex w-full flex-col gap-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onSubmit={handleSubmit} noValidate>
+        <div className="rounded-sm border border-gold/20 bg-gold/10/60 px-4 py-3 text-sm font-medium text-indigo-800">
           An OTP has been sent to your email address. Please enter it below to securely access the dashboard.
         </div>
         <FormField label="One-Time Password (OTP)" htmlFor="auth-otp" required>
@@ -234,14 +234,14 @@ function AuthFormInner({
             value={otpValue}
             onChange={(e) => setOtpValue(e.target.value.replace(/\D/g, "").slice(0, 6))}
             placeholder="000000"
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-4 text-[1.5rem] font-black tracking-[1em] text-center text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10"
+            className="w-full rounded-sm border border-slate-200 bg-white px-4 py-4 text-[1.5rem] font-black tracking-[1em] text-center text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-gold/10"
           />
         </FormField>
         
-        <button type="submit" className="mt-2 w-full rounded-xl bg-indigo-600 py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+        <button type="submit" className="mt-2 w-full rounded-sm bg-gold py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-gold active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
           {isLoading ? "Verifying..." : "Verify & Login"}
         </button>
-        {message && <p className="mt-2 rounded-xl bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
+        {message && <p className="mt-2 rounded-sm bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
         <button type="button" onClick={() => { setStep("credentials"); setMessage(""); setOtpValue(""); }} className="mt-2 text-sm font-semibold text-slate-500 hover:text-slate-800 underline underline-offset-2">
           &larr; Back to Login
         </button>
@@ -251,8 +251,8 @@ function AuthFormInner({
 
   if (step === "forgot-request") {
     return (
-      <form className="flex w-full flex-col gap-4" onSubmit={handleForgotRequest} noValidate>
-        <div className="rounded-xl border border-indigo-200 bg-indigo-50 px-4 py-3 text-sm font-semibold text-indigo-800">
+      <form className="flex w-full flex-col gap-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onSubmit={handleForgotRequest} noValidate>
+        <div className="rounded-sm border border-gold/30 bg-gold/10 px-4 py-3 text-sm font-semibold text-indigo-800">
           Enter your email address to receive a password reset OTP.
         </div>
         <FormField label="Email Address" htmlFor="reset-email" required>
@@ -262,13 +262,13 @@ function AuthFormInner({
             value={resetForm.email}
             onChange={(e) => setResetForm((prev) => ({ ...prev, email: e.target.value }))}
             placeholder="Enter your email"
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+            className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
           />
         </FormField>
-        <button type="submit" className="mt-2 w-full rounded-xl bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+        <button type="submit" className="mt-2 w-full rounded-sm bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
           {isResetRequestLoading ? "Sending OTP..." : "Send Reset OTP"}
         </button>
-        {message && <p className="mt-2 rounded-lg bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
+        {message && <p className="mt-2 rounded-sm bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
         <button
           type="button"
           onClick={() => { setStep("credentials"); setMessage(""); }}
@@ -282,8 +282,8 @@ function AuthFormInner({
 
   if (step === "forgot-reset") {
     return (
-      <form className="flex w-full flex-col gap-4" onSubmit={handleForgotReset} noValidate>
-        <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-800">
+      <form className="flex w-full flex-col gap-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onSubmit={handleForgotReset} noValidate>
+        <div className="rounded-sm border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-800">
           We sent a reset OTP to <span className="font-black">{tempEmail || resetForm.email}</span>. Enter it below and choose a new password.
         </div>
         <FormField label="Email Address" htmlFor="reset-email-confirm" required>
@@ -293,7 +293,7 @@ function AuthFormInner({
             value={resetForm.email}
             onChange={(e) => setResetForm((prev) => ({ ...prev, email: e.target.value }))}
             placeholder="Enter your email"
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+            className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
           />
         </FormField>
         <FormField label="Reset OTP" htmlFor="reset-otp" required>
@@ -303,7 +303,7 @@ function AuthFormInner({
             value={resetForm.otp}
             onChange={(e) => setResetForm((prev) => ({ ...prev, otp: e.target.value.replace(/\D/g, "").slice(0, 6) }))}
             placeholder="000000"
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-[1.25rem] font-black tracking-[0.6em] text-center text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10"
+            className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 text-[1.25rem] font-black tracking-[0.6em] text-center text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10"
           />
         </FormField>
         <FormField label="New Password" htmlFor="reset-password" required>
@@ -315,7 +315,7 @@ function AuthFormInner({
               onChange={(e) => setResetForm((prev) => ({ ...prev, password: e.target.value }))}
               placeholder="Create a strong password"
               maxLength={128}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+              className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 pr-12 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
             />
             <button
               type="button"
@@ -336,7 +336,7 @@ function AuthFormInner({
               onChange={(e) => setResetForm((prev) => ({ ...prev, confirmPassword: e.target.value }))}
               placeholder="Re-enter your new password"
               maxLength={128}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+              className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 pr-12 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
             />
             <button
               type="button"
@@ -347,10 +347,10 @@ function AuthFormInner({
             </button>
           </div>
         </FormField>
-        <button type="submit" className="mt-2 w-full rounded-xl bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+        <button type="submit" className="mt-2 w-full rounded-sm bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
           {isResetSubmitLoading ? "Resetting Password..." : "Reset Password"}
         </button>
-        {message && <p className="mt-2 rounded-lg bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
+        {message && <p className="mt-2 rounded-sm bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
         <button
           type="button"
           onClick={() => { setStep("forgot-request"); setMessage(""); }}
@@ -363,11 +363,11 @@ function AuthFormInner({
   }
 
   return (
-    <form className="flex w-full flex-col gap-4" onSubmit={handleSubmit} noValidate>
+    <form className="flex w-full flex-col gap-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onSubmit={handleSubmit} noValidate>
       {isRegister && (
         <>          {/* Referral code banner — shown only when valid code is present */}
           {refCodeValid && form.referralCode && (
-            <div className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
+            <div className="flex items-center gap-3 rounded-sm border border-emerald-200 bg-emerald-50 px-4 py-3">
               <span className="text-lg">🎁</span>
               <div>
                 <p className="text-sm font-black text-emerald-800">Referral code applied!</p>
@@ -375,7 +375,7 @@ function AuthFormInner({
               </div>
             </div>
           )}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
           <FormField label="Full Name" htmlFor="auth-name" error={errors.name} success={false} required>
             <input
               id="auth-name"
@@ -384,7 +384,7 @@ function AuthFormInner({
               onChange={update("name")}
               placeholder="Enter full name"
               maxLength={50}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+              className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
             />
           </FormField>
 
@@ -435,7 +435,7 @@ function AuthFormInner({
               onChange={update("referralCode")}
               placeholder="e.g. VX-AKSH-90TB"
               maxLength={20}
-              className={`w-full rounded-xl border pl-10 pr-4 py-3 text-[0.95rem] font-bold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:ring-4 ${
+              className={`w-full rounded-sm border pl-10 pr-4 py-3 text-[0.95rem] font-bold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:ring-4 ${
                 form.referralCode && refCodeValid
                   ? "border-emerald-400 bg-emerald-50/50 focus:ring-emerald-100 focus:border-emerald-500"
                   : form.referralCode && !refCodeValid
@@ -462,7 +462,7 @@ function AuthFormInner({
           value={form.email}
           onChange={update("email")}
           placeholder="Enter email address"
-          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+          className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
         />
       </FormField>
 
@@ -475,7 +475,7 @@ function AuthFormInner({
             onChange={update("password")}
             placeholder={isRegister ? "Create a strong password" : "Enter your password"}
             maxLength={128}
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+            className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 pr-12 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
           />
           <button
             type="button"
@@ -498,7 +498,7 @@ function AuthFormInner({
               onChange={update("confirmPassword")}
               placeholder="Re-enter your password"
               maxLength={128}
-              className={`w-full rounded-xl border px-4 py-3 pr-12 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:ring-4 ${
+              className={`w-full rounded-sm border px-4 py-3 pr-12 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:ring-4 ${
                 errors.confirmPassword
                   ? "border-rose-500 bg-rose-50/10 focus:border-rose-500 focus:ring-rose-100"
                   : getFieldSuccess("confirmPassword", form.confirmPassword)
@@ -522,7 +522,7 @@ function AuthFormInner({
           {!fixedRole && (
             <div className="flex flex-col gap-1">
               <label htmlFor="auth-role" className="text-sm font-semibold text-slate-700">Role</label>
-              <select id="auth-role" value="USER" disabled className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-[0.95rem] font-semibold text-slate-500 outline-none">
+              <select id="auth-role" value="USER" disabled className="w-full rounded-sm border border-slate-200 bg-slate-50 px-4 py-3 text-[0.95rem] font-semibold text-slate-500 outline-none">
                 <option value="USER">Standard User</option>
               </select>
             </div>
@@ -537,18 +537,18 @@ function AuthFormInner({
                 onChange={update("registrationKey")}
                 placeholder="Required for administrative accounts"
                 required
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+                className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
               />
             </FormField>
           )}
         </>
       )}
 
-      <button type="submit" className="mt-4 w-full rounded-xl bg-indigo-600 py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+      <button type="submit" className="mt-4 w-full rounded-sm bg-gold py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-gold active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
         {isLoading ? "Please wait..." : isRegister ? "Create Account" : "Login"}
       </button>
 
-      {message && <p className="mt-2 rounded-xl bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
+      {message && <p className="mt-2 rounded-sm bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
 
       {!isRegister && allowPasswordReset && (
         <button
@@ -563,7 +563,7 @@ function AuthFormInner({
             setMessage("");
             setStep("forgot-request");
           }}
-          className="text-right text-sm font-semibold text-indigo-600 hover:text-indigo-700 underline underline-offset-2"
+          className="text-right text-sm font-semibold text-gold hover:text-gold underline underline-offset-2"
         >
           Forgot password?
         </button>
@@ -572,7 +572,7 @@ function AuthFormInner({
       {!hideRegisterLink && (
         <p className="mt-2 text-center text-sm font-medium text-slate-500">
           {switchText || (isRegister ? "Already have an account?" : "Need a new account?")}{" "}
-          <Link href={switchHref || (isRegister ? "/login" : "/register")} className="font-semibold text-slate-900 hover:text-indigo-600 transition-colors">
+          <Link href={switchHref || (isRegister ? "/login" : "/register")} className="font-semibold text-slate-900 hover:text-gold transition-colors">
             {switchLabel || (isRegister ? "Login" : "Register")}
           </Link>
         </p>
@@ -583,7 +583,7 @@ function AuthFormInner({
 
 export default function AuthForm(props) {
   return (
-    <Suspense fallback={<div className="flex w-full justify-center p-4"><span className="loading loading-spinner text-primary"></span></div>}>
+    <Suspense fallback={<div className="flex w-full justify-center p-4"><span className="loading loading-spinner text-gold"></span></div>}>
       <AuthFormInner {...props} />
     </Suspense>
   );

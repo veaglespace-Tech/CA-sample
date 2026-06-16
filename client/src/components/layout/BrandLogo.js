@@ -15,7 +15,7 @@ export default function BrandLogo({
       <img
         src={democaAssets.logo || "/veagle-logo.webp"}
         alt={alt}
-        className={`${imageClassName} object-contain`}
+        className={`${imageClassName} object-contain animate-[float_4s_ease-in-out_infinite]`}
         style={{ 
           height: typeof height === "number" ? `${height}px` : height, 
           width: width ? (typeof width === "number" ? `${width}px` : width) : "auto" 

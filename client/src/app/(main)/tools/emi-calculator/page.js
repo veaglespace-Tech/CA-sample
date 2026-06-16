@@ -34,7 +34,7 @@ export default function EmiCalculator() {
       {/* ── HERO SECTION ── */}
       <section className="relative overflow-hidden bg-white z-20 pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-slate-200/60">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-[20%] -right-[10%] h-[600px] w-[600px] rounded-full bg-blue-500/10 blur-[120px]" />
+          <div className="absolute -top-[20%] -right-[10%] h-[600px] w-[600px] rounded-full bg-gold/100/10 blur-[120px]" />
           <div className="absolute top-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-violet-500/10 blur-[120px]" />
           <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
         </div>
@@ -68,9 +68,9 @@ export default function EmiCalculator() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8">
             
             {/* Input Controls */}
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+            <div className="bg-white p-8 rounded-none shadow-sm border border-slate-200 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
               <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-100">
-                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gold/10 text-gold rounded-none flex items-center justify-center">
                   <Calculator size={24} />
                 </div>
                 <div>
@@ -82,7 +82,7 @@ export default function EmiCalculator() {
               <div className="mb-8">
                 <div className="flex justify-between mb-4">
                   <label className="block text-sm font-black uppercase tracking-widest text-slate-500">Loan Amount (₹)</label>
-                  <span className="text-sm font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">₹ {Number(loanAmount).toLocaleString()}</span>
+                  <span className="text-sm font-bold text-gold bg-gold/10 px-2 py-0.5 rounded">₹ {Number(loanAmount).toLocaleString()}</span>
                 </div>
                 <div className="relative mb-6">
                   <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
@@ -90,7 +90,7 @@ export default function EmiCalculator() {
                   </div>
                   <input 
                     type="number" 
-                    className="w-full pl-12 pr-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl outline-none transition-all text-xl font-black text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" 
+                    className="w-full pl-12 pr-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-none outline-none transition-all text-xl font-black text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" 
                     value={loanAmount} 
                     onChange={(e) => setLoanAmount(e.target.value)} 
                   />
@@ -102,7 +102,7 @@ export default function EmiCalculator() {
                   step="10000" 
                   value={loanAmount} 
                   onChange={(e) => setLoanAmount(e.target.value)} 
-                  className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600" 
+                  className="w-full h-2 bg-slate-200 rounded-sm appearance-none cursor-pointer accent-blue-600" 
                 />
                 <div className="flex justify-between text-xs font-semibold text-slate-400 mt-2">
                   <span>1L</span>
@@ -110,14 +110,14 @@ export default function EmiCalculator() {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-black uppercase tracking-widest text-slate-500 mb-4">Interest Rate (% p.a.)</label>
                   <div className="relative">
                     <input 
                       type="number" 
                       step="0.1" 
-                      className="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl outline-none transition-all text-xl font-black text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" 
+                      className="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-none outline-none transition-all text-xl font-black text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" 
                       value={interestRate} 
                       onChange={(e) => setInterestRate(e.target.value)} 
                     />
@@ -132,7 +132,7 @@ export default function EmiCalculator() {
                   <div className="relative">
                     <input 
                       type="number" 
-                      className="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl outline-none transition-all text-xl font-black text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" 
+                      className="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-none outline-none transition-all text-xl font-black text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" 
                       value={tenureYears} 
                       onChange={(e) => setTenureYears(e.target.value)} 
                     />
@@ -145,9 +145,9 @@ export default function EmiCalculator() {
             </div>
 
             {/* Results */}
-            <div className="relative rounded-3xl bg-gradient-to-br from-blue-900 to-indigo-900 p-8 text-white shadow-2xl overflow-hidden h-fit">
+            <div className="relative rounded-none bg-gradient-to-br from-blue-900 to-indigo-900 p-8 text-white shadow-2xl overflow-hidden h-fit">
               <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,#3b82f6_1px,transparent_1px)] [background-size:16px_16px]" />
-              <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-blue-500/30 blur-3xl" />
+              <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-gold/100/30 blur-3xl" />
               
               <div className="relative z-10">
                 <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 mb-6">
@@ -156,24 +156,24 @@ export default function EmiCalculator() {
                 
                 <div className="mb-8">
                   <span className="block text-sm font-semibold text-slate-400 mb-2">Monthly EMI</span>
-                  <div className="text-5xl font-black tracking-tight text-white mb-2">
+                  <div className="text-3xl md:text-5xl font-black tracking-tight text-white mb-2">
                     ₹ {parseInt(results.emi).toLocaleString()}
                   </div>
                 </div>
                 
                 <div className="space-y-4 mb-6 pt-6 border-t border-white/10">
-                  <div className="flex justify-between items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                  <div className="flex justify-between items-center bg-white/5 p-4 rounded-sm backdrop-blur-sm border border-white/10 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                     <span className="text-sm font-semibold text-slate-300">Principal Amount</span>
                     <strong className="text-lg font-black text-white">₹ {parseInt(loanAmount || 0).toLocaleString()}</strong>
                   </div>
                   
-                  <div className="flex justify-between items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                  <div className="flex justify-between items-center bg-white/5 p-4 rounded-sm backdrop-blur-sm border border-white/10 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                     <span className="text-sm font-semibold text-slate-300">Total Interest</span>
                     <strong className="text-lg font-black text-orange-400">+ ₹ {parseInt(results.totalInterest).toLocaleString()}</strong>
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-5 rounded-2xl shadow-lg border border-blue-500/50 relative overflow-hidden mt-6">
+                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-5 rounded-none shadow-lg border border-blue-500/50 relative overflow-hidden mt-6">
                   <div className="absolute -right-10 -bottom-10 h-32 w-32 rounded-full bg-white/20 blur-2xl" />
                   <span className="block text-xs font-black uppercase tracking-widest text-blue-100 mb-1 relative z-10">Total Amount Payable</span>
                   <strong className="text-2xl font-black text-white relative z-10">

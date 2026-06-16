@@ -21,7 +21,7 @@ const statusStyles = {
   CONVERTED: "bg-emerald-50 text-emerald-700 border-emerald-200",
   COMPLETED: "bg-emerald-50 text-emerald-700 border-emerald-200",
   REJECTED: "bg-rose-50 text-rose-700 border-rose-200",
-  CLOSED: "bg-slate-100 text-slate-500 border-slate-200",
+  CLOSED: "bg-navy-light text-slate-400 border-slate-700",
 };
 
 export default function StaffOverview({ user, summary, onNavigateToSection }) {
@@ -112,7 +112,7 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
 
   const getStatusBadgeClass = (status) => {
     const key = String(status || "NEW").toUpperCase();
-    return statusStyles[key] || "bg-slate-100 text-slate-500 border-slate-200";
+    return statusStyles[key] || "bg-navy-light text-slate-400 border-slate-700";
   };
   const activityTotalPages = Math.max(1, Math.ceil(filteredLeads.length / activityPageSize));
   const paginatedLeads = filteredLeads.slice((activityPage - 1) * activityPageSize, activityPage * activityPageSize);
@@ -128,17 +128,17 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
   }, [activityPage, activityTotalPages]);
 
   const toneClasses = {
-    blue: { gradient: "from-blue-50 to-cyan-50", border: "border-blue-100", text: "text-blue-600", iconBg: "bg-blue-500" },
+    blue: { gradient: "from-blue-50 to-cyan-50", border: "border-blue-100", text: "text-gold", iconBg: "bg-gold/100" },
     amber: { gradient: "from-amber-50 to-orange-50", border: "border-amber-100", text: "text-amber-600", iconBg: "bg-amber-500" },
     emerald: { gradient: "from-emerald-50 to-teal-50", border: "border-emerald-100", text: "text-emerald-600", iconBg: "bg-emerald-500" },
-    indigo: { gradient: "from-indigo-50 to-blue-50", border: "border-indigo-100", text: "text-indigo-600", iconBg: "bg-indigo-500" },
+    indigo: { gradient: "from-indigo-50 to-blue-50", border: "border-gold/20", text: "text-gold", iconBg: "bg-gold" },
     violet: { gradient: "from-violet-50 to-fuchsia-50", border: "border-violet-100", text: "text-violet-600", iconBg: "bg-violet-500" },
     rose: { gradient: "from-rose-50 to-pink-50", border: "border-rose-100", text: "text-rose-600", iconBg: "bg-rose-500" },
   };
 
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <section className="relative overflow-hidden rounded-[2.5rem] border border-indigo-100 bg-gradient-to-br from-blue-50 via-indigo-50/60 to-white p-8 shadow-xl shadow-indigo-100/40 md:p-10 lg:px-12">
+      <section className="relative overflow-hidden rounded-[2.5rem] border border-gold/20 bg-gradient-to-br from-blue-50 via-indigo-50/60 to-white p-8 shadow-xl shadow-indigo-100/40 md:p-4 md:p-10 lg:px-4 md:px-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.08),transparent_34%)]"></div>
         <div className="absolute inset-y-0 right-[22%] hidden w-px bg-slate-200/50 lg:block"></div>
         <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -147,10 +147,10 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
               <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
               Veagle Space Technology Admin Control Center
             </span>
-            <h1 className="text-4xl font-black leading-[0.95] tracking-tight text-slate-900 md:text-5xl lg:text-[3.7rem]">
+            <h1 className="text-4xl font-black leading-[0.95] tracking-tight text-white md:text-5xl lg:text-[3.7rem]">
               Hello, {user?.name?.split(" ")[0]}.
             </h1>
-            <p className="max-w-2xl text-base font-medium leading-8 text-slate-600 md:text-lg">
+            <p className="max-w-2xl text-base font-medium leading-8 text-slate-300 md:text-lg">
               Monitor inquiries, manage services, verify documents, and control admin access from one workspace.
             </p>
           </div>
@@ -161,11 +161,11 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
 
       <section className="space-y-4">
         <div className="flex flex-col gap-2 px-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-sm font-black uppercase tracking-[0.18em] text-slate-600">Key Performance Indicators</h2>
+          <h2 className="text-sm font-black uppercase tracking-[0.18em] text-slate-300">Key Performance Indicators</h2>
           {filterStatus !== "ALL" && (
             <button
               onClick={() => setFilterStatus("ALL")}
-              className="w-fit rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-black uppercase tracking-wider text-indigo-700 transition hover:bg-indigo-100"
+              className="w-fit rounded-sm bg-gold/10 px-3 py-1.5 text-xs font-black uppercase tracking-wider text-gold transition hover:bg-indigo-100"
             >
               Clear Filter
             </button>
@@ -182,10 +182,10 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
                 key={card.id}
                 type="button"
                 onClick={() => setFilterStatus(card.id)}
-                className={`group relative flex flex-col h-full overflow-hidden rounded-[2rem] border border-slate-200/60 bg-white/90 backdrop-blur-xl p-7 text-left shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                className={`group relative flex flex-col h-full overflow-hidden rounded-[2rem] border border-slate-700/60 bg-navy/90 backdrop-blur-xl p-7 text-left shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                   active 
                     ? `border-${card.tone}-300/60 shadow-${card.tone}-500/10` 
-                    : "border-white hover:border-slate-200"
+                    : "border-white hover:border-slate-700"
                 }`}
               >
                 <div className={`absolute top-0 right-0 w-32 h-32 ${tone.iconBg.replace('bg-', 'bg-').replace('500', '500/5')} rounded-full blur-3xl group-hover:${tone.iconBg.replace('bg-', 'bg-').replace('500', '500/10')} transition-colors duration-500`}></div>
@@ -193,9 +193,9 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
                 <div className="relative z-10 flex items-start justify-between gap-4">
                   <div className="space-y-1.5">
                     <span className={`block text-[10px] font-black uppercase tracking-[0.2em] ${active ? tone.text : 'text-slate-400'}`}>{card.title}</span>
-                    <strong className="block text-4xl md:text-5xl font-black tracking-tight text-slate-800">{card.value}</strong>
+                    <strong className="block text-4xl md:text-3xl md:text-5xl font-black tracking-tight text-white">{card.value}</strong>
                   </div>
-                  <span className={`flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm transition-all duration-300 group-hover:scale-110 ${active ? `bg-gradient-to-br ${tone.gradient} ${tone.text} border border-${card.tone}-100/50 shadow-${card.tone}-500/20` : `bg-slate-50 text-slate-300 border border-slate-100`}`}>
+                  <span className={`flex h-14 w-14 items-center justify-center rounded-none shadow-sm transition-all duration-300 group-hover:scale-110 ${active ? `bg-gradient-to-br ${tone.gradient} ${tone.text} border border-${card.tone}-100/50 shadow-${card.tone}-500/20` : `bg-navy-light text-slate-300 border border-slate-800`}`}>
                     <Icon size={28} strokeWidth={2.5} />
                   </span>
                 </div>
@@ -209,27 +209,27 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
       {summary?.latestLeads?.length > 0 && (
         <section className="space-y-4">
           <div className="flex flex-col gap-3 px-1 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-sm font-black uppercase tracking-[0.18em] text-slate-600">
+            <h2 className="text-sm font-black uppercase tracking-[0.18em] text-slate-300">
               Recent Activity
-              <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] tracking-normal text-slate-500">
+              <span className="ml-2 rounded-full bg-navy-light px-2 py-0.5 text-[11px] tracking-normal text-slate-400">
                 {filteredLeads.length}
               </span>
             </h2>
             {onNavigateToSection && (
               <button
                 onClick={() => onNavigateToSection("leads")}
-                className="btn btn-ghost btn-sm w-fit rounded-xl text-[11px] font-black uppercase tracking-wider text-indigo-700 hover:bg-indigo-50"
+                className="btn btn-ghost btn-sm w-fit rounded-sm text-[11px] font-black uppercase tracking-wider text-gold hover:bg-gold/10"
               >
                 View All <ChevronRight size={14} />
               </button>
             )}
           </div>
 
-          <div className="overflow-hidden rounded-[1.25rem] border border-slate-200/80 bg-white shadow-lg">
+          <div className="overflow-hidden rounded-[1.25rem] border border-slate-700/80 bg-navy shadow-lg">
             <div className="overflow-x-auto">
-              <table className="table w-full text-slate-800">
+              <table className="table w-full text-white">
                 <thead>
-                  <tr className="border-b border-slate-100 bg-slate-50 text-xs font-black uppercase tracking-wider text-slate-400">
+                  <tr className="border-b border-slate-800 bg-navy-light text-xs font-black uppercase tracking-wider text-slate-400">
                     <th className="py-4">Name</th>
                     <th className="py-4">Service</th>
                     <th className="py-4">Form Category</th>
@@ -240,16 +240,16 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
                 </thead>
                 <tbody className="divide-y divide-slate-50 text-sm font-bold">
                   {paginatedLeads.map((lead) => (
-                    <tr key={lead.id} className="transition-colors hover:bg-slate-50">
-                      <td className="py-4 font-extrabold text-slate-900">{lead.fullName || lead.name}</td>
-                      <td className="py-4 text-slate-700">{lead.serviceName || lead.service?.name || "General Inquiry"}</td>
+                    <tr key={lead.id} className="transition-colors hover:bg-navy-light">
+                      <td className="py-4 font-extrabold text-white">{lead.fullName || lead.name}</td>
+                      <td className="py-4 text-slate-200">{lead.serviceName || lead.service?.name || "General Inquiry"}</td>
                       <td className="py-4">
-                        <span className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] uppercase tracking-wider text-slate-500">
+                        <span className="rounded-sm border border-slate-700 bg-navy-light px-2.5 py-1 text-[11px] uppercase tracking-wider text-slate-400">
                           {lead.formType || "CONTACT"}
                         </span>
                       </td>
                       <td className="py-4">
-                        <span className={`badge badge-outline badge-sm rounded-lg border px-2.5 py-2 text-[10px] font-black uppercase tracking-wide ${getStatusBadgeClass(lead.status)}`}>
+                        <span className={`badge badge-outline badge-sm rounded-sm border px-2.5 py-2 text-[10px] font-black uppercase tracking-wide ${getStatusBadgeClass(lead.status)}`}>
                           {String(lead.status || "NEW").replace("_", " ")}
                         </span>
                       </td>
@@ -260,7 +260,7 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
                         <td className="py-4 text-right">
                           <button
                             onClick={() => onNavigateToSection(lead.type === "contact" || lead.formType === "CONTACT" ? "contacts" : "leads")}
-                            className="btn btn-ghost btn-xs rounded-lg font-black text-indigo-700 hover:bg-indigo-50"
+                            className="btn btn-ghost btn-xs rounded-sm font-black text-gold hover:bg-gold/10"
                           >
                             Manage
                           </button>
@@ -270,7 +270,7 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
                   ))}
                   {filteredLeads.length === 0 && (
                     <tr>
-                      <td colSpan={onNavigateToSection ? 6 : 5} className="bg-slate-50/40 py-16 text-center text-sm font-semibold italic text-slate-400">
+                      <td colSpan={onNavigateToSection ? 6 : 5} className="bg-navy-light/40 py-8 md:py-16 text-center text-sm font-semibold italic text-slate-400">
                         No inquiries match this filter.
                       </td>
                     </tr>

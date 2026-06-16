@@ -28,10 +28,10 @@ export default function AdminTable({
     if (col === "Name" || col === "FullName") val = item.fullName || item.name;
     if (col === "Role") {
       const role = String(item.role || val || "USER").toUpperCase();
-      let badgeClasses = "bg-slate-50 text-slate-500 border-slate-200/60";
+      let badgeClasses = "bg-navy-light text-slate-400 border-slate-700/60";
       
       if (role === "SUPER_ADMIN") {
-        badgeClasses = "bg-indigo-50 text-indigo-700 border-indigo-200/60";
+        badgeClasses = "bg-gold/10 text-gold border-gold/30/60";
       } else if (role === "ADMIN") {
         badgeClasses = "bg-sky-50 text-sky-700 border-sky-200/60";
       } else if (role === "STAFF") {
@@ -39,7 +39,7 @@ export default function AdminTable({
       }
       
       return (
-        <div className={`badge badge-outline badge-sm py-2.5 px-2.5 rounded-lg font-black tracking-wide text-[9px] uppercase border ${badgeClasses}`}>
+        <div className={`badge badge-outline badge-sm py-2.5 px-2.5 rounded-sm font-black tracking-wide text-[9px] uppercase border ${badgeClasses}`}>
           {formatRole(item.role)}
         </div>
       );
@@ -65,7 +65,7 @@ export default function AdminTable({
     
     if (col === "Status") {
       const status = String(item.status || val || "NEW").toUpperCase();
-      let badgeClasses = "bg-slate-100 text-slate-700 border-slate-200/60";
+      let badgeClasses = "bg-navy-light text-slate-200 border-slate-700/60";
       
       if (status === "NEW") {
         badgeClasses = "bg-sky-50 text-sky-700 border-sky-200/60";
@@ -78,15 +78,15 @@ export default function AdminTable({
       } else if (status === "REJECTED") {
         badgeClasses = "bg-rose-50 text-rose-700 border-rose-200/60";
       } else if (status === "CLOSED" || status === "PAST") {
-        badgeClasses = "bg-slate-100 text-slate-500 border-slate-200/60";
+        badgeClasses = "bg-navy-light text-slate-400 border-slate-700/60";
       } else if (status === "UPCOMING" || status === "PUBLISHED") {
-        badgeClasses = "bg-indigo-50 text-indigo-700 border-indigo-200/60";
+        badgeClasses = "bg-gold/10 text-gold border-gold/30/60";
       } else if (status === "DRAFT") {
-        badgeClasses = "bg-slate-50 text-slate-400 border-slate-200/60";
+        badgeClasses = "bg-navy-light text-slate-400 border-slate-700/60";
       }
       
       return (
-        <div className={`badge badge-outline badge-sm py-2 px-2.5 rounded-lg font-black tracking-wide text-[10px] uppercase border ${badgeClasses}`}>
+        <div className={`badge badge-outline badge-sm py-2 px-2.5 rounded-sm font-black tracking-wide text-[10px] uppercase border ${badgeClasses}`}>
           {status.replace("_", " ")}
         </div>
       );
@@ -117,7 +117,7 @@ export default function AdminTable({
     if (col === "Message" || col === "Subject" || col === "Description") {
       if (val && typeof val === "string" && val.length > 50) {
         return (
-          <span title={val} className="cursor-help font-semibold text-slate-600">
+          <span title={val} className="cursor-help font-semibold text-slate-300">
             {val.slice(0, 47)}...
           </span>
         );
@@ -129,7 +129,7 @@ export default function AdminTable({
       return (
         <button 
           onClick={(e) => { e.stopPropagation(); onViewDetails && onViewDetails(item); }}
-          className="btn btn-xs rounded-full border-none bg-indigo-50 text-indigo-700 hover:bg-indigo-100 font-bold px-3 gap-1 shadow-sm"
+          className="btn btn-xs rounded-full border-none bg-gold/10 text-gold hover:bg-indigo-100 font-bold px-3 gap-1 shadow-sm"
         >
           <span className="text-[10px]">👥</span> {count} {count === 1 ? "User" : "Users"}
         </button>
@@ -161,7 +161,7 @@ export default function AdminTable({
   };
 
   return (
-    <div className="card bg-base-100 shadow-sm border border-base-200">
+    <div className="card bg-navy-light shadow-sm border border-base-200">
       <div className="card-body p-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <h2 className="card-title text-2xl font-black">{title}</h2>
@@ -173,13 +173,13 @@ export default function AdminTable({
                   placeholder={`Search ${type}s...`}
                   value={searchTerm}
                   onChange={(e) => onSearchChange(e.target.value)}
-                  className="input input-bordered input-sm rounded-lg w-48 md:w-64"
+                  className="input input-bordered input-sm rounded-sm w-48 md:w-64"
                 />
                 {isSearching && <span className="loading loading-spinner loading-xs absolute right-3 top-2.5"></span>}
               </div>
             )}
             {onAdd && (
-              <button className="btn btn-primary btn-sm rounded-lg gap-2" onClick={onAdd}>
+              <button className="btn btn-primary btn-sm rounded-sm gap-2" onClick={onAdd}>
                 <Plus /> Add {type.charAt(0).toUpperCase() + type.slice(1)}
               </button>
             )}
@@ -220,7 +220,7 @@ export default function AdminTable({
                         </button>
                       )}
                       {onEmail && (
-                        <button className="btn btn-ghost btn-xs join-item tooltip text-primary" data-tip="Send Email" onClick={() => onEmail(item)}>
+                        <button className="btn btn-ghost btn-xs join-item tooltip text-gold" data-tip="Send Email" onClick={() => onEmail(item)}>
                           <Mail size={16} />
                         </button>
                       )}
@@ -245,7 +245,7 @@ export default function AdminTable({
               ))}
               {items.length === 0 && (
                 <tr>
-                  <td colSpan={columns.length + 1} className="py-20 text-center opacity-40 italic">
+                  <td colSpan={columns.length + 1} className="py-8 md:py-20 text-center opacity-40 italic">
                     No records found in this section.
                   </td>
                 </tr>

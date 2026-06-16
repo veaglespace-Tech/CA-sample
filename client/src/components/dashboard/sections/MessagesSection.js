@@ -62,16 +62,16 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       
       {/* Header Block with glowing accent */}
-      <div className="bg-gradient-to-br from-indigo-50 via-white to-blue-50/30 text-slate-800 rounded-[2.5rem] p-8 shadow-[0_10px_35px_rgba(99,102,241,0.03)] relative border border-indigo-100/70 overflow-hidden">
+      <div className="bg-gradient-to-br from-indigo-50 via-white to-blue-50/30 text-white rounded-[2.5rem] p-8 shadow-[0_10px_35px_rgba(99,102,241,0.03)] relative border border-gold/20/70 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(99,102,241,0.06),transparent_50%)]"></div>
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-indigo-100/70 rounded-full border border-indigo-200/50">
-              <Bell size={14} className="text-indigo-700" />
-              <span className="text-[10px] font-black uppercase tracking-wider text-indigo-700">Inbox & Alerts</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-indigo-100/70 rounded-full border border-gold/30/50">
+              <Bell size={14} className="text-gold" />
+              <span className="text-[10px] font-black uppercase tracking-wider text-gold">Inbox & Alerts</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-none text-slate-800">My Communications</h1>
-            <p className="text-slate-500 text-xs md:text-sm font-semibold max-w-xl">
+            <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-none text-white">My Communications</h1>
+            <p className="text-slate-400 text-xs md:text-sm font-semibold max-w-xl">
               Stay updated with important messages, document requests, and notifications from the compliance team.
             </p>
           </div>
@@ -80,20 +80,20 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
 
       <div className="space-y-5">
         {messages.filter(msg => msg.senderId !== user?.id).length > 0 ? messages.filter(msg => msg.senderId !== user?.id).map(msg => (
-          <div key={msg.id} className={`p-6 md:p-8 rounded-[2.5rem] border shadow-xl transition-all duration-300 relative overflow-hidden group ${msg.isRead ? 'bg-white/90 backdrop-blur-xl border-slate-200/60 hover:shadow-2xl hover:border-slate-300/80' : 'bg-indigo-50/50 backdrop-blur-xl border-indigo-200/60 hover:shadow-2xl hover:border-indigo-300'}`}>
+          <div key={msg.id} className={`p-6 md:p-8 rounded-[2.5rem] border shadow-xl transition-all duration-300 relative overflow-hidden group ${msg.isRead ? 'bg-navy/90 backdrop-blur-xl border-slate-700/60 hover:shadow-2xl hover:border-slate-300/80' : 'bg-gold/10/50 backdrop-blur-xl border-gold/30/60 hover:shadow-2xl hover:border-indigo-300'}`}>
             {/* Subtle background glow */}
-            <div className={`absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl -z-10 pointer-events-none transition-colors duration-500 ${msg.isRead ? 'bg-slate-500/5 group-hover:bg-slate-500/10' : 'bg-indigo-500/10 group-hover:bg-indigo-500/20'}`}></div>
+            <div className={`absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl -z-10 pointer-events-none transition-colors duration-500 ${msg.isRead ? 'bg-navy-light0/5 group-hover:bg-navy-light0/10' : 'bg-gold/10 group-hover:bg-gold/20'}`}></div>
             <div className="flex justify-between items-start mb-4">
                <span className="text-[10px] uppercase font-black tracking-widest text-slate-400">
                  {new Date(msg.createdAt).toLocaleString()}
                </span>
                {!msg.isRead && msg.receiverId === user?.id && (
-                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-indigo-500 text-white shadow-md shadow-indigo-500/20">
+                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-gold text-white shadow-md shadow-indigo-500/20">
                    New
                  </span>
                )}
             </div>
-            <p className="text-base md:text-lg text-slate-800 font-medium leading-relaxed">{msg.content}</p>
+            <p className="text-base md:text-lg text-white font-medium leading-relaxed">{msg.content}</p>
 
             {/* Attached Documents / Shared by Admin */}
             {msg.documents && msg.documents.length > 0 && (
@@ -103,9 +103,9 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
                   const fullUrl = getFullFileUrl(doc.fileUrl);
 
                   return (
-                    <div key={doc.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-[1.5rem] bg-slate-50 border border-slate-100 hover:bg-slate-50/80 hover:border-slate-200 transition-all duration-300">
+                    <div key={doc.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-[1.5rem] bg-navy-light border border-slate-800 hover:bg-navy-light/80 hover:border-slate-700 transition-all duration-300 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                       <div className="flex items-center gap-4">
-                        <div className="p-3 bg-white shadow-sm text-indigo-500 rounded-2xl shrink-0 border border-slate-100">
+                        <div className="p-3 bg-navy shadow-sm text-gold rounded-none shrink-0 border border-slate-800 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                           {isPdf ? (
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -117,7 +117,7 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
                           )}
                         </div>
                         <div className="flex flex-col min-w-0">
-                          <span className="text-sm font-black text-slate-800 truncate max-w-[200px] sm:max-w-md">
+                          <span className="text-sm font-black text-white truncate max-w-[200px] sm:max-w-md">
                             {doc.fileName}
                           </span>
                           <span className="text-[10px] uppercase font-black tracking-widest text-slate-400 mt-0.5">
@@ -132,7 +132,7 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
                           href={fullUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn btn-sm bg-indigo-600 hover:bg-indigo-700 text-white border-none rounded-xl h-10 w-10 px-0 shadow-lg shadow-indigo-600/20 transition-all duration-300 flex items-center justify-center"
+                          className="btn btn-sm bg-gold hover:bg-gold text-white border-none rounded-sm h-10 w-10 px-0 shadow-lg shadow-indigo-600/20 transition-all duration-300 flex items-center justify-center"
                           title={`Preview ${isPdf ? "PDF" : "Image"}`}
                         >
                           <Eye size={18} />
@@ -141,7 +141,7 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
                         <button 
                           type="button"
                           onClick={() => forceDownload(fullUrl, doc.fileName || "document")}
-                          className="btn btn-sm bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 rounded-xl h-10 w-10 px-0 transition-all duration-300 shadow-sm flex items-center justify-center"
+                          className="btn btn-sm bg-navy border border-slate-700 hover:border-slate-300 hover:bg-navy-light text-slate-200 rounded-sm h-10 w-10 px-0 transition-all duration-300 shadow-sm flex items-center justify-center"
                           title="Download"
                         >
                           <Download size={18} />
@@ -158,7 +158,7 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
                 <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover/alert:bg-amber-500/20 transition-colors duration-500"></div>
                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-400 to-orange-500"></div>
                 <div className="flex items-start gap-5 relative z-10">
-                  <div className="p-3.5 bg-white text-amber-500 rounded-2xl shrink-0 mt-0.5 shadow-sm border border-amber-100">
+                  <div className="p-3.5 bg-navy text-amber-500 rounded-none shrink-0 mt-0.5 shadow-sm border border-amber-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                     <HiOutlineDocumentAdd size={24} />
                   </div>
                   <div className="flex-1">
@@ -169,13 +169,13 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
                     
                     {/* Check if uploaded and not rejected */}
                     {myDocuments.some(doc => doc.documentType === msg.requestedDocName && (msg.registrationId ? doc.registrationId === msg.registrationId : true) && (msg.leadId ? doc.leadId === msg.leadId : true) && doc.status !== "REJECTED") ? (
-                      <div className="mt-5 flex items-center gap-2 text-emerald-700 bg-emerald-50 px-4 py-2.5 rounded-xl border border-emerald-200/50 w-fit shadow-sm">
+                      <div className="mt-5 flex items-center gap-2 text-emerald-700 bg-emerald-50 px-4 py-2.5 rounded-sm border border-emerald-200/50 w-fit shadow-sm">
                         <HiOutlineCheckCircle className="text-xl" />
                         <span className="text-xs font-black uppercase tracking-widest">Document Uploaded Successfully</span>
                       </div>
                     ) : (
                       <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                        <label className={`btn h-12 px-8 rounded-2xl gap-3 cursor-pointer transition-all duration-300 font-black uppercase text-[11px] tracking-[0.15em] border-none shadow-[0_8px_20px_-6px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_25px_-6px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 ${uploadingForMsg === msg.id ? 'btn-disabled bg-slate-200 text-slate-500' : 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-orange-500/30 hover:shadow-orange-500/40'}`}>
+                        <label className={`btn h-12 px-8 rounded-none gap-3 cursor-pointer transition-all duration-300 font-black uppercase text-[11px] tracking-[0.15em] border-none shadow-[0_8px_20px_-6px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_25px_-6px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 ${uploadingForMsg === msg.id ? 'btn-disabled bg-slate-200 text-slate-400' : 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-orange-500/30 hover:shadow-orange-500/40'}`}>
                           {uploadingForMsg === msg.id ? (
                             <span className="loading loading-spinner loading-sm text-amber-600"></span>
                           ) : (
@@ -207,12 +207,12 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
             )}
           </div>
         )) : (
-          <div className="py-24 text-center bg-slate-50/50 rounded-[2.5rem] border border-dashed border-slate-200">
-            <div className="w-20 h-20 bg-white shadow-sm rounded-full flex items-center justify-center mx-auto mb-5 text-slate-300">
+          <div className="py-8 md:py-24 text-center bg-navy-light/50 rounded-[2.5rem] border border-dashed border-slate-700">
+            <div className="w-20 h-20 bg-navy shadow-sm rounded-full flex items-center justify-center mx-auto mb-5 text-slate-300">
               <MessageSquare size={32} />
             </div>
-            <h3 className="text-lg font-black text-slate-800 mb-2">No messages yet</h3>
-            <p className="text-sm font-semibold text-slate-500 max-w-sm mx-auto">You&apos;re all caught up! New updates, alerts, and requests will appear here.</p>
+            <h3 className="text-lg font-black text-white mb-2">No messages yet</h3>
+            <p className="text-sm font-semibold text-slate-400 max-w-sm mx-auto">You&apos;re all caught up! New updates, alerts, and requests will appear here.</p>
           </div>
         )}
       </div>

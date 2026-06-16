@@ -68,19 +68,19 @@ export default function UserFormModal({ editingUser, currentUserRole, onClose, o
 
   return (
     <dialog className="modal modal-open">
-      <div className="modal-box max-w-md rounded-3xl p-8 bg-base-100 shadow-2xl border border-base-200">
+      <div className="modal-box max-w-md rounded-none p-8 bg-navy-light shadow-2xl border border-base-200 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
         <div className="flex justify-between items-center mb-6">
           <h3 className="font-black text-2xl tracking-tight">{editingUser ? "Edit User" : "Add New User"}</h3>
           <button onClick={onClose} className="btn btn-ghost btn-circle btn-sm">✕</button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+        <form onSubmit={handleSubmit} className="space-y-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" noValidate>
           <div className="form-control w-full">
             <label className="label"><span className="label-text font-bold">Full Name</span></label>
             <input
               type="text"
               placeholder="E.g. John Doe"
-              className={`input input-bordered rounded-xl focus:input-primary ${errors.name ? "input-error border-rose-500" : getFieldSuccess("name", userForm.name) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+              className={`input input-bordered rounded-sm focus:input-primary ${errors.name ? "input-error border-rose-500" : getFieldSuccess("name", userForm.name) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
               value={userForm.name}
               onChange={(e) => handleFieldChange("name", e.target.value)}
             />
@@ -92,7 +92,7 @@ export default function UserFormModal({ editingUser, currentUserRole, onClose, o
             <input
               type="email"
               placeholder="E.g. john@example.com"
-              className={`input input-bordered rounded-xl focus:input-primary ${errors.email ? "input-error border-rose-500" : getFieldSuccess("email", userForm.email) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+              className={`input input-bordered rounded-sm focus:input-primary ${errors.email ? "input-error border-rose-500" : getFieldSuccess("email", userForm.email) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
               value={userForm.email}
               onChange={(e) => handleFieldChange("email", e.target.value)}
             />
@@ -133,9 +133,9 @@ export default function UserFormModal({ editingUser, currentUserRole, onClose, o
           </div>
 
           {editingUser?.role === "SUPER_ADMIN" ? (
-            <div className="form-control w-full bg-slate-50 border border-slate-100 p-4 rounded-xl">
-              <span className="text-sm font-bold text-slate-700">Password Management Restricted</span>
-              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+            <div className="form-control w-full bg-navy-light border border-slate-800 p-4 rounded-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+              <span className="text-sm font-bold text-slate-200">Password Management Restricted</span>
+              <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                 Super Admin passwords cannot be reset or changed here. Please contact VeagleSpace for password changes.
               </p>
             </div>
@@ -145,7 +145,7 @@ export default function UserFormModal({ editingUser, currentUserRole, onClose, o
               <input
                 type="password"
                 placeholder={editingUser ? "Leave blank to keep current" : "Min 8 chars, uppercase, lowercase, digit & special char"}
-                className={`input input-bordered rounded-xl focus:input-primary ${errors.password ? "input-error border-rose-500" : getFieldSuccess("password", userForm.password) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+                className={`input input-bordered rounded-sm focus:input-primary ${errors.password ? "input-error border-rose-500" : getFieldSuccess("password", userForm.password) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
                 value={userForm.password}
                 onChange={(e) => handleFieldChange("password", e.target.value)}
               />
@@ -157,7 +157,7 @@ export default function UserFormModal({ editingUser, currentUserRole, onClose, o
           <div className="form-control w-full">
             <label className="label"><span className="label-text font-bold">Assigned Role</span></label>
             <select
-              className="select select-bordered rounded-xl focus:select-primary"
+              className="select select-bordered rounded-sm focus:select-primary"
               value={userForm.role}
               onChange={(e) => handleFieldChange("role", e.target.value)}
             >
@@ -175,20 +175,20 @@ export default function UserFormModal({ editingUser, currentUserRole, onClose, o
           </div>
 
           {formMessage && (
-            <div className="alert alert-error rounded-xl p-3 text-xs">
+            <div className="alert alert-error rounded-sm p-3 text-xs">
               <span>{formMessage}</span>
             </div>
           )}
 
           <div className="modal-action mt-8 pt-4 border-t border-base-200">
-            <button type="button" onClick={onClose} className="btn btn-ghost rounded-xl px-8">Cancel</button>
-            <button type="submit" className="btn btn-primary rounded-xl px-10 shadow-lg shadow-primary/20">
+            <button type="button" onClick={onClose} className="btn btn-ghost rounded-sm px-8">Cancel</button>
+            <button type="submit" className="btn btn-primary rounded-sm px-4 md:px-10 shadow-lg shadow-primary/20">
               {editingUser ? "Save Changes" : "Create User"}
             </button>
           </div>
         </form>
       </div>
-      <form method="dialog" className="modal-backdrop bg-black/40 backdrop-blur-sm" onClick={onClose}>
+      <form method="dialog" className="modal-backdrop bg-black/40 backdrop-blur-sm transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onClick={onClose}>
         <button>close</button>
       </form>
     </dialog>

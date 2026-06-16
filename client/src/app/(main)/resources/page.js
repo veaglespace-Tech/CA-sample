@@ -27,20 +27,20 @@ export default function ResourcesPage() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col selection:bg-blue-500/20 selection:text-blue-700">
+    <div className="flex min-h-screen flex-col selection:bg-gold/100/20 selection:text-gold">
       
       {/* ── HERO SECTION ── */}
-      <section className="relative flex min-h-[40vh] flex-col items-center justify-center bg-white px-4 py-20 sm:px-6 lg:px-8 z-20 overflow-hidden">
+      <section className="relative flex min-h-[40vh] flex-col items-center justify-center bg-white px-4 py-8 md:py-20 sm:px-6 lg:px-8 z-20 overflow-hidden">
         {/* Animated Mesh Background */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute -left-[10%] top-[10%] h-[400px] w-[400px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-blue-500/10 blur-[100px]" />
+          <div className="absolute -left-[10%] top-[10%] h-[400px] w-[400px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-gold/100/10 blur-[100px]" />
           <div className="absolute right-[10%] top-[30%] h-[500px] w-[500px] animate-[float_14s_ease-in-out_infinite_2s_reverse] rounded-full bg-violet-500/10 blur-[120px]" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center">
           {/* Breadcrumb */}
           <div className="mb-8 flex items-center gap-2 text-sm font-bold text-slate-500 animate-fade-in-up">
-            <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-gold transition-colors">Home</Link>
             <ChevronRight size={14} />
             <span className="text-slate-900">Resources</span>
           </div>
@@ -55,12 +55,12 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── ARTICLES SECTION ── */}
-      <section className="relative z-10 border-t border-slate-100 bg-slate-50/50 py-20">
+      <section className="relative z-10 border-t border-slate-100 bg-slate-50/50 py-8 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
           <div className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div>
-              <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-blue-600 flex items-center gap-2">
+              <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-gold flex items-center gap-2">
                 <BookOpen size={16} /> Knowledge Base
               </p>
               <h2 className="font-heading text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
@@ -73,7 +73,7 @@ export default function ResourcesPage() {
           </div>
 
           {loading ? (
-            <div className="flex flex-col items-center justify-center py-20">
+            <div className="flex flex-col items-center justify-center py-8 md:py-20">
               <span className="loading loading-spinner loading-lg text-blue-500 mb-4"></span>
               <p className="text-slate-500 font-bold animate-pulse">Loading latest articles...</p>
             </div>
@@ -86,7 +86,7 @@ export default function ResourcesPage() {
               ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center py-16 px-4 text-center rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <div className="flex flex-col items-center justify-center py-8 md:py-16 px-4 text-center rounded-none border border-slate-200 bg-white shadow-sm">
               <div className="h-16 w-16 rounded-full bg-slate-100 flex items-center justify-center mb-6">
                 <BookOpen className="h-8 w-8 text-slate-400" />
               </div>
@@ -98,7 +98,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── REGULATORY UPDATES SECTION ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-8 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
           <div className="mb-12 text-center">
@@ -118,7 +118,7 @@ export default function ResourcesPage() {
               <Link 
                 key={item} 
                 href="/talk-to-expert" 
-                className="group relative flex flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-400 hover:-translate-y-2 hover:border-violet-200 hover:shadow-xl hover:shadow-violet-500/10 overflow-hidden"
+                className="group relative flex flex-col rounded-none border border-slate-200 bg-white p-8 shadow-sm transition-all duration-400 hover:-translate-y-2 hover:border-violet-200 hover:shadow-xl hover:shadow-violet-500/10 overflow-hidden"
               >
                 {/* Glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-50/0 to-violet-50/0 group-hover:from-violet-50/50 group-hover:to-fuchsia-50/20 transition-colors duration-500" />

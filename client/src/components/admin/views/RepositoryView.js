@@ -92,9 +92,9 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
     ) || [];
 
   if (isLoading) return (
-    <div className="flex items-center justify-center py-24 gap-3 opacity-50">
-      <span className="loading loading-spinner loading-md text-primary"></span>
-      <span className="text-sm font-bold uppercase tracking-widest text-slate-500">Loading Library...</span>
+    <div className="flex items-center justify-center py-8 md:py-24 gap-3 opacity-50">
+      <span className="loading loading-spinner loading-md text-gold"></span>
+      <span className="text-sm font-bold uppercase tracking-widest text-slate-400">Loading Library...</span>
     </div>
   );
 
@@ -104,14 +104,14 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
       {/* Page Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-black text-slate-900 tracking-tight">Document Library</h2>
-          <p className="text-sm text-slate-500 font-medium mt-0.5">Manage and share compliance documents, templates & guides</p>
+          <h2 className="text-2xl font-black text-white tracking-tight">Document Library</h2>
+          <p className="text-sm text-slate-400 font-medium mt-0.5">Manage and share compliance documents, templates & guides</p>
         </div>
         <div className="flex items-center gap-3">
           <select 
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm"
+            className="px-4 py-2 bg-navy border border-slate-700 rounded-sm text-sm font-bold text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm"
           >
             <option value="ALL">All Categories</option>
             <option value="TEMPLATE">Template</option>
@@ -130,9 +130,9 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
                 setFile(null);
               }
             }}
-            className={`btn rounded-2xl font-black gap-2 transition-all shadow-sm ${
+            className={`btn rounded-none font-black gap-2 transition-all shadow-sm ${
               showUploadForm
-                ? "btn-ghost border border-slate-200 text-slate-600 hover:bg-slate-100"
+                ? "btn-ghost border border-slate-700 text-slate-300 hover:bg-navy-light"
                 : "btn-primary px-6"
             }`}
           >
@@ -148,11 +148,11 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
 
       {/* Upload / Edit Form */}
       {showUploadForm && (
-        <div className="bg-white border border-slate-100 rounded-[2rem] shadow-[0_4px_25px_rgba(0,0,0,0.04)] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300">
+        <div className="bg-navy border border-slate-800 rounded-[2rem] shadow-[0_4px_25px_rgba(0,0,0,0.04)] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
 
           {/* Form Header */}
           <div className="bg-slate-900 px-8 py-5 flex items-center gap-3">
-            <div className="p-2.5 bg-primary/15 rounded-xl text-primary">
+            <div className="p-2.5 bg-gold/15 rounded-sm text-gold">
               <FileText size={18} />
             </div>
             <div>
@@ -166,12 +166,12 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
           </div>
 
           {/* Form Body */}
-          <form onSubmit={handleUpload} className="p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <form onSubmit={handleUpload} className="p-8 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30">
+            <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-5">
 
               {/* Display Name */}
               <div className="space-y-1.5">
-                <label className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-slate-500">
+                <label className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">
                   <FileText size={12} /> Display Name
                 </label>
                 <input
@@ -180,19 +180,19 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
                   onChange={(e) => setFormData({ ...formData, fileName: e.target.value })}
                   placeholder="e.g. GST Registration Template"
                   required
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                  className="w-full px-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-semibold text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                 />
               </div>
 
               {/* Category */}
               <div className="space-y-1.5">
-                <label className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-slate-500">
+                <label className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">
                   <Tag size={12} /> Category
                 </label>
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                  className="w-full px-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                 >
                   <option value="TEMPLATE">Template</option>
                   <option value="COMPLIANCE">Compliance Form</option>
@@ -203,7 +203,7 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
 
               {/* Description — full width */}
               <div className="md:col-span-2 space-y-1.5">
-                <label className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-slate-500">
+                <label className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">
                   <AlignLeft size={12} /> Description <span className="text-slate-400 normal-case font-medium">(optional)</span>
                 </label>
                 <textarea
@@ -211,24 +211,24 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Briefly describe what this document is for..."
                   rows={3}
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
+                  className="w-full px-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-semibold text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
                 />
               </div>
 
               {/* File Upload — full width */}
               <div className="md:col-span-2 space-y-1.5">
-                <label className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-slate-500">
+                <label className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">
                   <Paperclip size={12} /> File {editingDoc && <span className="text-slate-400 normal-case font-medium">(leave empty to keep current)</span>}
                 </label>
-                <label className="flex items-center gap-4 px-5 py-4 bg-slate-50 border-2 border-dashed border-slate-200 hover:border-primary/40 hover:bg-primary/[0.02] rounded-xl cursor-pointer transition-all group">
-                  <div className="p-2.5 bg-white border border-slate-200 rounded-xl group-hover:border-primary/30 transition-all shrink-0">
-                    <Upload size={18} className="text-slate-400 group-hover:text-primary transition-colors" />
+                <label className="flex items-center gap-4 px-5 py-4 bg-navy-light border-2 border-dashed border-slate-700 hover:border-primary/40 hover:bg-gold/[0.02] rounded-sm cursor-pointer transition-all group">
+                  <div className="p-2.5 bg-navy border border-slate-700 rounded-sm group-hover:border-primary/30 transition-all shrink-0 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+                    <Upload size={18} className="text-slate-400 group-hover:text-gold transition-colors" />
                   </div>
                   <div className="flex-1 min-w-0">
                     {file ? (
-                      <p className="text-sm font-bold text-slate-800 truncate">{file.name}</p>
+                      <p className="text-sm font-bold text-white truncate">{file.name}</p>
                     ) : (
-                      <p className="text-sm font-semibold text-slate-500">
+                      <p className="text-sm font-semibold text-slate-400">
                         Click to browse or drag & drop a file
                       </p>
                     )}
@@ -245,7 +245,7 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
             </div>
 
             {/* Submit */}
-            <div className="flex justify-end gap-3 mt-6 pt-5 border-t border-slate-100">
+            <div className="flex justify-end gap-3 mt-6 pt-5 border-t border-slate-800">
               <button
                 type="button"
                 onClick={() => {
@@ -254,14 +254,14 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
                   setFormData({ fileName: "", description: "", category: "TEMPLATE" });
                   setFile(null);
                 }}
-                className="btn btn-ghost rounded-xl px-6 font-bold text-slate-600 hover:bg-slate-100 border border-slate-200"
+                className="btn btn-ghost rounded-sm px-6 font-bold text-slate-300 hover:bg-navy-light border border-slate-700"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isUploading || isUpdating}
-                className="btn btn-primary rounded-xl px-8 font-black gap-2 shadow-sm"
+                className="btn btn-primary rounded-sm px-8 font-black gap-2 shadow-sm"
               >
                 {isUploading || isUpdating ? (
                   <><span className="loading loading-spinner loading-xs"></span> Processing...</>
@@ -296,18 +296,18 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
       {/* Share Modal */}
       {sharingDoc && (
         <dialog className="modal modal-open">
-          <div className="modal-box w-11/12 max-w-md rounded-[2rem] p-0 overflow-hidden bg-white shadow-2xl border border-slate-100 flex flex-col max-h-[80vh] animate-in zoom-in-95 duration-200">
+          <div className="modal-box w-11/12 max-w-md rounded-[2rem] p-0 overflow-hidden bg-navy shadow-2xl border border-slate-800 flex flex-col max-h-[80vh] animate-in zoom-in-95 duration-200 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
 
             {/* Modal Header */}
             <div className="bg-slate-900 px-6 py-5 flex items-center justify-between shrink-0">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/15 rounded-xl text-primary">
+                <div className="p-2 bg-gold/15 rounded-sm text-gold">
                   <Send size={16} />
                 </div>
                 <div>
                   <h3 className="text-base font-black text-white tracking-tight">Share Document</h3>
                   <div className="flex items-center gap-2 mt-0.5">
-                    <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded font-black tracking-widest uppercase">{sharingDoc.category}</span>
+                    <span className="text-[9px] bg-gold/20 text-gold px-1.5 py-0.5 rounded font-black tracking-widest uppercase">{sharingDoc.category}</span>
                     <p className="text-[11px] text-slate-400 font-semibold truncate max-w-[150px]">{sharingDoc.fileName}</p>
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
                   placeholder="Search users by name or email..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                  className="w-full pl-9 pr-4 py-2.5 bg-navy-light border border-slate-700 rounded-sm text-sm font-semibold text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                 />
               </div>
             </div>
@@ -340,22 +340,22 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
                 filteredUsers.map((user) => (
                   <div
                     key={user.id}
-                    className="flex items-center justify-between px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl hover:border-primary/20 hover:bg-primary/[0.015] transition-all"
+                    className="flex items-center justify-between px-4 py-3 bg-navy-light border border-slate-800 rounded-sm hover:border-primary/20 hover:bg-gold/[0.015] transition-all"
                   >
                     <div>
-                      <p className="text-sm font-bold text-slate-800">{user.name}</p>
-                      <p className="text-[11px] text-slate-500 font-medium mt-0.5">{user.email}</p>
+                      <p className="text-sm font-bold text-white">{user.name}</p>
+                      <p className="text-[11px] text-slate-400 font-medium mt-0.5">{user.email}</p>
                     </div>
                     <button
                       onClick={() => handleShare(user)}
-                      className="btn btn-primary btn-sm rounded-xl font-black gap-1.5"
+                      className="btn btn-primary btn-sm rounded-sm font-black gap-1.5"
                     >
                       <Send size={13} /> Share
                     </button>
                   </div>
                 ))
               ) : (
-                <div className="flex flex-col items-center justify-center py-12 text-slate-400">
+                <div className="flex flex-col items-center justify-center py-8 md:py-12 text-slate-400">
                   <Search size={32} className="opacity-30 mb-2" />
                   <p className="text-sm font-semibold">No users found</p>
                 </div>

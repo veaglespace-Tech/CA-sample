@@ -21,11 +21,11 @@ export default function FaqPage() {
     <div className="bg-white min-h-screen">
       <section className="relative overflow-hidden bg-slate-50 pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-slate-200/60">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-[20%] -right-[10%] h-[600px] w-[600px] rounded-full bg-blue-500/5 blur-[120px]" />
+          <div className="absolute -top-[20%] -right-[10%] h-[600px] w-[600px] rounded-full bg-gold/100/5 blur-[120px]" />
           <div className="absolute top-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-violet-500/5 blur-[120px]" />
         </div>
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-primary text-xs font-black uppercase tracking-widest mb-6 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-gold text-xs font-black uppercase tracking-widest mb-6 animate-fade-in-up transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
             <MessageCircleQuestion size={16} /> Help Center
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
@@ -37,20 +37,20 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <section className="relative py-16 lg:py-24">
+      <section className="relative py-16 lg:py-8 md:py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <div 
                 key={idx} 
-                className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${openIdx === idx ? "border-primary shadow-[0_8px_30px_rgb(59,130,246,0.1)]" : "border-slate-200 shadow-sm hover:border-slate-300 hover:shadow-md"}`}
+                className={`bg-white border rounded-none overflow-hidden transition-all duration-300 ${openIdx === idx ? "border-primary shadow-[0_8px_30px_rgb(59,130,246,0.1)]" : "border-slate-200 shadow-sm hover:border-slate-300 hover:shadow-md"}`}
               >
                 <button 
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none" 
                   onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                 >
-                  <span className={`font-heading text-lg font-bold pr-4 transition-colors ${openIdx === idx ? "text-primary" : "text-slate-900"}`}>{faq.q}</span>
-                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIdx === idx ? "bg-primary/10 text-primary rotate-180" : "bg-slate-100 text-slate-500"}`}>
+                  <span className={`font-heading text-lg font-bold pr-4 transition-colors ${openIdx === idx ? "text-gold" : "text-slate-900"}`}>{faq.q}</span>
+                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIdx === idx ? "bg-gold/10 text-gold rotate-180" : "bg-slate-100 text-slate-500"}`}>
                     <ChevronDown size={20} />
                   </div>
                 </button>
@@ -67,7 +67,7 @@ export default function FaqPage() {
           
           <div className="mt-16 text-center">
             <p className="text-slate-600 font-medium mb-6">Still have questions?</p>
-            <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-primary hover:bg-primary-600 rounded-full shadow-[0_4px_20px_rgb(59,130,246,0.4)] hover:shadow-[0_8px_30px_rgb(59,130,246,0.6)] transition-all duration-300 hover:-translate-y-1">
+            <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-gold hover:bg-gold-600 rounded-full shadow-[0_4px_20px_rgb(59,130,246,0.4)] hover:shadow-[0_8px_30px_rgb(59,130,246,0.6)] transition-all duration-300 hover:-translate-y-1">
               Contact our Support Team
             </Link>
           </div>

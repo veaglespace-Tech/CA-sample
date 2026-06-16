@@ -12,7 +12,7 @@ export default function LoginPage() {
       <section className="vs-auth-shell">
         <div className="vs-auth-card">
 
-          <h1 className="mb-6 text-3xl font-bold">Login to Veagle Space Technology Pvt. Ltd.</h1>
+          <h1 className="mb-6 text-2xl font-bold text-center text-slate-800">Welcome Back</h1>
 
           <AuthForm mode="login" expectedRole="USER" switchHref="/register" switchLabel="Choose registration" switchText="Need a user account?" allowPasswordReset={true} />
         </div>

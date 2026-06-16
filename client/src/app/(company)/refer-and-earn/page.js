@@ -121,7 +121,7 @@ export default function ReferEarnPage() {
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" style={{ marginTop: "8px" }}>
+              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4" style={{ marginTop: "8px" }}>
                 <button
                   onClick={() => {
                     const registerLink = `${window.location.origin}/register/user?ref=${myRefCode}`;

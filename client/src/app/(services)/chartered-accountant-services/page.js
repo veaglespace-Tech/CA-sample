@@ -184,7 +184,7 @@ export default function CharteredAccountantLanding() {
   const priceDetails = currentEstimator.pricing[turnoverRange] || { fee: "Custom Quote", total: "Talk to expert", package: "Custom Package" };
 
   return (
-    <div className="flex min-h-screen flex-col selection:bg-blue-500/20 selection:text-blue-700 bg-slate-50/50">
+    <div className="flex min-h-screen flex-col selection:bg-gold/100/20 selection:text-gold bg-slate-50/50">
       
       {/* ═══════════════════════════════════════════
           1. HERO SECTION WITH MESH GRADIENTS
@@ -193,9 +193,9 @@ export default function CharteredAccountantLanding() {
         
         {/* Animated Radial Glows */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute -left-[15%] top-[5%] h-[600px] w-[600px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-blue-500/10 blur-[130px]" />
+          <div className="absolute -left-[15%] top-[5%] h-[600px] w-[600px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-gold/100/10 blur-[130px]" />
           <div className="absolute -bottom-[15%] -right-[10%] h-[700px] w-[700px] animate-[float_14s_ease-in-out_infinite_2s_reverse] rounded-full bg-violet-500/10 blur-[160px]" />
-          <div className="absolute left-[35%] top-[40%] h-[500px] w-[500px] animate-[float_9s_ease-in-out_infinite_1s] rounded-full bg-indigo-500/10 blur-[120px]" />
+          <div className="absolute left-[35%] top-[40%] h-[500px] w-[500px] animate-[float_9s_ease-in-out_infinite_1s] rounded-full bg-gold/10 blur-[120px]" />
           {/* Radial grid line background */}
           <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
         </div>
@@ -224,7 +224,7 @@ export default function CharteredAccountantLanding() {
               <span className="animate-[gradient-xy_6s_ease_infinite] bg-[length:300%_300%] bg-gradient-to-r from-blue-400 via-indigo-200 to-amber-300 bg-clip-text text-transparent">
                 Frictionless Finance.
               </span>
-              <span className="absolute -bottom-2 left-1/2 h-3 w-3/4 -translate-x-1/2 rounded-full bg-blue-500/20 blur-xl" />
+              <span className="absolute -bottom-2 left-1/2 h-3 w-3/4 -translate-x-1/2 rounded-full bg-gold/100/20 blur-xl" />
             </span>
           </h1>
 
@@ -237,21 +237,21 @@ export default function CharteredAccountantLanding() {
           <div className="animate-fade-in-up mt-12 flex flex-col sm:flex-row gap-4 relative z-10" style={{ animationDelay: "200ms" }}>
             <Link
               href="#estimator"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all hover:shadow-blue-500/25 duration-300"
+              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all hover:shadow-blue-500/25 duration-300"
             >
               Estimate Compliance Fee
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="#callback"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white shadow-sm border-slate-200 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-slate-900 backdrop-blur-sm transition-all hover:bg-slate-50 border-slate-200 hover:border-white/30 hover:-translate-y-0.5 active:translate-y-0 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 bg-white shadow-sm border-slate-200 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-slate-900 backdrop-blur-sm transition-all hover:bg-slate-50 border-slate-200 hover:border-white/30 hover:-translate-y-0.5 active:translate-y-0 shadow-lg"
             >
               Talk to a Partner CA
             </Link>
           </div>
 
           {/* Key highlights */}
-          <div className="animate-fade-in-up mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 w-full max-w-4xl border-t border-slate-200 pt-10" style={{ animationDelay: "300ms" }}>
+          <div className="animate-fade-in-up mt-14 grid grid-cols-2 sm:grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-4xl border-t border-slate-200 pt-10" style={{ animationDelay: "300ms" }}>
             {[
               { label: "Top 1% ICAI Experts", val: "350+ CAs" },
               { label: "Client Satisfaction", val: "99.2%" },
@@ -274,7 +274,7 @@ export default function CharteredAccountantLanding() {
       {/* ═══════════════════════════════════════════
           2. LOGO BAR (MARQUEE)
       ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-slate-200/60 py-10 shadow-sm relative z-10">
+      <section className="bg-white border-y border-slate-200/60 py-8 md:py-10 shadow-sm relative z-10">
         <div className="mx-auto flex max-w-7xl items-center gap-10 overflow-hidden px-4">
           <span className="shrink-0 text-xs font-black uppercase tracking-[0.2em] text-slate-400 hidden lg:block whitespace-nowrap">
             Trusted by active companies
@@ -297,10 +297,10 @@ export default function CharteredAccountantLanding() {
       {/* ═══════════════════════════════════════════
           3. COMPREHENSIVE CA SERVICES
       ═══════════════════════════════════════════ */}
-      <section className="mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8" id="services">
+      <section className="mx-auto max-w-7xl px-4 py-8 md:py-28 sm:px-6 lg:px-8" id="services">
         <div className="mb-20 text-center max-w-3xl mx-auto">
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-indigo-600">Enterprise Scale</p>
-          <h2 className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
+          <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-gold">Enterprise Scale</p>
+          <h2 className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-3xl md:text-5xl">
             A Complete Finance Department, Re-imagined.
           </h2>
           <p className="mt-5 font-body text-base font-semibold leading-relaxed text-slate-500 sm:text-lg">
@@ -312,7 +312,7 @@ export default function CharteredAccountantLanding() {
           {caServices.map((srv, idx) => (
             <div
               key={srv.title}
-              className="group relative flex flex-col justify-between h-full overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-8 shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-slate-300"
+              className="group relative flex flex-col justify-between h-full overflow-hidden rounded-none border border-slate-200/80 bg-white p-8 shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-slate-300"
             >
               {/* Inner ambient card glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/10 to-blue-50/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -322,11 +322,11 @@ export default function CharteredAccountantLanding() {
                 <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-slate-50 opacity-10 blur-xl transition-all duration-500 group-hover:scale-125" />
                 
                 {/* Icon Circle */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 shadow-inner group-hover:scale-110 transition-transform duration-300">
+                <div className="flex h-12 w-12 items-center justify-center rounded-none bg-slate-50 border border-slate-100 shadow-inner group-hover:scale-110 transition-transform duration-300">
                   {srv.icon}
                 </div>
 
-                <h3 className="mt-6 font-heading text-xl font-extrabold text-slate-900 transition-colors group-hover:text-blue-600">
+                <h3 className="mt-6 font-heading text-xl font-extrabold text-slate-900 transition-colors group-hover:text-gold">
                   {srv.title}
                 </h3>
                 <p className="mt-3 text-sm font-semibold leading-relaxed text-slate-500">
@@ -353,7 +353,7 @@ export default function CharteredAccountantLanding() {
       {/* ═══════════════════════════════════════════
           4. COMPLIANCE FEE & FILINGS ESTIMATOR (WIDGET)
       ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-slate-200/60 py-28 relative overflow-hidden" id="estimator">
+      <section className="bg-white border-y border-slate-200/60 py-8 md:py-28 relative overflow-hidden" id="estimator">
         {/* Glow Effects */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute top-[20%] -left-[10%] h-[400px] w-[400px] rounded-full bg-blue-100/40 blur-[130px]" />
@@ -362,8 +362,8 @@ export default function CharteredAccountantLanding() {
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center max-w-2xl mx-auto">
-            <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-blue-600">Dynamic Pricing</p>
-            <h2 className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
+            <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-gold">Dynamic Pricing</p>
+            <h2 className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-3xl md:text-5xl">
               Compliance Filings &amp; Cost Estimator
             </h2>
             <p className="mt-5 font-body text-base font-semibold leading-relaxed text-slate-500">
@@ -375,26 +375,26 @@ export default function CharteredAccountantLanding() {
           <div className="grid gap-8 lg:grid-cols-12 items-start mt-10">
             
             {/* Left Controls (8 Columns) */}
-            <div className="lg:col-span-7 bg-slate-50/50 rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-inner">
+            <div className="lg:col-span-7 bg-slate-50/50 rounded-none border border-slate-200/80 p-6 sm:p-8 shadow-inner">
               
               {/* Step 1: Select Business Structure */}
               <div>
                 <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-4 flex items-center gap-2">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-[10px] font-bold text-white">1</span>
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-gold/100 text-[10px] font-bold text-white">1</span>
                   Select Business Structure
                 </h3>
-                <div className="grid gap-3 sm:grid-cols-2">
+                <div className="grid gap-3 sm:grid-cols-1 md:grid-cols-2">
                   {Object.entries(structureData).map(([key, value]) => (
                     <button
                       key={key}
                       onClick={() => setSelectedStructure(key)}
-                      className={`flex flex-col items-start rounded-2xl border p-4 text-left transition-all duration-300 ${
+                      className={`flex flex-col items-start rounded-none border p-4 text-left transition-all duration-300 ${
                         selectedStructure === key
                           ? "bg-white border-blue-500 shadow-lg shadow-blue-500/5 ring-1 ring-blue-500"
                           : "bg-white border-slate-200 hover:border-slate-300 hover:bg-white"
                       }`}
                     >
-                      <span className={`text-sm font-bold transition-colors ${selectedStructure === key ? "text-blue-600" : "text-slate-900"}`}>
+                      <span className={`text-sm font-bold transition-colors ${selectedStructure === key ? "text-gold" : "text-slate-900"}`}>
                         {value.name}
                       </span>
                       <span className="text-[11px] font-semibold text-slate-400 mt-1">
@@ -408,10 +408,10 @@ export default function CharteredAccountantLanding() {
               {/* Step 2: Select Turnover Bracket */}
               <div className="mt-10 border-t border-slate-200/80 pt-8">
                 <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-4 flex items-center gap-2">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-[10px] font-bold text-white">2</span>
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-gold/100 text-[10px] font-bold text-white">2</span>
                   Select Annual Turnover
                 </h3>
-                <div className="grid gap-2.5 grid-cols-2 sm:grid-cols-4">
+                <div className="grid gap-2.5 grid-cols-2 sm:grid-cols-1 md:grid-cols-4">
                   {[
                     { key: "under20L", label: "Under ₹20 Lakhs" },
                     { key: "between20_50L", label: "₹20 - ₹50 Lakhs" },
@@ -421,9 +421,9 @@ export default function CharteredAccountantLanding() {
                     <button
                       key={bracket.key}
                       onClick={() => setTurnoverRange(bracket.key)}
-                      className={`rounded-xl border py-3 px-3 text-center text-xs font-bold transition-all duration-200 ${
+                      className={`rounded-sm border py-3 px-3 text-center text-xs font-bold transition-all duration-200 ${
                         turnoverRange === bracket.key
-                          ? "bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-500/20"
+                          ? "bg-gold border-blue-600 text-white shadow-md shadow-blue-500/20"
                           : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
                       }`}
                     >
@@ -440,7 +440,7 @@ export default function CharteredAccountantLanding() {
                 </h3>
                 <div className="flex flex-col gap-3">
                   {currentEstimator.filings.map((filing, index) => (
-                    <div key={index} className="flex items-start gap-3 rounded-2xl bg-white border border-slate-200/60 p-4 transition-all hover:shadow-md hover:border-slate-300">
+                    <div key={index} className="flex items-start gap-3 rounded-none bg-white border border-slate-200/60 p-4 transition-all hover:shadow-md hover:border-slate-300 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                       <div className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-50 border border-emerald-100 text-emerald-500 shrink-0 mt-0.5">
                         <Check className="h-3.5 w-3.5" />
                       </div>
@@ -462,10 +462,10 @@ export default function CharteredAccountantLanding() {
 
             {/* Right Result Card (5 Columns) */}
             <div className="lg:col-span-5 lg:sticky lg:top-28">
-              <div className="relative rounded-3xl bg-slate-900 p-8 text-white shadow-2xl overflow-hidden">
+              <div className="relative rounded-none bg-slate-900 p-8 text-white shadow-2xl overflow-hidden">
                 {/* Background mesh grid decoration */}
                 <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,#3b82f6_1px,transparent_1px)] [background-size:16px_16px]" />
-                <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-blue-500/25 blur-3xl" />
+                <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-gold/100/25 blur-3xl" />
                 
                 <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">
                   Veagle Space Technology Retainer Plan
@@ -477,7 +477,7 @@ export default function CharteredAccountantLanding() {
                 
                 <div className="relative z-10 mt-6 border-y border-white/10 py-6 my-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl sm:text-5xl font-black tracking-tight text-white">
+                    <span className="text-4xl sm:text-3xl md:text-5xl font-black tracking-tight text-white">
                       {priceDetails.fee}
                     </span>
                   </div>
@@ -506,7 +506,7 @@ export default function CharteredAccountantLanding() {
                 <div className="relative z-10 mt-10">
                   <Link
                     href="#callback"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-500 py-4 text-center text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-blue-500/20 hover:bg-blue-600 transition-all active:scale-[0.98]"
+                    className="flex w-full items-center justify-center gap-2 rounded-sm bg-gold/100 py-4 text-center text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-blue-500/20 hover:bg-gold transition-all active:scale-[0.98]"
                   >
                     Select retained package
                     <ArrowRight className="h-4 w-4" />
@@ -526,10 +526,10 @@ export default function CharteredAccountantLanding() {
       {/* ═══════════════════════════════════════════
           5. WHY RETURNING CLIENTS TRUST DemoCA
       ═══════════════════════════════════════════ */}
-      <section className="mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-8 md:py-28 sm:px-6 lg:px-8">
         <div className="mb-20 text-center max-w-3xl mx-auto">
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-indigo-600">Operational Excellence</p>
-          <h2 className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
+          <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-gold">Operational Excellence</p>
+          <h2 className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-3xl md:text-5xl">
             Setting the Gold Standard for Business Taxes.
           </h2>
           <p className="mt-5 font-body text-base font-semibold leading-relaxed text-slate-500">
@@ -562,12 +562,12 @@ export default function CharteredAccountantLanding() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="group flex flex-col h-full rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300"
+              className="group flex flex-col h-full rounded-none border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 border border-slate-100 group-hover:scale-110 transition-transform duration-300 shrink-0">
+              <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-slate-50 border border-slate-100 group-hover:scale-110 transition-transform duration-300 shrink-0">
                 {item.icon}
               </div>
-              <h3 className="mt-5 font-heading text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+              <h3 className="mt-5 font-heading text-lg font-bold text-slate-900 group-hover:text-gold transition-colors">
                 {item.title}
               </h3>
               <p className="mt-3 text-xs font-semibold leading-relaxed text-slate-500 flex-1">
@@ -581,11 +581,11 @@ export default function CharteredAccountantLanding() {
       {/* ═══════════════════════════════════════════
           6. INTERACTIVE FAQ ACCORDION
       ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-slate-200/60 py-28 relative" id="faq">
+      <section className="bg-white border-y border-slate-200/60 py-8 md:py-28 relative" id="faq">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
-            <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-blue-600">Client Support</p>
-            <h2 className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
+            <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-gold">Client Support</p>
+            <h2 className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-3xl md:text-5xl">
               Common Questions Answered
             </h2>
             <p className="mt-5 font-body text-base font-semibold leading-relaxed text-slate-500">
@@ -599,7 +599,7 @@ export default function CharteredAccountantLanding() {
               return (
                 <div
                   key={index}
-                  className={`rounded-2xl border transition-all duration-300 ${
+                  className={`rounded-none border transition-all duration-300 ${
                     isOpen ? "border-blue-500 bg-slate-50/50 shadow-md shadow-blue-500/5" : "border-slate-200 bg-white hover:border-slate-300"
                   }`}
                 >
@@ -610,8 +610,8 @@ export default function CharteredAccountantLanding() {
                     <span className="font-heading text-base font-extrabold text-slate-900 pr-4">
                       {faq.q}
                     </span>
-                    <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 border-blue-200 text-blue-500" : ""
+                    <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border border-slate-200 bg-white text-slate-500 transition-transform duration-300 ${
+                      isOpen ? "rotate-180 border-gold/30 text-blue-500" : ""
                     }`}>
                       <ChevronDown className="h-4 w-4" />
                     </div>
@@ -633,15 +633,15 @@ export default function CharteredAccountantLanding() {
       {/* ═══════════════════════════════════════════
           7. LEAD ACQUISITION CALLBACK COMPONENT
       ═══════════════════════════════════════════ */}
-      <section className="mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8" id="callback">
-        <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-slate-900 to-indigo-950 px-8 py-20 sm:px-20 shadow-2xl border border-white/5">
+      <section className="mx-auto max-w-7xl px-4 py-8 md:py-28 sm:px-6 lg:px-8" id="callback">
+        <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-slate-900 to-indigo-950 px-8 py-8 md:py-20 sm:px-4 md:px-20 shadow-2xl border border-white/5">
           {/* Backdrop Glow Elements */}
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
-            <div className="absolute -right-[15%] -top-[15%] h-[60%] w-[45%] animate-[float_12s_ease-in-out_infinite] rounded-full bg-blue-600/30 blur-[120px]" />
+            <div className="absolute -right-[15%] -top-[15%] h-[60%] w-[45%] animate-[float_12s_ease-in-out_infinite] rounded-full bg-gold/30 blur-[120px]" />
             <div className="absolute -left-[10%] bottom-0 h-[50%] w-[40%] animate-[float_15s_ease-in-out_infinite_3s_reverse] rounded-full bg-violet-600/30 blur-[140px]" />
           </div>
 
-          <div className="relative z-10 grid gap-14 lg:grid-cols-2 lg:items-center">
+          <div className="relative z-10 grid gap-14 lg:grid-cols-1 md:grid-cols-2 lg:items-center">
             
             {/* Left Content Column */}
             <div className="text-white">
@@ -685,7 +685,7 @@ export default function CharteredAccountantLanding() {
             <div className="relative">
               {/* Animated surrounding borders glow */}
               <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 blur-xl opacity-40 animate-[pulse-glow_4s_ease-in-out_infinite]" />
-              <div className="relative rounded-3xl bg-white p-8 shadow-2xl lg:p-10">
+              <div className="relative rounded-none bg-white p-8 shadow-2xl lg:p-4 md:p-10">
                 <h3 className="font-heading text-2xl font-black text-slate-900">Request Partner CA Callback</h3>
                 <p className="text-xs font-semibold text-slate-400 mt-2 mb-7">
                   Complete the details below, and an expert partner CA will contact you within 2 hours.

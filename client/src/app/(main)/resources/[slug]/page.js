@@ -76,7 +76,7 @@ export default function ArticleDetailPage() {
                     href={article.videoUrl} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="btn btn-error text-white rounded-xl gap-2 shadow-lg"
+                    className="btn btn-error text-white rounded-sm gap-2 shadow-lg"
                   >
                     <span>▶</span> Watch Video on YouTube
                   </a>

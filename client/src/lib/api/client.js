@@ -1,9 +1,17 @@
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003";
 
 export function getApiUrl(path = "") {
-  if (!path) return API_BASE_URL;
+  let baseUrl = API_BASE_URL;
+  if (typeof window !== "undefined" && baseUrl.includes("localhost")) {
+    const currentHost = window.location.hostname;
+    if (currentHost !== "localhost" && currentHost !== "127.0.0.1") {
+      baseUrl = baseUrl.replace("localhost", currentHost);
+    }
+  }
+
+  if (!path) return baseUrl;
   if (/^https?:\/\//i.test(path)) return path;
-  return `${API_BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+  return `${baseUrl}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 export function getAuthHeaders(token, headers = {}) {

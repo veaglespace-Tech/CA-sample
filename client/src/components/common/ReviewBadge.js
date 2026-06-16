@@ -5,7 +5,7 @@ export default function ReviewBadge({ className = "" }) {
   return (
     <Link
       href="/reviews"
-      className={`group inline-flex items-center gap-3 sm:gap-4 rounded-full border border-slate-200 bg-white p-1.5 pr-4 sm:pr-5 shadow-sm transition-all duration-300 hover:border-blue-200 hover:bg-slate-50 hover:shadow-md ${className}`}
+      className={`group inline-flex items-center gap-3 sm:gap-4 rounded-full border border-slate-200 bg-white p-1.5 pr-4 sm:pr-5 shadow-sm transition-all duration-300 hover:border-gold/30 hover:bg-slate-50 hover:shadow-md ${className}`}
     >
       <span className="flex h-6 sm:h-7 items-center rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] px-3 sm:px-4 text-[0.65rem] sm:text-[0.7rem] font-black uppercase tracking-widest text-white shadow-sm shadow-indigo-500/20">
         Trusted

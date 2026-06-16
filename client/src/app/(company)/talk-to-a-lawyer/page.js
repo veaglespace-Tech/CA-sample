@@ -141,7 +141,7 @@ function LawyerConsultForm() {
 
   if (submitted) {
     return (
-      <div className="bg-white p-10 rounded-3xl shadow-xl border border-slate-100 text-center relative z-10 w-full max-w-md mx-auto">
+      <div className="bg-white p-4 md:p-10 rounded-none shadow-xl border border-slate-100 text-center relative z-10 w-full max-w-md mx-auto transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
         <div className="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
           <Check size={40} strokeWidth={3} />
         </div>
@@ -152,7 +152,7 @@ function LawyerConsultForm() {
   }
 
   return (
-    <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-100 relative z-10 w-full">
+    <div className="bg-white p-6 sm:p-8 rounded-none shadow-2xl border border-slate-100 relative z-10 w-full transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
       {showProblemModal && (
         <ProblemCategoryModal
           onSelect={handleProblemSelect}
@@ -167,14 +167,14 @@ function LawyerConsultForm() {
         </p>
       </div>
 
-      <form onSubmit={handleFormSubmit} className="space-y-4" noValidate>
+      <form onSubmit={handleFormSubmit} className="space-y-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" noValidate>
         <div>
           <input
             type="text"
             placeholder="Full Name *"
             value={form.fullName}
             onChange={(e) => handleFieldChange("fullName", e.target.value)}
-            className={`w-full px-4 py-3.5 bg-slate-50 border rounded-xl outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.fullName ? "border-red-400 focus:border-red-500" : getFieldSuccess("fullName", form.fullName) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
+            className={`w-full px-4 py-3.5 bg-slate-50 border rounded-sm outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.fullName ? "border-red-400 focus:border-red-500" : getFieldSuccess("fullName", form.fullName) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
             maxLength={50}
           />
           <FormFeedback error={errors.fullName} success={getFieldSuccess("fullName", form.fullName)} />
@@ -186,7 +186,7 @@ function LawyerConsultForm() {
             placeholder="Email *"
             value={form.email}
             onChange={(e) => handleFieldChange("email", e.target.value)}
-            className={`w-full px-4 py-3.5 bg-slate-50 border rounded-xl outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.email ? "border-red-400 focus:border-red-500" : getFieldSuccess("email", form.email) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
+            className={`w-full px-4 py-3.5 bg-slate-50 border rounded-sm outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.email ? "border-red-400 focus:border-red-500" : getFieldSuccess("email", form.email) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
           />
           <FormFeedback error={errors.email} success={getFieldSuccess("email", form.email)} />
         </div>
@@ -230,7 +230,7 @@ function LawyerConsultForm() {
         <div className="relative">
           <button
             type="button"
-            className={`w-full flex items-center justify-between px-4 py-3.5 bg-slate-50 border rounded-xl outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.language ? "border-red-400 focus:border-red-500" : getFieldSuccess("language", form.language) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
+            className={`w-full flex items-center justify-between px-4 py-3.5 bg-slate-50 border rounded-sm outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.language ? "border-red-400 focus:border-red-500" : getFieldSuccess("language", form.language) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
             onClick={() => setShowLangDropdown(!showLangDropdown)}
           >
             <span className={form.language ? "text-slate-900" : "text-slate-400"}>
@@ -240,12 +240,12 @@ function LawyerConsultForm() {
           </button>
           <FormFeedback error={errors.language} success={getFieldSuccess("language", form.language)} />
           {showLangDropdown && (
-            <div className="absolute z-50 mt-1 w-full bg-white border border-slate-200 rounded-xl shadow-xl max-h-60 overflow-y-auto py-1">
+            <div className="absolute z-50 mt-1 w-full bg-white border border-slate-200 rounded-sm shadow-xl max-h-60 overflow-y-auto py-1">
               {LANGUAGES.map((lang) => (
                 <button
                   key={lang}
                   type="button"
-                  className={`w-full text-left px-4 py-2 text-sm font-medium hover:bg-slate-50 transition-colors ${form.language === lang ? "text-primary bg-blue-50/50 font-bold" : "text-slate-700"}`}
+                  className={`w-full text-left px-4 py-2 text-sm font-medium hover:bg-slate-50 transition-colors ${form.language === lang ? "text-gold bg-gold/10/50 font-bold" : "text-slate-700"}`}
                   onClick={() => handleLanguageSelect(lang)}
                 >
                   {lang}
@@ -259,7 +259,7 @@ function LawyerConsultForm() {
         <div className="relative">
           <button
             type="button"
-            className={`w-full flex items-center justify-between px-4 py-3.5 bg-slate-50 border rounded-xl outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.problemType ? "border-red-400 focus:border-red-500" : getFieldSuccess("problemType", form.problemType) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
+            className={`w-full flex items-center justify-between px-4 py-3.5 bg-slate-50 border rounded-sm outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.problemType ? "border-red-400 focus:border-red-500" : getFieldSuccess("problemType", form.problemType) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
             onClick={() => setShowProblemModal(true)}
           >
             <span className={form.problemType ? "text-slate-900 truncate" : "text-slate-400"}>
@@ -272,7 +272,7 @@ function LawyerConsultForm() {
 
         {saveError && <p className="text-red-500 text-xs font-bold mt-1">{saveError}</p>}
 
-        <label className="flex flex-wrap sm:flex-nowrap items-center gap-2 text-xs font-semibold text-slate-500 p-2 border border-green-100 bg-green-50/30 rounded-xl cursor-pointer">
+        <label className="flex flex-wrap sm:flex-nowrap items-center gap-2 text-xs font-semibold text-slate-500 p-2 border border-green-100 bg-green-50/30 rounded-sm cursor-pointer">
           <div className="flex-1 flex items-center gap-2">
             <span>Get easy updates through</span>
             <span className="flex items-center justify-center w-5 h-5 bg-[#25D366] text-white rounded-full text-[10px]">💬</span>
@@ -292,7 +292,7 @@ function LawyerConsultForm() {
         <button
           type="submit"
           disabled={saving}
-          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all active:scale-[0.98] mt-2"
+          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-4 rounded-sm font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all active:scale-[0.98] mt-2"
         >
           {saving ? "Processing..." : "Book An Appointment Now"}
         </button>
@@ -321,9 +321,9 @@ export default function TalkToLawyerPage() {
       <section className="relative flex flex-col overflow-hidden bg-white z-20 px-4 pb-16 pt-8 lg:pt-12 sm:px-6 lg:px-8">
         {/* Animated Radial Glows */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute -left-[15%] top-[5%] h-[600px] w-[600px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-blue-500/10 blur-[130px]" />
+          <div className="absolute -left-[15%] top-[5%] h-[600px] w-[600px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-gold/100/10 blur-[130px]" />
           <div className="absolute -bottom-[15%] -right-[10%] h-[700px] w-[700px] animate-[float_14s_ease-in-out_infinite_2s_reverse] rounded-full bg-violet-500/10 blur-[160px]" />
-          <div className="absolute left-[35%] top-[40%] h-[500px] w-[500px] animate-[float_9s_ease-in-out_infinite_1s] rounded-full bg-indigo-500/10 blur-[120px]" />
+          <div className="absolute left-[35%] top-[40%] h-[500px] w-[500px] animate-[float_9s_ease-in-out_infinite_1s] rounded-full bg-gold/10 blur-[120px]" />
           <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
         </div>
 
@@ -364,7 +364,7 @@ export default function TalkToLawyerPage() {
                 "Satisfaction Guaranteed or Your Money Back."
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-blue-500/20 text-blue-400 shrink-0 border border-blue-500/30">
+                  <div className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-gold/100/20 text-blue-400 shrink-0 border border-blue-500/30">
                     <Check size={12} strokeWidth={3} />
                   </div>
                   <span className="text-sm sm:text-base font-semibold text-slate-600 leading-relaxed">{item}</span>
@@ -373,7 +373,7 @@ export default function TalkToLawyerPage() {
             </ul>
 
             <div className="flex flex-wrap gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-              <div className="flex items-center gap-3 bg-white shadow-sm border-slate-200 border border-slate-200 px-4 py-2.5 rounded-xl backdrop-blur-sm">
+              <div className="flex items-center gap-3 bg-white shadow-sm border-slate-200 border border-slate-200 px-4 py-2.5 rounded-sm backdrop-blur-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                 <div className="relative">
                   <Users size={18} className="text-emerald-400" />
                   <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
@@ -381,7 +381,7 @@ export default function TalkToLawyerPage() {
                 </div>
                 <span className="text-sm text-slate-900 font-semibold"><strong>220</strong> lawyers online</span>
               </div>
-              <div className="flex items-center gap-3 bg-white shadow-sm border-slate-200 border border-slate-200 px-4 py-2.5 rounded-xl backdrop-blur-sm">
+              <div className="flex items-center gap-3 bg-white shadow-sm border-slate-200 border border-slate-200 px-4 py-2.5 rounded-sm backdrop-blur-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
                 <div className="relative">
                   <Phone size={18} className="text-amber-400" />
                   <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full animate-ping"></span>
@@ -392,7 +392,7 @@ export default function TalkToLawyerPage() {
             </div>
 
             {/* Testimonial Card */}
-            <div className="relative rounded-2xl bg-white shadow-sm border-slate-200 border border-slate-200 p-6 backdrop-blur-md animate-fade-in-up" style={{ animationDelay: "300ms" }}>
+            <div className="relative rounded-none bg-white shadow-sm border-slate-200 border border-slate-200 p-6 backdrop-blur-md animate-fade-in-up transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50" style={{ animationDelay: "300ms" }}>
               <div className="text-amber-400 mb-3 flex gap-1">
                 {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
               </div>
@@ -438,7 +438,7 @@ export default function TalkToLawyerPage() {
       {/* ═══════════════════════════════════════════
           2. TRUST BAR
       ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-slate-200/60 py-12 relative z-10">
+      <section className="bg-white border-y border-slate-200/60 py-8 md:py-12 relative z-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-bold text-slate-500 mb-8 uppercase tracking-widest">
             Trusted on Google and Trustpilot - Veagle Space Technology Pvt. Ltd., India leading legal-tech platform

@@ -21,7 +21,7 @@ export default function PermissionDeniedModal({ open, onClose, action = "perform
           <X size={18} />
         </button>
 
-        <div className="w-16 h-16 rounded-2xl bg-rose-50 flex items-center justify-center shadow-inner">
+        <div className="w-16 h-16 rounded-none bg-rose-50 flex items-center justify-center shadow-inner">
           <ShieldX size={32} className="text-rose-500" />
         </div>
 
@@ -39,15 +39,15 @@ export default function PermissionDeniedModal({ open, onClose, action = "perform
         <div className="w-full h-px bg-slate-100" />
 
         <div className="flex flex-col gap-3 w-full">
-          <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-indigo-50 border border-indigo-100">
-            <Mail size={14} className="text-indigo-500 flex-shrink-0" />
-            <p className="text-xs font-bold text-indigo-700">
+          <div className="flex items-center gap-2 px-4 py-3 rounded-sm bg-gold/10 border border-gold/20">
+            <Mail size={14} className="text-gold flex-shrink-0" />
+            <p className="text-xs font-bold text-gold">
               Reach out to your Super Admin (CA) to enable this permission.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="w-full py-3 bg-slate-900 hover:bg-slate-700 text-white rounded-xl text-sm font-black transition-all"
+            className="w-full py-3 bg-slate-900 hover:bg-slate-700 text-white rounded-sm text-sm font-black transition-all"
           >
             Got it
           </button>

@@ -51,13 +51,13 @@ export default function MessageModal({ messagingUser, onClose, onSendMessage, ca
 
   return (
     <dialog className="modal modal-open">
-      <div className="modal-box w-11/12 max-w-lg overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-0 shadow-2xl">
-        <div className="flex items-center justify-between border-b border-slate-100 bg-slate-950 px-6 py-5 text-white">
+      <div className="modal-box w-11/12 max-w-lg overflow-hidden rounded-[1.5rem] border border-slate-700 bg-navy p-0 shadow-2xl transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+        <div className="flex items-center justify-between border-b border-slate-800 bg-slate-950 px-6 py-5 text-white">
           <div>
             <h3 className="text-lg font-black tracking-tight">Message to {messagingUser.name}</h3>
             <p className="mt-0.5 text-xs font-semibold text-slate-400">Send a platform message, document request, or attachment.</p>
           </div>
-          <button onClick={() => onClose(null)} className="btn btn-circle btn-sm border-none bg-white/10 text-white hover:bg-white/20">
+          <button onClick={() => onClose(null)} className="btn btn-circle btn-sm border-none bg-navy/10 text-white hover:bg-navy/20">
             <X size={16} />
           </button>
         </div>
@@ -67,11 +67,11 @@ export default function MessageModal({ messagingUser, onClose, onSendMessage, ca
             value={quickMessageText}
             onChange={(event) => setQuickMessageText(event.target.value)}
             placeholder="Type your message here..."
-            className="textarea textarea-bordered min-h-28 w-full rounded-xl border-slate-200 bg-slate-50 font-semibold"
+            className="textarea textarea-bordered min-h-28 w-full rounded-sm border-slate-700 bg-navy-light font-semibold"
           />
 
-          {canRequestDocuments && <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-            <label className="flex cursor-pointer items-center gap-3 text-sm font-bold text-slate-700">
+          {canRequestDocuments && <div className="rounded-sm border border-slate-700 bg-navy-light p-4 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+            <label className="flex cursor-pointer items-center gap-3 text-sm font-bold text-slate-200">
               <input
                 type="checkbox"
                 className="checkbox checkbox-primary checkbox-sm rounded"
@@ -87,18 +87,18 @@ export default function MessageModal({ messagingUser, onClose, onSendMessage, ca
                 value={messagingUser.requestedDocName || ""}
                 onChange={(event) => onClose({ ...messagingUser, requestedDocName: event.target.value })}
                 placeholder="Document name"
-                className="input input-bordered mt-3 h-10 w-full rounded-xl border-slate-200 bg-white text-sm font-semibold"
+                className="input input-bordered mt-3 h-10 w-full rounded-sm border-slate-700 bg-navy text-sm font-semibold"
               />
             )}
           </div>}
 
           <div className="space-y-3">
-            <div className="text-xs font-black uppercase tracking-wider text-slate-500">Attachments</div>
-            <label className={`flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-slate-200 bg-white p-4 transition ${selectedRepoDocId ? "pointer-events-none opacity-50" : "hover:border-indigo-300 hover:bg-indigo-50/30"}`}>
-              <span className="rounded-lg bg-slate-100 p-2 text-slate-500">
+            <div className="text-xs font-black uppercase tracking-wider text-slate-400">Attachments</div>
+            <label className={`flex cursor-pointer items-center gap-3 rounded-sm border border-dashed border-slate-700 bg-navy p-4 transition ${selectedRepoDocId ? "pointer-events-none opacity-50" : "hover:border-indigo-300 hover:bg-gold/10/30"}`}>
+              <span className="rounded-sm bg-navy-light p-2 text-slate-400">
                 <FileUp size={18} />
               </span>
-              <span className="min-w-0 flex-1 truncate text-sm font-bold text-slate-700">
+              <span className="min-w-0 flex-1 truncate text-sm font-bold text-slate-200">
                 {attachment ? attachment.name : "Upload new file"}
               </span>
               <input
@@ -120,7 +120,7 @@ export default function MessageModal({ messagingUser, onClose, onSendMessage, ca
                 value={selectedRepoDocId}
                 onChange={(event) => setSelectedRepoDocId(event.target.value)}
                 disabled={!!attachment}
-                className="select select-bordered h-10 w-full rounded-xl border-slate-200 bg-white text-sm font-semibold"
+                className="select select-bordered h-10 w-full rounded-sm border-slate-700 bg-navy text-sm font-semibold"
               >
                 <option value="">Select from document library</option>
                 {repoDocs.map((doc) => (
@@ -130,12 +130,12 @@ export default function MessageModal({ messagingUser, onClose, onSendMessage, ca
             )}
           </div>
 
-          <div className="flex justify-end gap-3 border-t border-slate-100 pt-4">
-            <button onClick={() => onClose(null)} className="btn btn-ghost rounded-xl px-6">Cancel</button>
+          <div className="flex justify-end gap-3 border-t border-slate-800 pt-4">
+            <button onClick={() => onClose(null)} className="btn btn-ghost rounded-sm px-6">Cancel</button>
             <button
               onClick={handleSend}
               disabled={isUploading || (!quickMessageText.trim() && !attachment && !selectedRepoDocId)}
-              className="btn btn-primary rounded-xl px-7"
+              className="btn btn-primary rounded-sm px-7"
             >
               {isUploading ? <span className="loading loading-spinner loading-xs" /> : <Send size={16} />}
               {isUploading ? "Sending..." : "Send Message"}
@@ -143,7 +143,7 @@ export default function MessageModal({ messagingUser, onClose, onSendMessage, ca
           </div>
         </div>
       </div>
-      <form method="dialog" className="modal-backdrop bg-black/40 backdrop-blur-sm" onClick={() => onClose(null)}>
+      <form method="dialog" className="modal-backdrop bg-black/40 backdrop-blur-sm transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onClick={() => onClose(null)}>
         <button>close</button>
       </form>
     </dialog>

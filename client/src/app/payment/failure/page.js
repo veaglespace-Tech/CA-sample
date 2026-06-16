@@ -26,11 +26,11 @@ function PaymentFailure() {
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 flex items-center justify-center p-4">
       <div className="max-w-lg w-full">
         {/* Failure Card */}
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-red-100">
+        <div className="bg-white rounded-none shadow-2xl overflow-hidden border border-red-100">
           {/* Top decoration */}
           <div className="h-2 bg-gradient-to-r from-red-400 to-orange-400" />
 
-          <div className="p-10 text-center">
+          <div className="p-4 md:p-10 text-center">
             {/* Icon */}
             <div className="flex justify-center mb-6">
               <div className="w-24 h-24 rounded-full bg-red-50 flex items-center justify-center">
@@ -42,7 +42,7 @@ function PaymentFailure() {
             <p className="text-gray-500 text-base leading-relaxed">{errorMessage}</p>
 
             {txnid && (
-              <div className="mt-4 p-3 bg-gray-50 rounded-xl border border-gray-100">
+              <div className="mt-4 p-3 bg-gray-50 rounded-sm border border-gray-100">
                 <p className="text-xs text-gray-400 font-medium">Transaction Reference</p>
                 <p className="text-sm font-mono font-bold text-gray-700 mt-0.5">{txnid}</p>
               </div>
@@ -53,14 +53,14 @@ function PaymentFailure() {
               {leadId && (
                 <Link
                   href={retryUrl}
-                  className="flex-1 btn btn-primary rounded-2xl h-12 font-bold text-sm gap-2"
+                  className="flex-1 btn btn-primary rounded-none h-12 font-bold text-sm gap-2"
                 >
                   <RefreshCw size={16} /> Retry Payment
                 </Link>
               )}
               <Link
                 href="/contact"
-                className="flex-1 btn btn-outline rounded-2xl h-12 font-bold text-sm gap-2"
+                className="flex-1 btn btn-outline rounded-none h-12 font-bold text-sm gap-2"
               >
                 <HeadphonesIcon size={16} /> Contact Support
               </Link>
@@ -91,7 +91,7 @@ export default function PaymentFailurePage() {
     <Suspense
       fallback={
         <div className="flex h-screen w-full items-center justify-center">
-          <span className="loading loading-spinner loading-lg text-primary"></span>
+          <span className="loading loading-spinner loading-lg text-gold"></span>
         </div>
       }
     >

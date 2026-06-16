@@ -83,14 +83,14 @@ export default function DocumentsTable({ documents, currentItem }) {
           <button
             onClick={handleDownloadAll}
             disabled={isDownloading}
-            className="btn btn-sm btn-primary bg-indigo-600 hover:bg-indigo-700 border-none text-white rounded-xl font-bold gap-2 disabled:opacity-70"
+            className="btn btn-sm btn-primary bg-gold hover:bg-gold border-none text-white rounded-sm font-bold gap-2 disabled:opacity-70"
           >
             {isDownloading ? <Loader2 size={16} className="animate-spin" /> : <DownloadCloud size={16} />}
             {isDownloading ? "Zipping..." : "Download All (ZIP)"}
           </button>
         </div>
       )}
-      <div className="overflow-x-auto bg-base-100 rounded-3xl border border-base-200 shadow-sm">
+      <div className="overflow-x-auto bg-navy-light rounded-none border border-base-200 shadow-sm">
       <table className="table table-zebra w-full">
         <thead>
           <tr className="bg-base-200/50">
@@ -104,7 +104,7 @@ export default function DocumentsTable({ documents, currentItem }) {
         <tbody>
           {documents.length > 0 ? (
             documents.map(doc => (
-              <tr key={doc.id} className="hover:bg-primary/5 transition-colors">
+              <tr key={doc.id} className="hover:bg-gold/5 transition-colors">
                 <td>
                   <div className="font-bold text-sm">{doc.fileName}</div>
                 </td>
@@ -127,7 +127,7 @@ export default function DocumentsTable({ documents, currentItem }) {
                       href={doc.fileUrl?.startsWith("http") ? doc.fileUrl : getApiUrl(doc.fileUrl)}
                       target="_blank" 
                       rel="noreferrer"
-                      className="btn btn-primary btn-xs w-8 h-8 px-0 rounded-lg flex items-center justify-center"
+                      className="btn btn-primary btn-xs w-8 h-8 px-0 rounded-sm flex items-center justify-center"
                       title="Preview Document"
                     >
                       <Eye size={14} />
@@ -138,13 +138,13 @@ export default function DocumentsTable({ documents, currentItem }) {
                         doc.fileUrl?.startsWith("http") ? doc.fileUrl : getApiUrl(doc.fileUrl),
                         doc.fileName || "document"
                       )}
-                      className="btn btn-neutral btn-xs w-8 h-8 px-0 rounded-lg flex items-center justify-center"
+                      className="btn btn-neutral btn-xs w-8 h-8 px-0 rounded-sm flex items-center justify-center"
                       title="Download Document"
                     >
                       <DownloadCloud size={14} />
                     </button>
                     <button 
-                      className="btn btn-error btn-xs w-8 h-8 px-0 rounded-lg text-white flex items-center justify-center" 
+                      className="btn btn-error btn-xs w-8 h-8 px-0 rounded-sm text-white flex items-center justify-center" 
                       title="Delete Document"
                       onClick={() => handleDelete(doc.id)}
                       disabled={processingId === doc.id}
@@ -152,7 +152,7 @@ export default function DocumentsTable({ documents, currentItem }) {
                       {processingId === doc.id ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
                     </button>
                     <button 
-                      className="btn btn-warning btn-xs w-8 h-8 px-0 rounded-lg text-white flex items-center justify-center" 
+                      className="btn btn-warning btn-xs w-8 h-8 px-0 rounded-sm text-white flex items-center justify-center" 
                       title="Reject & Request Re-upload"
                       onClick={() => handleRequestReupload(doc)}
                       disabled={processingId === doc.id}
@@ -165,7 +165,7 @@ export default function DocumentsTable({ documents, currentItem }) {
             ))
           ) : (
             <tr>
-              <td colSpan={5} className="py-20 text-center opacity-30 italic">No documents found.</td>
+              <td colSpan={5} className="py-8 md:py-20 text-center opacity-30 italic">No documents found.</td>
             </tr>
           )}
         </tbody>

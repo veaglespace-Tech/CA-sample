@@ -328,14 +328,14 @@ export default function AdminDataView({ activeSection }) {
 
   // ── Loading / Error states ────────────────────────────────────────────
   if (isLoading) return (
-    <div className="flex flex-col items-center justify-center py-24 gap-4 opacity-50">
-      <span className="loading loading-spinner loading-lg text-primary"></span>
+    <div className="flex flex-col items-center justify-center py-8 md:py-24 gap-4 opacity-50">
+      <span className="loading loading-spinner loading-lg text-gold"></span>
       <span className="text-sm font-bold uppercase tracking-widest">Synchronizing Data...</span>
     </div>
   );
 
   if (isError) return (
-    <div className="alert alert-error rounded-2xl shadow-lg mx-6">
+    <div className="alert alert-error rounded-none shadow-lg mx-6">
       <X size={20} />
       <span>Failed to load platform data. Please check your connection.</span>
     </div>

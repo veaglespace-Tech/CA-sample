@@ -154,14 +154,14 @@ export default function HomeSearch() {
         <form
           className={`vx-search-form relative flex items-center gap-2 sm:gap-3 overflow-hidden bg-white p-1.5 pl-4 sm:pl-7 transition-all duration-300 ${
             active
-              ? "rounded-[1.5rem] sm:rounded-full border border-blue-200 shadow-2xl shadow-blue-500/20"
+              ? "rounded-[1.5rem] sm:rounded-full border border-gold/30 shadow-2xl shadow-blue-500/20"
               : "rounded-[1.5rem] sm:rounded-full border border-slate-200/80 shadow-lg hover:border-blue-300/50 hover:shadow-xl"
           }`}
           role="search"
           onSubmit={handleSubmit}
         >
           <div className="flex shrink-0 items-center text-blue-500">
-            {active ? <Sparkles size={22} className="animate-pulse text-indigo-500" /> : <Search size={22} className="text-slate-400" />}
+            {active ? <Sparkles size={22} className="animate-pulse text-gold" /> : <Search size={22} className="text-slate-400" />}
           </div>
           
           <input
@@ -204,7 +204,7 @@ export default function HomeSearch() {
         <div className={`absolute left-0 right-0 top-full pt-3 origin-top z-[1000] w-full transition-all duration-300 ${
           active ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible pointer-events-none"
         }`}>
-          <div className="max-h-[60vh] sm:max-h-[450px] w-full overflow-y-auto rounded-[1.5rem] border border-slate-200/60 bg-white/95 p-2 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] backdrop-blur-xl">
+          <div className="max-h-[60vh] sm:max-h-[450px] w-full overflow-y-auto rounded-[1.5rem] border border-slate-200/60 bg-white/95 p-2 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] backdrop-blur-xl transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
             {matches.length > 0 ? (
             <>
               {!query.trim() && <div className="px-4 pb-2 pt-3 text-xs font-black uppercase tracking-widest text-slate-400">Popular Services</div>}
@@ -214,11 +214,11 @@ export default function HomeSearch() {
                 type="button" 
                 onMouseDown={(e) => { e.preventDefault(); navigateTo(item); }}
                 onMouseEnter={() => setSelectedIndex(index)}
-                className={`flex w-full items-center gap-4 rounded-xl p-3 text-left transition-all ${
-                  selectedIndex === index ? "bg-blue-50/80 shadow-sm" : "bg-transparent hover:bg-slate-50"
+                className={`flex w-full items-center gap-4 rounded-sm p-3 text-left transition-all ${
+                  selectedIndex === index ? "bg-gold/10/80 shadow-sm" : "bg-transparent hover:bg-slate-50"
                 }`}
               >
-                <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors ${
+                <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-sm transition-colors ${
                   selectedIndex === index ? "bg-gradient-to-br from-blue-500 to-indigo-500 text-white shadow-md shadow-blue-500/20" : "bg-slate-100 text-slate-500"
                 }`}>
                   {item.icon ? (
@@ -229,10 +229,10 @@ export default function HomeSearch() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-[0.95rem] font-extrabold text-slate-900 truncate">{item.label}</div>
-                  <div className="text-[0.7rem] font-black uppercase tracking-wider text-indigo-500 mt-0.5 truncate">{item.category}</div>
+                  <div className="text-[0.7rem] font-black uppercase tracking-wider text-gold mt-0.5 truncate">{item.category}</div>
                 </div>
                 <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white transition-all duration-300 ${
-                  selectedIndex === index ? "translate-x-0 opacity-100 shadow-sm text-blue-600" : "-translate-x-2 opacity-0 text-slate-400"
+                  selectedIndex === index ? "translate-x-0 opacity-100 shadow-sm text-gold" : "-translate-x-2 opacity-0 text-slate-400"
                 }`}>
                   <ArrowRight size={16} />
                 </div>
@@ -240,7 +240,7 @@ export default function HomeSearch() {
             ))}
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center p-10 text-center text-slate-400">
+            <div className="flex flex-col items-center justify-center p-4 md:p-10 text-center text-slate-400">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-slate-50 mb-4">
                 <Search size={28} className="text-slate-300" />
               </div>
@@ -248,7 +248,7 @@ export default function HomeSearch() {
               <p className="font-black text-slate-900 mt-1">&quot;{query}&quot;</p>
               <button 
                 onMouseDown={(e) => { e.preventDefault(); router.push(`/services?search=${encodeURIComponent(query)}`); setActive(false); }}
-                className="mt-6 rounded-full bg-slate-900 px-6 py-2.5 text-xs font-black uppercase tracking-wide text-white transition-all hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/25"
+                className="mt-6 rounded-full bg-slate-900 px-6 py-2.5 text-xs font-black uppercase tracking-wide text-white transition-all hover:bg-gold hover:shadow-lg hover:shadow-blue-500/25"
               >
                 View all results
               </button>

@@ -13,7 +13,7 @@ export default function PasswordStrength({ password }) {
 
   // If there's no password, we still show the requirements checklist so the user knows the rules beforehand.
   return (
-    <div className="w-full mt-3 space-y-3 bg-slate-50 border border-slate-100 p-4 rounded-xl">
+    <div className="w-full mt-3 space-y-3 bg-slate-50 border border-slate-100 p-4 rounded-sm">
       {/* Strength Bar */}
       <div className="space-y-1">
         <div className="flex justify-between items-center text-xs font-bold mb-1">

@@ -28,14 +28,14 @@ const TwitterIcon = () => (
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-white to-slate-50/50 pt-16 pb-4 font-sans text-slate-600 border-t border-slate-200/60 relative overflow-hidden">
+    <footer className="bg-navy pt-16 pb-4 font-sans text-white border-t border-white/10 relative overflow-hidden">
       {/* Subtle top glow line */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent"></div>
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
       
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ── Top Section: Brand & Newsletter ── */}
-        <div className="mb-8 flex flex-col items-center justify-between gap-6 border-b border-slate-200 pb-6 lg:flex-row lg:items-start">
+        <div className="mb-8 flex flex-col items-center justify-between gap-6 border-b border-white/10 pb-6 lg:flex-row lg:items-start">
           
           {/* Brand logo + info */}
           <div className="flex flex-col items-start text-left lg:max-w-md w-full">
@@ -45,24 +45,24 @@ export default function Footer() {
               height={40} 
               alt="Veagle Space Technology Pvt. Ltd. Logo"
             />
-            <p className="mb-4 text-sm font-medium leading-relaxed text-slate-500">
+            <p className="mb-4 text-sm font-medium leading-relaxed text-white/70">
               {siteMeta.tagline}
             </p>
             <div className="flex gap-2.5">
               <a href={siteMeta.social?.facebook} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-600/30 hover:bg-indigo-600/10 hover:text-indigo-500 hover:shadow-lg hover:shadow-indigo-600/5" aria-label="Facebook">
+                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/20 hover:text-gold hover:shadow-lg" aria-label="Facebook">
                 <FacebookIcon />
               </a>
               <a href={siteMeta.social?.instagram} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/30 hover:bg-pink-500/10 hover:text-pink-500 hover:shadow-lg hover:shadow-pink-500/5" aria-label="Instagram">
+                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/50 hover:bg-pink-500/20 hover:text-pink-500 hover:shadow-lg" aria-label="Instagram">
                 <InstagramIcon />
               </a>
               <a href={siteMeta.social?.linkedin} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/30 hover:bg-indigo-400/10 hover:text-indigo-400 hover:shadow-lg hover:shadow-indigo-400/5" aria-label="LinkedIn">
+                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/50 hover:bg-indigo-400/20 hover:text-indigo-400 hover:shadow-lg" aria-label="LinkedIn">
                 <LinkedinIcon />
               </a>
               <a href={siteMeta.social?.twitter} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:border-slate-800/30 hover:bg-slate-800/10 hover:text-slate-900 hover:shadow-lg hover:shadow-slate-800/5" aria-label="Twitter">
+                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:bg-white/10 hover:text-white hover:shadow-lg" aria-label="Twitter">
                 <TwitterIcon />
               </a>
             </div>
@@ -81,7 +81,7 @@ export default function Footer() {
             { title: "TALK TO EXPERTS", links: footerLinks.talkToExperts }
           ].map((col, idx) => (
             <div key={idx} className="flex flex-col items-start">
-              <h4 className="text-[0.72rem] font-bold tracking-[0.18em] text-slate-900 uppercase mb-4">
+              <h4 className="text-[0.72rem] font-bold tracking-[0.18em] text-white uppercase mb-4">
                 {col.title}
               </h4>
               <div className="flex flex-col items-start gap-2.5">
@@ -89,7 +89,7 @@ export default function Footer() {
                   <Link 
                     key={l.href} 
                     href={l.href} 
-                    className="text-[0.82rem] font-medium text-slate-600 transition-colors duration-200 hover:text-indigo-600"
+                    className="text-[0.82rem] font-medium text-[#f1f1f1] transition-colors duration-200 hover:text-gold"
                   >
                     {l.label}
                   </Link>
@@ -100,17 +100,17 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div className="flex flex-col items-start col-span-1 sm:col-span-2 lg:col-span-1">
-            <h4 className="text-[0.72rem] font-bold tracking-[0.18em] text-slate-900 uppercase mb-4">
+            <h4 className="text-[0.72rem] font-bold tracking-[0.18em] text-white uppercase mb-4">
               CONTACT US
             </h4>
             <div className="flex flex-col items-start gap-3 text-[0.82rem] font-medium">
               <a href={`tel:${siteMeta.phone.replace(/[^0-9+]/g, '')}`} className="flex items-start gap-2.5 group">
-                <Phone size={15} className="mt-0.5 shrink-0 text-slate-500 group-hover:text-indigo-600 transition-colors" />
-                <span className="text-slate-600 transition-colors group-hover:text-slate-900">{siteMeta.phone}</span>
+                <Phone size={15} className="mt-0.5 shrink-0 text-white/50 group-hover:text-gold transition-colors" />
+                <span className="text-white/80 transition-colors group-hover:text-white">{siteMeta.phone}</span>
               </a>
               <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${siteMeta.email}`} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 group">
-                <Mail size={15} className="mt-0.5 shrink-0 text-slate-500 group-hover:text-indigo-600 transition-colors" />
-                <span className="text-slate-600 transition-colors group-hover:text-slate-900">{siteMeta.email}</span>
+                <Mail size={15} className="mt-0.5 shrink-0 text-white/50 group-hover:text-gold transition-colors" />
+                <span className="text-white/80 transition-colors group-hover:text-white">{siteMeta.email}</span>
               </a>
               <a 
                 href="https://www.google.com/maps/place/Veagle+Space+Technology+Pvt.+Ltd./@18.6101637,73.8176721,17z/data=!3m1!4b1!4m6!3m5!1s0x3bdd170bbb3afd21:0x36357b73a2636f91!8m2!3d18.6101586!4d73.820247!16s%2Fg%2F11pc9jtm0x?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
@@ -118,40 +118,40 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-2.5 group"
               >
-                <MapPin size={15} className="mt-0.5 shrink-0 text-slate-500 group-hover:text-indigo-600 transition-colors" />
-                <span className="text-slate-600 leading-relaxed transition-colors group-hover:text-slate-900">{siteMeta.address}</span>
+                <MapPin size={15} className="mt-0.5 shrink-0 text-white/50 group-hover:text-gold transition-colors" />
+                <span className="text-white/80 leading-relaxed transition-colors group-hover:text-white">{siteMeta.address}</span>
               </a>
             </div>
           </div>
         </div>
 
         {/* ── Bottom Section: Horizontal Layout ── */}
-        <div className="border-t border-slate-200 pt-5 pb-1">
+        <div className="border-t border-white/10 pt-5 pb-1">
           <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
             {/* Copyright block */}
-            <p className="text-[0.75rem] font-normal text-slate-500 order-2 sm:order-1">
+            <p className="text-[0.75rem] font-normal text-white/50 order-2 sm:order-1">
               All rights reserved &copy; {new Date().getFullYear()}{" "}
-              <Link href="/" className="font-semibold text-slate-900 hover:text-indigo-600 transition-colors">
+              <Link href="/" className="font-semibold text-white/80 hover:text-gold transition-colors">
                 {siteMeta.companyName}
               </Link>
             </p>
 
             {/* Legal policy links */}
             <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 order-1 sm:order-2">
-              <Link href="/terms-and-conditions" className="text-[0.72rem] font-medium text-slate-500 transition-colors hover:text-slate-900">Terms of Service</Link>
-              <Link href="/privacy-policy"        className="text-[0.72rem] font-medium text-slate-500 transition-colors hover:text-slate-900">Privacy Policy</Link>
-              <Link href="/refund-policy"         className="text-[0.72rem] font-medium text-slate-500 transition-colors hover:text-slate-900">Refund Policy</Link>
-              <Link href="/about-us"              className="text-[0.72rem] font-medium text-slate-500 transition-colors hover:text-slate-900">About Us</Link>
+              <Link href="/terms-and-conditions" className="text-[0.72rem] font-medium text-white/50 transition-colors hover:text-gold">Terms of Service</Link>
+              <Link href="/privacy-policy"        className="text-[0.72rem] font-medium text-white/50 transition-colors hover:text-gold">Privacy Policy</Link>
+              <Link href="/refund-policy"         className="text-[0.72rem] font-medium text-white/50 transition-colors hover:text-gold">Refund Policy</Link>
+              <Link href="/about-us"              className="text-[0.72rem] font-medium text-white/50 transition-colors hover:text-gold">About Us</Link>
             </div>
 
             {/* Developer credit line */}
-            <p className="text-[0.72rem] font-normal text-slate-500 order-3 sm:order-3">
+            <p className="text-[0.72rem] font-normal text-white/50 order-3 sm:order-3">
               Designed & Developed by{" "}
               <a
                 href="https://veaglespace.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-slate-900 transition-colors hover:text-indigo-600"
+                className="font-semibold text-white/80 transition-colors hover:text-gold"
               >
                 Veagle Space Technology Pvt. Ltd
               </a>

@@ -75,7 +75,7 @@ export default function ArticleFormModal({ editingArticle, onClose, onSubmit }) 
           <button className="vs-close-btn" onClick={onClose}><X size={24} /></button>
         </div>
         
-        <form className="vs-auth-form" onSubmit={handleSubmit} style={{ padding: "1.5rem" }} noValidate>
+        <form className="vs-auth-form transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onSubmit={handleSubmit} style={{ padding: "1.5rem" }} noValidate>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
             <div className="vs-form-group">
               <label>Title</label>

@@ -17,7 +17,7 @@ export default function ArticleCard({ article, apiUrl }) {
     : "https://via.placeholder.com/600x400?text=Article";
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-200 h-full">
+    <div className="group relative flex flex-col overflow-hidden rounded-none border border-slate-200 bg-white shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-gold/30 h-full">
       {/* Image Section */}
       <div className="relative h-48 w-full overflow-hidden shrink-0">
         <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
@@ -29,14 +29,14 @@ export default function ArticleCard({ article, apiUrl }) {
         />
         {/* Category Badge */}
         <div className="absolute top-4 left-4 z-20">
-          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-black uppercase tracking-widest text-blue-600 shadow-sm">
+          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-black uppercase tracking-widest text-gold shadow-sm">
             {article.category || "Resource"}
           </span>
         </div>
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-heading text-xl font-bold leading-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+        <h3 className="font-heading text-xl font-bold leading-tight text-slate-900 group-hover:text-gold transition-colors">
           {article.title}
         </h3>
         
@@ -61,7 +61,7 @@ export default function ArticleCard({ article, apiUrl }) {
               </p>
               <button 
                 onClick={toggleExpand} 
-                className="mt-1 font-bold text-blue-600 hover:text-blue-700 transition-colors self-start shrink-0 bg-white"
+                className="mt-1 font-bold text-gold hover:text-gold transition-colors self-start shrink-0 bg-white"
               >
                 See More →
               </button>
@@ -73,7 +73,7 @@ export default function ArticleCard({ article, apiUrl }) {
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-4 shrink-0">
           <Link 
             href={`/resources/${article.slug}`} 
-            className="flex items-center gap-1 text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors"
+            className="flex items-center gap-1 text-sm font-bold text-slate-700 hover:text-gold transition-colors"
           >
             <FileText size={16} />
             Full Article

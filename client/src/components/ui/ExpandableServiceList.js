@@ -23,7 +23,7 @@ export default function ExpandableServiceList({ items, hoverBg, c }) {
           >
             <Link
               href={href}
-              className={`group/link flex items-center justify-between gap-3 rounded-xl border border-transparent px-4 py-3 transition-all duration-300 hover:shadow-sm ${hoverBg}`}
+              className={`group/link flex items-center justify-between gap-3 rounded-sm border border-transparent px-4 py-3 transition-all duration-300 hover:shadow-sm ${hoverBg}`}
             >
               <div className="flex items-center gap-3">
                 {icon && (
@@ -50,7 +50,7 @@ export default function ExpandableServiceList({ items, hoverBg, c }) {
       {items.length > 4 && (
         <button
           onClick={() => setExpanded(!expanded)}
-          className={`sm:hidden mt-2 flex items-center justify-center gap-2 rounded-xl py-2 text-sm font-bold transition-colors ${c.text} hover:bg-slate-50`}
+          className={`sm:hidden mt-2 flex items-center justify-center gap-2 rounded-sm py-2 text-sm font-bold transition-colors ${c.text} hover:bg-slate-50`}
         >
           {expanded ? "View Less" : `View More (${items.length - 4})`}
           <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} />

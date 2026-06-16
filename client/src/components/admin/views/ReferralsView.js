@@ -82,70 +82,70 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-black text-slate-800 tracking-tight">Referral Program Console</h1>
-          <p className="text-slate-500 font-semibold text-sm mt-1">Manage B2B affiliates, track converted clients, and award referral bonuses.</p>
+          <h1 className="text-3xl font-black text-white tracking-tight">Referral Program Console</h1>
+          <p className="text-slate-400 font-semibold text-sm mt-1">Manage B2B affiliates, track converted clients, and award referral bonuses.</p>
         </div>
         <button
           type="button"
           onClick={() => setShowRewardForm(true)}
-          className="btn btn-primary rounded-2xl h-11 px-5 font-black uppercase tracking-wider text-xs text-white gap-2"
+          className="btn btn-primary rounded-none h-11 px-5 font-black uppercase tracking-wider text-xs text-white gap-2"
         >
           <Settings size={16} /> Set Reward
         </button>
       </div>
 
       {showRewardForm && (
-        <form onSubmit={handleRewardSubmit} className="bg-white border border-indigo-100 rounded-[2rem] p-6 shadow-sm space-y-4">
+        <form onSubmit={handleRewardSubmit} className="bg-navy border border-gold/20 rounded-[2rem] p-6 shadow-sm space-y-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h2 className="text-lg font-black text-slate-800">Referral reward rule</h2>
+              <h2 className="text-lg font-black text-white">Referral reward rule</h2>
               <p className="text-xs text-slate-400 font-semibold mt-1">Add or update a tier. Existing active tiers stay available, such as 5 referrals = 20% and 7 referrals = 30%.</p>
             </div>
-            <button type="button" onClick={() => setShowRewardForm(false)} className="btn btn-ghost btn-sm rounded-xl">Close</button>
+            <button type="button" onClick={() => setShowRewardForm(false)} className="btn btn-ghost btn-sm rounded-sm">Close</button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-3 gap-4">
             <label className="form-control">
-              <span className="label-text text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">Reward Title</span>
+              <span className="label-text text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">Reward Title</span>
               <input
                 value={rewardForm.title}
                 onChange={(e) => setRewardForm({ ...rewardForm, title: e.target.value })}
-                className="input input-bordered rounded-xl font-bold text-sm"
+                className="input input-bordered rounded-sm font-bold text-sm"
                 placeholder="Refer 5 friends, get 20% off"
               />
             </label>
             <label className="form-control">
-              <span className="label-text text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">Required Referrals</span>
+              <span className="label-text text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">Required Referrals</span>
               <input
                 type="number"
                 min="1"
                 value={rewardForm.requiredReferrals}
                 onChange={(e) => setRewardForm({ ...rewardForm, requiredReferrals: e.target.value })}
-                className="input input-bordered rounded-xl font-bold text-sm"
+                className="input input-bordered rounded-sm font-bold text-sm"
               />
             </label>
             <label className="form-control">
-              <span className="label-text text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">Discount Percent</span>
+              <span className="label-text text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">Discount Percent</span>
               <input
                 type="number"
                 min="1"
                 max="100"
                 value={rewardForm.discountPercent}
                 onChange={(e) => setRewardForm({ ...rewardForm, discountPercent: e.target.value })}
-                className="input input-bordered rounded-xl font-bold text-sm"
+                className="input input-bordered rounded-sm font-bold text-sm"
               />
             </label>
           </div>
-          <button type="submit" disabled={isSavingReward} className="btn btn-primary rounded-xl h-11 px-6 font-black text-white">
+          <button type="submit" disabled={isSavingReward} className="btn btn-primary rounded-sm h-11 px-6 font-black text-white">
             {isSavingReward ? "Saving..." : "Save Reward"}
           </button>
         </form>
       )}
 
       {activeRewards.length > 0 && (
-        <div className="flex flex-col gap-3 bg-indigo-50 border border-indigo-100 rounded-2xl px-5 py-4">
+        <div className="flex flex-col gap-3 bg-gold/10 border border-gold/20 rounded-none px-5 py-4">
           <div>
             <p className="text-sm font-black text-indigo-900">Active reward tiers</p>
-            <p className="text-xs text-indigo-700 font-semibold mt-0.5">
+            <p className="text-xs text-gold font-semibold mt-0.5">
               Each non-rejected referral signup counts toward rewards. Checkout uses the best unlocked unused tier.
             </p>
           </div>
@@ -161,7 +161,7 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
 
       {/* Discount Info Banner */}
       {pendingCount > 0 && (
-        <div className="flex items-start gap-4 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4">
+        <div className="flex items-start gap-4 bg-amber-50 border border-amber-200 rounded-none px-5 py-4">
           <span className="text-2xl shrink-0">🏷️</span>
           <div>
             <p className="text-sm font-black text-amber-800">
@@ -177,39 +177,39 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
       )}
 
       {/* Admin Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-gradient-to-br from-indigo-50 to-indigo-100/50 p-6 rounded-[2rem] border border-indigo-100 flex items-center gap-5 shadow-sm">
-          <span className="p-4 bg-indigo-500 text-white rounded-2xl text-2xl"><Users /></span>
+      <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-gradient-to-br from-indigo-50 to-indigo-100/50 p-6 rounded-[2rem] border border-gold/20 flex items-center gap-5 shadow-sm">
+          <span className="p-4 bg-gold text-white rounded-none text-2xl"><Users /></span>
           <div>
-            <span className="text-[10px] font-black uppercase text-indigo-700 tracking-wider block">Total Sign-up Leads</span>
-            <span className="text-3xl font-black text-slate-800">{totalReferrals}</span>
+            <span className="text-[10px] font-black uppercase text-gold tracking-wider block">Total Sign-up Leads</span>
+            <span className="text-3xl font-black text-white">{totalReferrals}</span>
           </div>
         </div>
 
         <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 p-6 rounded-[2rem] border border-emerald-100 flex items-center gap-5 shadow-sm">
-          <span className="p-4 bg-emerald-500 text-white rounded-2xl text-2xl"><Gift /></span>
+          <span className="p-4 bg-emerald-500 text-white rounded-none text-2xl"><Gift /></span>
           <div>
             <span className="text-[10px] font-black uppercase text-emerald-700 tracking-wider block">Converted Customers</span>
-            <span className="text-3xl font-black text-slate-800">{convertedCount}</span>
+            <span className="text-3xl font-black text-white">{convertedCount}</span>
           </div>
         </div>
 
         <div className="bg-gradient-to-br from-sky-50 to-sky-100/50 p-6 rounded-[2rem] border border-sky-100 flex items-center gap-5 shadow-sm">
-          <span className="p-4 bg-sky-500 text-white rounded-2xl text-2xl"><TrendingUp /></span>
+          <span className="p-4 bg-sky-500 text-white rounded-none text-2xl"><TrendingUp /></span>
           <div>
             <span className="text-[10px] font-black uppercase text-sky-700 tracking-wider block">Active Pending Reviews</span>
-            <span className="text-3xl font-black text-slate-800">{pendingCount}</span>
+            <span className="text-3xl font-black text-white">{pendingCount}</span>
           </div>
         </div>
       </div>
 
       {/* Grid: Left: Referrers Summary (How many referred), Right: Detailed Log (Who referred whom) */}
-      <div className="grid grid-cols-1 xl:grid-cols-5 gap-8">
+      <div className="grid grid-cols-1 xl:grid-cols-1 md:grid-cols-5 gap-8">
         
         {/* Referrers Rankings Summary (how many persons referred) */}
-        <div className="xl:col-span-2 bg-white border border-slate-100 rounded-[2.5rem] p-6 shadow-sm space-y-6">
+        <div className="xl:col-span-2 bg-navy border border-slate-800 rounded-[2.5rem] p-6 shadow-sm space-y-6 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
           <div>
-            <h2 className="text-lg font-black text-slate-800 flex items-center gap-2">
+            <h2 className="text-lg font-black text-white flex items-center gap-2">
               <span>🏆</span> Referrer Summary rankings
             </h2>
             <p className="text-slate-400 text-xs font-semibold mt-1">Aggregated count of referrals made by each individual user.</p>
@@ -218,7 +218,7 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
           <div className="overflow-x-auto">
             <table className="table w-full border-collapse">
               <thead>
-                <tr className="border-b border-slate-100 text-[10px] font-black text-slate-400 uppercase tracking-widest text-left">
+                <tr className="border-b border-slate-800 text-[10px] font-black text-slate-400 uppercase tracking-widest text-left">
                   <th className="pb-3 pl-4">Referrer</th>
                   <th className="pb-3 text-center">Referred Count</th>
                   <th className="pb-3 pr-4 text-right">Converted</th>
@@ -226,9 +226,9 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
               </thead>
               <tbody className="divide-y divide-slate-50">
                 {topReferrers.map((referrer, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50/40 transition-colors">
+                  <tr key={idx} className="hover:bg-navy-light/40 transition-colors">
                     <td className="py-3.5 pl-4">
-                      <div className="font-bold text-slate-800 text-sm leading-tight">{referrer.name}</div>
+                      <div className="font-bold text-white text-sm leading-tight">{referrer.name}</div>
                       <div className="text-[10px] font-semibold text-slate-400 flex flex-col mt-0.5">
                         <span className="flex items-center gap-1"><Mail /> {referrer.email}</span>
                         <span className="flex items-center gap-1"><Phone /> {referrer.phone}</span>
@@ -246,7 +246,7 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
                 ))}
                 {topReferrers.length === 0 && (
                   <tr>
-                    <td colSpan={3} className="py-12 text-center text-xs opacity-40 italic">
+                    <td colSpan={3} className="py-8 md:py-12 text-center text-xs opacity-40 italic">
                       No referrers active yet.
                     </td>
                   </tr>
@@ -257,10 +257,10 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
         </div>
 
         {/* Detailed Referrals Log (Who referred whom) */}
-        <div className="xl:col-span-3 bg-white border border-slate-100 rounded-[2.5rem] p-6 shadow-sm space-y-6">
+        <div className="xl:col-span-3 bg-navy border border-slate-800 rounded-[2.5rem] p-6 shadow-sm space-y-6 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h2 className="text-lg font-black text-slate-800 flex items-center gap-2">
+              <h2 className="text-lg font-black text-white flex items-center gap-2">
                 <span>📝</span> Individual Referrals Log
               </h2>
               <p className="text-slate-400 text-xs font-semibold mt-1">Detailed list showing who referred whom and status.</p>
@@ -271,14 +271,14 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
               placeholder="Search detailed logs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="input input-bordered input-sm rounded-xl w-48 sm:w-64 font-bold text-xs"
+              className="input input-bordered input-sm rounded-sm w-48 sm:w-64 font-bold text-xs"
             />
           </div>
 
           <div className="overflow-x-auto">
             <table className="table w-full border-collapse">
               <thead>
-                <tr className="border-b border-slate-100 text-[10px] font-black text-slate-400 uppercase tracking-widest text-left">
+                <tr className="border-b border-slate-800 text-[10px] font-black text-slate-400 uppercase tracking-widest text-left">
                   <th className="pb-3 pl-4">Referral Connection Path</th>
                   <th className="pb-3 text-center">Date & Service</th>
                   <th className="pb-3 text-center">Reward Status</th>
@@ -287,16 +287,16 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
               </thead>
               <tbody className="divide-y divide-slate-50">
                 {filteredReferrals.map((ref) => (
-                  <tr key={ref.id} className="hover:bg-slate-50/40 transition-colors">
+                  <tr key={ref.id} className="hover:bg-navy-light/40 transition-colors">
                     <td className="py-4 pl-4">
                       <div className="flex items-center gap-4">
                         {/* Referrer Avatar & Details */}
                         <div className="flex items-center gap-2.5 w-44">
-                          <div className="w-8 h-8 rounded-full bg-indigo-50 text-indigo-700 flex items-center justify-center font-black text-xs shrink-0 shadow-sm border border-indigo-100">
+                          <div className="w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center font-black text-xs shrink-0 shadow-sm border border-gold/20">
                             {ref.referrerName?.charAt(0)?.toUpperCase()}
                           </div>
                           <div className="truncate">
-                            <div className="font-extrabold text-slate-800 text-xs truncate" title={ref.referrerName}>{ref.referrerName}</div>
+                            <div className="font-extrabold text-white text-xs truncate" title={ref.referrerName}>{ref.referrerName}</div>
                             <div className="text-[9px] font-bold text-slate-400 truncate">{ref.referrerPhone}</div>
                           </div>
                         </div>
@@ -315,14 +315,14 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
                             {ref.friendName?.charAt(0)?.toUpperCase() || "U"}
                           </div>
                           <div className="truncate">
-                            <div className="font-extrabold text-slate-800 text-xs truncate" title={ref.friendName}>{ref.friendName || "Unknown"}</div>
+                            <div className="font-extrabold text-white text-xs truncate" title={ref.friendName}>{ref.friendName || "Unknown"}</div>
                             <div className="text-[9px] font-bold text-slate-400 truncate" title={ref.friendEmail}>{ref.friendEmail}</div>
                           </div>
                         </div>
                       </div>
                     </td>
                     <td className="py-4 text-center">
-                      <div className="text-xs font-bold text-slate-700">{ref.serviceName || "Sign Up"}</div>
+                      <div className="text-xs font-bold text-slate-200">{ref.serviceName || "Sign Up"}</div>
                       <div className="text-[9px] font-semibold text-slate-400">{new Date(ref.createdAt).toLocaleDateString()}</div>
                     </td>
                     <td className="py-3.5 text-center">
@@ -330,11 +330,11 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
                         value={ref.status}
                         onChange={(e) => handleStatusChange(ref.id, e.target.value)}
                         disabled={isUpdating}
-                        className={`select select-xs select-bordered rounded-lg font-black tracking-wide text-[9px] uppercase border ${
+                        className={`select select-xs select-bordered rounded-sm font-black tracking-wide text-[9px] uppercase border ${
                           ref.status === "NEW" ? "bg-emerald-50 text-emerald-800 border-emerald-200" :
-                          ref.status === "CONVERTED" ? "bg-indigo-50 text-indigo-800 border-indigo-200" :
+                          ref.status === "CONVERTED" ? "bg-gold/10 text-indigo-800 border-gold/30" :
                           ref.status === "REJECTED" ? "bg-rose-50 text-rose-800 border-rose-200" :
-                          "bg-slate-50 text-slate-800 border-slate-200"
+                          "bg-navy-light text-white border-slate-700"
                         }`}
                       >
                         <option value="NEW">New (Registered)</option>
@@ -347,12 +347,12 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
                       {ref.status === "NEW" ? (
                         <button
                           onClick={() => handleStatusChange(ref.id, "CONVERTED")}
-                          className="btn btn-emerald btn-xs rounded-lg px-2.5 font-bold uppercase text-[9px] tracking-wide text-white border-none shadow-sm hover:shadow"
+                          className="btn btn-emerald btn-xs rounded-sm px-2.5 font-bold uppercase text-[9px] tracking-wide text-white border-none shadow-sm hover:shadow"
                         >
                           Qualify Reward
                         </button>
                       ) : (
-                        <span className="text-[10px] font-black uppercase text-indigo-600">
+                        <span className="text-[10px] font-black uppercase text-gold">
                           {ref.status}
                         </span>
                       )}
@@ -361,7 +361,7 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
                 ))}
                 {filteredReferrals.length === 0 && (
                   <tr>
-                    <td colSpan={4} className="py-20 text-center text-xs opacity-40 italic">
+                    <td colSpan={4} className="py-8 md:py-20 text-center text-xs opacity-40 italic">
                       No individual logs recorded.
                     </td>
                   </tr>

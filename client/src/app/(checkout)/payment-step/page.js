@@ -110,7 +110,7 @@ function PaymentStep() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto py-12 px-4">
+    <div className="max-w-2xl mx-auto py-8 md:py-12 px-4">
       {payuParams && (
         <form ref={formRef} method="POST" action={payuBaseUrl} style={{ display: "none" }}>
           {Object.entries(payuParams).map(([key, value]) => (
@@ -139,7 +139,7 @@ function PaymentStep() {
       </div>
 
       <div className="card bg-base-100 shadow-2xl border border-base-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-primary to-primary/80 p-6 text-primary-content flex justify-between items-center">
+        <div className="bg-gradient-to-r from-primary to-primary/80 p-6 text-gold-content flex justify-between items-center">
           <div>
             <h2 className="text-2xl font-black">Secure Payment</h2>
             <p className="text-sm opacity-80 mt-0.5">Powered by PayU · 256-bit SSL</p>
@@ -150,9 +150,9 @@ function PaymentStep() {
           </div>
         </div>
 
-        <div className="card-body p-8 md:p-12">
+        <div className="card-body p-8 md:p-4 md:p-12">
           <div className="space-y-6">
-            <div className="p-6 rounded-2xl bg-base-200/50 border border-base-200 space-y-3">
+            <div className="p-6 rounded-none bg-base-200/50 border border-base-200 space-y-3">
               <p className="text-xs font-bold uppercase tracking-widest opacity-40 mb-3">Order Summary</p>
 
               <div className="flex justify-between items-center text-sm">
@@ -189,11 +189,11 @@ function PaymentStep() {
 
               <div className="pt-3 border-t border-base-300 flex justify-between items-center">
                 <span className="text-base font-bold">Total Amount Due</span>
-                <span className="text-2xl font-black text-primary">{totalAmount}</span>
+                <span className="text-2xl font-black text-gold">{totalAmount}</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-100 rounded-xl p-4">
+            <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-100 rounded-sm p-4">
               <Lock className="text-emerald-600 shrink-0" size={18} />
               <div>
                 <p className="text-xs font-bold text-emerald-800">Secured by PayU</p>
@@ -212,14 +212,14 @@ function PaymentStep() {
             </div>
 
             {error && (
-              <div className="alert alert-error rounded-xl flex gap-3">
+              <div className="alert alert-error rounded-sm flex gap-3">
                 <AlertCircle size={18} className="shrink-0" />
                 <span className="text-sm">{error}</span>
               </div>
             )}
 
             {isCustomQuote && (
-              <div className="alert alert-info rounded-xl">
+              <div className="alert alert-info rounded-sm">
                 <Shield size={18} />
                 <div>
                   <p className="font-bold text-sm">Custom Quote Plan</p>
@@ -232,7 +232,7 @@ function PaymentStep() {
               <button
                 type="button"
                 onClick={() => router.back()}
-                className="btn btn-outline flex-1 rounded-xl h-14 font-bold gap-2"
+                className="btn btn-outline flex-1 rounded-sm h-14 font-bold gap-2"
                 disabled={loading}
               >
                 <ArrowLeft size={18} /> Go Back
@@ -240,7 +240,7 @@ function PaymentStep() {
               <button
                 type="button"
                 onClick={handlePay}
-                className="btn btn-primary flex-[2] rounded-xl h-14 font-bold text-lg gap-3 shadow-lg shadow-primary/20"
+                className="btn btn-primary flex-[2] rounded-sm h-14 font-bold text-lg gap-3 shadow-lg shadow-primary/20"
                 disabled={loading || isCustomQuote}
                 id="payu-pay-button"
               >
@@ -274,7 +274,7 @@ export default function PaymentStepPage() {
       <Suspense
         fallback={
           <div className="flex h-screen w-full items-center justify-center">
-            <span className="loading loading-spinner loading-lg text-primary"></span>
+            <span className="loading loading-spinner loading-lg text-gold"></span>
           </div>
         }
       >

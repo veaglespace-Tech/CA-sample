@@ -35,16 +35,16 @@ export default function ProfileSection({
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Header Block with glowing accent */}
-      <div className="bg-gradient-to-br from-indigo-50 via-white to-blue-50/30 text-slate-800 rounded-[2.5rem] p-8 shadow-[0_10px_35px_rgba(99,102,241,0.03)] relative border border-indigo-100/70 overflow-hidden">
+      <div className="bg-gradient-to-br from-indigo-50 via-white to-blue-50/30 text-white rounded-[2.5rem] p-8 shadow-[0_10px_35px_rgba(99,102,241,0.03)] relative border border-gold/20/70 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(99,102,241,0.06),transparent_50%)]"></div>
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-indigo-100/70 rounded-full border border-indigo-200/50">
-              <User size={14} className="text-indigo-700" />
-              <span className="text-[10px] font-black uppercase tracking-wider text-indigo-700">Account Settings</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-indigo-100/70 rounded-full border border-gold/30/50">
+              <User size={14} className="text-gold" />
+              <span className="text-[10px] font-black uppercase tracking-wider text-gold">Account Settings</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-none text-slate-800">Your Profile</h1>
-            <p className="text-slate-500 text-xs md:text-sm font-semibold max-w-xl">
+            <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-none text-white">Your Profile</h1>
+            <p className="text-slate-400 text-xs md:text-sm font-semibold max-w-xl">
               {!canChangePassword
                 ? "Manage your personal information and contact details below."
                 : isStaff
@@ -55,14 +55,14 @@ export default function ProfileSection({
         </div>
       </div>
 
-      <div className="bg-white rounded-[2.5rem] shadow-[0_4px_25px_rgba(0,0,0,0.02)] border border-slate-100 overflow-hidden">
-        <div className="p-8 md:p-10">
-          <h3 className="text-lg font-black mb-8 flex items-center gap-3 text-slate-800 uppercase tracking-wide">
-            <span className="w-1.5 h-6 bg-primary rounded-full"></span>
+      <div className="bg-navy rounded-[2.5rem] shadow-[0_4px_25px_rgba(0,0,0,0.02)] border border-slate-800 overflow-hidden">
+        <div className="p-8 md:p-4 md:p-10">
+          <h3 className="text-lg font-black mb-8 flex items-center gap-3 text-white uppercase tracking-wide">
+            <span className="w-1.5 h-6 bg-gold rounded-full"></span>
             Personal Details
           </h3>
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+          <form onSubmit={handleSubmit} className="space-y-8 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30">
+            <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
 
               {/* Full Name */}
               <div className="flex flex-col gap-2">
@@ -71,7 +71,7 @@ export default function ProfileSection({
                 </label>
                 <input
                   type="text"
-                  className={`w-full rounded-2xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm font-bold text-slate-900 outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14 ${errors.name ? 'border-rose-400 bg-rose-50 focus:border-rose-500 focus:ring-rose-100' : ''}`}
+                  className={`w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14 ${errors.name ? 'border-rose-400 bg-rose-50 focus:border-rose-500 focus:ring-rose-100' : ''}`}
                   value={profileForm.name}
                   onChange={e => {
                     setProfileForm({ ...profileForm, name: e.target.value });
@@ -89,7 +89,7 @@ export default function ProfileSection({
                 </label>
                 <input
                   type="email"
-                  className={`w-full rounded-2xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm font-bold text-slate-900 outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14 ${errors.email ? 'border-rose-400 bg-rose-50 focus:border-rose-500 focus:ring-rose-100' : ''}`}
+                  className={`w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14 ${errors.email ? 'border-rose-400 bg-rose-50 focus:border-rose-500 focus:ring-rose-100' : ''}`}
                   value={profileForm.email}
                   onChange={e => {
                     setProfileForm({ ...profileForm, email: e.target.value });
@@ -144,12 +144,12 @@ export default function ProfileSection({
             {/* ── Security & Password ── only shown to regular users ── */}
             {canChangePassword && (
               <>
-                <h3 className="text-lg font-black mb-6 mt-10 flex items-center gap-3 text-slate-800 uppercase tracking-wide">
+                <h3 className="text-lg font-black mb-6 mt-10 flex items-center gap-3 text-white uppercase tracking-wide">
                   <span className="w-1.5 h-6 bg-slate-800 rounded-full"></span>
                   Security &amp; Password
                 </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                   {/* Old Password */}
                   <div className="flex flex-col gap-2">
                     <label className="text-xs font-black uppercase tracking-wider text-slate-400 ml-1 flex items-center gap-1.5">
@@ -167,7 +167,7 @@ export default function ProfileSection({
                       required={!!profileForm.password}
                       showStrength={false}
                       error={errors.oldPassword || undefined}
-                      inputClassName="w-full rounded-2xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm font-bold text-slate-900 outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14"
+                      inputClassName="w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14"
                     />
                   </div>
 
@@ -187,7 +187,7 @@ export default function ProfileSection({
                       required={false}
                       showStrength={true}
                       error={pwdError || errors.password || undefined}
-                      inputClassName="w-full rounded-2xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm font-bold text-slate-900 outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14"
+                      inputClassName="w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14"
                     />
                   </div>
                 </div>
@@ -196,7 +196,7 @@ export default function ProfileSection({
 
             {/* Admin notice — shown only to staff */}
             {!canChangePassword && (
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-amber-50 border border-amber-100 mt-2">
+              <div className="flex items-start gap-3 p-4 rounded-none bg-amber-50 border border-amber-100 mt-2">
                 <Lock size={16} className="text-amber-500 mt-0.5 shrink-0" />
                 <p className="text-xs font-semibold text-amber-700 leading-relaxed">
                   Password changes for super admin accounts are managed separately. Please use your secure internal recovery process if you need an update.
@@ -204,10 +204,10 @@ export default function ProfileSection({
               </div>
             )}
 
-            <div className="pt-8 mt-8 border-t border-slate-100 flex justify-end">
+            <div className="pt-8 mt-8 border-t border-slate-800 flex justify-end">
               <button
                 type="submit"
-                className="btn btn-primary px-10 rounded-2xl h-14 font-black uppercase tracking-wider text-xs shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:-translate-y-0.5 border-none text-white"
+                className="btn btn-primary px-4 md:px-10 rounded-none h-14 font-black uppercase tracking-wider text-xs shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:-translate-y-0.5 border-none text-white"
                 disabled={isUpdating}
               >
                 {isUpdating ? <span className="loading loading-spinner"></span> : "Save Changes"}
