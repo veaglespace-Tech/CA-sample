@@ -1,13 +1,38 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 export default function ReviewBadge({ className = "" }) {
+  const [stats, setStats] = useState({ count: 29, rating: "4.8" });
+
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const res = await fetch(`${API_URL}/api/reviews`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const reviews = data?.data || [];
+        if (reviews.length > 0) {
+          const rating = (reviews.reduce((acc, r) => acc + (r.rating || 5), 0) / reviews.length).toFixed(1);
+          setStats({ count: reviews.length, rating });
+        }
+      } catch (error) {
+        console.error("Failed to fetch review stats:", error);
+      }
+    }
+    fetchStats();
+  }, []);
+
   return (
     <Link
       href="/reviews"
       className={`group inline-flex items-center gap-3 sm:gap-4 rounded-full border border-slate-200 bg-white p-1.5 pr-4 sm:pr-5 shadow-sm transition-all duration-300 hover:border-gold/30 hover:bg-slate-50 hover:shadow-md ${className}`}
     >
-      <span className="flex h-6 sm:h-7 items-center rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] px-3 sm:px-4 text-[0.65rem] sm:text-[0.7rem] font-black uppercase tracking-widest text-white shadow-sm shadow-indigo-500/20">
+      <span className="flex h-6 sm:h-7 items-center rounded-full bg-gradient-to-r from-navy to-navy-light px-3 sm:px-4 text-[0.65rem] sm:text-[0.7rem] font-black uppercase tracking-widest text-white shadow-sm shadow-navy/20">
         Trusted
       </span>
       <span className="flex items-center gap-2 sm:gap-3">
@@ -20,8 +45,8 @@ export default function ReviewBadge({ className = "" }) {
           ))}
         </span>
         <span className="flex items-baseline gap-1.5 text-sm sm:text-base">
-          <span className="font-extrabold text-slate-800">4.0/5</span>
-          <span className="text-slate-500 font-semibold text-xs sm:text-sm">from 29 Google reviews</span>
+          <span className="font-extrabold text-slate-800">{stats.rating}/5</span>
+          <span className="text-slate-500 font-semibold text-xs sm:text-sm">from {stats.count} Google reviews</span>
         </span>
       </span>
       <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400 transition-transform group-hover:translate-x-1" />

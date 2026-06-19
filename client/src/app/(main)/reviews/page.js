@@ -6,12 +6,12 @@ export const metadata = {
   description: "Read real reviews from 5 lakh+ customers who used Demo CA for company registration, GST, trademark and more.",
 };
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 async function fetchReviews() {
   try {
-    const res = await fetch(`${API_URL}/api/reviews?general=true`, {
-      next: { revalidate: 300 }, // Revalidate every 5 minutes
+    const res = await fetch(`${API_URL}/api/reviews`, {
+      next: { revalidate: 0 }, // Fetch dynamically to avoid caching issues in dev
     });
     if (!res.ok) return [];
     const data = await res.json();

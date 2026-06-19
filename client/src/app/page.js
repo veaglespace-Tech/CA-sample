@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -161,6 +161,26 @@ function StarRow({ count = 5 }) {
 
 export default function Home() {
   const container = useRef();
+  const [stats, setStats] = useState({ count: 29, rating: "4.8" });
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const res = await fetch(`${API_URL}/api/reviews`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const reviews = data?.data || [];
+        if (reviews.length > 0) {
+          const rating = (reviews.reduce((acc, r) => acc + (r.rating || 5), 0) / reviews.length).toFixed(1);
+          setStats({ count: reviews.length, rating });
+        }
+      } catch (error) {
+        console.error("Failed to fetch review stats:", error);
+      }
+    }
+    fetchStats();
+  }, []);
   
   useGSAP(() => {
     gsap.from('.gsap-hero-item', { y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out' });
@@ -410,39 +430,55 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            {reviews.map((review, i) => (
-               <div key={i} className="border border-slate-100 p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] py-4">
+            <div className="flex animate-[slide-left_35s_linear_infinite] gap-8 hover:[animation-play-state:paused] whitespace-normal min-w-max">
+              {[...reviews, ...reviews, ...reviews, ...reviews].map((review, i) => (
+                <div key={i} className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/80 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:border-gold/40 hover:-translate-y-1 transition-all duration-300 w-[320px] md:w-[380px] shrink-0 rounded-2xl cursor-default text-left relative overflow-hidden group flex flex-col">
+                  {/* Top accent line on hover */}
+                  <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-gold to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
                   <StarRow count={review.rating} />
-                  <p className="text-slate-600 mt-4 mb-8 text-sm leading-relaxed italic">
-                     &quot;{review.text}&quot;
+                  <p className="text-slate-600 mt-4 mb-8 text-[0.95rem] leading-relaxed italic line-clamp-4 relative z-10">
+                    &quot;{review.text}&quot;
                   </p>
-                  <div className="flex items-center gap-4">
-                     <div className="w-12 h-12 bg-navy text-white rounded-full flex items-center justify-center font-bold text-lg">
-                        {review.name.charAt(0)}
-                     </div>
-                     <div>
-                        <h4 className="font-bold text-navy">{review.name}</h4>
-                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{review.role}</p>
-                     </div>
+                  <div className="flex items-center gap-4 mt-auto border-t border-slate-100 pt-5 relative z-10">
+                    <div className="w-12 h-12 bg-gradient-to-br from-navy to-navy-light text-white rounded-full flex items-center justify-center font-bold text-lg shrink-0 shadow-md">
+                      {review.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-navy">{review.name}</h4>
+                      <p className="text-[0.7rem] font-bold text-slate-400 uppercase tracking-widest">{review.role}</p>
+                    </div>
                   </div>
-               </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="mt-12 flex justify-center">
-            <div className="inline-flex items-center gap-5 border border-slate-200 px-8 py-5 shadow-sm hover:shadow-md hover:border-gold transition-all">
-              <div className="text-left">
-                <div className="text-4xl font-black text-navy">4.0</div>
-                <StarRow count={4} />
+          <div className="mt-12 flex flex-col items-center justify-center gap-6">
+            <div className="group flex items-center gap-5 rounded-[2.5rem] border border-slate-200 bg-gradient-to-br from-white to-slate-50 px-8 py-5 shadow-lg shadow-slate-100/80 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/15 hover:-translate-y-1 hover:border-gold/30 relative overflow-hidden">
+              {/* Rotating background glow on hover */}
+              <div className="absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(197,160,89,0.3)_360deg)] animate-[spin_3s_linear_infinite]" />
+
+              <div className="relative z-10 text-left">
+                <div className="font-heading text-4xl font-black text-navy">{stats.rating}</div>
+                <div className="mt-0.5"><StarRow count={Math.round(parseFloat(stats.rating))} /></div>
               </div>
-              <div className="w-px h-12 bg-slate-200"></div>
-              <div className="text-left">
-                 <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Rating On</div>
-                 <div className="font-bold text-lg text-navy">Google Reviews</div>
-                 <div className="text-xs text-slate-500">29 verified reviews</div>
+              <div className="h-12 w-px bg-slate-200" />
+              <div className="relative z-10 text-left">
+                 <div className="text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-gold transition-colors">Rating On</div>
+                 <div className="font-heading font-bold text-lg text-navy">Google Reviews</div>
+                 <div className="text-xs font-semibold text-slate-500">{stats.count} verified reviews</div>
               </div>
             </div>
+
+            <Link 
+              href="/reviews"
+              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-gold to-yellow-600 px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all hover:shadow-gold/25 duration-300"
+            >
+              Show All Reviews
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </div>

@@ -428,22 +428,22 @@ export default function Header() {
       {activeToast && <Toast toast={activeToast} onClose={() => setActiveToast(null)} />}
       
       {/* Top Strip */}
-      <div className="hidden lg:block bg-slate-50 border-b border-slate-100 text-slate-600 py-1.5">
+      <div className="hidden lg:block bg-navy border-b border-navy-light text-slate-300 py-1.5">
         <div className="mx-auto flex w-full max-w-none items-center justify-between px-4 sm:px-6 lg:px-12">
           <div className="flex items-center gap-4 text-[0.8rem]">
-            <Link href="/about-us" className="hover:text-gold font-semibold transition-colors">About Us</Link>
-            <span className="text-slate-300">|</span>
-            <Link href="/contact" className="hover:text-gold font-semibold transition-colors">Contact</Link>
-            <span className="text-slate-300">|</span>
-            <Link href="/resources" className="hover:text-gold font-semibold transition-colors">Blogs</Link>
+            <Link href="/about-us" className="hover:text-gold font-semibold transition-colors text-slate-200">About Us</Link>
+            <span className="text-white/20">|</span>
+            <Link href="/contact" className="hover:text-gold font-semibold transition-colors text-slate-200">Contact</Link>
+            <span className="text-white/20">|</span>
+            <Link href="/resources" className="hover:text-gold font-semibold transition-colors text-slate-200">Blogs</Link>
           </div>
           <div className="flex items-center gap-4 text-[0.8rem]">
-            <a href={`tel:${siteMeta.phone}`} className="flex items-center font-bold text-gold hover:text-emerald-600 transition-colors">
+            <a href={`tel:${siteMeta.phone}`} className="flex items-center font-bold text-gold hover:text-white transition-colors">
               <Phone size={13} className="mr-1.5" />
               {siteMeta.phone}
             </a>
-            <span className="text-slate-300">|</span>
-            <Link href="/talk-to-expert" className="hover:text-gold font-semibold transition-colors">Talk to an Expert</Link>
+            <span className="text-white/20">|</span>
+            <Link href="/talk-to-expert" className="hover:text-gold font-semibold transition-colors text-slate-200">Talk to an Expert</Link>
           </div>
         </div>
       </div>
