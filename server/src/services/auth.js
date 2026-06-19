@@ -189,7 +189,7 @@ function createOtp() {
 }
 
 function hashOtp(phone, otp) {
-  return crypto.createHash("sha256").update(`${phone}:${otp}:${process.env.OTP_SECRET || "valuexpert-dev"}`).digest("hex");
+  return crypto.createHash("sha256").update(`${phone}:${otp}:${process.env.OTP_SECRET || "caproject-dev"}`).digest("hex");
 }
 
 export async function generateOtp({ phoneRaw, ipAddress, userAgent }) {
