@@ -130,7 +130,7 @@ const trustStats = [
 
 const reviews = [
   {
-    text: "My experience with Demo CA was excellent by all standards. The company is highly professional in providing real estate appraisal services. The team is cooperative and competent, and responds to all needs quickly and efficiently.",
+    text: "My experience with Veagle Space was excellent by all standards. The company is highly professional in providing real estate appraisal services. The team is cooperative and competent, and responds to all needs quickly and efficiently.",
     name: "Sultan Alsubaie",
     role: "Local Guide",
     rating: 5,
@@ -209,7 +209,7 @@ export default function Home() {
           </h1>
           
           <p className="gsap-hero-item text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-10">
-            Your all-in-one SaaS platform for company incorporation, GST filing, trademark protection, and continuous compliance.
+            Your trusted partner for business registration, tax compliance, intellectual property protection, and growth advisory.
           </p>
 
           <div className="gsap-hero-item w-full max-w-2xl mx-auto mb-8 relative z-30">
@@ -272,7 +272,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-navy mb-4">Welcome to <strong className="font-black">Veagle Space</strong><br/><span className="text-gold">experience &amp; </span> best solutions</h2>
             <div className="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
             <p className="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
-              We provide the best CA services in India. <strong>Our platform is the industry standard</strong> for company registration, tax filings, and continuous business compliance.
+              We deliver top-tier CA and legal services across India. <strong>Our streamlined portal is the preferred choice</strong> for seamless business setup, tax management, and legal compliance.
             </p>
           </div>
 
@@ -297,7 +297,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-navy mb-4">Your <strong> Growth Engine</strong></h2>
             <div className="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
             <p className="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
-              Everything you need to start, run, and scale—from online CA services to trademark filing.
+              Comprehensive solutions to launch, manage, and secure your enterprise—from expert CA advisory to digital IP protection.
             </p>
           </div>
 
@@ -522,3 +522,4 @@ export default function Home() {
     </div>
   );
 }
+

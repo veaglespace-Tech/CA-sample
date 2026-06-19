@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "All Offers - Demo CA",
-  description: "Exclusive offers and discounts on legal, tax and compliance services from Demo CA.",
+  title: "All Offers - Veagle Space",
+  description: "Exclusive offers and discounts on legal, tax and compliance services from Veagle Space.",
 };
 
 const offers = [
@@ -49,3 +49,4 @@ export default function AllOffersPage() {
     </>
   );
 }
+

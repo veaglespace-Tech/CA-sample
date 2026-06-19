@@ -146,9 +146,9 @@ function buildGenericService(slug) {
     faqs: [
       { q: `What is the step-by-step process for ${title}?`, a: `The process for ${title} begins with an initial consultation where our experts evaluate your specific requirements. We then gather the required paperwork, draft the necessary applications, and file them directly with the relevant government authorities on your behalf.` },
       { q: `What documents do I need to provide for ${title}?`, a: `While requirements vary, you typically need basic identity proofs (PAN, Aadhaar), address proofs, and your business registration details. Once you start the process for ${title}, our team will provide a customized, exact document checklist.` },
-      { q: `How much time does it take to complete ${title}?`, a: `The timeline for ${title} depends heavily on government processing speeds and how quickly you can provide the required documents. However, Valuexpert guarantees fast-track preparation and filing to ensure the quickest possible completion.` },
-      { q: `Can I complete the ${title} procedure entirely online?`, a: `Yes! Valuexpert offers a 100% digital and paperless process for ${title}. You can securely upload your documents to our portal, and our experts will handle all the regulatory filings without you needing to visit any offices.` },
-      { q: `Why should I choose Valuexpert for ${title}?`, a: `Choosing Valuexpert for ${title} means you get transparent pricing with no hidden charges, support from dedicated legal professionals, and guaranteed compliance. We take care of all the legalities so you can focus entirely on running your business.` }
+      { q: `How much time does it take to complete ${title}?`, a: `The timeline for ${title} depends heavily on government processing speeds and how quickly you can provide the required documents. However, Veagle Space guarantees fast-track preparation and filing to ensure the quickest possible completion.` },
+      { q: `Can I complete the ${title} procedure entirely online?`, a: `Yes! Veagle Space offers a 100% digital and paperless process for ${title}. You can securely upload your documents to our portal, and our experts will handle all the regulatory filings without you needing to visit any offices.` },
+      { q: `Why should I choose Veagle Space for ${title}?`, a: `Choosing Veagle Space for ${title} means you get transparent pricing with no hidden charges, support from dedicated legal professionals, and guaranteed compliance. We take care of all the legalities so you can focus entirely on running your business.` }
     ]
   };
 }
@@ -676,8 +676,8 @@ export default function ServicePageClient({ slug }) {
               </div>
             </article>
 
-            <article id="why-democa" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-3">Why Veagle Space Technology?</h2>
+            <article id="why-us" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <h2 className="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-3">Why Veagle Space?</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div className="bg-slate-50 rounded-none p-4 border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
                   <Shield className="mx-auto mb-3 text-[#d29052]" size={24} />

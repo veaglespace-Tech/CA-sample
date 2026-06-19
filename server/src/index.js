@@ -22,7 +22,7 @@ export const startServer = async () => {
   startMessageCleanup();
 
   const server = app.listen(PORT, () => {
-    console.log(`Demo CA API running on http://localhost:${PORT}`);
+    console.log(`Veagle Space API running on http://localhost:${PORT}`);
   });
 
   const shutdown = async () => {
@@ -53,3 +53,4 @@ if (process.env.NODE_ENV !== "test") {
 // trigger update
 // restart
 // again
+

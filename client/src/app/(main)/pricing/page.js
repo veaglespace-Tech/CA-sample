@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Pricing & Plans",
-  description: "Transparent pricing for all Demo CA legal, tax, and compliance services.",
+  description: "Transparent pricing for all Veagle Space legal, tax, and compliance services.",
 };
 
 const plans = [
@@ -76,3 +76,4 @@ export default function PricingPage() {
     </>
   );
 }
+
