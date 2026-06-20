@@ -1849,7 +1849,7 @@ export const serviceData = {
       { q: "Are overseas subsidiaries covered under ODI reporting?", a: "Yes, foreign subsidiaries and joint ventures are generally subject to applicable reporting requirements." },
       { q: "What is Financial Commitment Reporting?", a: "It involves reporting investments, loans, guarantees, and other financial commitments made towards overseas entities." },
       { q: "Is reporting required when overseas investments are sold or closed?", a: "Yes, disinvestment, transfer, liquidation, and closure transactions generally require reporting." },
-      { q: "Can Valuexpert assist with ongoing ODI compliance?", a: "Yes, Valuexpert provides end-to-end assistance with ODI reporting, APR filing, and regulatory compliance." },
+      { q: "Can Veagle Space assist with ongoing ODI compliance?", a: "Yes, Veagle Space provides end-to-end assistance with ODI reporting, APR filing, and regulatory compliance." },
       { q: "Why is ODI Reporting important?", a: "ODI Reporting ensures regulatory compliance, supports smooth overseas operations, prevents penalties, and maintains transparency in international investments." }
     ]
   },
@@ -3528,3 +3528,4 @@ export const relatedPagesList = [
   "Share Transfer", "Trademark Renewal", "Copyright Registration", "Patent Registration",
   "MSME Registration", "Import Export Code", "Startup India Registration",
 ];
+

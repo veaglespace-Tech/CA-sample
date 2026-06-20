@@ -7,7 +7,7 @@ import {
 
 export const metadata = {
   title: "All Services",
-  description: "Explore all legal, tax, compliance, and business registration services offered by Demo CA.",
+  description: "Explore all legal, tax, compliance, and business registration services offered by Veagle Space.",
 };
 
 const serviceCategories = [
@@ -61,3 +61,4 @@ export default function ServicesPage() {
     </>
   );
 }
+

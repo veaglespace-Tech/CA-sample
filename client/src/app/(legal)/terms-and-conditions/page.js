@@ -31,11 +31,11 @@ export default function TermsPage() {
             <div className="space-y-8 text-slate-600 font-medium leading-relaxed">
               <div>
                 <h2 className="font-heading text-2xl font-black text-slate-900 mb-4">1. Introduction</h2>
-                <p>By accessing and using Demo CA, you agree to be bound by these Terms and Conditions. Please read them carefully before using our services.</p>
+                <p>By accessing and using Veagle Space, you agree to be bound by these Terms and Conditions. Please read them carefully before using our services.</p>
               </div>
               <div>
                 <h2 className="font-heading text-2xl font-black text-slate-900 mb-4">2. Services</h2>
-                <p>Demo CA is a facilitating platform enabling access to reliable legal and compliance professionals. We are not a law firm and do not provide legal services ourselves.</p>
+                <p>Veagle Space is a facilitating platform enabling access to reliable legal and compliance professionals. We are not a law firm and do not provide legal services ourselves.</p>
               </div>
               <div>
                 <h2 className="font-heading text-2xl font-black text-slate-900 mb-4">3. User Obligations</h2>
@@ -56,3 +56,4 @@ export default function TermsPage() {
     </div>
   );
 }
+

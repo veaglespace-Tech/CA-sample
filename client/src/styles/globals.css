@@ -2770,7 +2770,7 @@
   .vs-footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
 }
 
-/* Reference-inspired Demo CA skin */
+/* Reference-inspired Veagle Space skin */
 .vs-container {
   max-width: 1288px;
   padding-left: 1rem;
@@ -6748,7 +6748,7 @@
   }
 }
 
-/* Valuexpert landing and navigation */
+/* Veagle Space landing and navigation */
 .vx-container {
   width: 100%;
   max-width: 1140px;
@@ -8654,7 +8654,7 @@ svg {
   }
 }
 
-/* Valuexpert landing page body */
+/* Veagle Space landing page body */
 .vxlp-home-hero {
   background:
     linear-gradient(120deg, rgba(10, 102, 194, 0.08) 0 1px, transparent 1px 100%) 0 0 / 44px 44px,
@@ -12201,3 +12201,4 @@ button:active:not(:disabled), .btn:active:not(:disabled) {
     @apply transition-all duration-300 active:scale-95 cursor-pointer;
   }
 }
+

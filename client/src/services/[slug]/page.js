@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
   const meta = getServiceMeta(slug);
   return {
     title: meta.label,
-    description: `Learn about ${meta.label} - expert guidance and end-to-end support from Demo CA.`,
+    description: `Learn about ${meta.label} - expert guidance and end-to-end support from Veagle Space.`,
   };
 }
 

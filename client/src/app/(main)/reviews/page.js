@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Star, Quote, CheckCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Customer Reviews - Demo CA",
-  description: "Read real reviews from 5 lakh+ customers who used Demo CA for company registration, GST, trademark and more.",
+  title: "Customer Reviews - Veagle Space",
+  description: "Read real reviews from 5 lakh+ customers who used Veagle Space for company registration, GST, trademark and more.",
 };
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -120,7 +120,7 @@ export default async function ReviewsPage() {
       <section className="py-8 md:py-16 bg-white border-t border-slate-200/60 text-center px-4">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading text-3xl font-black text-slate-900 mb-4">Ready to Join 5 Lakh+ Happy Customers?</h2>
-          <p className="text-slate-500 font-medium mb-8">Get started with Demo CA today and experience seamless compliance.</p>
+          <p className="text-slate-500 font-medium mb-8">Get started with Veagle Space today and experience seamless compliance.</p>
           <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-white bg-gold hover:bg-gold-600 rounded-sm shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1">
             Talk to an Expert
           </Link>
@@ -129,3 +129,4 @@ export default async function ReviewsPage() {
     </div>
   );
 }
+

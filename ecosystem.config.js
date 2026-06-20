@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'valuexpert-backend',
+      name: 'caproject-backend',
       script: './server/src/index.js',
       env: {
         NODE_ENV: 'production',
@@ -9,7 +9,7 @@ module.exports = {
       }
     },
     {
-      name: 'valuexpert-frontend',
+      name: 'caproject-frontend',
       script: 'npm',
       args: 'start',
       cwd: './client',

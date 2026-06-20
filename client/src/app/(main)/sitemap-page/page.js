@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Sitemap - Demo CA",
-  description: "Complete sitemap of all pages on Demo CA - legal, tax and compliance services.",
+  title: "Sitemap - Veagle Space",
+  description: "Complete sitemap of all pages on Veagle Space - legal, tax and compliance services.",
 };
 
 const sections = [
@@ -79,7 +79,7 @@ export default function SitemapPage() {
             <span>Sitemap</span>
           </div>
           <h1>Sitemap</h1>
-          <p className="vs-hero-sub">All pages and services on Demo CA.</p>
+          <p className="vs-hero-sub">All pages and services on Veagle Space.</p>
         </div>
       </section>
 
@@ -106,3 +106,4 @@ export default function SitemapPage() {
     </>
   );
 }
+

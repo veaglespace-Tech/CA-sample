@@ -1,4 +1,4 @@
-# Valuexpert Consulting Platform
+# caproject Consulting Platform
 
 A comprehensive business consulting and registration platform connecting Indian businesses with verified CAs and legal professionals. Built with a modern tech stack to provide fast, smart, and transparent services.
 
@@ -21,8 +21,8 @@ Ensure you have the following installed on your local machine:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/veaglespace-Tech/valuexpert.git
-cd valuexpert
+git clone https://github.com/veaglespace-Tech/caproject.git
+cd caproject
 ```
 
 ### 2. Backend Setup (`/server`)
@@ -46,7 +46,7 @@ The backend handles the API requests, user authentication, and database interact
    PORT=5003
 
    # Database Connection String (MySQL / Prisma)
-   DATABASE_URL="mysql://root:password@localhost:3306/valuexpert"
+   DATABASE_URL="mysql://root:password@localhost:3306/caproject"
 
    # JWT Secret for Authentication
    JWT_SECRET="your_super_secret_jwt_key_here"

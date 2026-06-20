@@ -1,13 +1,13 @@
-# Valuexpert Project Architecture & Structure Guide
+# caproject Project Architecture & Structure Guide
 
-This guide describes the clean, highly modular, and feature-separated architecture of the **Valuexpert** codebase. The project is separated into a frontend Next.js App Router workspace (`client`) and a robust Express.js MVC backend (`server`).
+This guide describes the clean, highly modular, and feature-separated architecture of the **caproject** codebase. The project is separated into a frontend Next.js App Router workspace (`client`) and a robust Express.js MVC backend (`server`).
 
 ---
 
 ## 📂 Core Folder Structure Overview
 
 ```
-valuexpert Workspace
+caproject Workspace
 ├── client (Next.js & Tailwind)
 │   └── src
 │       ├── app (Next.js Pages & Routes)

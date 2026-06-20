@@ -17,8 +17,8 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const title = slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
   return {
-    title: `${title} | Demo CA`,
-    description: `Expert guidance for ${title}. End-to-end support from Demo CA.`,
+    title: `${title} | Veagle Space`,
+    description: `Expert guidance for ${title}. End-to-end support from Veagle Space.`,
   };
 }
 

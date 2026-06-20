@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Free Legal & Tax Tools - Demo CA",
+  title: "Free Legal & Tax Tools - Veagle Space",
   description: "Use free calculators and tools: GST calculator, Income Tax, EMI, Gratuity, HRA, SIP, and more.",
 };
 
@@ -98,6 +98,7 @@ export default function ToolsPage() {
     </div>
   );
 }
+
 
 
 

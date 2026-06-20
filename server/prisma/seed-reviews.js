@@ -63,7 +63,7 @@ const REVIEWS = [
     service: "LLP Registration",
     serviceSlug: "llp-registration",
     isGeneral: false,
-    text: "Value Expert made LLP registration completely hassle-free. Would highly recommend to any entrepreneur.",
+    text: "Veagle Space made LLP registration completely hassle-free. Would highly recommend to any entrepreneur.",
     status: "PUBLISHED",
     sortOrder: 6,
   },
@@ -123,7 +123,7 @@ const REVIEWS = [
     service: null,
     serviceSlug: null,
     isGeneral: true,
-    text: "The experts at Value Expert are truly world-class. Fast, reliable and completely trustworthy. I recommend them to every business owner I know.",
+    text: "The experts at Veagle Space are truly world-class. Fast, reliable and completely trustworthy. I recommend them to every business owner I know.",
     status: "PUBLISHED",
     sortOrder: 12,
   },
@@ -161,3 +161,4 @@ main()
     process.exit(1);
   })
   .finally(() => prisma.$disconnect());
+
