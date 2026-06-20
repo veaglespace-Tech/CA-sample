@@ -43,11 +43,15 @@ const localOriginPattern = /^https?:\/\/(localhost|127\.0\.0\.1|192\.168\.\d{1,3
 
 const corsOptions = {
   origin: (origin, callback) => {
+    console.log(`[CORS CHECK] Incoming Origin: ${origin}`);
+    console.log(`[CORS CHECK] Allowed Origins:`, Array.from(allowedOrigins));
+    
     if (!origin || origin === "null" || allowedOrigins.has(origin) || localOriginPattern.test(origin)) {
+      console.log(`[CORS CHECK] Result: SUCCESS for ${origin}`);
       return callback(null, true);
     }
 
-    console.warn(`[CORS] Origin ${origin} not explicitly allowed, proceeding without CORS headers.`);
+    console.warn(`[CORS CHECK] Result: FAILED for ${origin}. Proceeding without CORS headers.`);
     return callback(null, false);
   },
   credentials: true,
@@ -71,7 +75,6 @@ app.use(helmet({
 }));
 app.use(compression({ threshold: 1024 }));
 app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
 app.use("/api", apiRateLimiter);
 app.use(express.json({ limit: getEnv("JSON_BODY_LIMIT", "6mb") }));
 // PayU sends success/failure as application/x-www-form-urlencoded POST
