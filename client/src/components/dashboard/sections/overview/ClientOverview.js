@@ -6,9 +6,18 @@ import {
   ClipboardList, Clock, CheckCircle, 
   Sparkles, Briefcase, MapPin,
   ChevronRight, Folder,
-  MessageSquareMore, Mail, Link2, Copy, Check
+  MessageSquareMore, Mail, Link2, Copy, Check,
+  Upload, Trash2, Eye, Download, AlertCircle, FileText
 } from "lucide-react";
 import { useGetMyReferralsQuery } from "../../../../store/api/authApi";
+import { 
+  useGetMyDocumentsQuery, 
+  useUploadDocumentMutation, 
+  useDeleteDocumentMutation 
+} from "../../../../store/api/documentApi";
+import toast from "react-hot-toast";
+import { forceDownload } from "../../../../lib/utils";
+import { serviceData } from "../../../../data/services";
 
 export default function ClientOverview({ 
   user, 
@@ -22,6 +31,15 @@ export default function ClientOverview({
   });
   const myReferrals = referralsData?.data || [];
   const [copiedKey, setCopiedKey] = useState(null); // 'code' | 'link' | null
+
+  // Document Upload States
+  const { data: myDocsData } = useGetMyDocumentsQuery();
+  const [uploadDocument] = useUploadDocumentMutation();
+  const [deleteDocument] = useDeleteDocumentMutation();
+  const [uploadingDocType, setUploadingDocType] = useState(null);
+  const [expandedServiceId, setExpandedServiceId] = useState(null); // To track which service docs are shown
+
+  const myDocuments = myDocsData?.data || [];
 
   const myRefCode = user?.referralCode || `VX-${user?.name?.slice(0, 4).toUpperCase().replace(/[^A-Z]/g, "") || "USER"}-${user?.id?.slice(-4).toUpperCase() || "ABCD"}`;
 
@@ -97,6 +115,80 @@ export default function ClientOverview({
       return item.registrationType.replace(/_/g, " ").toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
     }
     return "Dynamic Service File";
+  };
+
+  const getServiceRequiredDocs = (item) => {
+    let slug = item.sourcePageSlug || item.service?.slug;
+    if (!slug && (item.service?.name || item.serviceName)) {
+      slug = (item.service?.name || item.serviceName).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    }
+    
+    // Default fallback documents if not found in data
+    const defaultDocs = ["PAN Card", "Aadhaar Card", "Address Proof", "Passport Size Photo"];
+    
+    if (slug && serviceData[slug] && serviceData[slug].documents) {
+      return serviceData[slug].documents;
+    }
+    
+    return defaultDocs;
+  };
+
+  const handleFileChange = async (e, docType, registrationId, leadId) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploadingDocType(docType);
+
+    try {
+      const formData = new FormData();
+      formData.append("document", file);
+      formData.append("documentType", docType);
+      if (registrationId) formData.append("registrationId", registrationId);
+      if (leadId) formData.append("leadId", leadId);
+      
+      await uploadDocument(formData).unwrap();
+      toast.success(`"${docType}" uploaded successfully!`);
+    } catch (err) {
+      console.error(err);
+      toast.error(err?.data?.message || "Failed to upload document. Please try again.");
+    } finally {
+      setUploadingDocType(null);
+    }
+  };
+
+  const handleDelete = async (docId) => {
+    if (!confirm("Are you sure you want to delete this document?")) return;
+    
+    try {
+      await deleteDocument(docId).unwrap();
+      toast.success("Document deleted successfully.");
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to delete document.");
+    }
+  };
+
+  const getDocStatusBadge = (status) => {
+    const s = String(status || "PENDING").toUpperCase();
+    if (s === "VERIFIED" || s === "APPROVED") {
+      return (
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[9px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          <CheckCircle size={10} /> Verified
+        </span>
+      );
+    }
+    if (s === "REJECTED") {
+      return (
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[9px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
+          <AlertCircle size={10} /> Rejected
+        </span>
+      );
+    }
+    return (
+      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[9px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+        <Clock size={10} /> Under Review
+      </span>
+    );
   };
 
   const getProgressDetails = (item) => {
@@ -389,16 +481,87 @@ export default function ClientOverview({
                     <span>Applied: {new Date(item.createdAt).toLocaleDateString()}</span>
                     <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto justify-end">
                       {isReg && renderActionButtons(item)}
-                      {isReg && onNavigateToSection && (
+                      {isReg && (
                         <button 
-                          onClick={() => onNavigateToSection("documents")}
+                          onClick={() => setExpandedServiceId(expandedServiceId === item.id ? null : item.id)}
                           className="btn btn-ghost btn-xs text-gold font-black hover:bg-gold/10 rounded-sm py-2 px-3"
                         >
-                          Upload Documents
+                          {expandedServiceId === item.id ? "Hide Documents" : "Upload Documents"}
                         </button>
                       )}
                     </div>
                   </div>
+
+                  {/* Inline Document Upload Section */}
+                  {expandedServiceId === item.id && (
+                    <div className="mt-4 border-t border-slate-700/60 pt-4 animate-in slide-in-from-top-2 duration-300">
+                      <div className="flex items-center gap-2 mb-4">
+                        <FileText size={16} className="text-gold" />
+                        <h4 className="text-sm font-bold text-white">Required Documents for {serviceName}</h4>
+                      </div>
+                      
+                      <div className="space-y-3 max-h-[300px] overflow-y-auto pr-1 custom-scrollbar">
+                        {getServiceRequiredDocs(item).map((docTypeStr, idx) => {
+                          const docType = docTypeStr.length > 40 ? docTypeStr.substring(0, 40) + "..." : docTypeStr;
+                          
+                          // Check if document exists for this specific registration/lead
+                          const isDocReg = item.isReg;
+                          const matchedDoc = myDocuments.find(
+                            doc => doc.documentType === docType && 
+                                   (isDocReg ? doc.registrationId === item.id : doc.leadId === item.id)
+                          );
+
+                          return (
+                            <div key={idx} className="bg-navy-light/50 border border-slate-800 rounded-lg p-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                              <div className="flex-1">
+                                <h5 className="text-[11px] font-bold text-white">{docTypeStr}</h5>
+                                {!matchedDoc && <p className="text-[9px] text-slate-400 mt-0.5">Please upload this document</p>}
+                              </div>
+                              
+                              <div className="shrink-0 w-full sm:w-auto">
+                                {matchedDoc ? (
+                                  <div className="flex items-center gap-2">
+                                    {getDocStatusBadge(matchedDoc.status)}
+                                    <a 
+                                      href={matchedDoc.fileUrl.startsWith("http") ? matchedDoc.fileUrl : `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003"}${matchedDoc.fileUrl}`}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="text-slate-400 hover:text-white transition-colors"
+                                      title="Preview"
+                                    >
+                                      <Eye size={14} />
+                                    </a>
+                                    <button 
+                                      onClick={() => handleDelete(matchedDoc.id)}
+                                      className="text-rose-500 hover:text-rose-400 transition-colors"
+                                      title="Delete"
+                                    >
+                                      <Trash2 size={14} />
+                                    </button>
+                                  </div>
+                                ) : (
+                                  <label className="btn btn-xs bg-navy border border-slate-600 hover:border-gold hover:text-gold text-slate-300 rounded-sm font-semibold relative cursor-pointer group">
+                                    <input 
+                                      type="file"
+                                      accept=".pdf,.png,.jpg,.jpeg"
+                                      onChange={(e) => handleFileChange(e, docType, isDocReg ? item.id : null, !isDocReg ? item.id : null)}
+                                      disabled={uploadingDocType === docType}
+                                      className="hidden"
+                                    />
+                                    {uploadingDocType === docType ? (
+                                      <span className="loading loading-spinner loading-xs text-gold"></span>
+                                    ) : (
+                                      <span className="flex items-center gap-1.5"><Upload size={12} /> Upload</span>
+                                    )}
+                                  </label>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}
