@@ -5,7 +5,7 @@ import ArticleCard from "../../../components/resources/ArticleCard";
 import { regulatoryUpdates } from "../../../lib/public-page-data";
 import { ChevronRight, ArrowRight, BookOpen, AlertCircle } from "lucide-react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 export default function ResourcesPage() {
   const [articles, setArticles] = useState([]);

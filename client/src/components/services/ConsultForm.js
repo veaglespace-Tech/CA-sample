@@ -16,7 +16,7 @@ import useLiveValidation from "../../hooks/useLiveValidation";
 import FormFeedback from "../forms/FormFeedback";
 import { formatInrAmount, parseCurrencyAmount } from "../../lib/utils";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 export default function ConsultForm({ formTitle, serviceName, isRegistration, slug, mainCategory, selectedPlan }) {
   const router = useRouter();

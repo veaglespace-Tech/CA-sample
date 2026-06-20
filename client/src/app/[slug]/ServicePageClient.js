@@ -25,7 +25,7 @@ import PackageCards from "../../components/services/PackageCards";
 import FAQ from "../../components/services/FAQ";
 import TrustSection from "../../components/common/TrustSection";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 const LAST_UPDATED = "May 5 2026, 02:30 PM";
 
 function slugToTitle(slug) {

@@ -523,7 +523,7 @@ export default function ClientOverview({
                                   <div className="flex items-center gap-2">
                                     {getDocStatusBadge(matchedDoc.status)}
                                     <a 
-                                      href={matchedDoc.fileUrl.startsWith("http") ? matchedDoc.fileUrl : `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003"}${matchedDoc.fileUrl}`}
+                                      href={matchedDoc.fileUrl.startsWith("http") ? matchedDoc.fileUrl : `${process.env.NEXT_PUBLIC_API_URL || ""}${matchedDoc.fileUrl}`}
                                       target="_blank"
                                       rel="noreferrer"
                                       className="text-slate-400 hover:text-white transition-colors"

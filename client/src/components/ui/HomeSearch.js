@@ -6,7 +6,7 @@ import { Search, ArrowRight, Sparkles, X } from "lucide-react";
 import Fuse from "fuse.js";
 import { getAllNavigationLinks } from "../../lib/navigation-data";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 const animatedExamples = [
   "Company Registration",

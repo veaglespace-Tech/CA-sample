@@ -1,8 +1,8 @@
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003";
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 export function getApiUrl(path = "") {
   let baseUrl = API_BASE_URL;
-  if (typeof window !== "undefined" && baseUrl.includes("localhost")) {
+  if (typeof window !== "undefined" && baseUrl && baseUrl.includes("localhost")) {
     const currentHost = window.location.hostname;
     if (currentHost !== "localhost" && currentHost !== "127.0.0.1") {
       baseUrl = baseUrl.replace("localhost", currentHost);

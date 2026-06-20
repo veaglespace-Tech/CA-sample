@@ -165,7 +165,7 @@ export default function DocumentsSection({ myServicesList = [], myMessages = [] 
 
                       {/* Actions */}
                       <a 
-                        href={matchedDoc.fileUrl.startsWith("http") ? matchedDoc.fileUrl : `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003"}${matchedDoc.fileUrl}`}
+                        href={matchedDoc.fileUrl.startsWith("http") ? matchedDoc.fileUrl : `${process.env.NEXT_PUBLIC_API_URL || ""}${matchedDoc.fileUrl}`}
                         target="_blank"
                         rel="noreferrer"
                         className="btn btn-sm bg-gold hover:bg-gold text-white border-none rounded-sm h-10 w-10 px-0 shadow-lg shadow-indigo-600/20 transition-all duration-300 flex items-center justify-center"
@@ -177,7 +177,7 @@ export default function DocumentsSection({ myServicesList = [], myMessages = [] 
                       <button 
                         type="button"
                         onClick={() => forceDownload(
-                          matchedDoc.fileUrl.startsWith("http") ? matchedDoc.fileUrl : `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003"}${matchedDoc.fileUrl}`,
+                          matchedDoc.fileUrl.startsWith("http") ? matchedDoc.fileUrl : `${process.env.NEXT_PUBLIC_API_URL || ""}${matchedDoc.fileUrl}`,
                           matchedDoc.fileName || "document"
                         )}
                         className="btn btn-sm bg-navy border border-slate-700 hover:border-slate-300 hover:bg-navy-light text-slate-200 rounded-sm h-10 w-10 px-0 transition-all duration-300 shadow-sm flex items-center justify-center"

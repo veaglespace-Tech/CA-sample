@@ -287,7 +287,7 @@ export default function RepositoryView({ allUsers, onSendMessage, permissions = 
           window.open(
             doc.fileUrl.startsWith("http")
               ? doc.fileUrl
-              : `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003"}${doc.fileUrl}`,
+              : `${process.env.NEXT_PUBLIC_API_URL || ""}${doc.fileUrl}`,
             "_blank"
           )
         }

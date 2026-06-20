@@ -162,7 +162,7 @@ function StarRow({ count = 5 }) {
 export default function Home() {
   const container = useRef();
   const [stats, setStats] = useState({ count: 29, rating: "4.8" });
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
   useEffect(() => {
     async function fetchStats() {

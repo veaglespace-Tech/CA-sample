@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Shield, ArrowLeft, CreditCard, Lock, Loader2, Tag, AlertCircle } from "lucide-react";
 import { formatInrAmount, parseCurrencyAmount } from "../../../lib/utils";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5003";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 function PaymentStep() {
   const searchParams = useSearchParams();
