@@ -38,9 +38,7 @@ const allowedOrigins = new Set([
   "http://127.0.0.1:5173",
   ...envAllowedOrigins,
 ]);
-
-const localOriginPattern = /^https?:\/\/(localhost|127\.0\.0\.1|192\.168\.\d{1,3}\.\d{1,3})(:\d+)?$/;
-
+const localOriginPattern = /^https?:\/\/(localhost|127\.0\.0\.1|192\.168\.\d{1,3}\.\d{1,3}|82\.112\.237\.155)(:\d+)?$/;
 const corsOptions = {
   origin: (origin, callback) => {
     console.log(`[CORS CHECK] Incoming Origin: ${origin}`);
