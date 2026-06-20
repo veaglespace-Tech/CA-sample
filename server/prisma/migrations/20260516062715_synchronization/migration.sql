@@ -1,12 +1,12 @@
 -- AlterTable
-ALTER TABLE `article` ADD COLUMN `videoUrl` VARCHAR(191) NULL;
+ALTER TABLE `Article` ADD COLUMN `videoUrl` VARCHAR(191) NULL;
 
 -- AlterTable
-ALTER TABLE `lead` ADD COLUMN `userId` VARCHAR(191) NULL,
+ALTER TABLE `Lead` ADD COLUMN `userId` VARCHAR(191) NULL,
     MODIFY `formType` ENUM('CONTACT', 'CALLBACK', 'CONSULTATION', 'LOGIN', 'REFERRAL', 'SUPPORT', 'REGISTRATION', 'OTHER') NOT NULL DEFAULT 'CONTACT';
 
 -- AlterTable
-ALTER TABLE `registrationlead` ADD COLUMN `address` VARCHAR(191) NULL,
+ALTER TABLE `RegistrationLead` ADD COLUMN `address` VARCHAR(191) NULL,
     ADD COLUMN `formType` ENUM('CONTACT', 'CALLBACK', 'CONSULTATION', 'LOGIN', 'REFERRAL', 'SUPPORT', 'REGISTRATION', 'OTHER') NOT NULL DEFAULT 'REGISTRATION',
     ADD COLUMN `ipAddress` VARCHAR(191) NULL,
     ADD COLUMN `mainCategory` VARCHAR(191) NULL,
@@ -198,3 +198,32 @@ ALTER TABLE `UserDocument` ADD CONSTRAINT `UserDocument_registrationId_fkey` FOR
 
 -- AddForeignKey
 ALTER TABLE `UserDocument` ADD CONSTRAINT `UserDocument_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- CreateTable
+CREATE TABLE `PaymentRecord` (
+    `id` VARCHAR(191) NOT NULL,
+    `userId` VARCHAR(191) NULL,
+    `leadId` VARCHAR(191) NULL,
+    `registrationId` VARCHAR(191) NULL,
+    `serviceName` VARCHAR(191) NOT NULL,
+    `amount` VARCHAR(191) NOT NULL,
+    `status` VARCHAR(191) NOT NULL DEFAULT 'SUCCESS',
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `customerEmail` VARCHAR(191) NULL,
+    `customerName` VARCHAR(191) NULL,
+    `customerPhone` VARCHAR(191) NULL,
+
+    INDEX `PaymentRecord_userId_idx`(`userId`),
+    INDEX `PaymentRecord_leadId_idx`(`leadId`),
+    INDEX `PaymentRecord_registrationId_idx`(`registrationId`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `PaymentRecord` ADD CONSTRAINT `PaymentRecord_leadId_fkey` FOREIGN KEY (`leadId`) REFERENCES `Lead`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `PaymentRecord` ADD CONSTRAINT `PaymentRecord_registrationId_fkey` FOREIGN KEY (`registrationId`) REFERENCES `RegistrationLead`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `PaymentRecord` ADD CONSTRAINT `PaymentRecord_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
