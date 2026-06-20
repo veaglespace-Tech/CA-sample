@@ -1,0 +1,34 @@
+name: Deploy CA Sample
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /root/CA-sample
+
+            git pull origin main
+
+            cd client
+            npm install
+            npm run build
+
+            cd ../server
+            npm install
+
+            pm2 restart ca-sample-client || pm2 start npm --name ca-sample-client -- start -- -p 3002
+            pm2 restart ca-sample-server || pm2 start npm --name ca-sample-server -- run dev
+
+            pm2 save
