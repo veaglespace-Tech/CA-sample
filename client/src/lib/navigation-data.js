@@ -937,7 +937,6 @@ export const legalOtherServices = {
 };
 
 export const mainNav = [
-  { key: "consult", label: "Consult an Expert", icon: sectionIcons.consult },
   { key: "business", label: "Business Registration", icon: sectionIcons.business },
   { key: "trademark", label: "Trademark & IP", icon: sectionIcons.trademark },
   { key: "tax", label: "Tax & Payroll", icon: sectionIcons.gst },

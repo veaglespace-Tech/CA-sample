@@ -9,27 +9,27 @@ datasource db {
 }
 
 model User {
-  id                    String             @id @default(cuid())
+  id                    String                     @id @default(cuid())
   name                  String
-  email                 String             @unique
-  phone                 String?            @unique
+  email                 String                     @unique
+  phone                 String?                    @unique
   passwordHash          String
-  role                  User_role          @default(USER)
-  createdAt             DateTime           @default(now())
-  updatedAt             DateTime           @updatedAt
-  referralCode          String?            @unique
+  role                  User_role                  @default(USER)
+  createdAt             DateTime                   @default(now())
+  updatedAt             DateTime                   @updatedAt
+  referralCode          String?                    @unique
   referredByCode        String?
-  assignedLeads         Lead[]             @relation("AssignedLeads")
-  leads                 Lead[]             @relation("CustomerLeads")
-  referredUsers         Referral[]         @relation("ReferralReferrerUser")
-  referralSignup        Referral[]         @relation("ReferralFriendUser")
+  assignedLeads         Lead[]                     @relation("AssignedLeads")
+  leads                 Lead[]                     @relation("CustomerLeads")
   leadNotes             LeadNote[]
-  receivedMessages      Message[]          @relation("ReceivedMessages")
-  sentMessages          Message[]          @relation("SentMessages")
+  receivedMessages      Message[]                  @relation("ReceivedMessages")
+  sentMessages          Message[]                  @relation("SentMessages")
   paymentRecords        PaymentRecord[]
+  referralSignup        Referral[]                 @relation("ReferralFriendUser")
+  referredUsers         Referral[]                 @relation("ReferralReferrerUser")
   referralRedemptions   ReferralRewardRedemption[]
-  assignedRegistrations RegistrationLead[] @relation("AssignedRegistrations")
-  registrationLeads     RegistrationLead[] @relation("CustomerRegistrations")
+  assignedRegistrations RegistrationLead[]         @relation("AssignedRegistrations")
+  registrationLeads     RegistrationLead[]         @relation("CustomerRegistrations")
   documents             UserDocument[]
 
   @@index([email])
@@ -250,11 +250,11 @@ model Lead {
 model LeadNote {
   id               String            @id @default(cuid())
   leadId           String?
-  registrationId   String?
   userId           String?
   note             String            @db.Text
   createdAt        DateTime          @default(now())
   updatedAt        DateTime          @updatedAt
+  registrationId   String?
   lead             Lead?             @relation(fields: [leadId], references: [id], onDelete: Cascade)
   registrationLead RegistrationLead? @relation(fields: [registrationId], references: [id], onDelete: Cascade)
   user             User?             @relation(fields: [userId], references: [id])
@@ -265,16 +265,16 @@ model LeadNote {
 }
 
 model ContactQuery {
-  id        String   @id @default(cuid())
+  id        String              @id @default(cuid())
   name      String
   email     String?
   phone     String
   subject   String?
-  message   String   @db.Text
-  isRead    Boolean  @default(false)
+  message   String              @db.Text
+  isRead    Boolean             @default(false)
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
   status    ContactQuery_status @default(NEW)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
   @@index([isRead])
 }
@@ -318,24 +318,24 @@ model RegistrationLead {
   assignedToId     String?
   createdAt        DateTime                          @default(now())
   updatedAt        DateTime                          @updatedAt
-  formType         RegistrationLead_formType         @default(REGISTRATION)
-  ipAddress        String?
-  metadata         Json?
-  source           RegistrationLead_source           @default(WEBSITE)
-  userAgent        String?
-  mainCategory     String?
-  userId           String?
   address          String?
+  ipAddress        String?
+  mainCategory     String?
   natureOfBusiness String?
   pinCode          String?
   state            String?
+  userAgent        String?
+  userId           String?
+  formType         RegistrationLead_formType         @default(REGISTRATION)
+  source           RegistrationLead_source           @default(WEBSITE)
+  metadata         Json?
+  notes            LeadNote[]
   messages         Message[]
   paymentRecords   PaymentRecord[]
   assignedTo       User?                             @relation("AssignedRegistrations", fields: [assignedToId], references: [id])
   service          Service?                          @relation(fields: [serviceId], references: [id])
   user             User?                             @relation("CustomerRegistrations", fields: [userId], references: [id])
   documents        UserDocument[]
-  notes            LeadNote[]
 
   @@index([registrationType, status, createdAt])
   @@index([serviceId])
@@ -360,7 +360,7 @@ model UserDocument {
   lead             Lead?               @relation(fields: [leadId], references: [id])
   message          Message?            @relation(fields: [messageId], references: [id])
   registrationLead RegistrationLead?   @relation(fields: [registrationId], references: [id])
-  user             User?               @relation(fields: [userId], references: [id], onDelete: SetNull)
+  user             User?               @relation(fields: [userId], references: [id])
 
   @@index([userId])
   @@index([registrationId])
@@ -424,11 +424,11 @@ model Referral {
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
   referrerId      String?
-  referrerUserId  String?
   friendUserId    String?
+  referrerUserId  String?
+  friendUser      User?           @relation("ReferralFriendUser", fields: [friendUserId], references: [id])
   referrer        Referrer?       @relation(fields: [referrerId], references: [id])
   referrerUser    User?           @relation("ReferralReferrerUser", fields: [referrerUserId], references: [id])
-  friendUser      User?           @relation("ReferralFriendUser", fields: [friendUserId], references: [id])
 
   @@index([status, createdAt])
   @@index([referrerPhone])
@@ -453,10 +453,7 @@ model Review {
   id          String        @id @default(cuid())
   name        String
   company     String?
-  location    String?
   service     String?
-  serviceSlug String?
-  isGeneral   Boolean       @default(true)
   rating      Int           @default(5)
   text        String        @db.Text
   imageUrl    String?
@@ -464,11 +461,13 @@ model Review {
   sortOrder   Int           @default(0)
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
+  serviceSlug String?
+  isGeneral   Boolean       @default(true)
+  location    String?
 
   @@index([status, sortOrder])
   @@index([serviceSlug])
 }
-
 
 model Article {
   id          String         @id @default(cuid())
@@ -517,23 +516,23 @@ model SiteSetting {
 }
 
 model Event {
-  id          String       @id @default(cuid())
-  title       String
-  slug        String       @unique
-  description String?      @db.Text
-  date        DateTime
-  time        String?
-  location    String?
-  imageUrl    String?
-  regLink     String?
-  videoUrl    String?
-  speakers    Json?
-  status      Event_status @default(PUBLISHED)
-  sortOrder   Int          @default(0)
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
-
+  id            String              @id @default(cuid())
+  title         String
+  slug          String              @unique
+  description   String?             @db.Text
+  date          DateTime
+  time          String?
+  location      String?
+  imageUrl      String?
+  regLink       String?
+  videoUrl      String?
+  speakers      Json?
+  status        Event_status        @default(PUBLISHED)
+  sortOrder     Int                 @default(0)
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
   registrations EventRegistration[]
+
   @@index([status, date])
 }
 
@@ -560,20 +559,20 @@ model NewsletterSubscriber {
 }
 
 model PaymentRecord {
-  id               String            @id @default(cuid())
-  userId           String?
-  leadId           String?
-  registrationId   String?
-  serviceName      String
-  amount           String
-  status           String            @default("SUCCESS")
-  createdAt        DateTime          @default(now())
-  customerEmail    String?
-  customerName     String?
-  customerPhone    String?
-  lead             Lead?             @relation(fields: [leadId], references: [id])
-  registrationLead RegistrationLead? @relation(fields: [registrationId], references: [id])
-  user             User?             @relation(fields: [userId], references: [id])
+  id                       String                    @id @default(cuid())
+  userId                   String?
+  leadId                   String?
+  registrationId           String?
+  serviceName              String
+  amount                   String
+  status                   String                    @default("SUCCESS")
+  createdAt                DateTime                  @default(now())
+  customerEmail            String?
+  customerName             String?
+  customerPhone            String?
+  lead                     Lead?                     @relation(fields: [leadId], references: [id])
+  registrationLead         RegistrationLead?         @relation(fields: [registrationId], references: [id])
+  user                     User?                     @relation(fields: [userId], references: [id])
   referralRewardRedemption ReferralRewardRedemption?
 
   @@index([userId])
@@ -582,34 +581,47 @@ model PaymentRecord {
 }
 
 model ReferralRewardSetting {
-  id                String   @id @default(cuid())
+  id                String                     @id @default(cuid())
   title             String
-  requiredReferrals Int      @default(5)
-  discountPercent   Int      @default(20)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  requiredReferrals Int                        @default(5)
+  discountPercent   Int                        @default(20)
+  isActive          Boolean                    @default(true)
+  createdAt         DateTime                   @default(now())
+  updatedAt         DateTime                   @updatedAt
   redemptions       ReferralRewardRedemption[]
 
   @@index([isActive])
 }
 
 model ReferralRewardRedemption {
-  id               String                @id @default(cuid())
-  userId           String
-  rewardSettingId  String
-  paymentRecordId  String?               @unique
-  discountPercent  Int
-  discountAmount   String
-  originalAmount   String
-  finalAmount      String
-  createdAt        DateTime              @default(now())
-  paymentRecord    PaymentRecord?        @relation(fields: [paymentRecordId], references: [id])
-  rewardSetting    ReferralRewardSetting @relation(fields: [rewardSettingId], references: [id])
-  user             User                  @relation(fields: [userId], references: [id])
+  id              String                @id @default(cuid())
+  userId          String
+  rewardSettingId String
+  paymentRecordId String?               @unique
+  discountPercent Int
+  discountAmount  String
+  originalAmount  String
+  finalAmount     String
+  createdAt       DateTime              @default(now())
+  paymentRecord   PaymentRecord?        @relation(fields: [paymentRecordId], references: [id])
+  rewardSetting   ReferralRewardSetting @relation(fields: [rewardSettingId], references: [id])
+  user            User                  @relation(fields: [userId], references: [id])
 
   @@index([userId])
   @@index([rewardSettingId])
+}
+
+model ArchivedData {
+  id               String   @id @default(cuid())
+  originalUserId   String?
+  userEmail        String?
+  userName         String?
+  dataType         String
+  data             Json
+  deletedAt        DateTime @default(now())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  deletedByAdminId String?
 }
 
 enum LoginOtp_purpose {
@@ -745,17 +757,4 @@ enum ContactQuery_status {
   CONVERTED
   CLOSED
   REJECTED
-}
-
-model ArchivedData {
-  id              String   @id @default(cuid())
-  originalUserId  String?
-  userEmail       String?
-  userName        String?
-  dataType        String   // "USER_DELETION"
-  data            Json     // Stores all deleted leads, documents, payment records
-  deletedAt       DateTime @default(now())
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  deletedByAdminId String?
 }

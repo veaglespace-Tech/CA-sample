@@ -506,7 +506,7 @@ export default function Home() {
                   <Phone size={18} className="text-white" />
                   <span className="text-white font-bold uppercase tracking-widest text-sm">Toll Free</span>
                 </div>
-                <strong className="text-5xl md:text-3xl md:text-7xl font-black mb-6 block text-white drop-shadow-lg">1800-555-333</strong>
+                <strong className="text-5xl md:text-3xl md:text-7xl font-black mb-6 block text-white drop-shadow-lg">+91 82379 99101</strong>
                 <p className="text-white/90 text-lg leading-relaxed mb-10 max-w-md font-medium">
                   Reach out to us for immediate assistance regarding your business registration and compliance needs.
                 </p>

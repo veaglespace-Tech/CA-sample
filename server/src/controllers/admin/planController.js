@@ -12,20 +12,30 @@ export const getPlansByService = async (req, res) => {
   const formattedSlug = normalizeSlug(slug);
 
   try {
-    const plans = await prisma.purchasePlan.findMany({
+    const plans = await prisma.servicePricingPlan.findMany({
       where: {
-        OR: [
-          { serviceSlug: formattedSlug },
-          { serviceSlug: slug }, // Fallback for existing legacy entries
-        ],
-        isActive: true,
+        service: {
+          slug: { in: [formattedSlug, slug] }
+        }
       },
       orderBy: {
         sortOrder: "asc",
       },
+      include: {
+        service: {
+          select: { slug: true }
+        }
+      }
     });
 
-    res.status(200).json({ ok: true, data: plans });
+    // Map serviceSlug for frontend compatibility
+    const formattedPlans = plans.map(p => ({
+      ...p,
+      serviceSlug: p.service?.slug,
+      service: undefined
+    }));
+
+    res.status(200).json({ ok: true, data: formattedPlans });
   } catch (error) {
     console.error("[planController] Error fetching plans:", error);
     res.status(500).json({ ok: false, error: "Internal server error" });
@@ -50,18 +60,16 @@ export const getAllPlans = async (req, res) => {
       if (categoryId) serviceWhere.categoryId = categoryId;
     }
 
-    let allowedServiceSlugs = null;
     let allowedServiceIds = null;
     if (serviceSlug || categoryId || subcategoryId) {
       const matchingServices = await prisma.service.findMany({
         where: serviceWhere,
-        select: { id: true, slug: true },
+        select: { id: true },
       });
 
-      allowedServiceSlugs = matchingServices.map((service) => service.slug);
-      allowedServiceIds = matchingServices.map((service) => service.id);
+      allowedServiceIds = matchingServices.map((s) => s.id);
 
-      if (allowedServiceSlugs.length === 0 && allowedServiceIds.length === 0) {
+      if (allowedServiceIds.length === 0) {
         return res.status(200).json({
           ok: true,
           data: [],
@@ -78,24 +86,15 @@ export const getAllPlans = async (req, res) => {
     }
 
     const andConditions = [];
-    if (allowedServiceSlugs || allowedServiceIds) {
-      const serviceClauses = [];
-      if (allowedServiceSlugs?.length) {
-        serviceClauses.push({ serviceSlug: { in: allowedServiceSlugs } });
-      }
-      if (allowedServiceIds?.length) {
-        serviceClauses.push({ serviceId: { in: allowedServiceIds } });
-      }
-      if (serviceClauses.length) {
-        andConditions.push({ OR: serviceClauses });
-      }
+    if (allowedServiceIds) {
+      andConditions.push({ serviceId: { in: allowedServiceIds } });
     }
 
     if (search) {
       andConditions.push({
         OR: [
           { name: { contains: search } },
-          { serviceSlug: { contains: search } },
+          { service: { slug: { contains: search } } },
           { tag: { contains: search } },
           { description: { contains: search } },
           { price: { contains: search } },
@@ -106,7 +105,7 @@ export const getAllPlans = async (req, res) => {
     const where = andConditions.length ? { AND: andConditions } : {};
 
     const [plans, total] = await Promise.all([
-      prisma.purchasePlan.findMany({
+      prisma.servicePricingPlan.findMany({
         where,
         orderBy: [
           { createdAt: "desc" },
@@ -114,13 +113,20 @@ export const getAllPlans = async (req, res) => {
         ],
         skip: (page - 1) * limit,
         take: limit,
+        include: { service: { select: { slug: true } } }
       }),
-      prisma.purchasePlan.count({ where }),
+      prisma.servicePricingPlan.count({ where }),
     ]);
+
+    const formattedPlans = plans.map(p => ({
+      ...p,
+      serviceSlug: p.service?.slug,
+      service: undefined
+    }));
 
     res.status(200).json({
       ok: true,
-      data: plans,
+      data: formattedPlans,
       meta: {
         page,
         limit,
@@ -158,8 +164,7 @@ export const createPlan = async (req, res) => {
     const serviceIdBySlug = new Map(matchingServices.map((service) => [service.slug, service.id]));
 
     const plansToCreate = slugs.map((slug) => ({
-      serviceSlug: slug,
-      serviceId: serviceIdBySlug.get(slug) || null,
+      serviceId: serviceIdBySlug.get(slug),
       name,
       description,
       price,
@@ -168,13 +173,17 @@ export const createPlan = async (req, res) => {
       isHighlighted: isHighlighted === true || isHighlighted === "true",
       features: Array.isArray(features) ? features : [],
       sortOrder: Number(sortOrder) || 0,
-    }));
+    })).filter(p => p.serviceId);
 
-    await prisma.purchasePlan.createMany({
+    if (plansToCreate.length === 0) {
+      return res.status(400).json({ ok: false, error: "No matching services found for the provided slugs" });
+    }
+
+    await prisma.servicePricingPlan.createMany({
       data: plansToCreate,
     });
 
-    res.status(201).json({ ok: true, message: `${slugs.length} plan(s) created successfully` });
+    res.status(201).json({ ok: true, message: `${plansToCreate.length} plan(s) created successfully` });
   } catch (error) {
     console.error("[CRITICAL] Error creating plan:", error);
     res.status(500).json({ ok: false, error: error.message || "Internal server error" });
@@ -186,26 +195,25 @@ export const updatePlan = async (req, res) => {
   const { id } = req.params;
   const updateData = { ...req.body };
 
-  if (updateData.serviceSlug) {
-    updateData.serviceSlug = normalizeSlug(updateData.serviceSlug);
-  }
-
   try {
-    const { features, sortOrder, isHighlighted, ...rest } = updateData;
+    const { features, sortOrder, isHighlighted, serviceSlug, ...rest } = updateData;
 
     const finalData = { ...rest };
     if (features) finalData.features = Array.isArray(features) ? features : [];
     if (sortOrder !== undefined) finalData.sortOrder = Number(sortOrder);
     if (isHighlighted !== undefined) finalData.isHighlighted = isHighlighted === true || isHighlighted === "true";
-    if (updateData.serviceSlug) {
+    if (serviceSlug) {
+      const slug = normalizeSlug(serviceSlug);
       const service = await prisma.service.findUnique({
-        where: { slug: updateData.serviceSlug },
+        where: { slug },
         select: { id: true },
       });
-      finalData.serviceId = service?.id || null;
+      if (service?.id) {
+        finalData.serviceId = service.id;
+      }
     }
 
-    const plan = await prisma.purchasePlan.update({
+    const plan = await prisma.servicePricingPlan.update({
       where: { id },
       data: finalData,
     });
@@ -228,7 +236,7 @@ export const assignPlanToUser = async (req, res) => {
 
   try {
     const [plan, user] = await Promise.all([
-      prisma.purchasePlan.findUnique({
+      prisma.servicePricingPlan.findUnique({
         where: { id },
         include: { service: { select: { id: true, name: true, slug: true } } },
       }),
@@ -256,11 +264,7 @@ export const assignPlanToUser = async (req, res) => {
       });
     }
 
-    const linkedService = plan.service || await prisma.service.findUnique({
-      where: { slug: plan.serviceSlug },
-      select: { id: true, name: true, slug: true },
-    });
-    const serviceName = linkedService?.name || plan.serviceSlug;
+    const serviceName = plan.service?.name || "Unknown Service";
     const paymentServiceName = `${serviceName} - ${plan.name}`;
     const existingPendingPayment = await prisma.paymentRecord.findFirst({
       where: {
@@ -287,7 +291,7 @@ export const assignPlanToUser = async (req, res) => {
       selectedPlanId: plan.id,
       selectedPlanName: plan.name,
       selectedPlanPrice: plan.price,
-      serviceSlug: linkedService?.slug || plan.serviceSlug,
+      serviceSlug: plan.service?.slug || "",
       adminNote: typeof note === "string" ? note.trim() : "",
     });
 
@@ -298,12 +302,12 @@ export const assignPlanToUser = async (req, res) => {
           email: user.email,
           phone: user.phone || "Not Provided",
           serviceName,
-          sourcePageSlug: linkedService?.slug || plan.serviceSlug,
+          sourcePageSlug: plan.service?.slug || "",
           source: "OTHER",
           formType: "REGISTRATION",
           status: "IN_PROGRESS",
           metadata,
-          serviceId: plan.serviceId || linkedService?.id || null,
+          serviceId: plan.serviceId,
           userId: user.id,
           message: typeof note === "string" && note.trim() ? note.trim() : undefined,
         },
@@ -350,7 +354,7 @@ export const deletePlan = async (req, res) => {
   const { id } = req.params;
 
   try {
-    await prisma.purchasePlan.delete({
+    await prisma.servicePricingPlan.delete({
       where: { id }
     });
 

@@ -30,7 +30,9 @@ export async function forceDownload(url, filename) {
 }
 
 export function parseCurrencyAmount(value) {
-  const numeric = Number.parseFloat(String(value || "").replace(/[^0-9.]/g, ""));
+  // Remove "Rs." or "Rs" case insensitively, then remove anything that's not a digit or dot
+  const cleaned = String(value || "").replace(/rs\.?/i, "").replace(/[^0-9.]/g, "");
+  const numeric = Number.parseFloat(cleaned);
   return Number.isFinite(numeric) ? numeric : null;
 }
 

@@ -122,15 +122,24 @@ export default function ClientOverview({
     if (!slug && (item.service?.name || item.serviceName)) {
       slug = (item.service?.name || item.serviceName).toLowerCase().replace(/[^a-z0-9]+/g, "-");
     }
-    
-    // Default fallback documents if not found in data
     const defaultDocs = ["PAN Card", "Aadhaar Card", "Address Proof", "Passport Size Photo"];
-    
     if (slug && serviceData[slug] && serviceData[slug].documents) {
       return serviceData[slug].documents;
     }
-    
     return defaultDocs;
+  };
+
+  // Returns { uploaded, total, missingDocs } for a service item
+  const getDocSummary = (item) => {
+    const requiredDocs = getServiceRequiredDocs(item);
+    const isDocReg = item.isReg;
+    const uploaded = requiredDocs.filter(docTypeStr =>
+      myDocuments.some(
+        doc => doc.documentType === docTypeStr &&
+          (isDocReg ? doc.registrationId === item.id : doc.leadId === item.id)
+      )
+    );
+    return { uploaded: uploaded.length, total: requiredDocs.length, allDocs: requiredDocs };
   };
 
   const handleFileChange = async (e, docType, registrationId, leadId) => {
@@ -476,83 +485,138 @@ export default function ClientOverview({
                     </div>
                   </div>
  
-                  {/* Submission date & Call actions */}
-                  <div className="border-t border-slate-50 pt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs font-bold text-slate-400 mt-auto">
+                  {/* Document upload summary banner — always visible for registration services */}
+                  {isReg && (() => {
+                    const { uploaded, total } = getDocSummary(item);
+                    const allUploaded = uploaded === total;
+                    return (
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => setExpandedServiceId(expandedServiceId === item.id ? null : item.id)}
+                        onKeyDown={e => e.key === "Enter" && setExpandedServiceId(expandedServiceId === item.id ? null : item.id)}
+                        className={`mt-2 flex items-center justify-between gap-3 rounded-lg px-4 py-3 border cursor-pointer transition-all duration-200 ${
+                          allUploaded
+                            ? "bg-emerald-950/40 border-emerald-700/40 hover:border-emerald-500/60"
+                            : "bg-amber-950/40 border-amber-700/40 hover:border-amber-500/60"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          {allUploaded
+                            ? <CheckCircle size={15} className="text-emerald-400 shrink-0" />
+                            : <AlertCircle size={15} className="text-amber-400 shrink-0" />}
+                          <span className={`text-[11px] font-bold ${
+                            allUploaded ? "text-emerald-300" : "text-amber-300"
+                          }`}>
+                            {allUploaded
+                              ? "All documents uploaded"
+                              : `${total - uploaded} document${total - uploaded !== 1 ? "s" : ""} not yet uploaded`}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${
+                            allUploaded
+                              ? "bg-emerald-900/60 text-emerald-300 border-emerald-700/50"
+                              : "bg-amber-900/60 text-amber-300 border-amber-700/50"
+                          }`}>
+                            {uploaded}/{total}
+                          </span>
+                          <ChevronRight size={13} className={`text-slate-400 transition-transform duration-200 ${
+                            expandedServiceId === item.id ? "rotate-90" : ""
+                          }`} />
+                        </div>
+                      </div>
+                    );
+                  })()}
+
+                  {/* Submission date & action buttons */}
+                  <div className="border-t border-slate-800/60 pt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs font-bold text-slate-400 mt-auto">
                     <span>Applied: {new Date(item.createdAt).toLocaleDateString()}</span>
                     <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto justify-end">
                       {isReg && renderActionButtons(item)}
-                      {isReg && (
-                        <button 
-                          onClick={() => setExpandedServiceId(expandedServiceId === item.id ? null : item.id)}
-                          className="btn btn-ghost btn-xs text-gold font-black hover:bg-gold/10 rounded-sm py-2 px-3"
-                        >
-                          {expandedServiceId === item.id ? "Hide Documents" : "Upload Documents"}
-                        </button>
-                      )}
                     </div>
                   </div>
 
-                  {/* Inline Document Upload Section */}
-                  {expandedServiceId === item.id && (
-                    <div className="mt-4 border-t border-slate-700/60 pt-4 animate-in slide-in-from-top-2 duration-300">
-                      <div className="flex items-center gap-2 mb-4">
-                        <FileText size={16} className="text-gold" />
-                        <h4 className="text-sm font-bold text-white">Required Documents for {serviceName}</h4>
+                  {/* Inline Document Upload Panel — expands on click of summary banner */}
+                  {isReg && expandedServiceId === item.id && (
+                    <div className="border-t border-slate-700/60 pt-4 animate-in slide-in-from-top-2 duration-300">
+                      <div className="flex items-center gap-2 mb-3">
+                        <FileText size={15} className="text-gold" />
+                        <h4 className="text-sm font-black text-white">Required Documents</h4>
+                        <span className="text-[9px] text-slate-400 font-semibold ml-1">for {serviceName}</span>
                       </div>
-                      
-                      <div className="space-y-3 max-h-[300px] overflow-y-auto pr-1 custom-scrollbar">
+
+                      <div className="space-y-2.5 max-h-[340px] overflow-y-auto pr-1">
                         {getServiceRequiredDocs(item).map((docTypeStr, idx) => {
-                          const docType = docTypeStr.length > 40 ? docTypeStr.substring(0, 40) + "..." : docTypeStr;
-                          
-                          // Check if document exists for this specific registration/lead
+                          // No truncation — use full string for correct matching
                           const isDocReg = item.isReg;
                           const matchedDoc = myDocuments.find(
-                            doc => doc.documentType === docType && 
-                                   (isDocReg ? doc.registrationId === item.id : doc.leadId === item.id)
+                            doc => doc.documentType === docTypeStr &&
+                              (isDocReg ? doc.registrationId === item.id : doc.leadId === item.id)
                           );
+                          const isUploading = uploadingDocType === docTypeStr;
 
                           return (
-                            <div key={idx} className="bg-navy-light/50 border border-slate-800 rounded-lg p-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                              <div className="flex-1">
-                                <h5 className="text-[11px] font-bold text-white">{docTypeStr}</h5>
-                                {!matchedDoc && <p className="text-[9px] text-slate-400 mt-0.5">Please upload this document</p>}
+                            <div
+                              key={idx}
+                              className={`flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 rounded-lg p-3 border transition-all ${
+                                matchedDoc
+                                  ? "bg-emerald-950/30 border-emerald-800/40"
+                                  : "bg-navy-light/60 border-slate-800"
+                              }`}
+                            >
+                              <div className="flex items-start gap-2 flex-1 min-w-0">
+                                {matchedDoc
+                                  ? <CheckCircle size={13} className="text-emerald-400 mt-0.5 shrink-0" />
+                                  : <AlertCircle size={13} className="text-amber-400 mt-0.5 shrink-0" />}
+                                <div className="min-w-0">
+                                  <h5 className="text-[11px] font-bold text-white leading-snug">{docTypeStr}</h5>
+                                  {matchedDoc && (
+                                    <span className="text-[9px] text-slate-400 truncate block" title={matchedDoc.fileName}>
+                                      {matchedDoc.fileName}
+                                    </span>
+                                  )}
+                                  {!matchedDoc && (
+                                    <span className="text-[9px] text-amber-400/80">Not uploaded</span>
+                                  )}
+                                </div>
                               </div>
-                              
-                              <div className="shrink-0 w-full sm:w-auto">
+
+                              <div className="shrink-0 flex items-center gap-2">
                                 {matchedDoc ? (
-                                  <div className="flex items-center gap-2">
+                                  <>
                                     {getDocStatusBadge(matchedDoc.status)}
-                                    <a 
+                                    <a
                                       href={matchedDoc.fileUrl.startsWith("http") ? matchedDoc.fileUrl : `${process.env.NEXT_PUBLIC_API_URL || ""}${matchedDoc.fileUrl}`}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                      className="text-slate-400 hover:text-white transition-colors"
-                                      title="Preview"
+                                      target="_blank" rel="noreferrer"
+                                      className="text-slate-400 hover:text-white transition-colors" title="Preview"
                                     >
-                                      <Eye size={14} />
+                                      <Eye size={13} />
                                     </a>
-                                    <button 
+                                    <button
                                       onClick={() => handleDelete(matchedDoc.id)}
-                                      className="text-rose-500 hover:text-rose-400 transition-colors"
-                                      title="Delete"
+                                      className="text-rose-500 hover:text-rose-400 transition-colors" title="Delete"
                                     >
-                                      <Trash2 size={14} />
+                                      <Trash2 size={13} />
                                     </button>
-                                  </div>
+                                  </>
                                 ) : (
-                                  <label className="btn btn-xs bg-navy border border-slate-600 hover:border-gold hover:text-gold text-slate-300 rounded-sm font-semibold relative cursor-pointer group">
-                                    <input 
+                                  <label className="btn btn-xs bg-gold/10 border border-gold/40 hover:bg-gold hover:text-white text-gold rounded-sm font-bold cursor-pointer flex items-center gap-1.5 px-3">
+                                    <input
                                       type="file"
                                       accept=".pdf,.png,.jpg,.jpeg"
-                                      onChange={(e) => handleFileChange(e, docType, isDocReg ? item.id : null, !isDocReg ? item.id : null)}
-                                      disabled={uploadingDocType === docType}
+                                      onChange={e => handleFileChange(
+                                        e,
+                                        docTypeStr,
+                                        isDocReg ? item.id : null,
+                                        !isDocReg ? item.id : null
+                                      )}
+                                      disabled={isUploading}
                                       className="hidden"
                                     />
-                                    {uploadingDocType === docType ? (
-                                      <span className="loading loading-spinner loading-xs text-gold"></span>
-                                    ) : (
-                                      <span className="flex items-center gap-1.5"><Upload size={12} /> Upload</span>
-                                    )}
+                                    {isUploading
+                                      ? <span className="loading loading-spinner loading-xs"></span>
+                                      : <><Upload size={11} /> Upload</>}
                                   </label>
                                 )}
                               </div>
