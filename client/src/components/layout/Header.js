@@ -962,7 +962,7 @@ export default function Header() {
                                     {msg.documents.map(doc => (
                                       <div key={doc.id} style={{ display: "flex", flexDirection: "column", gap: "6px", width: "100%" }}>
                                         <a 
-                                          href={`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}${doc.fileUrl}`}
+                                          href={`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5005'}${doc.fileUrl}`}
                                           target="_blank"
                                           rel="noopener noreferrer"
                                           style={{ 
