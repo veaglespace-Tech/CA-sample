@@ -298,19 +298,19 @@ export default function ClientOverview({
     <div className="space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
       
       {/* Client Welcome Banner with deep premium color meshes */}
-      <div className="relative overflow-hidden rounded-[2.5rem] border border-gold/20 bg-gradient-to-r from-blue-50 via-indigo-50/60 to-white px-6 py-8 text-white shadow-xl shadow-indigo-100/40 md:px-10 md:py-8 md:py-10 lg:px-12">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.08),transparent_34%)]"></div>
-        <div className="absolute inset-y-0 right-[22%] hidden w-px bg-slate-200/50 lg:block"></div>
+      <div className="relative overflow-hidden rounded-[2.5rem] border border-white bg-white px-6 py-8 text-slate-900 shadow-[0_8px_40px_rgba(0,0,0,0.06)] backdrop-blur-3xl md:px-10 md:py-8 md:py-10 lg:px-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.08),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.05),transparent_40%)]"></div>
+        <div className="absolute inset-y-0 right-[22%] hidden w-px bg-gradient-to-b from-transparent via-slate-200 to-transparent lg:block"></div>
         <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-3xl space-y-4 text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-gold/5 px-3.5 py-1">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-3.5 py-1">
               <Sparkles className="text-gold text-xs" />
-              <span className="text-[10px] font-black uppercase tracking-wider text-gold">Legal & Compliance Dashboard</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-gold">Legal & Compliance Dashboard</span>
             </div>
-            <h1 className="max-w-[12ch] text-4xl font-black leading-[0.95] tracking-tight md:text-5xl lg:text-[3.7rem] text-white">
+            <h1 className="max-w-[12ch] text-4xl font-black leading-[0.95] tracking-tight md:text-5xl lg:text-[3.7rem] text-slate-900">
               Hello, {user?.name?.split(" ")[0]}!
             </h1>
-            <p className="max-w-2xl text-base font-medium leading-8 text-slate-300 md:text-lg">
+            <p className="max-w-2xl text-base font-medium leading-8 text-slate-600 md:text-lg">
               Welcome back to your Veagle Space Technology client portal. Track your application status, view dynamic progress maps, and securely upload verification documents.
             </p>
           </div>
@@ -321,28 +321,28 @@ export default function ClientOverview({
       {/* Client Key Metrics Block */}
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
         {/* Metric: Active Registrations */}
-        <div className="relative overflow-hidden bg-navy/90 backdrop-blur-xl p-7 rounded-[2rem] border border-slate-700/60 shadow-lg flex items-center justify-between group hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1 cursor-default">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/10 transition-colors duration-500"></div>
+        <div className="relative overflow-hidden bg-white p-7 rounded-3xl border border-white shadow-[0_4px_20px_rgba(0,0,0,0.04)] flex items-center justify-between group hover:border-gold/30 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 cursor-default">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/15 transition-all duration-700 ease-out scale-150 group-hover:scale-110 translate-x-10 -translate-y-10 group-hover:translate-x-0 group-hover:translate-y-0"></div>
           <div className="relative z-10 space-y-1.5">
-            <span className="text-[10px] font-black text-gold/80 uppercase tracking-[0.2em] block">Active Filings</span>
-            <div className="text-4xl md:text-3xl md:text-5xl font-black text-white tracking-tight">{activeServicesCount}</div>
-            <span className="text-[11px] font-bold text-slate-400">Total service filings in progress</span>
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] block">Active Filings</span>
+            <div className="text-4xl md:text-3xl md:text-5xl font-black text-slate-900 tracking-tight drop-shadow-sm">{activeServicesCount}</div>
+            <span className="text-[11px] font-semibold text-slate-600">Total service filings in progress</span>
           </div>
-          <div className="relative z-10 p-4 bg-gradient-to-br from-indigo-50 to-white text-gold rounded-none shadow-sm border border-gold/20/50 transition-all duration-300 group-hover:scale-110 group-hover:shadow-indigo-500/20 group-hover:bg-gold/10">
+          <div className="relative z-10 p-4 bg-gradient-to-br from-gold/10 to-gold/5 text-gold rounded-2xl shadow-sm border border-gold/20 transition-all duration-500 ease-out group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-gold/20 group-hover:bg-gold/20">
             <ClipboardList size={28} strokeWidth={2.5} />
           </div>
         </div>
 
         {/* Metric: Required Action items */}
-        <div className="relative overflow-hidden bg-navy/90 backdrop-blur-xl p-7 rounded-[2rem] border border-slate-700/60 shadow-lg flex items-center justify-between group hover:border-amber-200 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1 cursor-default">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/10 transition-colors duration-500"></div>
+        <div className="relative overflow-hidden bg-white p-7 rounded-3xl border border-white shadow-[0_4px_20px_rgba(0,0,0,0.04)] flex items-center justify-between group hover:border-amber-500/30 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 cursor-default">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/15 transition-all duration-700 ease-out scale-150 group-hover:scale-110 translate-x-10 -translate-y-10 group-hover:translate-x-0 group-hover:translate-y-0"></div>
           {pendingItemsCount > 0 && <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-500"></div>}
           <div className="relative z-10 space-y-1.5">
-            <span className="text-[10px] font-black text-amber-500/80 uppercase tracking-[0.2em] block">Pending Actions</span>
-            <div className="text-4xl md:text-3xl md:text-5xl font-black text-white tracking-tight">{pendingItemsCount}</div>
-            <span className="text-[11px] font-bold text-slate-400">Files requested by compliance desk</span>
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] block">Pending Actions</span>
+            <div className="text-4xl md:text-3xl md:text-5xl font-black text-slate-900 tracking-tight drop-shadow-sm">{pendingItemsCount}</div>
+            <span className="text-[11px] font-semibold text-slate-600">Files requested by compliance desk</span>
           </div>
-          <div className={`relative z-10 p-4 rounded-none shadow-sm border transition-all duration-300 group-hover:scale-110 ${pendingItemsCount > 0 ? 'bg-gradient-to-br from-amber-50 to-white text-amber-500 border-amber-100/50 group-hover:shadow-amber-500/20' : 'bg-navy-light text-slate-300 border-slate-800'}`}>
+          <div className={`relative z-10 p-4 rounded-2xl shadow-sm border transition-all duration-500 ease-out group-hover:scale-110 group-hover:-rotate-3 ${pendingItemsCount > 0 ? 'bg-gradient-to-br from-amber-500/10 to-amber-500/5 text-amber-500 border-amber-500/30 group-hover:shadow-amber-500/20' : 'bg-slate-50 text-slate-400 border-slate-200 group-hover:shadow-md'}`}>
             <Clock size={28} strokeWidth={2.5} />
           </div>
         </div>

@@ -1,5 +1,6 @@
 import AuthForm from "../../../../components/auth/AuthForm";
 import PublicOnlyRoute from "../../../../components/auth/PublicOnlyRoute";
+import BrandLogo from "../../../../components/layout/BrandLogo";
 
 export const metadata = {
   title: "Super Admin Registration | Veagle Space Technology Pvt. Ltd.",
@@ -11,7 +12,7 @@ export default function SuperAdminRegisterPage() {
     <PublicOnlyRoute>
       <section className="vs-auth-shell">
         <div className="vs-auth-card">
-
+          <BrandLogo href="/" className="mb-5 justify-center" height={42} />
           <h1>Register as Super Admin</h1>
           <p>Create a super admin account with full platform control. You will need the super admin registration key.</p>
           <AuthForm

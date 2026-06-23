@@ -12019,13 +12019,13 @@ svg {
 .vxlp-form-shell input,
 .vxlp-form-shell textarea,
 .vs-auth-field input {
-  border: 1px solid #E2E8F0 !important;
+  border: 1px solid #CBD5E1 !important;
   border-radius: 0.75rem !important; /* 12px rounded-xl */
   padding: 0.75rem 1rem !important;
   font-size: 0.875rem !important;
   font-weight: 500 !important;
-  color: #FFFFFF !important;
-  background-color: #0F172A !important;
+  color: #1E293B !important;
+  background-color: #FFFFFF !important;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
   outline: none !important;
   transition: all 0.2s ease-in-out !important;
@@ -12043,7 +12043,7 @@ svg {
 .vxlp-form-shell input:hover,
 .vxlp-form-shell textarea:hover,
 .vs-auth-field input:hover {
-  border-color: #CBD5E1 !important;
+  border-color: #94A3B8 !important;
 }
 
 .vs-form-group input:focus,
@@ -12059,9 +12059,9 @@ svg {
 .vxlp-form-shell textarea:focus,
 .vs-auth-field input:focus,
 .otp-input:focus {
-  border-color: #4F46E5 !important;
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
-  background-color: #0F172A !important;
+  border-color: #C5A059 !important;
+  box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  background-color: #FFFFFF !important;
   outline: none !important;
 }
 

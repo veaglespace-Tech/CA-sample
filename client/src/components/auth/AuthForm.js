@@ -224,7 +224,7 @@ function AuthFormInner({
   if (step === "otp") {
     return (
       <form className="flex w-full flex-col gap-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onSubmit={handleSubmit} noValidate>
-        <div className="rounded-sm border border-gold/20 bg-gold/10/60 px-4 py-3 text-sm font-medium text-indigo-800">
+        <div className="rounded-xl border border-gold/20 bg-gold/10/60 px-4 py-3 text-sm font-medium text-indigo-800">
           An OTP has been sent to your email address. Please enter it below to securely access the dashboard.
         </div>
         <FormField label="One-Time Password (OTP)" htmlFor="auth-otp" required>
@@ -238,10 +238,10 @@ function AuthFormInner({
           />
         </FormField>
         
-        <button type="submit" className="mt-2 w-full rounded-sm bg-gold py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-gold active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+        <button type="submit" className="mt-2 w-full rounded-xl bg-gold py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-gold active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
           {isLoading ? "Verifying..." : "Verify & Login"}
         </button>
-        {message && <p className="mt-2 rounded-sm bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
+        {message && <p className="mt-2 rounded-xl bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
         <button type="button" onClick={() => { setStep("credentials"); setMessage(""); setOtpValue(""); }} className="mt-2 text-sm font-semibold text-slate-500 hover:text-slate-800 underline underline-offset-2">
           &larr; Back to Login
         </button>
@@ -252,7 +252,7 @@ function AuthFormInner({
   if (step === "forgot-request") {
     return (
       <form className="flex w-full flex-col gap-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onSubmit={handleForgotRequest} noValidate>
-        <div className="rounded-sm border border-gold/30 bg-gold/10 px-4 py-3 text-sm font-semibold text-indigo-800">
+        <div className="rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm font-semibold text-indigo-800">
           Enter your email address to receive a password reset OTP.
         </div>
         <FormField label="Email Address" htmlFor="reset-email" required>
@@ -265,10 +265,10 @@ function AuthFormInner({
             className="w-full rounded-sm border border-slate-200 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
           />
         </FormField>
-        <button type="submit" className="mt-2 w-full rounded-sm bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+        <button type="submit" className="mt-2 w-full rounded-xl bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
           {isResetRequestLoading ? "Sending OTP..." : "Send Reset OTP"}
         </button>
-        {message && <p className="mt-2 rounded-sm bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
+        {message && <p className="mt-2 rounded-xl bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
         <button
           type="button"
           onClick={() => { setStep("credentials"); setMessage(""); }}
@@ -283,7 +283,7 @@ function AuthFormInner({
   if (step === "forgot-reset") {
     return (
       <form className="flex w-full flex-col gap-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" onSubmit={handleForgotReset} noValidate>
-        <div className="rounded-sm border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-800">
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-800">
           We sent a reset OTP to <span className="font-black">{tempEmail || resetForm.email}</span>. Enter it below and choose a new password.
         </div>
         <FormField label="Email Address" htmlFor="reset-email-confirm" required>
@@ -347,10 +347,10 @@ function AuthFormInner({
             </button>
           </div>
         </FormField>
-        <button type="submit" className="mt-2 w-full rounded-sm bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+        <button type="submit" className="mt-2 w-full rounded-xl bg-gradient-to-r from-primary to-indigo-600 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-primary/95 hover:to-indigo-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
           {isResetSubmitLoading ? "Resetting Password..." : "Reset Password"}
         </button>
-        {message && <p className="mt-2 rounded-sm bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
+        {message && <p className="mt-2 rounded-xl bg-rose-50 p-3 text-center text-sm font-semibold text-rose-600 border border-rose-100">{message}</p>}
         <button
           type="button"
           onClick={() => { setStep("forgot-request"); setMessage(""); }}
@@ -367,7 +367,7 @@ function AuthFormInner({
       {isRegister && (
         <>          {/* Referral code banner — shown only when valid code is present */}
           {refCodeValid && form.referralCode && (
-            <div className="flex items-center gap-3 rounded-sm border border-emerald-200 bg-emerald-50 px-4 py-3">
+            <div className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
               <span className="text-lg">🎁</span>
               <div>
                 <p className="text-sm font-black text-emerald-800">Referral code applied!</p>
@@ -544,11 +544,11 @@ function AuthFormInner({
         </>
       )}
 
-      <button type="submit" className="mt-4 w-full rounded-sm bg-gold py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-gold active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
+      <button type="submit" className="mt-4 w-full rounded-xl bg-gold py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-gold active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-slate-400 disabled:shadow-none border-none" disabled={isLoading}>
         {isLoading ? "Please wait..." : isRegister ? "Create Account" : "Login"}
       </button>
 
-      {message && <p className="mt-2 rounded-sm bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
+      {message && <p className="mt-2 rounded-xl bg-rose-50/60 p-3 text-center text-sm font-medium text-rose-600 border border-rose-100">{message}</p>}
 
       {!isRegister && allowPasswordReset && (
         <button

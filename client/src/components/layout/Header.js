@@ -714,11 +714,7 @@ export default function Header() {
             <button
               id="vs-notification-bell"
               type="button"
-              className="btn btn-circle btn-md border-0 shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
-              style={{
-                background: "linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)",
-                color: "white"
-              }}
+              className="group relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-500 text-white shadow-[0_10px_24px_rgba(79,70,229,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_14px_28px_rgba(79,70,229,0.32)]"
               onClick={(event) => {
                 event.stopPropagation();
                 clearTimeout(timeoutRef.current);
@@ -728,25 +724,9 @@ export default function Header() {
               }}
               aria-label="Toggle notifications"
             >
-              <Bell size={24} className="group-hover:rotate-12 transition-transform" />
+              <Bell size={20} strokeWidth={2.4} className="shrink-0 transition-transform group-hover:rotate-12" />
               {unreadCount > 0 && (
-                <span style={{
-                  position: "absolute",
-                  top: "-2px",
-                  right: "-2px",
-                  background: "#ff4d4d",
-                  color: "white",
-                  borderRadius: "50%",
-                  width: "22px",
-                  height: "22px",
-                  fontSize: "12px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontWeight: "900",
-                  border: "2px solid white",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.3)"
-                }}>
+                <span className="absolute -right-1 -top-1 flex h-[18px] min-w-[18px] items-center justify-center rounded-full border-2 border-white bg-rose-500 px-1 text-[10px] font-black leading-none text-white shadow-sm">
                   {unreadCount > 9 ? "9+" : unreadCount}
                 </span>
               )}

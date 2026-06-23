@@ -1,5 +1,6 @@
 import AuthForm from "../../../components/auth/AuthForm";
 import PublicOnlyRoute from "../../../components/auth/PublicOnlyRoute";
+import BrandLogo from "../../../components/layout/BrandLogo";
 
 export const metadata = {
   title: "Login",
@@ -11,7 +12,7 @@ export default function LoginPage() {
     <PublicOnlyRoute>
       <section className="vs-auth-shell">
         <div className="vs-auth-card">
-
+          <BrandLogo href="/" className="mb-5 justify-center" height={42} />
           <h1 className="mb-6 text-2xl font-bold text-center text-slate-800">Welcome Back</h1>
 
           <AuthForm mode="login" expectedRole="USER" switchHref="/register" switchLabel="Choose registration" switchText="Need a user account?" allowPasswordReset={true} />

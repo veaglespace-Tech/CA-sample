@@ -12,15 +12,15 @@ export default function DashboardHeader({
   onNavigateToSection 
 }) {
   return (
-    <header className="navbar sticky top-0 z-40 h-20 shrink-0 border-b border-white/60 bg-navy/80 px-4 shadow-[0_8px_30px_-4px_rgba(0,0,0,0.03)] backdrop-blur-2xl md:px-6">
+    <header className="navbar sticky top-0 z-40 h-20 shrink-0 border-b border-white/40 bg-white/70 px-4 shadow-[0_4px_30px_rgba(0,0,0,0.03)] backdrop-blur-3xl md:px-6 transition-all duration-500">
       <div className="flex-none lg:hidden">
-        <label htmlFor="dashboard-drawer" className="btn btn-ghost btn-circle drawer-button bg-navy-light text-slate-200">
+        <label htmlFor="dashboard-drawer" className="btn btn-ghost btn-circle drawer-button hover:bg-slate-100 text-slate-800">
           <AlignLeft size={24} />
         </label>
       </div>
       
       <div className="flex-1 px-4">
-        <h2 className="text-xl md:text-2xl font-black tracking-tight text-white drop-shadow-sm">
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 drop-shadow-sm">
           {activeSection.charAt(0).toUpperCase() + activeSection.slice(1).replace("_", " ")}
         </h2>
       </div>
@@ -35,30 +35,30 @@ export default function DashboardHeader({
 
         {/* Profile Dropdown */}
         <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="group flex cursor-pointer items-center gap-3.5 rounded-full border border-white bg-navy/60 px-2 py-2 pr-4 shadow-[0_4px_15px_-3px_rgba(0,0,0,0.05)] backdrop-blur-md transition-all duration-300 ease-out hover:border-gold/20 hover:bg-navy hover:shadow-[0_8px_25px_-5px_rgba(79,70,229,0.15)] md:px-2 md:pr-5 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
-            <div className="avatar placeholder rounded-full shadow-inner ring-2 ring-indigo-50 transition-all duration-300 group-hover:ring-indigo-200">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 via-indigo-600 to-violet-600 text-sm font-black text-white shadow-md">
+          <div tabIndex={0} role="button" className="group flex cursor-pointer items-center gap-3.5 rounded-full border border-white/60 bg-white/50 px-2 py-1.5 pr-4 shadow-sm backdrop-blur-xl transition-all duration-500 ease-out hover:border-gold/30 hover:bg-white hover:shadow-md md:px-2 md:pr-5 hover:-translate-y-0.5">
+            <div className="avatar placeholder rounded-full shadow-inner ring-2 ring-transparent transition-all duration-500 group-hover:ring-gold/40">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-gold/80 to-gold text-sm font-bold text-navy shadow-md">
                 {user?.name?.charAt(0).toUpperCase()}
               </div>
             </div>
             <div className="hidden md:block text-left">
-              <div className="text-[13px] font-black leading-tight text-white transition-colors duration-300 group-hover:text-gold">{user?.name}</div>
-              <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest leading-tight mt-0.5">{formatRole(user?.role)}</div>
+              <div className="text-[13px] font-bold leading-tight text-slate-800 transition-colors duration-300 group-hover:text-navy">{user?.name}</div>
+              <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.15em] leading-tight mt-0.5 group-hover:text-gold transition-colors">{formatRole(user?.role)}</div>
             </div>
           </div>
-          <ul tabIndex={0} className="menu menu-md dropdown-content z-[50] mt-4 w-64 rounded-none border border-white/80 bg-navy/95 p-3 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-300">
-            <div className="px-4 py-3 text-[10px] uppercase font-black tracking-[0.15em] text-slate-400 select-none">
+          <ul tabIndex={0} className="menu menu-md dropdown-content z-[50] mt-4 w-64 rounded-2xl border border-white/60 bg-white/90 p-3 shadow-[0_8px_40px_rgba(0,0,0,0.08)] backdrop-blur-2xl animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-300">
+            <div className="px-4 py-3 text-[10px] uppercase font-bold tracking-[0.15em] text-slate-400 select-none">
               Account Control
             </div>
             <li>
-              <button onClick={() => onNavigateToSection("profile")} className="rounded-none py-3.5 px-4 font-bold text-slate-300 flex items-center gap-3 transition-all duration-300 hover:bg-gold/10/80 hover:text-gold">
-                <UserCircle className="text-xl" /> 
+              <button onClick={() => onNavigateToSection("profile")} className="rounded-lg py-3 px-4 font-semibold text-slate-700 flex items-center gap-3 transition-all duration-300 hover:bg-slate-50 hover:text-navy">
+                <UserCircle className="text-xl text-slate-500" /> 
                 <span className="tracking-wide">Profile Settings</span>
               </button>
             </li>
-            <div className="divider my-1.5 opacity-40"></div>
+            <div className="divider my-1 border-slate-100 opacity-40"></div>
             <li>
-              <button onClick={onLogout} className="rounded-none py-3.5 px-4 font-bold text-rose-500 flex items-center gap-3 transition-all duration-300 hover:bg-rose-50/80 hover:text-rose-600">
+              <button onClick={onLogout} className="rounded-lg py-3 px-4 font-semibold text-rose-600 flex items-center gap-3 transition-all duration-300 hover:bg-rose-50 hover:text-rose-700">
                 <LogOut className="text-xl" /> 
                 <span className="tracking-wide">Sign Out</span>
               </button>

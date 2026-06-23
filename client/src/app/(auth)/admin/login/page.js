@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AuthForm from "../../../../components/auth/AuthForm";
 import PublicOnlyRoute from "../../../../components/auth/PublicOnlyRoute";
+import BrandLogo from "../../../../components/layout/BrandLogo";
 
 export const metadata = {
   title: "Admin Login | Veagle Space Technology Pvt. Ltd.",
@@ -12,7 +13,7 @@ export default function AdminLoginPage() {
     <PublicOnlyRoute>
       <section className="vs-auth-shell">
         <div className="vs-auth-card">
-
+          <BrandLogo href="/" className="mb-5 justify-center" height={42} />
           <h1 className="mb-6">Admin Login</h1>
 
           <AuthForm

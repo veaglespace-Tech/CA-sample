@@ -122,15 +122,15 @@ export default function LeadsView({
 
   return (
     <div className="space-y-6">
-      <div className="bg-navy border border-slate-700/80 shadow-[0_4px_20px_rgba(0,0,0,0.015)] rounded-none overflow-visible">
+      <div className="bg-white border border-slate-100 shadow-[0_15px_45px_rgba(0,0,0,0.03)] rounded-[2rem] overflow-visible">
         <div className="px-6 py-5 flex flex-col lg:flex-row lg:items-center justify-between gap-6 w-full">
           
           <div className="flex flex-wrap items-center gap-5">
             {/* Filter: Status */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-              <span className="text-[11px] font-black uppercase text-slate-400 tracking-wider">Status</span>
+              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Status</span>
               <select 
-                className="select select-bordered select-sm rounded-sm font-bold h-10 border-slate-700 focus:border-primary text-slate-200 bg-navy min-w-[130px]"
+                className="select select-bordered select-sm rounded-xl font-bold h-10 border-slate-200 focus:border-primary text-slate-800 bg-white min-w-[130px]"
                 value={statusFilter} 
                 onChange={(e) => onStatusFilterChange(e.target.value)}
               >
@@ -146,9 +146,9 @@ export default function LeadsView({
 
             {/* Filter: Main Service */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-              <span className="text-[11px] font-black uppercase text-slate-400 tracking-wider">Main Service</span>
+              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Main Service</span>
               <select 
-                className="select select-bordered select-sm rounded-sm font-bold h-10 border-slate-700 focus:border-primary text-slate-200 bg-navy min-w-[160px]"
+                className="select select-bordered select-sm rounded-xl font-bold h-10 border-slate-200 focus:border-primary text-slate-800 bg-white min-w-[160px]"
                 value={serviceFilter} 
                 onChange={(e) => {
                   onServiceFilterChange(e.target.value);
@@ -162,9 +162,9 @@ export default function LeadsView({
             {/* Filter: Sub Service */}
             {serviceFilter !== "ALL" && (
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 animate-in fade-in slide-in-from-left-2 duration-300">
-                <span className="text-[11px] font-black uppercase text-slate-400 tracking-wider">Sub Service</span>
+                <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Sub Service</span>
                 <select 
-                  className="select select-bordered select-sm rounded-sm font-bold h-10 border-slate-700 focus:border-primary text-slate-200 bg-navy min-w-[160px]"
+                  className="select select-bordered select-sm rounded-xl font-bold h-10 border-slate-200 focus:border-primary text-slate-800 bg-white min-w-[160px]"
                   value={subServiceFilter} 
                   onChange={(e) => onSubServiceFilterChange(e.target.value)}
                 >
@@ -178,16 +178,16 @@ export default function LeadsView({
               <label className="flex items-center gap-2.5 cursor-pointer select-none">
                 <input 
                   type="checkbox" 
-                  className="checkbox checkbox-primary checkbox-sm rounded-md border-2 border-slate-300 bg-navy checked:bg-gold checked:border-primary transition-all duration-200" 
+                  className="checkbox checkbox-primary checkbox-sm rounded-md border-2 border-slate-300 bg-white checked:bg-gold checked:border-primary transition-all duration-200" 
                   checked={onlyUserFilter}
                   onChange={(e) => onOnlyUserFilterChange(e.target.checked)}
                 />
-                <span className="text-[11px] font-black uppercase text-slate-400 tracking-wider">Only Registered</span>
+                <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Only Registered</span>
               </label>
             </div>
           </div>
 
-          <div className="text-[10px] font-black uppercase text-slate-400/80 tracking-widest bg-navy-light border border-slate-800 px-3.5 py-1.5 rounded-sm shrink-0 text-center lg:text-left">
+          <div className="text-[10px] font-black uppercase text-slate-500 tracking-widest bg-slate-50 border border-slate-100 px-3.5 py-1.5 rounded-sm shrink-0 text-center lg:text-left">
             Showing {items.length} records
           </div>
         </div>

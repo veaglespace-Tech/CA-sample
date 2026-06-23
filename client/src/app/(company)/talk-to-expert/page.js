@@ -445,7 +445,7 @@ export default function TalkToExpertPage() {
                 <div className="flex items-center gap-2 mb-2 text-slate-900 mt-1">
                   <Phone size={18} className="text-gold" />
                 </div>
-                <p className="text-xl font-black text-slate-900">+91 82379 99101</p>
+                <p className="whitespace-nowrap text-lg sm:text-xl font-black leading-none text-slate-900">+91 82379 99101</p>
                 <p className="text-xs font-semibold text-slate-500 mt-1">Mon-Sat, 10 AM - 7 PM IST</p>
               </div>
             </div>
@@ -455,7 +455,7 @@ export default function TalkToExpertPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <a href="tel:+918237999101" className="group bg-white border border-slate-100 rounded-none p-6 shadow-sm hover:shadow-lg hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 block">
               <h3 className="font-bold text-slate-900 group-hover:text-gold transition-colors mb-2">Call Us Directly</h3>
-              <p className="text-sm font-black text-slate-800 mb-1">+91 82379 99101</p>
+              <p className="whitespace-nowrap text-sm font-black text-slate-800 mb-1">+91 82379 99101</p>
               <p className="text-xs text-slate-500 font-medium">Mon-Sat, 10 AM to 7 PM</p>
             </a>
             

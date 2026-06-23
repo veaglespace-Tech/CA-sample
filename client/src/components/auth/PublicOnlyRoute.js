@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { useGetMeQuery } from "../../store/api/authApi";
 import { getDashboardPath } from "../../lib/auth";
+import BrandLogo from "../layout/BrandLogo";
 
 export default function PublicOnlyRoute({ children }) {
   const router = useRouter();
@@ -33,7 +34,8 @@ export default function PublicOnlyRoute({ children }) {
       {children}
       {(isLoading || user) && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-50/80 backdrop-blur-sm">
-          <div className="bg-white px-8 py-6 rounded-none shadow-2xl border border-slate-100 flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-300 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+          <div className="flex flex-col items-center gap-4 rounded-2xl border border-slate-100 bg-white px-8 py-6 shadow-2xl transition-all duration-400 animate-in fade-in zoom-in hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+            <BrandLogo height={38} className="justify-center" />
             <span className="loading loading-spinner text-gold loading-lg"></span>
             <p className="font-bold text-slate-700">{isLoading ? "Checking your session..." : "Redirecting to your dashboard..."}</p>
           </div>

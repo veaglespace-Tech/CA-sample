@@ -175,15 +175,15 @@ export default function RoleDashboardPage() {
 
   if (isUserLoading || (!user && !isUserError)) {
     return (
-      <div className="flex h-screen w-full items-center justify-center bg-[#1a2327]">
-        <span className="loading loading-spinner loading-lg text-[#d29052]"></span>
+      <div className="flex h-screen w-full items-center justify-center bg-navy">
+        <span className="loading loading-spinner loading-lg text-gold"></span>
       </div>
     );
   }
 
   if (isUserError || !user) {
     return (
-      <div className="flex flex-col h-screen w-full items-center justify-center bg-[#1a2327] p-6 text-center">
+      <div className="flex flex-col h-screen w-full items-center justify-center bg-navy p-6 text-center">
         <h2 className="text-2xl font-bold text-white mb-2">Session Expired</h2>
         <p className="text-slate-400 mb-6">Please sign in again to access your dashboard.</p>
         <Link href="/login" className="btn btn-primary rounded-sm px-8 font-bold uppercase tracking-wider">
@@ -223,11 +223,24 @@ export default function RoleDashboardPage() {
   const activeSection = validSections.includes(searchParams.get("section")) ? searchParams.get("section") : "overview";
   const currentSection = menuItems.some((item) => item.id === activeSection) ? activeSection : "overview";
 
+  console.log({
+    AdminDataView: typeof AdminDataView,
+    DashboardSidebar: typeof DashboardSidebar,
+    DashboardHeader: typeof DashboardHeader,
+    OverviewSection: typeof OverviewSection,
+    ProfileSection: typeof ProfileSection,
+    MessagesSection: typeof MessagesSection,
+    DocumentsSection: typeof DocumentsSection,
+    ReferralsSection: typeof ReferralsSection,
+    AdminPermissionsView: typeof AdminPermissionsView,
+    ReviewsSection: typeof ReviewsSection,
+  });
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
       
-      <div className="drawer-content flex flex-col bg-[#131a1d] overflow-hidden h-screen">
+      <div className="drawer-content flex flex-col bg-slate-50 overflow-hidden h-screen">
         <DashboardHeader 
           activeSection={currentSection}
           user={user}
@@ -236,7 +249,7 @@ export default function RoleDashboardPage() {
           onNavigateToSection={handleSectionChange}
         />
 
-        <main className="flex-1 overflow-y-auto p-4 md:p-8 bg-[#131a1d]">
+        <main className="flex-1 overflow-y-auto p-4 md:p-8 bg-slate-50">
           <div className="max-w-7xl mx-auto space-y-8">
             
             {currentSection === "overview" && (

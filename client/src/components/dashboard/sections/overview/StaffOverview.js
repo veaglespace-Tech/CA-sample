@@ -138,19 +138,19 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
 
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <section className="relative overflow-hidden rounded-[2.5rem] border border-gold/20 bg-gradient-to-br from-blue-50 via-indigo-50/60 to-white p-8 shadow-xl shadow-indigo-100/40 md:p-4 md:p-10 lg:px-4 md:px-12">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.08),transparent_34%)]"></div>
-        <div className="absolute inset-y-0 right-[22%] hidden w-px bg-slate-200/50 lg:block"></div>
+      <section className="relative overflow-hidden rounded-[2.5rem] border border-white bg-white p-8 shadow-[0_8px_40px_rgba(0,0,0,0.06)] md:p-4 md:p-10 lg:px-4 md:px-12 backdrop-blur-3xl">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.08),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.05),transparent_40%)]"></div>
+        <div className="absolute inset-y-0 right-[22%] hidden w-px bg-gradient-to-b from-transparent via-slate-200 to-transparent lg:block"></div>
         <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-3xl space-y-4 text-left">
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200/50 bg-emerald-50 px-3.5 py-1 text-[10px] font-black uppercase tracking-widest text-emerald-700">
               <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
               Veagle Space Technology Admin Control Center
             </span>
-            <h1 className="text-4xl font-black leading-[0.95] tracking-tight text-white md:text-5xl lg:text-[3.7rem]">
+            <h1 className="text-4xl font-black leading-[0.95] tracking-tight text-slate-900 md:text-5xl lg:text-[3.7rem]">
               Hello, {user?.name?.split(" ")[0]}.
             </h1>
-            <p className="max-w-2xl text-base font-medium leading-8 text-slate-300 md:text-lg">
+            <p className="max-w-2xl text-base font-medium leading-8 text-slate-600 md:text-lg">
               Monitor inquiries, manage services, verify documents, and control admin access from one workspace.
             </p>
           </div>
@@ -161,7 +161,7 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
 
       <section className="space-y-4">
         <div className="flex flex-col gap-2 px-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-sm font-black uppercase tracking-[0.18em] text-slate-300">Key Performance Indicators</h2>
+          <h2 className="text-sm font-black uppercase tracking-[0.18em] text-slate-500">Key Performance Indicators</h2>
           {filterStatus !== "ALL" && (
             <button
               onClick={() => setFilterStatus("ALL")}
@@ -182,24 +182,24 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
                 key={card.id}
                 type="button"
                 onClick={() => setFilterStatus(card.id)}
-                className={`group relative flex flex-col h-full overflow-hidden rounded-[2rem] border border-slate-700/60 bg-navy/90 backdrop-blur-xl p-7 text-left shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                className={`group relative flex flex-col h-full overflow-hidden rounded-3xl border border-white bg-white p-7 text-left shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] ${
                   active 
-                    ? `border-${card.tone}-300/60 shadow-${card.tone}-500/10` 
-                    : "border-white hover:border-slate-700"
+                    ? `border-${card.tone}-500/30 shadow-${card.tone}-500/10` 
+                    : "hover:border-slate-200"
                 }`}
               >
-                <div className={`absolute top-0 right-0 w-32 h-32 ${tone.iconBg.replace('bg-', 'bg-').replace('500', '500/5')} rounded-full blur-3xl group-hover:${tone.iconBg.replace('bg-', 'bg-').replace('500', '500/10')} transition-colors duration-500`}></div>
+                <div className={`absolute top-0 right-0 w-32 h-32 ${tone.iconBg.replace('bg-', 'bg-').replace('500', '500/5')} rounded-full blur-3xl group-hover:${tone.iconBg.replace('bg-', 'bg-').replace('500', '500/15')} transition-all duration-700 ease-out scale-150 group-hover:scale-110 translate-x-10 -translate-y-10 group-hover:translate-x-0 group-hover:translate-y-0`}></div>
                 {active && <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${tone.gradient}`}></div>}
                 <div className="relative z-10 flex items-start justify-between gap-4">
                   <div className="space-y-1.5">
-                    <span className={`block text-[10px] font-black uppercase tracking-[0.2em] ${active ? tone.text : 'text-slate-400'}`}>{card.title}</span>
-                    <strong className="block text-4xl md:text-3xl md:text-5xl font-black tracking-tight text-white">{card.value}</strong>
+                    <span className={`block text-[10px] font-bold uppercase tracking-[0.2em] ${active ? tone.text : 'text-slate-500'}`}>{card.title}</span>
+                    <strong className="block text-4xl md:text-3xl md:text-5xl font-black tracking-tight text-slate-900 drop-shadow-sm">{card.value}</strong>
                   </div>
-                  <span className={`flex h-14 w-14 items-center justify-center rounded-none shadow-sm transition-all duration-300 group-hover:scale-110 ${active ? `bg-gradient-to-br ${tone.gradient} ${tone.text} border border-${card.tone}-100/50 shadow-${card.tone}-500/20` : `bg-navy-light text-slate-300 border border-slate-800`}`}>
+                  <span className={`flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm transition-all duration-500 ease-out group-hover:scale-110 group-hover:-rotate-3 ${active ? `bg-gradient-to-br ${tone.gradient} ${tone.text} border border-${card.tone}-500/30 shadow-${card.tone}-500/20` : `bg-slate-50/80 backdrop-blur-sm text-slate-600 border border-slate-200 group-hover:border-slate-300 group-hover:text-slate-900 group-hover:shadow-md`}`}>
                     <Icon size={28} strokeWidth={2.5} />
                   </span>
                 </div>
-                <p className="relative z-10 mt-5 min-h-[42px] text-[11px] font-bold leading-relaxed text-slate-400">{card.description}</p>
+                <p className="relative z-10 mt-5 min-h-[42px] text-[11px] font-bold leading-relaxed text-slate-500">{card.description}</p>
               </button>
             );
           })}
@@ -209,9 +209,9 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
       {summary?.latestLeads?.length > 0 && (
         <section className="space-y-4">
           <div className="flex flex-col gap-3 px-1 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-sm font-black uppercase tracking-[0.18em] text-slate-300">
+            <h2 className="text-sm font-black uppercase tracking-[0.18em] text-slate-500">
               Recent Activity
-              <span className="ml-2 rounded-full bg-navy-light px-2 py-0.5 text-[11px] tracking-normal text-slate-400">
+              <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] tracking-normal text-slate-600">
                 {filteredLeads.length}
               </span>
             </h2>
@@ -225,11 +225,11 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
             )}
           </div>
 
-          <div className="overflow-hidden rounded-[1.25rem] border border-slate-700/80 bg-navy shadow-lg">
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             <div className="overflow-x-auto">
-              <table className="table w-full text-white">
+              <table className="table w-full text-slate-800">
                 <thead>
-                  <tr className="border-b border-slate-800 bg-navy-light text-xs font-black uppercase tracking-wider text-slate-400">
+                  <tr className="border-b border-slate-200 bg-slate-50 text-xs font-bold uppercase tracking-wider text-slate-500">
                     <th className="py-4">Name</th>
                     <th className="py-4">Service</th>
                     <th className="py-4">Form Category</th>
@@ -238,13 +238,13 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
                     {onNavigateToSection && <th className="py-4 text-right">Actions</th>}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50 text-sm font-bold">
+                <tbody className="divide-y divide-slate-100 text-sm font-medium">
                   {paginatedLeads.map((lead) => (
-                    <tr key={lead.id} className="transition-colors hover:bg-navy-light">
-                      <td className="py-4 font-extrabold text-white">{lead.fullName || lead.name}</td>
-                      <td className="py-4 text-slate-200">{lead.serviceName || lead.service?.name || "General Inquiry"}</td>
+                    <tr key={lead.id} className="transition-colors hover:bg-slate-50">
+                      <td className="py-4 font-bold text-slate-900">{lead.fullName || lead.name}</td>
+                      <td className="py-4 text-slate-600">{lead.serviceName || lead.service?.name || "General Inquiry"}</td>
                       <td className="py-4">
-                        <span className="rounded-sm border border-slate-700 bg-navy-light px-2.5 py-1 text-[11px] uppercase tracking-wider text-slate-400">
+                        <span className="rounded-sm border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] uppercase tracking-wider text-slate-600">
                           {lead.formType || "CONTACT"}
                         </span>
                       </td>

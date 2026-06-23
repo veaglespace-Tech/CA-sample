@@ -28,7 +28,7 @@ export default function AdminTable({
     if (col === "Name" || col === "FullName") val = item.fullName || item.name;
     if (col === "Role") {
       const role = String(item.role || val || "USER").toUpperCase();
-      let badgeClasses = "bg-navy-light text-slate-400 border-slate-700/60";
+      let badgeClasses = "bg-slate-50 text-slate-500 border-slate-200";
       
       if (role === "SUPER_ADMIN") {
         badgeClasses = "bg-gold/10 text-gold border-gold/30/60";
@@ -56,16 +56,16 @@ export default function AdminTable({
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-violet-50 text-violet-700 border border-violet-200">
               🎁 Via Referral
             </span>
-            <span className="text-[9px] font-bold text-slate-400 mt-0.5">Code: {item.referredByCode}</span>
+            <span className="text-[9px] font-bold text-slate-500 mt-0.5">Code: {item.referredByCode}</span>
           </div>
         );
       }
-      return <span className="text-[10px] text-slate-300 font-semibold">—</span>;
+      return <span className="text-[10px] text-slate-600 font-semibold">—</span>;
     }
     
     if (col === "Status") {
       const status = String(item.status || val || "NEW").toUpperCase();
-      let badgeClasses = "bg-navy-light text-slate-200 border-slate-700/60";
+      let badgeClasses = "bg-slate-50 text-slate-800 border-slate-200";
       
       if (status === "NEW") {
         badgeClasses = "bg-sky-50 text-sky-700 border-sky-200/60";
@@ -78,11 +78,11 @@ export default function AdminTable({
       } else if (status === "REJECTED") {
         badgeClasses = "bg-rose-50 text-rose-700 border-rose-200/60";
       } else if (status === "CLOSED" || status === "PAST") {
-        badgeClasses = "bg-navy-light text-slate-400 border-slate-700/60";
+        badgeClasses = "bg-slate-50 text-slate-500 border-slate-200";
       } else if (status === "UPCOMING" || status === "PUBLISHED") {
         badgeClasses = "bg-gold/10 text-gold border-gold/30/60";
       } else if (status === "DRAFT") {
-        badgeClasses = "bg-navy-light text-slate-400 border-slate-700/60";
+        badgeClasses = "bg-slate-50 text-slate-500 border-slate-200";
       }
       
       return (
@@ -117,7 +117,7 @@ export default function AdminTable({
     if (col === "Message" || col === "Subject" || col === "Description") {
       if (val && typeof val === "string" && val.length > 50) {
         return (
-          <span title={val} className="cursor-help font-semibold text-slate-300">
+          <span title={val} className="cursor-help font-semibold text-slate-600">
             {val.slice(0, 47)}...
           </span>
         );
@@ -161,11 +161,11 @@ export default function AdminTable({
   };
 
   return (
-    <div className="card bg-navy-light shadow-sm border border-base-200">
-      <div className="card-body p-6">
+    <div className="card bg-white shadow-[0_4px_30px_rgba(0,0,0,0.03)] border border-slate-100 rounded-[2rem] overflow-hidden">
+      <div className="card-body p-6 md:p-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-          <h2 className="card-title text-2xl font-black">{title}</h2>
-          <div className="flex items-center gap-2">
+          <h2 className="card-title text-2xl font-black text-slate-900">{title}</h2>
+          <div className="flex items-center gap-3">
             {onSearchChange && (
               <div className="relative">
                 <input 
@@ -173,32 +173,32 @@ export default function AdminTable({
                   placeholder={`Search ${type}s...`}
                   value={searchTerm}
                   onChange={(e) => onSearchChange(e.target.value)}
-                  className="input input-bordered input-sm rounded-sm w-48 md:w-64"
+                  className="input input-bordered input-sm h-10 rounded-lg bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 w-48 md:w-64 focus:border-gold focus:ring-1 focus:ring-gold transition-all"
                 />
-                {isSearching && <span className="loading loading-spinner loading-xs absolute right-3 top-2.5"></span>}
+                {isSearching && <span className="loading loading-spinner loading-xs absolute right-3 top-3 text-gold"></span>}
               </div>
             )}
             {onAdd && (
-              <button className="btn btn-primary btn-sm rounded-sm gap-2" onClick={onAdd}>
-                <Plus /> Add {type.charAt(0).toUpperCase() + type.slice(1)}
+              <button className="btn btn-sm h-10 rounded-lg px-4 gap-2 border-none bg-gold/10 text-gold hover:bg-gold hover:text-slate-900 transition-all shadow-sm" onClick={onAdd}>
+                <Plus size={16} /> Add {type.charAt(0).toUpperCase() + type.slice(1)}
               </button>
             )}
           </div>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="table table-zebra w-full">
+        <div className="overflow-x-auto rounded-[1.5rem] border border-slate-100/60 shadow-sm">
+          <table className="table w-full text-slate-800">
             <thead>
-              <tr className="bg-base-200/50">
-                {columns.map(col => <th key={col} className="text-xs uppercase opacity-60">{col}</th>)}
-                <th className="text-xs uppercase opacity-60 text-right">Actions</th>
+              <tr className="bg-slate-50/50 border-b border-slate-100">
+                {columns.map(col => <th key={col} className="text-[11px] font-black uppercase tracking-[0.15em] text-slate-500 py-5">{col}</th>)}
+                <th className="text-[11px] font-black uppercase tracking-[0.15em] text-slate-500 py-5 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-slate-50/80">
               {items.map((item) => (
-                <tr key={item.id} className="hover">
+                <tr key={item.id} className="hover:bg-slate-50/80 transition-colors duration-300">
                   {columns.map(col => (
-                    <td key={col} className="text-sm font-medium">
+                    <td key={col} className="text-sm font-medium py-4">
                       {renderValue(item, col)}
                     </td>
                   ))}

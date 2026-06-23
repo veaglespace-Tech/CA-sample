@@ -1,15 +1,11 @@
 import { baseApi } from "./baseApi";
+import { buildPlansQueryParams } from "../../lib/plans";
 
 export const planApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllPlans: builder.query({
       query: (params = {}) => {
-        const query = new URLSearchParams();
-        Object.entries(params).forEach(([key, value]) => {
-          if (value !== undefined && value !== null && value !== "" && value !== "ALL") {
-            query.set(key, String(value));
-          }
-        });
+        const query = buildPlansQueryParams(params);
         return `/api/plans/all${query.toString() ? `?${query.toString()}` : ""}`;
       },
       providesTags: ["Plans", "Dashboard"],

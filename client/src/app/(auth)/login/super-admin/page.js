@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AuthForm from "../../../../components/auth/AuthForm";
 import PublicOnlyRoute from "../../../../components/auth/PublicOnlyRoute";
+import BrandLogo from "../../../../components/layout/BrandLogo";
 
 export const metadata = {
   title: "Super Admin Login",
@@ -12,7 +13,7 @@ export default function SuperAdminLoginPage() {
     <PublicOnlyRoute>
       <section className="vs-auth-shell">
         <div className="vs-auth-card">
-
+          <BrandLogo href="/" className="mb-5 justify-center" height={42} />
           <h1>Login as Super Admin</h1>
           <p>This page is reserved for super admin accounts only.</p>
           <AuthForm

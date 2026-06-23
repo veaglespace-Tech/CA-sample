@@ -5,14 +5,19 @@ import { LogOut } from "lucide-react";
 
 export default function DashboardSidebar({ menuItems, activeSection, onSectionChange, onLogout }) {
   return (
-    <div className="menu flex min-h-full w-[21rem] flex-col border-r border-slate-700 bg-navy px-6 py-7 text-white shadow-[18px_0_50px_rgba(15,23,42,0.04)]">
-      <div className="mb-8 flex items-center gap-4 px-2">
-        <BrandLogo width={180} height={50} />
+    <div className="menu flex min-h-full w-[16.5rem] flex-col border-r border-slate-100 bg-white/95 px-5 py-8 text-slate-800 shadow-[4px_0_24px_rgba(0,0,0,0.02)] backdrop-blur-xl">
+      <div className="mb-6 flex w-full justify-center px-2">
+        <BrandLogo
+          width={48}
+          height={48}
+          className="mx-auto flex justify-center"
+          imageClassName="block"
+        />
       </div>
 
-      <div className="mb-4 px-2">
-        <span className="text-[11px] font-black uppercase tracking-[0.24em] text-slate-400">
-          Navigation
+      <div className="mb-4 px-3">
+        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+          Main Navigation
         </span>
       </div>
       
@@ -28,37 +33,36 @@ export default function DashboardSidebar({ menuItems, activeSection, onSectionCh
                 const el = document.getElementById("dashboard-drawer");
                 if (el) el.checked = false;
               }}
-              className={`group flex w-full items-center gap-4 rounded-none border px-4 py-4 text-left transition-all duration-300 ${
+              className={`group relative flex w-full items-center gap-3.5 rounded-xl border px-4 py-3.5 text-left transition-all duration-500 overflow-hidden ${
                 isActive
-                  ? isSuperOnly
-                    ? "border-amber-400/30 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-[0_14px_30px_rgba(245,158,11,0.30)]"
-                    : "border-primary/20 bg-gradient-to-r from-primary to-violet-600 text-white shadow-[0_14px_30px_rgba(79,70,229,0.25)]"
-                  : "border-transparent bg-navy text-slate-300 hover:border-slate-700 hover:bg-navy-light hover:text-white hover:shadow-[0_10px_25px_rgba(15,23,42,0.06)]"
+                  ? "border-transparent bg-gold/5 text-navy font-bold shadow-[0_4px_20px_rgba(197,160,89,0.08)]"
+                  : "border-transparent bg-transparent text-slate-500 font-medium hover:bg-slate-50 hover:text-navy hover:-translate-y-0.5 hover:shadow-sm"
               }`}
             >
-              <span className={`flex h-11 w-11 items-center justify-center rounded-none text-2xl transition-all duration-300 ${
+              {isActive && <div className="absolute left-0 top-0 h-full w-1 bg-gold rounded-r-full shadow-[0_0_8px_rgba(197,160,89,0.8)]"></div>}
+              <span className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xl transition-all duration-500 ${
                 isActive
-                  ? "bg-navy/14 text-white shadow-inner"
+                  ? "bg-gold text-white shadow-md shadow-gold/20"
                   : isSuperOnly
-                    ? "bg-amber-50 text-amber-500 group-hover:scale-105 group-hover:bg-amber-100"
-                    : "bg-navy-light text-slate-400 group-hover:scale-105 group-hover:bg-gold/10 group-hover:text-gold"
+                    ? "bg-amber-50 text-amber-500 group-hover:scale-110 group-hover:bg-amber-100"
+                    : "bg-slate-50 text-slate-400 group-hover:scale-110 group-hover:bg-gold/10 group-hover:text-gold"
               }`}>
                 {item.icon}
               </span>
-              <span className="flex-1 text-sm font-extrabold leading-5 tracking-[0.08em]">
+              <span className="flex-1 text-sm font-semibold tracking-wide">
                 {item.label}
               </span>
               {isSuperOnly && (
-                <span className={`flex-shrink-0 px-1.5 py-0.5 rounded-md text-[9px] font-black uppercase tracking-wider ${
-                  isActive ? "bg-navy/20 text-white" : "bg-amber-100 text-amber-600"
+                <span className={`flex-shrink-0 px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider ${
+                  isActive ? "bg-gold/20 text-gold" : "bg-amber-500/10 text-amber-500"
                 }`}>
-                  CA
+                  SA
                 </span>
               )}
               {item.count > 0 && (
-                <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-black transition-all duration-300 ${
+                <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all duration-300 ${
                   isActive
-                    ? "bg-navy/20 text-white"
+                    ? "bg-gold/20 text-gold"
                     : "bg-rose-500 text-white shadow-md shadow-rose-500/20"
                 }`}>
                   {item.count}
@@ -69,15 +73,15 @@ export default function DashboardSidebar({ menuItems, activeSection, onSectionCh
         })}
       </div>
 
-      <div className="mt-auto border-t border-slate-700 pt-8">
+      <div className="mt-auto border-t border-slate-200 pt-6">
         <button 
           onClick={onLogout} 
-          className="group flex w-full items-center gap-4 rounded-none border border-transparent px-4 py-4 font-black text-rose-500 transition-all duration-300 hover:border-rose-100 hover:bg-rose-50"
+          className="group flex w-full items-center gap-3.5 rounded-xl border border-transparent px-4 py-3 text-rose-500 transition-all duration-300 hover:bg-rose-500/10 hover:border-rose-500/20"
         >
-          <span className="flex h-11 w-11 items-center justify-center rounded-none bg-rose-50 text-2xl text-rose-400 transition-all duration-300 group-hover:translate-x-0.5 group-hover:bg-rose-100">
-            <LogOut />
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-rose-500/10 text-xl text-rose-500 transition-all duration-300 group-hover:bg-rose-500 group-hover:text-white">
+            <LogOut size={20} />
           </span>
-          <span className="flex-1 text-left text-sm tracking-[0.08em]">Sign Out</span>
+          <span className="flex-1 text-left text-sm font-semibold tracking-wide">Sign Out</span>
         </button>
       </div>
     </div>

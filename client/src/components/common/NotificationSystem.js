@@ -108,46 +108,13 @@ export default function NotificationSystem({ user, isStaff, onNavigateToMessages
         <button
           id="vs-notification-bell"
           type="button"
-          style={{ 
-            position: "relative", 
-            display: "flex", 
-            alignItems: "center", 
-            padding: "8px", 
-            color: "white", 
-            background: "#012b5d", 
-            border: "none", 
-            borderRadius: "50%",
-            cursor: "pointer",
-            width: "40px",
-            height: "40px",
-            justifyContent: "center",
-            boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-            transition: "all 0.2s ease"
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
-          onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+          className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/50 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-500 text-white shadow-[0_10px_24px_rgba(79,70,229,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:shadow-[0_14px_28px_rgba(79,70,229,0.32)] focus:outline-none focus:ring-4 focus:ring-indigo-100"
           onClick={() => setShowNotifications(!showNotifications)}
           aria-label="Toggle notifications"
         >
-          <Bell size={22} />
+          <Bell size={20} strokeWidth={2.4} className="shrink-0" />
           {unreadCount > 0 && (
-            <span style={{
-              position: "absolute",
-              top: "0",
-              right: "0",
-              background: "#ef4444",
-              color: "white",
-              borderRadius: "50%",
-              width: "18px",
-              height: "18px",
-              fontSize: "11px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: "bold",
-              border: "2px solid #012b5d",
-              zIndex: 10
-            }}>
+            <span className="absolute -right-1 -top-1 flex h-[18px] min-w-[18px] items-center justify-center rounded-full border-2 border-white bg-rose-500 px-1 text-[10px] font-black leading-none text-white shadow-sm">
               {unreadCount > 9 ? "9+" : unreadCount}
             </span>
           )}

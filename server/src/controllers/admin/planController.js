@@ -1,15 +1,18 @@
 import { prisma } from "../../config/db.js";
-
-const normalizeSlug = (value = "") =>
-  String(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+import {
+  buildPlanWhereClause,
+  formatPlanRecord,
+  parsePlanListQuery,
+  resolveAllowedServiceIds,
+} from "../../services/plans.js";
 
 // Get plans for a specific service by its slug
 export const getPlansByService = async (req, res) => {
   const { slug } = req.params;
-  const formattedSlug = normalizeSlug(slug);
+  const formattedSlug = String(slug || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
   try {
     const plans = await prisma.servicePricingPlan.findMany({
@@ -23,19 +26,17 @@ export const getPlansByService = async (req, res) => {
       },
       include: {
         service: {
-          select: { slug: true }
-        }
+          select: {
+            slug: true,
+            name: true,
+            category: { select: { name: true } },
+            subcategory: { select: { name: true } },
+          },
+        },
       }
     });
 
-    // Map serviceSlug for frontend compatibility
-    const formattedPlans = plans.map(p => ({
-      ...p,
-      serviceSlug: p.service?.slug,
-      service: undefined
-    }));
-
-    res.status(200).json({ ok: true, data: formattedPlans });
+    res.status(200).json({ ok: true, data: plans.map(formatPlanRecord) });
   } catch (error) {
     console.error("[planController] Error fetching plans:", error);
     res.status(500).json({ ok: false, error: "Internal server error" });
@@ -45,64 +46,29 @@ export const getPlansByService = async (req, res) => {
 // Get all plans for admin dashboard
 export const getAllPlans = async (req, res) => {
   try {
-    const page = Math.max(Number(req.query.page || 1), 1);
-    const limit = Math.min(Math.max(Number(req.query.limit || 10), 1), 50);
-    const search = String(req.query.search || "").trim();
-    const categoryId = String(req.query.categoryId || "").trim();
-    const subcategoryId = String(req.query.subcategoryId || "").trim();
-    const serviceSlug = normalizeSlug(String(req.query.serviceSlug || "").trim());
+    const { page, limit, search, categoryId, subcategoryId, serviceSlug } = parsePlanListQuery(req.query);
+    const allowedServiceIds = await resolveAllowedServiceIds(prisma, {
+      categoryId,
+      subcategoryId,
+      serviceSlug,
+    });
 
-    const serviceWhere = {};
-    if (serviceSlug) {
-      serviceWhere.slug = serviceSlug;
-    } else {
-      if (subcategoryId) serviceWhere.subcategoryId = subcategoryId;
-      if (categoryId) serviceWhere.categoryId = categoryId;
-    }
-
-    let allowedServiceIds = null;
-    if (serviceSlug || categoryId || subcategoryId) {
-      const matchingServices = await prisma.service.findMany({
-        where: serviceWhere,
-        select: { id: true },
-      });
-
-      allowedServiceIds = matchingServices.map((s) => s.id);
-
-      if (allowedServiceIds.length === 0) {
-        return res.status(200).json({
-          ok: true,
-          data: [],
-          meta: {
-            page,
-            limit,
-            total: 0,
-            totalPages: 0,
-            hasNextPage: false,
-            hasPrevPage: page > 1,
-          },
-        });
-      }
-    }
-
-    const andConditions = [];
-    if (allowedServiceIds) {
-      andConditions.push({ serviceId: { in: allowedServiceIds } });
-    }
-
-    if (search) {
-      andConditions.push({
-        OR: [
-          { name: { contains: search } },
-          { service: { slug: { contains: search } } },
-          { tag: { contains: search } },
-          { description: { contains: search } },
-          { price: { contains: search } },
-        ],
+    if (allowedServiceIds && allowedServiceIds.length === 0) {
+      return res.status(200).json({
+        ok: true,
+        data: [],
+        meta: {
+          page,
+          limit,
+          total: 0,
+          totalPages: 0,
+          hasNextPage: false,
+          hasPrevPage: page > 1,
+        },
       });
     }
 
-    const where = andConditions.length ? { AND: andConditions } : {};
+    const where = buildPlanWhereClause({ allowedServiceIds, search });
 
     const [plans, total] = await Promise.all([
       prisma.servicePricingPlan.findMany({
@@ -113,20 +79,23 @@ export const getAllPlans = async (req, res) => {
         ],
         skip: (page - 1) * limit,
         take: limit,
-        include: { service: { select: { slug: true } } }
+        include: {
+          service: {
+            select: {
+              slug: true,
+              name: true,
+              category: { select: { name: true } },
+              subcategory: { select: { name: true } },
+            },
+          },
+        },
       }),
       prisma.servicePricingPlan.count({ where }),
     ]);
 
-    const formattedPlans = plans.map(p => ({
-      ...p,
-      serviceSlug: p.service?.slug,
-      service: undefined
-    }));
-
     res.status(200).json({
       ok: true,
-      data: formattedPlans,
+      data: plans.map(formatPlanRecord),
       meta: {
         page,
         limit,

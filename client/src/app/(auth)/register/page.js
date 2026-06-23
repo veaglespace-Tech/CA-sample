@@ -1,5 +1,6 @@
 import AuthForm from "../../../components/auth/AuthForm";
 import PublicOnlyRoute from "../../../components/auth/PublicOnlyRoute";
+import BrandLogo from "../../../components/layout/BrandLogo";
 import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 
 export const metadata = {
@@ -15,7 +16,6 @@ export default function RegisterPage() {
           
           {/* Left Section: Info/Marketing */}
           <div className="md:col-span-2 bg-gradient-to-br from-slate-50 to-indigo-50/50 p-8 md:p-4 md:p-12 border-b md:border-b-0 md:border-r border-slate-100 flex flex-col justify-center">
-
             <h1 className="text-3xl font-black text-slate-900 mt-2 mb-4 leading-tight">Create an Account</h1>
             <p className="text-slate-600 font-medium leading-relaxed">
               Create a standard user account and continue directly to your own secure dashboard.
@@ -54,6 +54,7 @@ export default function RegisterPage() {
 
           {/* Right Section: Form */}
           <div className="md:col-span-3 p-8 md:p-4 md:p-12 bg-white flex flex-col justify-center">
+            <BrandLogo href="/" className="mb-6 justify-center" height={42} />
             <AuthForm
               mode="register"
               fixedRole="USER"

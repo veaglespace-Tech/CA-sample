@@ -62,16 +62,16 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       
       {/* Header Block with glowing accent */}
-      <div className="bg-gradient-to-br from-indigo-50 via-white to-blue-50/30 text-white rounded-[2.5rem] p-8 shadow-[0_10px_35px_rgba(99,102,241,0.03)] relative border border-gold/20/70 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(99,102,241,0.06),transparent_50%)]"></div>
+      <div className="bg-white border border-white text-slate-900 rounded-[2.5rem] p-8 shadow-[0_8px_40px_rgba(0,0,0,0.06)] backdrop-blur-3xl relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.08),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.05),transparent_40%)]"></div>
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-indigo-100/70 rounded-full border border-gold/30/50">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-gold/5 rounded-full border border-gold/20">
               <Bell size={14} className="text-gold" />
-              <span className="text-[10px] font-black uppercase tracking-wider text-gold">Inbox & Alerts</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-gold">Inbox & Alerts</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-none text-white">My Communications</h1>
-            <p className="text-slate-400 text-xs md:text-sm font-semibold max-w-xl">
+            <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-none text-slate-900">My Communications</h1>
+            <p className="text-slate-600 text-xs md:text-sm font-semibold max-w-xl">
               Stay updated with important messages, document requests, and notifications from the compliance team.
             </p>
           </div>
@@ -80,20 +80,20 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
 
       <div className="space-y-5">
         {messages.filter(msg => msg.senderId !== user?.id).length > 0 ? messages.filter(msg => msg.senderId !== user?.id).map(msg => (
-          <div key={msg.id} className={`p-6 md:p-8 rounded-[2.5rem] border shadow-xl transition-all duration-300 relative overflow-hidden group ${msg.isRead ? 'bg-navy/90 backdrop-blur-xl border-slate-700/60 hover:shadow-2xl hover:border-slate-300/80' : 'bg-gold/10/50 backdrop-blur-xl border-gold/30/60 hover:shadow-2xl hover:border-indigo-300'}`}>
+          <div key={msg.id} className={`p-6 md:p-8 rounded-3xl border transition-all duration-500 ease-out relative overflow-hidden group hover:-translate-y-1 ${msg.isRead ? 'bg-white shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-slate-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:border-slate-200' : 'bg-gold/5 shadow-[0_8px_30px_rgba(197,160,89,0.08)] border-gold/20 hover:shadow-[0_16px_40px_rgba(197,160,89,0.15)] hover:border-gold/40'}`}>
             {/* Subtle background glow */}
-            <div className={`absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl -z-10 pointer-events-none transition-colors duration-500 ${msg.isRead ? 'bg-navy-light0/5 group-hover:bg-navy-light0/10' : 'bg-gold/10 group-hover:bg-gold/20'}`}></div>
+            <div className={`absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl -z-10 pointer-events-none transition-all duration-700 ease-out group-hover:scale-150 ${msg.isRead ? 'bg-slate-100/50 group-hover:bg-slate-200/50' : 'bg-gold/10 group-hover:bg-gold/20'}`}></div>
             <div className="flex justify-between items-start mb-4">
-               <span className="text-[10px] uppercase font-black tracking-widest text-slate-400">
+               <span className="text-[10px] uppercase font-black tracking-widest text-slate-500">
                  {new Date(msg.createdAt).toLocaleString()}
                </span>
                {!msg.isRead && msg.receiverId === user?.id && (
-                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-gold text-white shadow-md shadow-indigo-500/20">
+                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-gold text-white shadow-sm shadow-gold/20">
                    New
                  </span>
                )}
             </div>
-            <p className="text-base md:text-lg text-white font-medium leading-relaxed">{msg.content}</p>
+            <p className="text-base md:text-lg text-slate-800 font-medium leading-relaxed">{msg.content}</p>
 
             {/* Attached Documents / Shared by Admin */}
             {msg.documents && msg.documents.length > 0 && (

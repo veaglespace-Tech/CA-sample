@@ -35,16 +35,16 @@ export default function ProfileSection({
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Header Block with glowing accent */}
-      <div className="bg-gradient-to-br from-indigo-50 via-white to-blue-50/30 text-white rounded-[2.5rem] p-8 shadow-[0_10px_35px_rgba(99,102,241,0.03)] relative border border-gold/20/70 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(99,102,241,0.06),transparent_50%)]"></div>
+      <div className="bg-white border border-white text-slate-900 rounded-[2.5rem] p-8 shadow-[0_8px_40px_rgba(0,0,0,0.06)] backdrop-blur-3xl relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.08),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.05),transparent_40%)]"></div>
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-indigo-100/70 rounded-full border border-gold/30/50">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-gold/5 rounded-full border border-gold/20">
               <User size={14} className="text-gold" />
-              <span className="text-[10px] font-black uppercase tracking-wider text-gold">Account Settings</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-gold">Account Settings</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-none text-white">Your Profile</h1>
-            <p className="text-slate-400 text-xs md:text-sm font-semibold max-w-xl">
+            <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-none text-slate-900">Your Profile</h1>
+            <p className="text-slate-600 text-xs md:text-sm font-semibold max-w-xl">
               {!canChangePassword
                 ? "Manage your personal information and contact details below."
                 : isStaff
@@ -55,13 +55,13 @@ export default function ProfileSection({
         </div>
       </div>
 
-      <div className="bg-navy rounded-[2.5rem] shadow-[0_4px_25px_rgba(0,0,0,0.02)] border border-slate-800 overflow-hidden">
-        <div className="p-8 md:p-4 md:p-10">
-          <h3 className="text-lg font-black mb-8 flex items-center gap-3 text-white uppercase tracking-wide">
+      <div className="bg-white rounded-[2rem] shadow-[0_4px_30px_rgba(0,0,0,0.03)] border border-slate-100 overflow-hidden">
+        <div className="p-8 md:p-10">
+          <h3 className="text-lg font-black mb-8 flex items-center gap-3 text-slate-900 uppercase tracking-wide">
             <span className="w-1.5 h-6 bg-gold rounded-full"></span>
             Personal Details
           </h3>
-          <form onSubmit={handleSubmit} className="space-y-8 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30">
+          <form onSubmit={handleSubmit} className="space-y-8 transition-all duration-400">
             <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
 
               {/* Full Name */}
@@ -71,7 +71,7 @@ export default function ProfileSection({
                 </label>
                 <input
                   type="text"
-                  className={`w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14 ${errors.name ? 'border-rose-400 bg-rose-50 focus:border-rose-500 focus:ring-rose-100' : ''}`}
+                  className={`w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-slate-900 outline-none transition-all duration-200 focus:border-gold focus:ring-1 focus:ring-gold hover:border-slate-300 h-14 ${errors.name ? 'border-rose-400 bg-rose-50 focus:border-rose-500 focus:ring-rose-500/20' : ''}`}
                   value={profileForm.name}
                   onChange={e => {
                     setProfileForm({ ...profileForm, name: e.target.value });
@@ -89,7 +89,7 @@ export default function ProfileSection({
                 </label>
                 <input
                   type="email"
-                  className={`w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14 ${errors.email ? 'border-rose-400 bg-rose-50 focus:border-rose-500 focus:ring-rose-100' : ''}`}
+                  className={`w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-slate-900 outline-none transition-all duration-200 focus:border-gold focus:ring-1 focus:ring-gold hover:border-slate-300 h-14 ${errors.email ? 'border-rose-400 bg-rose-50 focus:border-rose-500 focus:ring-rose-500/20' : ''}`}
                   value={profileForm.email}
                   onChange={e => {
                     setProfileForm({ ...profileForm, email: e.target.value });

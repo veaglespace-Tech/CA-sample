@@ -2,6 +2,7 @@ import { Lexend } from "next/font/google";
 import "../styles/globals.css";
 import SiteHeader from "../components/layout/SiteHeader";
 import SiteFooter from "../components/layout/SiteFooter";
+import MainContentWrapper from "../components/layout/MainContentWrapper";
 import Providers from "./providers";
 import { Toaster } from "react-hot-toast";
 
@@ -13,6 +14,9 @@ const lexend = Lexend({
 });
 
 export const metadata = {
+  icons: {
+    icon: "/veagle-logo.webp",
+  },
   title: {
     default: "Veagle Space Technology — Online Company Registration, GST & Legal Services in India",
     template: "%s | Veagle Space Technology",
@@ -114,7 +118,7 @@ export default function RootLayout({ children }) {
         />
         <Providers>
           <SiteHeader />
-          <main className="pt-[80px] lg:pt-[112px] min-h-screen">{children}</main>
+          <MainContentWrapper>{children}</MainContentWrapper>
           <SiteFooter />
         </Providers>
       </body>
