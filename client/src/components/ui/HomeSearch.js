@@ -154,7 +154,7 @@ export default function HomeSearch() {
         <form
           className={`vx-search-form relative flex items-center gap-2 sm:gap-3 overflow-hidden bg-white p-1.5 pl-4 sm:pl-7 transition-all duration-300 ${
             active
-              ? "rounded-[1.5rem] sm:rounded-full border border-gold/30 shadow-2xl shadow-blue-500/20"
+              ? "rounded-[1.5rem] sm:rounded-full border border-gold/30 shadow-2xl shadow-gold/20"
               : "rounded-[1.5rem] sm:rounded-full border border-slate-200/80 shadow-lg hover:border-blue-300/50 hover:shadow-xl"
           }`}
           role="search"
@@ -219,7 +219,7 @@ export default function HomeSearch() {
                 }`}
               >
                 <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-sm transition-colors ${
-                  selectedIndex === index ? "bg-gradient-to-br from-blue-500 to-indigo-500 text-white shadow-md shadow-blue-500/20" : "bg-slate-100 text-slate-500"
+                  selectedIndex === index ? "bg-gradient-to-br from-blue-500 to-indigo-500 text-white shadow-md shadow-gold/20" : "bg-slate-100 text-slate-500"
                 }`}>
                   {item.icon ? (
                     <img src={item.icon} alt="" className={`h-5 w-5 ${selectedIndex === index ? "brightness-0 invert" : ""}`} />

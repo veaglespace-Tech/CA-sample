@@ -237,7 +237,7 @@ export default function GstCalculator() {
                 Our chartered accountants can help you register for GST and file your monthly/quarterly returns seamlessly.
               </p>
             </div>
-            <Link href="/gst-registration" className="shrink-0 flex items-center gap-2 bg-gold text-white px-6 py-3.5 rounded-sm font-bold hover:bg-gold hover:shadow-lg hover:shadow-blue-500/30 transition-all active:scale-95">
+            <Link href="/gst-registration" className="shrink-0 flex items-center gap-2 bg-gold text-white px-6 py-3.5 rounded-sm font-bold hover:bg-gold hover:shadow-lg hover:shadow-gold/30 transition-all active:scale-95">
               Apply for GST Registration <ArrowRight size={18} />
             </Link>
           </div>

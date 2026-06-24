@@ -155,14 +155,14 @@ export default function ClientChatbot() {
             {messages.map((message) => (
               <div key={message.id} className={`flex ${message.from === "user" ? "justify-end" : "justify-start"} animate-in fade-in slide-in-from-bottom-2`}>
                 {message.from === "bot" && (
-                  <div className="mr-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-gold mt-1">
+                  <div className="mr-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold mt-1">
                     <Bot size={14} />
                   </div>
                 )}
                 <div
                   className={`max-w-[85%] rounded-none px-4 py-3 text-[13px] leading-relaxed shadow-sm ${
                     message.from === "user"
-                      ? "rounded-tr-sm bg-gradient-to-br from-indigo-600 to-blue-600 text-white font-medium shadow-indigo-600/20"
+                      ? "rounded-tr-sm bg-gradient-to-br from-gold to-[#d29052] text-white font-medium shadow-indigo-600/20"
                       : "rounded-tl-sm border border-slate-100 bg-white text-slate-700"
                   }`}
                 >
@@ -174,7 +174,7 @@ export default function ClientChatbot() {
                          <Link
                           key={link.href}
                           href={link.href}
-                          className="group inline-flex items-center justify-between gap-2 rounded-sm border border-indigo-50 bg-gold/10/50 px-3 py-2.5 text-[11px] font-black text-gold transition-all hover:border-gold/30 hover:bg-indigo-100 hover:shadow-sm"
+                          className="group inline-flex items-center justify-between gap-2 rounded-sm border border-indigo-50 bg-gold/10/50 px-3 py-2.5 text-[11px] font-black text-gold transition-all hover:border-gold/30 hover:bg-gold/20 hover:shadow-sm"
                           onClick={() => setOpen(false)}
                         >
                           <span className="truncate">{link.label}</span>
@@ -192,7 +192,7 @@ export default function ClientChatbot() {
             {/* Typing Indicator */}
             {isTyping && (
               <div className="flex justify-start animate-in fade-in">
-                <div className="mr-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-gold mt-1">
+                <div className="mr-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold mt-1">
                   <Bot size={14} />
                 </div>
                 <div className="rounded-none rounded-tl-sm border border-slate-100 bg-white px-4 py-3 shadow-sm flex items-center gap-1.5 h-[42px] transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
@@ -229,7 +229,7 @@ export default function ClientChatbot() {
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask me anything..."
-                className="w-full rounded-none border border-slate-200 bg-slate-50 py-3.5 pl-4 pr-12 text-[13px] font-semibold text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-300 focus:bg-white focus:ring-4 focus:ring-indigo-100/50"
+                className="w-full rounded-none border border-slate-200 bg-slate-50 py-3.5 pl-4 pr-12 text-[13px] font-semibold text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-gold focus:bg-white focus:ring-4 focus:ring-gold/30/50"
               />
               <button
                 type="submit"

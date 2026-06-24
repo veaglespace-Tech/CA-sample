@@ -55,7 +55,7 @@ export default function MessagingForm({
               value={messageText}
               onChange={(e) => setMessageText(e.target.value)}
               placeholder="Compose a professional update for the client..."
-              className="min-h-[180px] w-full rounded-[2rem] border border-slate-700 bg-navy-light px-6 py-5 text-[1rem] font-medium leading-relaxed text-white outline-none transition-all placeholder:text-slate-400 focus:border-indigo-400 focus:bg-navy focus:ring-4 focus:ring-indigo-100"
+              className="min-h-[180px] w-full rounded-[2rem] border border-slate-700 bg-navy-light px-6 py-5 text-[1rem] font-medium leading-relaxed text-white outline-none transition-all placeholder:text-slate-400 focus:border-gold focus:bg-navy focus:ring-4 focus:ring-gold/30"
             />
           </div>
 
@@ -101,7 +101,7 @@ export default function MessagingForm({
                         <input
                           type="text"
                           placeholder="e.g. GST Certificate"
-                          className="h-14 w-full rounded-none border border-gold/30 bg-navy px-5 pr-12 text-sm font-bold text-white outline-none shadow-sm transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                          className="h-14 w-full rounded-none border border-gold/30 bg-navy px-5 pr-12 text-sm font-bold text-white outline-none shadow-sm transition-all placeholder:text-slate-400 focus:border-gold focus:ring-4 focus:ring-gold/30"
                           value={requestedDocName}
                           onChange={(e) => setRequestedDocName(e.target.value)}
                         />

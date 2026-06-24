@@ -18,8 +18,8 @@ export const metadata = {
     icon: "/veagle-logo.webp",
   },
   title: {
-    default: "Veagle Space Technology — Online Company Registration, GST & Legal Services in India",
-    template: "%s | Veagle Space Technology",
+    default: "Business Registration — Online Company Registration, GST & Legal Services in India",
+    template: "%s | Business Registration",
   },
   description:
     "Veagle Space Technology is India's premier platform for online company registration, GST filing, trademark registration, income tax returns, and top-tier legal and CA consultations. Trusted by 15,000+ growing businesses.",

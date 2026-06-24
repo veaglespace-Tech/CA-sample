@@ -34,7 +34,7 @@ function PaymentRow({ payment, onEmail, onMessage }) {
               <div className="font-extrabold text-slate-900 text-sm leading-tight flex items-center">
                 {payment.user?.name || payment.customerName || "Guest User"}
                 {payment.user ? (
-                  <span className="ml-2 text-[9px] bg-indigo-100 text-gold px-1.5 py-0.5 rounded-full font-bold">Registered Client</span>
+                  <span className="ml-2 text-[9px] bg-gold/20 text-gold px-1.5 py-0.5 rounded-full font-bold">Registered Client</span>
                 ) : (
                   <span className="ml-2 text-[9px] bg-slate-50 text-slate-500 px-1.5 py-0.5 rounded-full font-bold">Guest User</span>
                 )}
@@ -84,7 +84,7 @@ function PaymentRow({ payment, onEmail, onMessage }) {
             </button>
             <button 
               onClick={() => onMessage && onMessage(payment)}
-              className="px-3 py-1 bg-indigo-100 text-gold hover:bg-indigo-200 text-[10px] font-bold rounded-sm transition-colors flex items-center gap-1"
+              className="px-3 py-1 bg-gold/20 text-gold hover:bg-indigo-200 text-[10px] font-bold rounded-sm transition-colors flex items-center gap-1"
             >
               <MessageSquare size={12} /> System Message
             </button>

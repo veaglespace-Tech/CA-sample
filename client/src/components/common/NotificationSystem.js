@@ -108,7 +108,7 @@ export default function NotificationSystem({ user, isStaff, onNavigateToMessages
         <button
           id="vs-notification-bell"
           type="button"
-          className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/50 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-500 text-white shadow-[0_10px_24px_rgba(79,70,229,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:shadow-[0_14px_28px_rgba(79,70,229,0.32)] focus:outline-none focus:ring-4 focus:ring-indigo-100"
+          className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/50 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-500 text-white shadow-[0_10px_24px_rgba(79,70,229,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:shadow-[0_14px_28px_rgba(79,70,229,0.32)] focus:outline-none focus:ring-4 focus:ring-gold/30"
           onClick={() => setShowNotifications(!showNotifications)}
           aria-label="Toggle notifications"
         >

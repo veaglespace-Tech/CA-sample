@@ -275,8 +275,25 @@ async function upsertRichService(prisma, { categoryName, subcategoryName, servic
 
 export async function seedServiceCatalog(prisma) {
   const catalogEntries = Object.entries(serviceData);
+  const targetServiceSlugs = new Set([
+    ...catalogEntries.map(([slug]) => slug),
+    ...DOCUMENTATION_SERVICE_SEED.map((service) => service.slug),
+  ]);
+  const targetSubcategorySlugs = new Set([
+    ...catalogEntries.map(([, service]) => normalizeSlug(service.category || "General")),
+    normalizeSlug("Document Drafting"),
+  ]);
   const seededCategories = new Set();
   const allowedCategorySlugs = new Set(TAB_ORDER.map((tab) => normalizeSlug(tab)));
+
+  await prisma.purchasePlan.deleteMany({});
+  await prisma.service.deleteMany({
+    where: {
+      slug: {
+        notIn: [...targetServiceSlugs],
+      },
+    },
+  });
 
   for (const [index, [slug, service]] of catalogEntries.entries()) {
     const tabCategory = getTabName(service.category);
@@ -330,6 +347,25 @@ export async function seedServiceCatalog(prisma) {
     await prisma.serviceCategory.deleteMany({
       where: {
         id: { in: extraCategoryIds },
+      },
+    });
+  }
+
+  const allowedCategories = await prisma.serviceCategory.findMany({
+    where: {
+      slug: {
+        in: [...allowedCategorySlugs],
+      },
+    },
+    select: { id: true },
+  });
+
+  if (allowedCategories.length > 0) {
+    const allowedCategoryIds = allowedCategories.map((category) => category.id);
+    await prisma.serviceSubcategory.deleteMany({
+      where: {
+        categoryId: { in: allowedCategoryIds },
+        slug: { notIn: [...targetSubcategorySlugs] },
       },
     });
   }

@@ -277,7 +277,7 @@ function LawyerConsultForm() {
           </div>
         </label>
 
-        <button type="submit" className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-4 rounded-sm font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all active:scale-[0.98] mt-2" disabled={saving}>
+        <button type="submit" className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-4 rounded-sm font-bold hover:shadow-lg hover:shadow-gold/30 transition-all active:scale-[0.98] mt-2" disabled={saving}>
           {saving ? "Processing..." : "Book An Appointment Now"}
         </button>
       </form>

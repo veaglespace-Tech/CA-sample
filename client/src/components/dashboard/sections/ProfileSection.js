@@ -167,7 +167,7 @@ export default function ProfileSection({
                       required={!!profileForm.password}
                       showStrength={false}
                       error={errors.oldPassword || undefined}
-                      inputClassName="w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14"
+                      inputClassName="w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-gold focus:ring-4 focus:ring-gold/30/50 hover:border-slate-300 h-14"
                     />
                   </div>
 
@@ -187,7 +187,7 @@ export default function ProfileSection({
                       required={false}
                       showStrength={true}
                       error={pwdError || errors.password || undefined}
-                      inputClassName="w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100/50 hover:border-slate-300 h-14"
+                      inputClassName="w-full rounded-none border border-slate-700 bg-navy-light/50 px-4 py-3 text-sm font-bold text-white outline-none transition-all duration-200 focus:border-gold focus:ring-4 focus:ring-gold/30/50 hover:border-slate-300 h-14"
                     />
                   </div>
                 </div>

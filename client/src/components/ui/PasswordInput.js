@@ -66,7 +66,7 @@ export default function PasswordInput({
               ? "border-rose-300 bg-rose-50/20 focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10"
               : value && !error && touched
                 ? "border-emerald-300 bg-emerald-50/20 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10"
-                : "border-slate-200 bg-white hover:border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-gold/10"
+                : "border-slate-200 bg-white hover:border-slate-300 focus:border-gold focus:ring-4 focus:ring-gold/10"
             }
             ${inputClassName}`}
         />

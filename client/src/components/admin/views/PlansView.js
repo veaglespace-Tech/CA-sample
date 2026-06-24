@@ -228,7 +228,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
               <div className={controlShellClass}>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-amber-400/0 to-indigo-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="relative flex items-center">
-                  <Search size={16} className="pointer-events-none absolute left-4 text-slate-400 transition-colors duration-300 group-hover:text-indigo-500" />
+                  <Search size={16} className="pointer-events-none absolute left-4 text-slate-400 transition-colors duration-300 group-hover:text-gold" />
                   <input
                     type="text"
                     value={searchTerm}

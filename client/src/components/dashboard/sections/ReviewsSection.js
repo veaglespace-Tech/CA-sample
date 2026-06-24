@@ -91,16 +91,16 @@ function ServiceSearchDropdown({ value, onChange }) {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-2 px-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-semibold text-slate-200 hover:border-indigo-300 focus:outline-none focus:border-indigo-400 transition-all"
+        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-semibold text-slate-700 hover:border-gold focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
       >
-        <span className={selected ? "text-white" : "text-slate-400"}>
+        <span className={selected ? "text-slate-900" : "text-slate-400"}>
           {selected ? selected.label : "Search & select a service..."}
         </span>
         <ChevronDown size={16} className={`shrink-0 text-slate-400 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-navy border border-slate-700 rounded-sm shadow-2xl shadow-slate-900/10 overflow-hidden transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
-          <div className="p-2 border-b border-slate-800">
+        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden transition-all duration-300">
+          <div className="p-2 border-b border-slate-100">
             <div className="relative">
               <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
@@ -108,7 +108,7 @@ function ServiceSearchDropdown({ value, onChange }) {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Type to search services..."
-                className="w-full pl-8 pr-3 py-2 text-sm bg-navy-light border border-slate-700 rounded-sm focus:outline-none focus:border-indigo-300"
+                className="w-full pl-8 pr-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold focus:bg-white"
                 autoFocus
               />
             </div>
@@ -117,7 +117,7 @@ function ServiceSearchDropdown({ value, onChange }) {
             <button
               type="button"
               onClick={() => { onChange(""); setOpen(false); setSearch(""); }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-sm text-slate-400 hover:bg-navy-light transition-colors"
+              className="w-full flex items-center gap-3 px-4 py-3 text-sm text-slate-500 hover:bg-slate-50 transition-colors"
             >
               <Globe size={14} />
               <span>General Review (not service-specific)</span>
@@ -127,7 +127,7 @@ function ServiceSearchDropdown({ value, onChange }) {
                 key={s.slug}
                 type="button"
                 onClick={() => { onChange(s.slug); setOpen(false); setSearch(""); }}
-                className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-gold/10 transition-colors text-left ${value === s.slug ? "bg-gold/10 text-gold font-bold" : "text-slate-200 font-medium"}`}
+                className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-gold/5 transition-colors text-left ${value === s.slug ? "bg-gold/10 text-gold font-bold" : "text-slate-600 font-medium"}`}
               >
                 <Building2 size={14} className="shrink-0" />
                 <span>{s.label}</span>
@@ -241,17 +241,17 @@ export default function ReviewsSection() {
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-2">
+          <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
             <Star className="text-amber-400 fill-amber-400" size={24} />
             Reviews & Testimonials
           </h2>
-          <p className="text-sm font-medium text-slate-400 mt-1">
+          <p className="text-sm font-medium text-slate-500 mt-1">
             Manage customer reviews — link them to specific services or mark as general.
           </p>
         </div>
         <button
           onClick={openCreate}
-          className="flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-5 py-2.5 rounded-sm font-bold text-sm shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-300"
+          className="flex items-center gap-2 bg-gradient-to-r from-gold to-[#d29052] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-gold/20 hover:shadow-gold/30 hover:-translate-y-0.5 transition-all duration-300"
         >
           <Plus size={18} />
           Add Review
@@ -267,14 +267,14 @@ export default function ReviewsSection() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by name, text, service..."
-            className="w-full pl-10 pr-4 py-2.5 bg-navy border border-slate-700 rounded-sm text-sm font-medium focus:outline-none focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 transition-all"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
           />
         </div>
         <ServiceSearchDropdown value={filterSlug} onChange={setFilterSlug} />
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="px-4 py-2.5 bg-navy border border-slate-700 rounded-sm text-sm font-semibold text-slate-200 focus:outline-none focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 transition-all"
+          className="px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-semibold text-slate-700 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
         >
           <option value="">All Statuses</option>
           <option value="PUBLISHED">Published</option>
@@ -284,11 +284,11 @@ export default function ReviewsSection() {
       </div>
 
       {/* Stats bar */}
-      <div className="flex items-center gap-3 text-sm text-slate-400 font-medium px-1">
+      <div className="flex items-center gap-3 text-sm text-slate-500 font-medium px-1">
         <span>
-          Showing <strong className="text-white">{reviews.length}</strong> reviews
+          Showing <strong className="text-slate-900">{reviews.length}</strong> reviews
           {selectedServiceLabel && <span className="ml-1 text-gold">for &quot;{selectedServiceLabel}&quot;</span>}
-          {filterStatus && <span className="ml-1">· Status: <strong className="text-slate-200">{filterStatus}</strong></span>}
+          {filterStatus && <span className="ml-1">· Status: <strong className="text-slate-700">{filterStatus}</strong></span>}
         </span>
         {(filterSlug || filterStatus || search) && (
           <button
@@ -304,17 +304,17 @@ export default function ReviewsSection() {
       {isLoading || isFetching ? (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="bg-navy rounded-none p-6 border border-slate-800 shadow-sm animate-pulse h-48 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50" />
+            <div key={i} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm animate-pulse h-48" />
           ))}
         </div>
       ) : reviews.length === 0 ? (
-        <div className="bg-navy rounded-none border-2 border-dashed border-slate-700 p-4 md:p-16 text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
-          <Star size={40} className="mx-auto text-slate-200 mb-4" />
-          <h3 className="text-lg font-black text-slate-200">No Reviews Found</h3>
-          <p className="text-sm text-slate-400 font-medium mt-1">Add your first review to get started.</p>
+        <div className="bg-slate-50 rounded-2xl border-2 border-dashed border-slate-300 p-4 md:p-16 text-center">
+          <Star size={40} className="mx-auto text-slate-300 mb-4" />
+          <h3 className="text-lg font-black text-slate-800">No Reviews Found</h3>
+          <p className="text-sm text-slate-500 font-medium mt-1">Add your first review to get started.</p>
           <button
             onClick={openCreate}
-            className="mt-5 inline-flex items-center gap-2 bg-gold text-white px-5 py-2.5 rounded-sm font-bold text-sm hover:-translate-y-0.5 transition-all"
+            className="mt-5 inline-flex items-center gap-2 bg-gradient-to-r from-gold to-[#d29052] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md hover:-translate-y-0.5 transition-all"
           >
             <Plus size={16} /> Add Review
           </button>
@@ -324,7 +324,7 @@ export default function ReviewsSection() {
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="group bg-navy rounded-none p-6 border border-slate-800 shadow-sm hover:shadow-md hover:border-slate-700 transition-all duration-300 flex flex-col h-full transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50"
+              className="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-gold/50 flex flex-col h-full transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1),0_0_20px_rgba(210,144,82,0.05)]"
             >
               {/* Stars + Status */}
               <div className="flex items-center justify-between mb-4">
@@ -333,7 +333,7 @@ export default function ReviewsSection() {
                     <Star
                       key={s}
                       size={15}
-                      className={s <= review.rating ? "fill-amber-400 text-amber-400" : "fill-slate-100 text-slate-200"}
+                      className={s <= review.rating ? "fill-amber-400 text-amber-400" : "fill-slate-200 text-slate-300"}
                     />
                   ))}
                 </div>
@@ -341,7 +341,7 @@ export default function ReviewsSection() {
                   <span className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border ${
                     review.status === "PUBLISHED" ? "bg-emerald-50 text-emerald-700 border-emerald-200" :
                     review.status === "DRAFT" ? "bg-amber-50 text-amber-700 border-amber-200" :
-                    "bg-navy-light text-slate-400 border-slate-700"
+                    "bg-slate-100 text-slate-500 border-slate-200"
                   }`}>
                     {review.status}
                   </span>
@@ -349,7 +349,7 @@ export default function ReviewsSection() {
               </div>
 
               {/* Review Text */}
-              <p className="text-sm font-semibold leading-relaxed text-slate-300 flex-1 line-clamp-3 mb-4">
+              <p className="text-sm font-semibold leading-relaxed text-slate-600 flex-1 line-clamp-3 mb-4">
                 &quot;{review.text}&quot;
               </p>
 
@@ -357,7 +357,7 @@ export default function ReviewsSection() {
               {review.serviceSlug && (
                 <div className="flex items-center gap-1.5 mb-3">
                   <Building2 size={12} className="text-gold shrink-0" />
-                  <span className="text-[11px] font-bold text-gold bg-gold/10 px-2.5 py-0.5 rounded-full truncate max-w-full">
+                  <span className="text-[11px] font-bold text-gold bg-gold/10 px-2.5 py-0.5 rounded-full truncate max-w-full border border-gold/20">
                     {review.service || review.serviceSlug}
                   </span>
                 </div>
@@ -365,28 +365,28 @@ export default function ReviewsSection() {
               {!review.serviceSlug && review.isGeneral && (
                 <div className="flex items-center gap-1.5 mb-3">
                   <Globe size={12} className="text-slate-400 shrink-0" />
-                  <span className="text-[11px] font-bold text-slate-400">General Review</span>
+                  <span className="text-[11px] font-bold text-slate-500">General Review</span>
                 </div>
               )}
 
               {/* Reviewer */}
-              <div className="flex items-center justify-between border-t border-slate-50 pt-3 mt-auto">
+              <div className="flex items-center justify-between border-t border-slate-100 pt-3 mt-auto">
                 <div>
-                  <div className="text-sm font-extrabold text-white">{review.name}</div>
-                  <div className="text-[11px] text-slate-400 font-medium">
+                  <div className="text-sm font-extrabold text-slate-900">{review.name}</div>
+                  <div className="text-[11px] text-slate-500 font-medium">
                     {[review.company, review.location].filter(Boolean).join(", ")}
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <button
                     onClick={() => openEdit(review)}
-                    className="p-2 rounded-sm bg-navy-light border border-slate-700 text-slate-400 hover:bg-gold/10 hover:text-gold hover:border-gold/30 transition-all"
+                    className="p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-500 hover:bg-gold/10 hover:text-gold hover:border-gold/30 transition-all"
                   >
                     <Pencil size={14} />
                   </button>
                   <button
                     onClick={() => setDeleteConfirm(review)}
-                    className="p-2 rounded-sm bg-navy-light border border-slate-700 text-slate-400 hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all"
+                    className="p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-500 hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all"
                   >
                     <Trash2 size={14} />
                   </button>
@@ -400,29 +400,29 @@ export default function ReviewsSection() {
       {/* ── Create/Edit Modal ─────────────────────────────────────── */}
       {showForm && (
         <div className="fixed inset-0 z-[1100] flex items-start justify-center bg-slate-900/60 backdrop-blur-sm p-4 overflow-y-auto">
-          <div className="relative bg-navy rounded-[2rem] shadow-2xl w-full max-w-2xl my-8 animate-in slide-in-from-bottom-8 fade-in duration-400">
+          <div className="relative bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl my-8 animate-in slide-in-from-bottom-8 fade-in duration-400">
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-8 py-6 border-b border-slate-800">
+            <div className="flex items-center justify-between px-8 py-6 border-b border-slate-100">
               <div>
-                <h3 className="text-xl font-black text-white">
+                <h3 className="text-xl font-black text-slate-900">
                   {editing ? "Edit Review" : "Add New Review"}
                 </h3>
-                <p className="text-sm text-slate-400 font-medium mt-0.5">
+                <p className="text-sm text-slate-500 font-medium mt-0.5">
                   {editing ? "Update the review details below." : "Fill in the fields to add a customer review."}
                 </p>
               </div>
               <button
                 onClick={() => { setShowForm(false); setEditing(null); }}
-                className="p-2 rounded-sm bg-navy-light text-slate-400 hover:bg-navy-light transition-colors"
+                className="p-2 rounded-lg bg-slate-50 text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
               >
                 <X size={18} />
               </button>
             </div>
 
-            <form onSubmit={handleSave} className="p-8 space-y-6 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30">
+            <form onSubmit={handleSave} className="p-8 space-y-6">
               {/* Star Rating */}
               <div className="space-y-2">
-                <label className="block text-xs font-black uppercase tracking-wider text-slate-300">
+                <label className="block text-xs font-black uppercase tracking-wider text-slate-500">
                   Star Rating *
                 </label>
                 <StarRating
@@ -430,12 +430,12 @@ export default function ReviewsSection() {
                   onChange={(v) => setForm((f) => ({ ...f, rating: v }))}
                   size={36}
                 />
-                <p className="text-xs text-slate-400 font-medium">{form.rating} out of 5 stars</p>
+                <p className="text-xs text-slate-500 font-medium">{form.rating} out of 5 stars</p>
               </div>
 
               {/* Review Text */}
               <div className="space-y-2">
-                <label className="block text-xs font-black uppercase tracking-wider text-slate-300">
+                <label className="block text-xs font-black uppercase tracking-wider text-slate-500">
                   Review Text *
                 </label>
                 <textarea
@@ -443,7 +443,7 @@ export default function ReviewsSection() {
                   onChange={(e) => setForm((f) => ({ ...f, text: e.target.value }))}
                   placeholder="Write the customer's review here..."
                   rows={4}
-                  className="w-full px-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-medium text-white placeholder:text-slate-400 focus:outline-none focus:border-indigo-300 focus:bg-navy focus:ring-2 focus:ring-indigo-100 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20 transition-all resize-none"
                   required
                 />
               </div>
@@ -451,7 +451,7 @@ export default function ReviewsSection() {
               {/* 2-col: Name + Company */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300">
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-500">
                     Customer Name *
                   </label>
                   <div className="relative">
@@ -462,12 +462,12 @@ export default function ReviewsSection() {
                       onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                       placeholder="Rahul Sharma"
                       required
-                      className="w-full pl-9 pr-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-medium text-white placeholder:text-slate-400 focus:outline-none focus:border-indigo-300 focus:bg-navy focus:ring-2 focus:ring-indigo-100 transition-all"
+                      className="w-full pl-9 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20 transition-all"
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300">
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-500">
                     Company / Role
                   </label>
                   <div className="relative">
@@ -477,7 +477,7 @@ export default function ReviewsSection() {
                       value={form.company}
                       onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))}
                       placeholder="CEO, ABC Pvt Ltd"
-                      className="w-full pl-9 pr-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-medium text-white placeholder:text-slate-400 focus:outline-none focus:border-indigo-300 focus:bg-navy focus:ring-2 focus:ring-indigo-100 transition-all"
+                      className="w-full pl-9 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20 transition-all"
                     />
                   </div>
                 </div>
@@ -485,7 +485,7 @@ export default function ReviewsSection() {
 
               {/* Location */}
               <div className="space-y-2">
-                <label className="block text-xs font-black uppercase tracking-wider text-slate-300">
+                <label className="block text-xs font-black uppercase tracking-wider text-slate-500">
                   Location (City)
                 </label>
                 <div className="relative">
@@ -495,14 +495,14 @@ export default function ReviewsSection() {
                     value={form.location}
                     onChange={(e) => setForm((f) => ({ ...f, location: e.target.value }))}
                     placeholder="Mumbai, India"
-                    className="w-full pl-9 pr-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-medium text-white placeholder:text-slate-400 focus:outline-none focus:border-indigo-300 focus:bg-navy focus:ring-2 focus:ring-indigo-100 transition-all"
+                    className="w-full pl-9 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20 transition-all"
                   />
                 </div>
               </div>
 
               {/* Service Selector */}
               <div className="space-y-2">
-                <label className="block text-xs font-black uppercase tracking-wider text-slate-300">
+                <label className="block text-xs font-black uppercase tracking-wider text-slate-500">
                   Link to Service <span className="font-normal text-slate-400 normal-case">(optional — leave blank for general review)</span>
                 </label>
                 <ServiceSearchDropdown
@@ -520,7 +520,7 @@ export default function ReviewsSection() {
                   </p>
                 )}
                 {!form.serviceSlug && (
-                  <p className="text-xs text-slate-400 font-medium flex items-center gap-1.5 mt-1">
+                  <p className="text-xs text-slate-500 font-medium flex items-center gap-1.5 mt-1">
                     <Globe size={12} /> This is a general review — will appear on the main Reviews page and homepage.
                   </p>
                 )}
@@ -529,13 +529,13 @@ export default function ReviewsSection() {
               {/* Status + Sort Order */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300">
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-500">
                     Status
                   </label>
                   <select
                     value={form.status}
                     onChange={(e) => setForm((f) => ({ ...f, status: e.target.value }))}
-                    className="w-full px-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-semibold text-slate-200 focus:outline-none focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-800 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                   >
                     <option value="PUBLISHED">Published (visible)</option>
                     <option value="DRAFT">Draft (hidden)</option>
@@ -543,7 +543,7 @@ export default function ReviewsSection() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300">
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-500">
                     Sort Order
                   </label>
                   <input
@@ -552,24 +552,24 @@ export default function ReviewsSection() {
                     value={form.sortOrder}
                     onChange={(e) => setForm((f) => ({ ...f, sortOrder: e.target.value }))}
                     placeholder="0"
-                    className="w-full px-4 py-3 bg-navy-light border border-slate-700 rounded-sm text-sm font-medium text-white focus:outline-none focus:border-indigo-300 focus:bg-navy focus:ring-2 focus:ring-indigo-100 transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20 transition-all"
                   />
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="flex items-center justify-end gap-3 pt-2 border-t border-slate-800">
+              <div className="flex items-center justify-end gap-3 pt-2 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => { setShowForm(false); setEditing(null); }}
-                  className="px-5 py-2.5 rounded-sm border border-slate-700 text-sm font-bold text-slate-300 hover:bg-navy-light transition-colors"
+                  className="px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-bold text-slate-600 hover:bg-slate-50 transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="flex items-center gap-2 px-6 py-2.5 rounded-sm bg-gradient-to-r from-indigo-600 to-blue-600 text-white text-sm font-black shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/35 hover:-translate-y-0.5 disabled:opacity-60 disabled:pointer-events-none transition-all duration-300"
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-gold to-[#d29052] text-white text-sm font-black shadow-md hover:-translate-y-0.5 disabled:opacity-60 disabled:pointer-events-none transition-all duration-300"
                 >
                   {isSaving ? (
                     <span className="flex items-center gap-2">
@@ -589,25 +589,25 @@ export default function ReviewsSection() {
       {/* ── Delete Confirm Modal ──────────────────────────────────── */}
       {deleteConfirm && (
         <div className="fixed inset-0 z-[1200] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
-          <div className="bg-navy rounded-none shadow-2xl w-full max-w-sm p-8 text-center animate-in zoom-in-95 fade-in duration-300">
-            <div className="w-14 h-14 bg-rose-100 rounded-none flex items-center justify-center mx-auto mb-4">
+          <div className="bg-white rounded-3xl shadow-2xl w-full max-w-sm p-8 text-center animate-in zoom-in-95 fade-in duration-300">
+            <div className="w-14 h-14 bg-rose-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-rose-100">
               <Trash2 size={24} className="text-rose-600" />
             </div>
-            <h3 className="text-xl font-black text-white mb-2">Delete Review?</h3>
-            <p className="text-sm text-slate-400 font-medium mb-6">
-              Review by <strong className="text-slate-200">&quot;{deleteConfirm.name}&quot;</strong> will be permanently removed.
+            <h3 className="text-xl font-black text-slate-900 mb-2">Delete Review?</h3>
+            <p className="text-sm text-slate-500 font-medium mb-6">
+              Review by <strong className="text-slate-800">&quot;{deleteConfirm.name}&quot;</strong> will be permanently removed.
             </p>
             <div className="flex gap-3">
               <button
                 onClick={() => setDeleteConfirm(null)}
-                className="flex-1 py-3 rounded-sm border border-slate-700 text-sm font-bold text-slate-300 hover:bg-navy-light transition-colors"
+                className="flex-1 py-3 rounded-xl border border-slate-200 text-sm font-bold text-slate-600 hover:bg-slate-50 transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={() => handleDelete(deleteConfirm.id)}
                 disabled={isDeleting}
-                className="flex-1 py-3 rounded-sm bg-rose-600 text-white text-sm font-black hover:bg-rose-700 disabled:opacity-50 transition-colors"
+                className="flex-1 py-3 rounded-xl bg-rose-600 text-white text-sm font-black hover:bg-rose-700 shadow-md shadow-rose-600/20 disabled:opacity-50 transition-colors"
               >
                 {isDeleting ? "Deleting..." : "Yes, Delete"}
               </button>

@@ -32,7 +32,7 @@ export default function RegisterPage() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="p-1.5 bg-indigo-100 text-gold rounded-sm shrink-0 mt-0.5">
+                <div className="p-1.5 bg-gold/20 text-gold rounded-sm shrink-0 mt-0.5">
                   <ShieldCheck size={16} />
                 </div>
                 <div>

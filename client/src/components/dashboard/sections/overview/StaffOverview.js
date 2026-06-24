@@ -129,11 +129,11 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
 
   const toneClasses = {
     blue: { gradient: "from-blue-50 to-cyan-50", border: "border-blue-100", text: "text-gold", iconBg: "bg-gold/100" },
-    amber: { gradient: "from-amber-50 to-orange-50", border: "border-amber-100", text: "text-amber-600", iconBg: "bg-amber-500" },
-    emerald: { gradient: "from-emerald-50 to-teal-50", border: "border-emerald-100", text: "text-emerald-600", iconBg: "bg-emerald-500" },
-    indigo: { gradient: "from-indigo-50 to-blue-50", border: "border-gold/20", text: "text-gold", iconBg: "bg-gold" },
-    violet: { gradient: "from-violet-50 to-fuchsia-50", border: "border-violet-100", text: "text-violet-600", iconBg: "bg-violet-500" },
-    rose: { gradient: "from-rose-50 to-pink-50", border: "border-rose-100", text: "text-rose-600", iconBg: "bg-rose-500" },
+    amber: { gradient: "from-amber-50 to-orange-50", border: "border-amber-100", text: "text-gold", iconBg: "bg-gold/100" },
+    emerald: { gradient: "from-emerald-50 to-teal-50", border: "border-emerald-100", text: "text-gold", iconBg: "bg-gold/100" },
+    indigo: { gradient: "from-gold to-[#d29052]", border: "border-gold/20", text: "text-gold", iconBg: "bg-gold/100" },
+    violet: { gradient: "from-violet-50 to-fuchsia-50", border: "border-violet-100", text: "text-gold", iconBg: "bg-gold/100" },
+    rose: { gradient: "from-rose-50 to-pink-50", border: "border-rose-100", text: "text-gold", iconBg: "bg-gold/100" },
   };
 
   return (
@@ -165,7 +165,7 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
           {filterStatus !== "ALL" && (
             <button
               onClick={() => setFilterStatus("ALL")}
-              className="w-fit rounded-sm bg-gold/10 px-3 py-1.5 text-xs font-black uppercase tracking-wider text-gold transition hover:bg-indigo-100"
+              className="w-fit rounded-sm bg-gold/10 px-3 py-1.5 text-xs font-black uppercase tracking-wider text-gold transition hover:bg-gold/20"
             >
               Clear Filter
             </button>
@@ -278,6 +278,8 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
                 </tbody>
               </table>
             </div>
+          </div>
+          <div className="mt-4">
             <PaginationControls
               totalItems={filteredLeads.length}
               page={activityPage}

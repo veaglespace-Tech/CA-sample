@@ -99,7 +99,7 @@ export default function DocumentsSection({ myServicesList = [], myMessages = [] 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(99,102,241,0.06),transparent_50%)]"></div>
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-indigo-100/70 rounded-full border border-gold/30/50">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-gold/20/70 rounded-full border border-gold/30/50">
               <ShieldCheck size={14} className="text-gold" />
               <span className="text-[10px] font-black uppercase tracking-wider text-gold">Compliance Hub</span>
             </div>

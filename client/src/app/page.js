@@ -311,7 +311,7 @@ export default function Home() {
                 <div className="h-56 overflow-hidden relative bg-slate-50/50 flex items-center justify-center border-b border-slate-100 p-6">
                   {/* Subtle abstract blobs in background */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-3xl group-hover:bg-gold/20 transition-colors duration-500"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-colors duration-500"></div>
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gold/100/10 rounded-full blur-2xl group-hover:bg-gold/100/20 transition-colors duration-500"></div>
                   
                   <img 
                     src={item.image} 

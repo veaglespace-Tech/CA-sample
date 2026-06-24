@@ -412,7 +412,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
                         <td className="py-3 px-4 text-right">
                           <button
                             onClick={() => handleSendInvite(r)}
-                            className="btn btn-xs bg-gold/10 text-gold hover:bg-indigo-100 border-none px-3 font-bold"
+                            className="btn btn-xs bg-gold/10 text-gold hover:bg-gold/20 border-none px-3 font-bold"
                           >
                             <Mail size={12} className="mr-1" /> Invite / Send Docs
                           </button>

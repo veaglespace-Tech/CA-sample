@@ -189,7 +189,7 @@ export default function ReferralsSection({ user }) {
             <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-transform shadow-sm ${
               copiedKey === "link"
                 ? "bg-emerald-100 text-emerald-600 scale-110"
-                : "bg-indigo-100/80 text-gold group-hover:scale-110"
+                : "bg-gold/20/80 text-gold group-hover:scale-110"
             }`}>
               {copiedKey === "link" ? <Check size={22} strokeWidth={3} /> : <Link2 size={22} strokeWidth={2.5} />}
             </div>

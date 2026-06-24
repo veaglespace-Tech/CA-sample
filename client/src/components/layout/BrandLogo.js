@@ -36,9 +36,6 @@ export default function BrandLogo({
           priority={priority}
           sizes={`${resolvedWidth}px`}
           className={`${imageClassName} object-contain animate-[float_4s_ease-in-out_infinite]`}
-          onError={(event) => {
-            event.currentTarget.src = "https://ui-avatars.com/api/?name=VS&background=0D8ABC&color=fff";
-          }}
         />
       </span>
       {showText && (

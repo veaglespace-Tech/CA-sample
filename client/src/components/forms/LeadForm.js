@@ -90,7 +90,7 @@ export default function LeadForm({ endpoint = "/api/contact", mode = "contact", 
                 id={`${mode}-fullName`}
                 type="text"
                 placeholder="e.g. Rahul Sharma"
-                className={`input input-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-gold/10 transition-all duration-300 ${errors.fullName ? "border-rose-500 bg-rose-50/10 focus:border-rose-500 focus:ring-rose-500/20" : getFieldSuccess("fullName", form.fullName) ? "border-emerald-500 bg-emerald-50/40 focus:ring-emerald-500/20" : ""}`}
+                className={`input input-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all duration-300 ${errors.fullName ? "border-rose-500 bg-rose-50/10 focus:border-rose-500 focus:ring-rose-500/20" : getFieldSuccess("fullName", form.fullName) ? "border-emerald-500 bg-emerald-50/40 focus:ring-emerald-500/20" : ""}`}
                 value={form.fullName}
                 onChange={update("fullName")}
                 maxLength={50}
@@ -148,7 +148,7 @@ export default function LeadForm({ endpoint = "/api/contact", mode = "contact", 
                 id={`${mode}-email`}
                 type="email"
                 placeholder="name@company.com"
-                className={`input input-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-gold/10 transition-all duration-300 ${errors.email ? "border-rose-500 bg-rose-50/10 focus:border-rose-500 focus:ring-rose-500/20" : getFieldSuccess("email", form.email) ? "border-emerald-500 bg-emerald-50/40 focus:ring-emerald-500/20" : ""}`}
+                className={`input input-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all duration-300 ${errors.email ? "border-rose-500 bg-rose-50/10 focus:border-rose-500 focus:ring-rose-500/20" : getFieldSuccess("email", form.email) ? "border-emerald-500 bg-emerald-50/40 focus:ring-emerald-500/20" : ""}`}
                 value={form.email}
                 onChange={update("email")}
               />
@@ -164,7 +164,7 @@ export default function LeadForm({ endpoint = "/api/contact", mode = "contact", 
                 id={`${mode}-service`}
                 type="text"
                 placeholder="e.g. GST Registration"
-                className="input input-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-gold/10 transition-all duration-300"
+                className="input input-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all duration-300"
                 value={form.serviceName}
                 onChange={update("serviceName")}
               />
@@ -182,7 +182,7 @@ export default function LeadForm({ endpoint = "/api/contact", mode = "contact", 
                 id={`${mode}-preferredTime`}
                 type="text"
                 placeholder="e.g. Tomorrow morning 11 AM"
-                className="input input-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-gold/10 transition-all duration-300"
+                className="input input-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all duration-300"
                 value={form.preferredTime}
                 onChange={update("preferredTime")}
               />
@@ -206,7 +206,7 @@ export default function LeadForm({ endpoint = "/api/contact", mode = "contact", 
               id={`${mode}-message`}
               rows={mode === "callback" ? 3 : 4}
               placeholder="Tell us a bit about your requirements..."
-              className={`textarea textarea-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-gold/10 transition-all duration-300 min-h-[100px] ${errors.message ? "border-rose-500 bg-rose-50/10 focus:border-rose-500 focus:ring-rose-500/20" : getFieldSuccess("message", form.message) ? "border-emerald-500 bg-emerald-50/40 focus:ring-emerald-500/20" : ""}`}
+              className={`textarea textarea-bordered w-full pl-11 rounded-sm bg-white text-sm font-medium text-slate-900 border-slate-200 placeholder:text-slate-400 placeholder:font-normal shadow-sm hover:border-slate-300 focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all duration-300 min-h-[100px] ${errors.message ? "border-rose-500 bg-rose-50/10 focus:border-rose-500 focus:ring-rose-500/20" : getFieldSuccess("message", form.message) ? "border-emerald-500 bg-emerald-50/40 focus:ring-emerald-500/20" : ""}`}
               value={form.message}
               onChange={update("message")}
               maxLength={1000}

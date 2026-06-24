@@ -356,7 +356,7 @@ export default function CharteredAccountantLanding() {
       <section className="bg-white border-y border-slate-200/60 py-8 md:py-28 relative overflow-hidden" id="estimator">
         {/* Glow Effects */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute top-[20%] -left-[10%] h-[400px] w-[400px] rounded-full bg-blue-100/40 blur-[130px]" />
+          <div className="absolute top-[20%] -left-[10%] h-[400px] w-[400px] rounded-full bg-gold/20/40 blur-[130px]" />
           <div className="absolute bottom-[20%] -right-[10%] h-[400px] w-[400px] rounded-full bg-violet-100/40 blur-[130px]" />
         </div>
 
@@ -423,7 +423,7 @@ export default function CharteredAccountantLanding() {
                       onClick={() => setTurnoverRange(bracket.key)}
                       className={`rounded-sm border py-3 px-3 text-center text-xs font-bold transition-all duration-200 ${
                         turnoverRange === bracket.key
-                          ? "bg-gold border-blue-600 text-white shadow-md shadow-blue-500/20"
+                          ? "bg-gold border-gold text-white shadow-md shadow-gold/20"
                           : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
                       }`}
                     >
@@ -506,7 +506,7 @@ export default function CharteredAccountantLanding() {
                 <div className="relative z-10 mt-10">
                   <Link
                     href="#callback"
-                    className="flex w-full items-center justify-center gap-2 rounded-sm bg-gold/100 py-4 text-center text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-blue-500/20 hover:bg-gold transition-all active:scale-[0.98]"
+                    className="flex w-full items-center justify-center gap-2 rounded-sm bg-gold/100 py-4 text-center text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-gold/20 hover:bg-gold transition-all active:scale-[0.98]"
                   >
                     Select retained package
                     <ArrowRight className="h-4 w-4" />

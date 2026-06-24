@@ -39,7 +39,7 @@ export default function AdminTable({
       }
       
       return (
-        <div className={`badge badge-outline badge-sm py-2.5 px-2.5 rounded-sm font-black tracking-wide text-[9px] uppercase border ${badgeClasses}`}>
+        <div className={`badge badge-outline badge-sm py-2.5 px-2.5 rounded-sm font-black tracking-wide text-[9px] uppercase border whitespace-nowrap ${badgeClasses}`}>
           {formatRole(item.role)}
         </div>
       );
@@ -129,7 +129,7 @@ export default function AdminTable({
       return (
         <button 
           onClick={(e) => { e.stopPropagation(); onViewDetails && onViewDetails(item); }}
-          className="btn btn-xs rounded-full border-none bg-gold/10 text-gold hover:bg-indigo-100 font-bold px-3 gap-1 shadow-sm"
+          className="btn btn-xs rounded-full border-none bg-gold/10 text-gold hover:bg-gold/20 font-bold px-3 gap-1 shadow-sm"
         >
           <span className="text-[10px]">👥</span> {count} {count === 1 ? "User" : "Users"}
         </button>

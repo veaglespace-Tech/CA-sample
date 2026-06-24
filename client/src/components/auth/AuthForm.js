@@ -234,7 +234,7 @@ function AuthFormInner({
             value={otpValue}
             onChange={(e) => setOtpValue(e.target.value.replace(/\D/g, "").slice(0, 6))}
             placeholder="000000"
-            className="w-full rounded-sm border border-slate-200 bg-white px-4 py-4 text-[1.5rem] font-black tracking-[1em] text-center text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-gold/10"
+            className="w-full rounded-sm border border-slate-200 bg-white px-4 py-4 text-[1.5rem] font-black tracking-[1em] text-center text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-gold focus:ring-4 focus:ring-gold/10"
           />
         </FormField>
         
