@@ -1,7 +1,7 @@
 import { getAllServiceRoutes } from "../lib/navigation-data";
 
 export default function sitemap() {
-  const baseUrl = "https://veaglespace.com";
+  const baseUrl = "https://br.veaglespace.com";
 
   const staticPages = [
     { url: baseUrl, lastModified: new Date() },

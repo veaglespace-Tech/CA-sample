@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://veaglespace.com/sitemap.xml",
+    sitemap: "https://br.veaglespace.com/sitemap.xml",
   };
 }

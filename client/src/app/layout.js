@@ -16,6 +16,7 @@ const lexend = Lexend({
 export const metadata = {
   icons: {
     icon: "/veagle-logo.webp",
+    apple: "/veagle-logo.webp",
   },
   title: {
     default: "Business Registration — Online Company Registration, GST & Legal Services in India",
@@ -46,11 +47,17 @@ export const metadata = {
   ],
   authors: [{ name: "Veagle Space Technology Pvt. Ltd." }],
   creator: "Veagle Space Technology Pvt. Ltd.",
-  metadataBase: new URL("https://veaglespace.com"),
+  metadataBase: new URL("https://br.veaglespace.com"),
+  alternates: {
+    canonical: "https://br.veaglespace.com",
+    languages: {
+      "en-IN": "https://br.veaglespace.com",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://veaglespace.com",
+    url: "https://br.veaglespace.com",
     siteName: "Veagle Space Technology",
     title: "Veagle Space Technology — Business Registration, GST & Legal Services in India",
     description:
@@ -82,6 +89,10 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
+  other: {
+    "geo.region": "IN",
+    "geo.placename": "India",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -95,6 +106,28 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Veagle Space Technology",
+              url: "https://br.veaglespace.com",
+              logo: "https://br.veaglespace.com/veagle-logo.webp",
+              contactPoint: {
+                "@type": "ContactPoint",
+                email: "info@veaglespace.com",
+                contactType: "customer service",
+                areaServed: "IN",
+                availableLanguage: "en",
+              },
+              sameAs: [
+                "https://veaglespace.com",
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="antialiased overflow-x-hidden">
         <Toaster 
