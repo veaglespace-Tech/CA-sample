@@ -64,7 +64,7 @@ export const metadata = {
       "Incorporate your company, file GST returns, register trademarks, and consult legal experts—all on one modern platform. Trusted by 15,000+ founders.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://br.veaglespace.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Veagle Space Technology — Online Company Registration Dashboard India",
@@ -76,7 +76,7 @@ export const metadata = {
     title: "Veagle Space Technology — Online Business Registration & Legal Services in India",
     description:
       "Online Company registration, GST, trademark & more. Expert CA & legal services for modern Indian businesses.",
-    images: ["/og-image.png"],
+    images: ["https://br.veaglespace.com/og-image.png"],
   },
   robots: {
     index: true,
