@@ -2,6 +2,7 @@
 
 import { AlignLeft, UserCircle, LogOut } from "lucide-react";
 import NotificationSystem from "../common/NotificationSystem";
+import BrandLogo from "../layout/BrandLogo";
 import { formatRole } from "../../lib/auth";
 
 export default function DashboardHeader({ 
@@ -15,7 +16,13 @@ export default function DashboardHeader({
     <header className="navbar sticky top-0 z-40 h-20 shrink-0 border-b border-white/40 bg-white/70 px-4 shadow-[0_4px_30px_rgba(0,0,0,0.03)] backdrop-blur-3xl md:px-6 transition-all duration-500">
       
       <div className="flex-1 px-4">
-        <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 drop-shadow-sm">
+        {/* Mobile: Show Brand Logo */}
+        <div className="lg:hidden mt-1">
+          <BrandLogo width={40} height={40} className="scale-90 origin-left" />
+        </div>
+        
+        {/* Desktop: Show Active Section */}
+        <h2 className="hidden lg:block text-xl md:text-2xl font-bold tracking-tight text-slate-900 drop-shadow-sm">
           {activeSection.charAt(0).toUpperCase() + activeSection.slice(1).replace("_", " ")}
         </h2>
       </div>
