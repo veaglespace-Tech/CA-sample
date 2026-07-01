@@ -32,13 +32,13 @@ export default function ReviewBadge({ className = "" }) {
   return (
     <Link
       href="/reviews"
-      className={`group inline-flex items-center gap-3 sm:gap-4 rounded-full border border-slate-200 bg-white p-1.5 pr-4 sm:pr-5 shadow-sm transition-all duration-300 hover:border-gold/30 hover:bg-slate-50 hover:shadow-md ${className}`}
+      className={`group flex sm:inline-flex items-center max-w-full gap-2 sm:gap-4 rounded-full border border-slate-200 bg-white p-1 sm:p-1.5 pr-2 sm:pr-5 shadow-sm transition-all duration-300 hover:border-gold/30 hover:bg-slate-50 hover:shadow-md ${className}`}
     >
-      <span className="flex h-6 sm:h-7 items-center rounded-full bg-gradient-to-r from-navy to-navy-light px-3 sm:px-4 text-[0.65rem] sm:text-[0.7rem] font-black uppercase tracking-widest text-white shadow-sm shadow-navy/20">
+      <span className="flex shrink-0 h-6 sm:h-7 items-center rounded-full bg-gradient-to-r from-navy to-navy-light px-2.5 sm:px-4 text-[0.6rem] sm:text-[0.7rem] font-black uppercase tracking-widest text-white shadow-sm shadow-navy/20">
         Trusted
       </span>
-      <span className="flex items-center gap-2 sm:gap-3">
-        <span className="flex items-center gap-[2px]">
+      <span className="flex items-center gap-1.5 sm:gap-3 min-w-0 overflow-hidden">
+        <span className="hidden sm:flex items-center gap-[2px] shrink-0">
           {/* Custom Solid Star SVG for precise matching of the modern UI */}
           {[...Array(4)].map((_, i) => (
             <svg key={i} className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#FFB703]" viewBox="0 0 20 20" fill="currentColor">
@@ -46,12 +46,12 @@ export default function ReviewBadge({ className = "" }) {
             </svg>
           ))}
         </span>
-        <span className="flex items-baseline gap-1.5 text-sm sm:text-base">
-          <span className="font-extrabold text-slate-800">{stats.rating}/5</span>
-          <span className="text-slate-500 font-semibold text-xs sm:text-sm">from {stats.count} Google reviews</span>
+        <span className="flex items-baseline gap-1 sm:gap-1.5 text-xs sm:text-base min-w-0 truncate">
+          <span className="font-extrabold text-slate-800 shrink-0">{stats.rating}/5</span>
+          <span className="text-slate-500 font-semibold text-[0.65rem] sm:text-sm whitespace-nowrap truncate">from {stats.count} Google reviews</span>
         </span>
       </span>
-      <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400 transition-transform group-hover:translate-x-1" />
+      <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400 transition-transform group-hover:translate-x-1 shrink-0 ml-auto sm:ml-0" />
     </Link>
   );
 }
