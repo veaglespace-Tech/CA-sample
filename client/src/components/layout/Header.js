@@ -453,7 +453,6 @@ export default function Header() {
           <BrandLogo 
             href="/" 
             className="group flex shrink-0 items-center rounded-none p-1.5 transition-all duration-200" 
-            wordmarkClassName="text-white"
             onClick={closeAll} 
             height={50} 
           />
