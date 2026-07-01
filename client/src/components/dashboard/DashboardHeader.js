@@ -13,11 +13,6 @@ export default function DashboardHeader({
 }) {
   return (
     <header className="navbar sticky top-0 z-40 h-20 shrink-0 border-b border-white/40 bg-white/70 px-4 shadow-[0_4px_30px_rgba(0,0,0,0.03)] backdrop-blur-3xl md:px-6 transition-all duration-500">
-      <div className="flex-none lg:hidden">
-        <label htmlFor="dashboard-drawer" className="btn btn-ghost btn-circle drawer-button hover:bg-slate-100 text-slate-800">
-          <AlignLeft size={24} />
-        </label>
-      </div>
       
       <div className="flex-1 px-4">
         <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 drop-shadow-sm">
@@ -64,6 +59,13 @@ export default function DashboardHeader({
               </button>
             </li>
           </ul>
+        </div>
+
+        {/* Mobile Toggle Button (Moved to Right) */}
+        <div className="lg:hidden ml-1">
+          <label htmlFor="dashboard-drawer" className="btn btn-ghost btn-circle drawer-button hover:bg-slate-100 text-black">
+            <AlignLeft size={24} />
+          </label>
         </div>
       </div>
     </header>
