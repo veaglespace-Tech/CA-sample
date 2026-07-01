@@ -189,7 +189,7 @@ function TwoPanelMenu({ data, onClose }) {
                 <div className="absolute -right-10 -top-10 h-40 w-40 rounded-none bg-white/20 blur-3xl group-hover:bg-white/30 transition-all duration-700"></div>
                 <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
                   <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-none bg-white/10 ring-1 ring-white/20 backdrop-blur-md overflow-hidden shadow-lg">
-                    <img src="/veagle-logo.webp" alt="Veaglespace" className="h-full w-full object-cover scale-110" onError={(e) => { e.target.onerror = null; e.target.src = "https://ui-avatars.com/api/?name=V&background=0D8ABC&color=fff"; }} />
+                    <img src="/veaglespace-logo.png" alt="Veaglespace" className="h-full w-full object-cover scale-110" onError={(e) => { e.target.onerror = null; e.target.src = "https://ui-avatars.com/api/?name=V&background=0D8ABC&color=fff"; }} />
                   </div>
                   <div className="text-center sm:text-left flex-1">
                     <div className="inline-flex items-center gap-1.5 rounded-none bg-white/20 px-2.5 py-0.5 text-[0.65rem] font-black tracking-widest text-white uppercase mb-2 ring-1 ring-white/30 shadow-sm">

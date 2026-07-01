@@ -15,8 +15,8 @@ const lexend = Lexend({
 
 export const metadata = {
   icons: {
-    icon: "/veagle-logo.webp",
-    apple: "/veagle-logo.webp",
+    icon: "/veaglespace-logo.png",
+    apple: "/veaglespace-logo.png",
   },
   title: {
     default: "Veagle Space Technology | Online Company Registration, GST & Legal Services",
@@ -108,7 +108,7 @@ export default function RootLayout({ children }) {
               "@type": "Organization",
               name: "Veagle Space Technology",
               url: "https://br.veaglespace.com",
-              logo: "https://br.veaglespace.com/veagle-logo.webp",
+              logo: "https://br.veaglespace.com/veaglespace-logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
                 email: "info@veaglespace.com",

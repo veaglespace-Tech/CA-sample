@@ -32,7 +32,7 @@ export default function BrandLogo({
         }}
       >
         <Image
-          src={democaAssets.logo || "/veagle-logo.webp"}
+          src={democaAssets.logo || "/veaglespace-logo.png"}
           alt={alt}
           fill
           priority={priority}
