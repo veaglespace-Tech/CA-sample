@@ -13,9 +13,10 @@ const REVIEWS = [
     service: "Company Registration",
     serviceSlug: "company-registration",
     isGeneral: false,
-    text: "Registration, Filing, and Legal help in one place just makes sense. The process was smooth and the team was very helpful throughout.",
+    text: "Veagle Space made our Private Limited Company registration incredibly seamless. Their CA team handled all the DSC, DIN, and ROC filings with absolute professionalism. Highly recommended for startups!",
     status: "PUBLISHED",
     sortOrder: 1,
+    location: "Mumbai, MH"
   },
   {
     name: "Rahul Sharma",
@@ -23,9 +24,10 @@ const REVIEWS = [
     service: "GST Registration",
     serviceSlug: "gst-registration",
     isGeneral: false,
-    text: "Got my GST number within 3 days. The team was responsive and handled everything professionally. Highly recommend!",
+    text: "I was struggling with my GST registration until I found Veagle Space. They got my GSTIN within just 3 days! Their ongoing support for monthly GST returns is also exceptional.",
     status: "PUBLISHED",
     sortOrder: 2,
+    location: "Pune, MH"
   },
   {
     name: "Priya Mehta",
@@ -33,19 +35,21 @@ const REVIEWS = [
     service: "Trademark Registration",
     serviceSlug: "trademark-registration",
     isGeneral: false,
-    text: "Filed my trademark without any hassle. Expert guidance at every step. Will definitely use again for renewals.",
+    text: "Filing a trademark seemed daunting, but the legal experts at Veagle Space guided me through every single step. They conducted the trademark search and filed the application flawlessly.",
     status: "PUBLISHED",
     sortOrder: 3,
+    location: "Bangalore, KA"
   },
   {
     name: "Vikram Nair",
-    rating: 4,
-    service: "Private Limited Company",
-    serviceSlug: "private-limited-company",
+    rating: 5,
+    service: "Accounting & Bookkeeping",
+    serviceSlug: "accounting-bookkeeping",
     isGeneral: false,
-    text: "Excellent service. All documents were handled efficiently. Minor delay in one document but overall great experience.",
+    text: "Outsourcing our bookkeeping to Veagle Space was the best decision for our agency. Their dedicated accountants keep our books updated, ensuring we are always audit-ready.",
     status: "PUBLISHED",
     sortOrder: 4,
+    location: "Kochi, KL"
   },
   {
     name: "Anita Desai",
@@ -53,9 +57,10 @@ const REVIEWS = [
     service: "Income Tax Return Filing",
     serviceSlug: "income-tax-return-filing",
     isGeneral: false,
-    text: "Quick, professional and affordable. My CA was very knowledgeable and helped me maximize my deductions.",
+    text: "Quick, professional, and very transparent pricing. The CA assigned to me by Veagle Space was very knowledgeable and helped me maximize my tax deductions legally.",
     status: "PUBLISHED",
     sortOrder: 5,
+    location: "Delhi, DL"
   },
   {
     name: "Suresh Reddy",
@@ -63,9 +68,10 @@ const REVIEWS = [
     service: "LLP Registration",
     serviceSlug: "llp-registration",
     isGeneral: false,
-    text: "Veagle Space made LLP registration completely hassle-free. Would highly recommend to any entrepreneur.",
+    text: "We wanted to register an LLP and Veagle Space executed it perfectly. They drafted the LLP agreement tailored to our needs. A truly hassle-free and premium experience.",
     status: "PUBLISHED",
     sortOrder: 6,
+    location: "Hyderabad, TS"
   },
   {
     name: "Rajesh Kumar",
@@ -73,9 +79,10 @@ const REVIEWS = [
     service: "ISO Certification",
     serviceSlug: "iso-certification",
     isGeneral: false,
-    text: "The team guided us through the entire ISO process. Very clear communication and timely delivery.",
+    text: "The team at Veagle Space guided us through the entire ISO 9001 certification process. Very clear communication, zero hidden costs, and timely delivery.",
     status: "PUBLISHED",
     sortOrder: 7,
+    location: "Chennai, TN"
   },
   {
     name: "Neha Gupta",
@@ -83,19 +90,21 @@ const REVIEWS = [
     service: "Startup India Registration",
     serviceSlug: null,
     isGeneral: true,
-    text: "Helped me register my startup effortlessly. They explained all the tax benefits clearly. Outstanding service.",
+    text: "Veagle Space helped my tech startup get DPIIT recognized effortlessly. They explained all the tax exemptions clearly and handled the complex paperwork. Outstanding CA firm!",
     status: "PUBLISHED",
     sortOrder: 8,
+    location: "Noida, UP"
   },
   {
     name: "Amit Patel",
-    rating: 4,
-    service: "Accounting & Bookkeeping",
-    serviceSlug: "accounting-bookkeeping",
+    rating: 5,
+    service: "FSSAI Registration",
+    serviceSlug: "fssai-registration",
     isGeneral: false,
-    text: "Our accounts are now perfectly managed. The dashboard is easy to use and their accountants are top-notch.",
+    text: "For my new restaurant, getting the FSSAI license was my top priority. Veagle Space procured the central license for us without us having to visit any government office.",
     status: "PUBLISHED",
     sortOrder: 9,
+    location: "Ahmedabad, GJ"
   },
   {
     name: "Deepika Joshi",
@@ -103,9 +112,10 @@ const REVIEWS = [
     service: null,
     serviceSlug: null,
     isGeneral: true,
-    text: "Exceptional service from start to finish. The team was always available to answer our questions and guided us every step of the way.",
+    text: "Veagle Space is a one-stop solution for all compliance and legal needs. From company incorporation to annual ROC filings, their team is always available, polite, and strictly adheres to deadlines.",
     status: "PUBLISHED",
     sortOrder: 10,
+    location: "Jaipur, RJ"
   },
   {
     name: "Kiran Patil",
@@ -113,9 +123,10 @@ const REVIEWS = [
     service: "MSME Registration",
     serviceSlug: "msme-udyam-registration",
     isGeneral: false,
-    text: "Got our MSME certificate in record time. Transparent process, zero hidden charges. Very satisfied with the service.",
+    text: "Got our MSME Udyam certificate in record time. Veagle Space has a very transparent process with zero hidden charges. Highly satisfied with their quick turnaround.",
     status: "PUBLISHED",
     sortOrder: 11,
+    location: "Nagpur, MH"
   },
   {
     name: "Meera Iyer",
@@ -123,9 +134,10 @@ const REVIEWS = [
     service: null,
     serviceSlug: null,
     isGeneral: true,
-    text: "The experts at Veagle Space are truly world-class. Fast, reliable and completely trustworthy. I recommend them to every business owner I know.",
+    text: "The CAs and legal experts at Veagle Space are truly world-class. Fast, reliable, and completely trustworthy. I confidently recommend their services to every business founder I know.",
     status: "PUBLISHED",
     sortOrder: 12,
+    location: "Chennai, TN"
   },
 ];
 
