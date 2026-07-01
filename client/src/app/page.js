@@ -186,7 +186,7 @@ export default function Home() {
             <ReviewBadge />
           </div>
           
-          <h1 className="gsap-hero-item text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-[1.1]">
+          <h1 className="gsap-hero-item text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-[1.1]">
             Launch & Scale Your<br />
             <span className="text-gold">Business With Total Confidence.</span>
           </h1>
@@ -259,7 +259,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {serviceGroups.map((feature, i) => (
               <div key={i} className="gsap-service-card text-center group cursor-pointer">
                 <div className="w-20 h-20 mx-auto rounded-full border-2 border-gold text-gold flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg">
@@ -284,7 +284,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {journeyCards.map((item, i) => (
               <div key={i} className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 cursor-pointer">
                 {/* Glow Effect behind */}
@@ -344,7 +344,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="md:w-1/2 bg-navy text-white p-12 md:p-4 md:p-20 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 bg-navy text-white p-6 sm:p-12 md:p-16 lg:p-20 flex flex-col justify-center">
           <h3 className="text-4xl font-light mb-6">Simple <br/><span className="text-gold font-bold">4-Step Process</span></h3>
           <div className="text-lg text-slate-300 font-light mb-6">From Search to Done.</div>
           
@@ -390,7 +390,7 @@ export default function Home() {
       {/* 6. ACHIVEMENTS (Trust Stats) */}
       <div className="bg-gold text-white py-8 md:py-20 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
             {trustStats.map((stat, i) => (
               <div key={i} className="flex flex-col items-center">
                 <div className="mb-4 opacity-80 transition-transform duration-300 hover:scale-110">{stat.icon}</div>
@@ -487,7 +487,7 @@ export default function Home() {
                 <button type="submit" className="bg-gold text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-navy transition-all duration-300 shadow-md hover:shadow-lg w-full mt-2 rounded-sm border-2 border-transparent hover:border-navy">Send Message</button>
               </form>
             </div>
-            <div className="md:w-1/2 p-12 md:p-4 md:p-20 flex flex-col justify-center items-center md:text-left md:items-start text-center bg-[url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center relative gsap-contact-col overflow-hidden">
+            <div className="w-full md:w-1/2 p-8 sm:p-12 md:p-16 lg:p-20 flex flex-col justify-center items-center md:text-left md:items-start text-center bg-[url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center relative gsap-contact-col overflow-hidden">
               <div className="absolute inset-0 bg-gold/90 mix-blend-multiply transition-opacity duration-500 hover:opacity-80"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
               <div className="relative z-10 w-full transform transition-transform duration-500 hover:scale-105">
