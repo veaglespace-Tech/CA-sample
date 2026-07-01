@@ -69,9 +69,9 @@ export default function DashboardHeader({
         </div>
 
         {/* Mobile Toggle Button (Moved to Right) */}
-        <div className="lg:hidden ml-1">
-          <label htmlFor="dashboard-drawer" className="btn btn-ghost btn-circle drawer-button hover:bg-slate-100 text-black">
-            <AlignLeft size={24} />
+        <div className="lg:hidden ml-1 flex items-center">
+          <label htmlFor="dashboard-drawer" className="btn btn-ghost btn-circle drawer-button hover:bg-slate-100 !text-slate-900 bg-slate-100/50">
+            <AlignLeft size={24} strokeWidth={2.5} />
           </label>
         </div>
       </div>
