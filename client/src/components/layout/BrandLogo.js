@@ -37,7 +37,7 @@ export default function BrandLogo({
           fill
           priority={priority}
           sizes={`${resolvedWidth}px`}
-          className={`${imageClassName} object-contain animate-[float_4s_ease-in-out_infinite]`}
+          className={`${imageClassName} object-contain animate-[float_8s_ease-in-out_infinite]`}
         />
       </span>
       {showText && (
