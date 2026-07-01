@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 export default function ReviewBadge({ className = "" }) {
-  const [stats, setStats] = useState({ count: 29, rating: "4.8" });
+  const [stats, setStats] = useState({ count: 0, rating: "0" });
 
   useEffect(() => {
     async function fetchStats() {
@@ -19,6 +19,8 @@ export default function ReviewBadge({ className = "" }) {
         if (reviews.length > 0) {
           const rating = (reviews.reduce((acc, r) => acc + (r.rating || 5), 0) / reviews.length).toFixed(1);
           setStats({ count: reviews.length, rating });
+        } else {
+          setStats({ count: 0, rating: "0" });
         }
       } catch (error) {
         console.error("Failed to fetch review stats:", error);

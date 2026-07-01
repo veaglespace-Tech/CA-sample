@@ -23,6 +23,8 @@ async function fetchReviews() {
 
 export default async function ReviewsPage() {
   const reviews = await fetchReviews();
+  const count = reviews.length;
+  const rating = count > 0 ? (reviews.reduce((acc, r) => acc + (r.rating || 5), 0) / count).toFixed(1) : "0";
 
   return (
     <div className="bg-[#f8fafc] min-h-screen">
@@ -50,7 +52,7 @@ export default async function ReviewsPage() {
               ))}
             </div>
             <div className="text-slate-900 text-lg font-bold">
-              4.8/5 Average Rating
+              {rating}/5 Average Rating
             </div>
             <div className="hidden sm:block w-px h-6 bg-white/20"></div>
             <div className="text-slate-600 font-medium">
