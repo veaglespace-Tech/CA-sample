@@ -1,6 +1,6 @@
 "use client";
 
-import { AlignLeft, UserCircle, LogOut } from "lucide-react";
+import { Menu, UserCircle, LogOut } from "lucide-react";
 import NotificationSystem from "../common/NotificationSystem";
 import BrandLogo from "../layout/BrandLogo";
 import { formatRole } from "../../lib/auth";
@@ -70,8 +70,11 @@ export default function DashboardHeader({
 
         {/* Mobile Toggle Button (Moved to Right) */}
         <div className="lg:hidden ml-1 flex items-center">
-          <label htmlFor="dashboard-drawer" className="btn btn-ghost btn-circle drawer-button hover:bg-slate-100 !text-slate-900 bg-slate-100/50">
-            <AlignLeft size={24} strokeWidth={2.5} />
+          <label 
+            htmlFor="dashboard-drawer" 
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200/60 bg-white/50 text-slate-700 shadow-sm backdrop-blur-md transition-all hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-gold/50 drawer-button"
+          >
+            <Menu size={22} className="pointer-events-none" />
           </label>
         </div>
       </div>
