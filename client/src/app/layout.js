@@ -14,10 +14,6 @@ const lexend = Lexend({
 });
 
 export const metadata = {
-  icons: {
-    icon: "/veaglespace-logo.png",
-    apple: "/veaglespace-logo.png",
-  },
   title: {
     default: "Veagle Space Technology | Online Company Registration, GST & Legal Services",
     template: "%s | Veagle Space Technology",
