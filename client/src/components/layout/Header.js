@@ -454,7 +454,7 @@ export default function Header() {
             href="/" 
             className="group flex shrink-0 items-center rounded-none p-1.5 transition-all duration-200" 
             onClick={closeAll} 
-            height={60} 
+            height={50} 
           />
 
           <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:flex" aria-label="Main navigation">

@@ -1,7 +1,7 @@
 export const democaAssets = {
   mark: "/yourcompany-assets/checkmark.png",
-  logo: "/veaglespace-logo.png",
-  serviceLogo: "/veaglespace-logo.png",
+  logo: "/veagle-logo.webp",
+  serviceLogo: "/veagle-logo.webp",
   bannerPrimary: "https://veaglespace.com/assets2/images/banner-1.jpg",
   bannerSecondary: "https://veaglespace.com/assets2/images/banner.jpg",
   audit: "https://veaglespace.com/assets/img/audit.jpg",
