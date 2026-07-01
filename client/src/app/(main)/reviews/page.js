@@ -6,7 +6,7 @@ export const metadata = {
   description: "Read real reviews from 5 lakh+ customers who used Veagle Space for company registration, GST, trademark and more.",
 };
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/api\/?$/, "");
 
 async function fetchReviews() {
   try {

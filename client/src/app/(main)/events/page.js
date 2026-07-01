@@ -29,7 +29,7 @@ const plannedSessions = [
   },
 ];
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/api\/?$/, "");
 
 export default function EventsPage() {
   const { data: response, isLoading, isError } = useGetEventsQuery();

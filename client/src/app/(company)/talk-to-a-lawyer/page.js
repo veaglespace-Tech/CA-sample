@@ -17,7 +17,7 @@ import FormFeedback from "../../../components/forms/FormFeedback";
 import useLiveValidation from "../../../hooks/useLiveValidation";
 import ReviewBadge from "../../../components/common/ReviewBadge";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/api\/?$/, "");
 
 const LANGUAGES = ["English", "Hindi", "Tamil", "Telugu", "Marathi", "Bengali", "Kannada", "Malayalam", "Gujarati"];
 

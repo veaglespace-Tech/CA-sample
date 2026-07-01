@@ -7,7 +7,7 @@ import { useUploadDocumentMutation, useGetMyDocumentsQuery } from "../../../stor
 import { useMarkMessageAsReadMutation } from "../../../store/api/messageApi";
 import { forceDownload } from "../../../lib/utils";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/api\/?$/, "");
 
 const getFullFileUrl = (url) => {
   if (!url) return "";

@@ -30,7 +30,7 @@ import useLiveValidation from "../../../hooks/useLiveValidation";
 import SearchableDropdown from "../../../components/ui/SearchableDropdown";
 import { formatInrAmount, parseCurrencyAmount } from "../../../lib/utils";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/api\/?$/, "");
 
 function NextStepForm() {
   const searchParams = useSearchParams();
