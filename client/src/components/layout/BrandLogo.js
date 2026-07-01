@@ -41,8 +41,8 @@ export default function BrandLogo({
         />
       </span>
       {showText && (
-        <span className={`flex flex-col leading-none ${wordmarkClassName}`}>
-          <span className="text-[1.05rem] font-black tracking-[-0.04em] text-slate-900 sm:text-[1.2rem]">
+        <span className={`flex flex-col leading-none`}>
+          <span className={`text-[1.05rem] font-black tracking-[-0.04em] sm:text-[1.2rem] ${wordmarkClassName || 'text-slate-900'}`}>
             Veagle <span className="text-sky-500">Space</span>
           </span>
         </span>

@@ -42,6 +42,7 @@ export default function Footer() {
             <BrandLogo 
               href="/" 
               className="mb-5 inline-flex transition-transform hover:scale-[1.02] duration-200" 
+              wordmarkClassName="text-white"
               height={40} 
               alt="Veagle Space Technology Pvt. Ltd. Logo"
             />
