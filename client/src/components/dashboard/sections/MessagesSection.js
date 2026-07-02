@@ -132,7 +132,7 @@ export default function MessagesSection({ messages, user, onNavigateToSection })
                           href={fullUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn btn-sm bg-gold hover:bg-gold text-white border-none rounded-sm h-10 w-10 px-0 shadow-lg shadow-indigo-600/20 transition-all duration-300 flex items-center justify-center"
+                          className="btn btn-sm bg-gold hover:bg-gold text-white border-none rounded-sm h-10 w-10 px-0 shadow-lg shadow-gold/20 transition-all duration-300 flex items-center justify-center"
                           title={`Preview ${isPdf ? "PDF" : "Image"}`}
                         >
                           <Eye size={18} />

@@ -17,7 +17,7 @@ import PaginationControls from "../../../admin/PaginationControls";
 const statusStyles = {
   NEW: "bg-sky-50 text-sky-700 border-sky-200",
   IN_PROGRESS: "bg-amber-50 text-amber-700 border-amber-200",
-  QUALIFIED: "bg-violet-50 text-violet-700 border-violet-200",
+  QUALIFIED: "bg-navy-light/10 text-navy border-gold/20",
   CONVERTED: "bg-emerald-50 text-emerald-700 border-emerald-200",
   COMPLETED: "bg-emerald-50 text-emerald-700 border-emerald-200",
   REJECTED: "bg-rose-50 text-rose-700 border-rose-200",
@@ -45,7 +45,7 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
       value: statsCounts.total,
       description: "Every lead, registration, and contact query received across the platform.",
       icon: ClipboardList,
-      tone: "blue",
+      tone: "gold",
     },
     {
       id: "NEW",
@@ -69,7 +69,7 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
       value: statsCounts.services,
       description: "Registration, tax, compliance, and service form submissions.",
       icon: Folder,
-      tone: "indigo",
+      tone: "gold",
     },
     {
       id: "CONTACTED",
@@ -77,7 +77,7 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
       value: statsCounts.contacted,
       description: "People who reached out from the contact and support forms.",
       icon: UserCheck,
-      tone: "violet",
+      tone: "navy",
     },
     {
       id: "GENERAL",
@@ -128,11 +128,11 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
   }, [activityPage, activityTotalPages]);
 
   const toneClasses = {
-    blue: { gradient: "from-blue-50 to-cyan-50", border: "border-blue-100", text: "text-gold", iconBg: "bg-gold/100" },
-    amber: { gradient: "from-amber-50 to-orange-50", border: "border-amber-100", text: "text-gold", iconBg: "bg-gold/100" },
-    emerald: { gradient: "from-emerald-50 to-teal-50", border: "border-emerald-100", text: "text-gold", iconBg: "bg-gold/100" },
-    indigo: { gradient: "from-gold to-[#d29052]", border: "border-gold/20", text: "text-gold", iconBg: "bg-gold/100" },
-    violet: { gradient: "from-violet-50 to-fuchsia-50", border: "border-violet-100", text: "text-gold", iconBg: "bg-gold/100" },
+    gold: { gradient: "from-gold/10 to-orange-50/50", border: "border-gold/20", text: "text-gold", iconBg: "bg-gold" },
+    navy: { gradient: "from-navy-light/10 to-sky-50/50", border: "border-navy/10", text: "text-navy", iconBg: "bg-navy" },
+    indigo: { gradient: "from-gold to-[#d29052]", border: "border-gold/20", text: "text-gold", iconBg: "bg-gold" },
+    violet: { gradient: "from-navy-light/10 to-fuchsia-50", border: "border-navy/10", text: "text-navy", iconBg: "bg-navy" },
+    blue: { gradient: "from-gold/10 to-cyan-50", border: "border-gold/20", text: "text-gold", iconBg: "bg-gold" },
     rose: { gradient: "from-rose-50 to-pink-50", border: "border-rose-100", text: "text-gold", iconBg: "bg-gold/100" },
   };
 

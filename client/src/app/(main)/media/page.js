@@ -57,7 +57,7 @@ export default function MediaPage() {
           <div className="vs-refer">
             <div>
               <h2>Press and Media Enquiries</h2>
-              <p>Reach us at {siteMeta.email} or call {siteMeta.phone} for media coordination.</p>
+              <p>Reach us at {siteMeta.email} or call {siteMeta.phone} or {siteMeta.phone2} for media coordination.</p>
             </div>
             <Link href="/contact" className="vs-refer-btn"><Mail /> Contact Team</Link>
           </div>

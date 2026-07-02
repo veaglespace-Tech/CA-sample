@@ -68,7 +68,7 @@ export default function DynamicFormDetails({ currentItem, parsedMetadata }) {
       </div>
 
       {currentItem.message && (
-        <div className="space-y-3 rounded-[1.6rem] border border-gold/20 bg-gradient-to-br from-indigo-50/70 to-white p-5">
+        <div className="space-y-3 rounded-[1.6rem] border border-gold/20 bg-gradient-to-br from-navy-light/10 to-white p-5">
           <span className="block text-[10px] font-black uppercase tracking-[0.18em] text-gold">Client Requirements / Message</span>
           <p className="whitespace-pre-wrap text-sm font-medium leading-7 text-slate-200">
             {currentItem.message}

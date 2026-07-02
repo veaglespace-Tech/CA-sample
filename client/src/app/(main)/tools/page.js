@@ -19,18 +19,18 @@ export const metadata = {
 };
 
 const tools = [
-  { name: "GST Calculator", desc: "Calculate GST on any amount instantly", href: "/tools/gst-calculator", icon: Percent, color: "text-blue-500", bg: "bg-gold/10" },
-  { name: "Income Tax Calculator", desc: "Estimate your income tax liability for FY 2025-26", href: "/tools/income-tax-calculator", icon: DollarSign, color: "text-emerald-500", bg: "bg-emerald-50" },
-  { name: "EMI Calculator", desc: "Calculate monthly EMI for loans", href: "/tools/emi-calculator", icon: Home, color: "text-violet-500", bg: "bg-violet-50" },
-  { name: "HRA Calculator", desc: "Calculate House Rent Allowance exemption", href: "/tools/hra-calculator", icon: Home, color: "text-amber-500", bg: "bg-amber-50" },
-  { name: "Gratuity Calculator", desc: "Calculate gratuity amount under Payment of Gratuity Act", href: "/tools/gratuity-calculator", icon: Target, color: "text-rose-500", bg: "bg-rose-50" },
-  { name: "SIP Calculator", desc: "Calculate returns on your SIP investments", href: "/tools/sip-calculator", icon: TrendingUp, color: "text-cyan-500", bg: "bg-cyan-50" },
+  { name: "GST Calculator", desc: "Calculate GST on any amount instantly", href: "/tools/gst-calculator", icon: Percent, color: "text-gold", bg: "bg-gold/10" },
+  { name: "Income Tax Calculator", desc: "Estimate your income tax liability for FY 2025-26", href: "/tools/income-tax-calculator", icon: DollarSign, color: "text-navy", bg: "bg-navy/5" },
+  { name: "EMI Calculator", desc: "Calculate monthly EMI for loans", href: "/tools/emi-calculator", icon: Home, color: "text-gold", bg: "bg-gold/10" },
+  { name: "HRA Calculator", desc: "Calculate House Rent Allowance exemption", href: "/tools/hra-calculator", icon: Home, color: "text-navy", bg: "bg-navy/5" },
+  { name: "Gratuity Calculator", desc: "Calculate gratuity amount under Payment of Gratuity Act", href: "/tools/gratuity-calculator", icon: Target, color: "text-gold", bg: "bg-gold/10" },
+  { name: "SIP Calculator", desc: "Calculate returns on your SIP investments", href: "/tools/sip-calculator", icon: TrendingUp, color: "text-navy", bg: "bg-navy/5" },
   { name: "EPF Calculator", desc: "Calculate your Employee Provident Fund corpus", href: "/tools/epf-calculator", icon: Shield, color: "text-gold", bg: "bg-gold/10" },
-  { name: "TDS Calculator", desc: "Calculate TDS deducted on salary and other income", href: "/tools/tds-calculator", icon: Clipboard, color: "text-orange-500", bg: "bg-orange-50" },
-  { name: "Salary Calculator", desc: "Calculate in-hand salary from CTC", href: "/tools/salary-calculator", icon: Briefcase, color: "text-teal-500", bg: "bg-teal-50" },
-  { name: "PPF Calculator", desc: "Calculate Public Provident Fund returns", href: "/tools/ppf-calculator", icon: PieChart, color: "text-fuchsia-500", bg: "bg-fuchsia-50" },
-  { name: "FD Calculator", desc: "Calculate Fixed Deposit maturity amount", href: "/tools/fd-calculator", icon: DollarSign, color: "text-sky-500", bg: "bg-sky-50" },
-  { name: "Business Name Generator", desc: "Generate business name ideas for your startup", href: "/tools/business-name-generator", icon: Briefcase, color: "text-blue-500", bg: "bg-gold/10" },
+  { name: "TDS Calculator", desc: "Calculate TDS deducted on salary and other income", href: "/tools/tds-calculator", icon: Clipboard, color: "text-navy", bg: "bg-navy/5" },
+  { name: "Salary Calculator", desc: "Calculate in-hand salary from CTC", href: "/tools/salary-calculator", icon: Briefcase, color: "text-gold", bg: "bg-gold/10" },
+  { name: "PPF Calculator", desc: "Calculate Public Provident Fund returns", href: "/tools/ppf-calculator", icon: PieChart, color: "text-navy", bg: "bg-navy/5" },
+  { name: "FD Calculator", desc: "Calculate Fixed Deposit maturity amount", href: "/tools/fd-calculator", icon: DollarSign, color: "text-gold", bg: "bg-gold/10" },
+  { name: "Business Name Generator", desc: "Generate business name ideas for your startup", href: "/tools/business-name-generator", icon: Briefcase, color: "text-navy", bg: "bg-navy/5" },
 ];
 
 export default function ToolsPage() {
@@ -40,7 +40,7 @@ export default function ToolsPage() {
       <section className="relative overflow-hidden bg-white z-20 pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-slate-200/60">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute -top-[20%] -right-[10%] h-[600px] w-[600px] rounded-full bg-gold/100/10 blur-[120px]" />
-          <div className="absolute top-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-violet-500/10 blur-[120px]" />
+          <div className="absolute top-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-navy-light/5 blur-[120px]" />
           <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
         </div>
 
@@ -54,7 +54,7 @@ export default function ToolsPage() {
           </div>
           
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-            Free Business & <br className="sm:hidden" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-amber-300">Tax Tools</span>
+            Free Business & <br className="sm:hidden" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-500 to-orange-400">Tax Tools</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-slate-600 font-medium leading-relaxed animate-fade-in-up" style={{ animationDelay: "200ms" }}>
             Calculators and tools to help you make smarter financial, legal, and tax decisions.

@@ -128,7 +128,7 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
                     isHighlighted: false
                   }));
                 }}
-                className="btn btn-xs bg-gold/10 text-gold border-gold/30 hover:bg-gold/20 hover:border-indigo-300 rounded-md"
+                className="btn btn-xs bg-gold/10 text-gold border-gold/30 hover:bg-gold/20 hover:border-gold/50 rounded-md"
               >
                 + Auto-fill Custom Plan
               </button>

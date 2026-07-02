@@ -37,7 +37,7 @@ export default function UserServicesList({ currentItem, userRegistrations, userL
                 onClick={() => { if (!isCurrent && onSwitchItem) onSwitchItem(item); }}
                 className={`flex flex-col justify-between gap-3 rounded-[1.35rem] border p-4 transition-all sm:flex-row sm:items-center ${
                   isCurrent 
-                    ? "border-indigo-300 bg-gradient-to-r from-indigo-50 to-white ring-2 ring-indigo-100" 
+                    ? "border-gold bg-gradient-to-r from-gold/10 to-white ring-2 ring-gold/20" 
                     : "cursor-pointer border-slate-700 bg-navy hover:border-slate-300 hover:bg-navy-light hover:shadow-sm"
                 }`}
               >

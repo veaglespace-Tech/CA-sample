@@ -4,30 +4,30 @@
 /* Last Deployment Update: 2026-06-08 */
 
 @theme {
-  /* Premium CA Firm Theme */
-  --color-primary: #C5A059;      /* Elegant Gold */
+  /* Premium CA Firm Theme - ENHANCED */
+  --color-primary: #D4AF37;      /* Vibrant Metallic Gold */
   --color-primary-content: #ffffff;
-  --color-primary-dark: #A38245; /* Darker Gold */
-  --color-primary-light: #E6D5B3;/* Light Gold */
-  --color-secondary: #0F172A;    /* Rich Navy */
-  --color-accent: #1E293B;       /* Slate 800 */
+  --color-primary-dark: #AA8B2C; /* Deep Gold */
+  --color-primary-light: #F4E2A6;/* Light Gold */
+  --color-secondary: #0A1128;    /* Deep Rich Navy */
+  --color-accent: #111B3D;       /* Navy Accent */
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-error: #EF4444;
   
   /* Brand Specific Colors for direct tailwind use */
-  --color-navy: #0F172A;
-  --color-navy-light: #1E293B;
-  --color-gold: #C5A059;
-  --color-gold-dark: #A38245;
+  --color-navy: #0A1128;
+  --color-navy-light: #111B3D;
+  --color-gold: #D4AF37;
+  --color-gold-dark: #AA8B2C;
 
   --font-sans: var(--font-lexend), "Lexend", sans-serif;
   --font-serif: var(--font-lexend), "Lexend", sans-serif;
   
   /* Soft elegant corners */
-  --radius-xl: 0.375rem;
-  --radius-2xl: 0.5rem;
-  --radius-3xl: 0.75rem;
+  --radius-xl: 0.5rem;
+  --radius-2xl: 0.75rem;
+  --radius-3xl: 1rem;
 }
 
 :root {
@@ -43,21 +43,21 @@
   --border: #E2E8F0;
   --border-lt: #F8FAFC;
   
-  --navy: #0F172A;
-  --navy2: #1E293B;
-  --orange: #C5A059;       
-  --orange-dk: #A38245;    
-  --orange-lt: #E6D5B3;    
+  --navy: #0A1128;
+  --navy2: #111B3D;
+  --orange: #D4AF37;       
+  --orange-dk: #AA8B2C;    
+  --orange-lt: #F4E2A6;    
   --green: #10B981;
   --blue: #2563EB;         
-  --gold: #C5A059;         
+  --gold: #D4AF37;         
   
   /* Aliases for legacy class usage */
-  --vs-orange: #C5A059;
-  --vs-orange-dark: #A38245;
-  --vs-orange-light: #E6D5B3;
-  --vs-navy: #0F172A;
-  --vs-navy-light: #1E293B;
+  --vs-orange: #D4AF37;
+  --vs-orange-dark: #AA8B2C;
+  --vs-orange-light: #F4E2A6;
+  --vs-navy: #0A1128;
+  --vs-navy-light: #111B3D;
   --vs-white: #ffffff;
   --vs-bg: #FAFAFA;
   --vs-bg-warm: #F8FAFC;
@@ -68,7 +68,7 @@
   --vs-border-light: #F8FAFC;
   --vs-green: #10B981;
   --vs-blue: #2563EB;
-  --vs-gold: #C5A059;
+  --vs-gold: #D4AF37;
 }
 
 /* ═══════════════════════════════════════════
@@ -199,12 +199,13 @@
 
 /* ── Premium card hover effect ── */
 .card-hover {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
 }
 .card-hover:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 24px 48px -12px rgba(15, 82, 152, 0.12), 0 0 25px rgba(184, 144, 71, 0.15);
-  border-color: var(--orange) !important;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px -15px rgba(10, 17, 40, 0.15), 0 0 30px rgba(212, 175, 55, 0.2);
+  border-color: #D4AF37 !important;
+  z-index: 10;
 }
 
 /* ── Premium button pulse ── */

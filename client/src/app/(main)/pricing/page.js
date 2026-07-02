@@ -34,24 +34,26 @@ const plans = [
 
 export default function PricingPage() {
   return (
-    <>
-      <section className="vs-page-hero">
-        <div className="vs-container">
-          <div className="vs-breadcrumb">
-            <Link href="/">Home</Link>
-            <span className="sep">›</span>
-            <span>Pricing</span>
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+      <section className="bg-navy pt-24 pb-48 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-up">
+          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-none border border-gold/30 bg-gold/10 text-gold text-xs font-black uppercase tracking-[0.15em] shadow-sm">
+            Pricing
           </div>
-          <h1>Simple, Transparent Pricing</h1>
-          <p className="vs-hero-sub">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+            Simple, Transparent <span className="text-gold">Pricing</span>
+          </h1>
+          <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
             Choose the plan that fits your business. No hidden fees, no surprises.
           </p>
         </div>
       </section>
 
-      <section className="vs-section">
-        <div className="vs-container">
-          <div className="vs-pricing-grid">
+      <section className="max-w-7xl mx-auto px-4 w-full -mt-32 relative z-20 pb-24">
+        <div className="vs-pricing-grid animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             {plans.map((plan) => (
               <div key={plan.name} className={`vs-pricing-card ${plan.highlight ? "vs-pricing-highlight" : ""}`}>
                 {plan.highlight && <div className="vs-pricing-badge">Most Popular</div>}
@@ -71,9 +73,8 @@ export default function PricingPage() {
               </div>
             ))}
           </div>
-        </div>
       </section>
-    </>
+    </div>
   );
 }
 

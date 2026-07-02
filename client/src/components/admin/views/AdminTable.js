@@ -53,7 +53,7 @@ export default function AdminTable({
       if (item.referredByCode) {
         return (
           <div className="flex flex-col gap-0.5">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-violet-50 text-violet-700 border border-violet-200">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-navy-light/10 text-navy border border-gold/20">
               🎁 Via Referral
             </span>
             <span className="text-[9px] font-bold text-slate-500 mt-0.5">Code: {item.referredByCode}</span>
@@ -72,7 +72,7 @@ export default function AdminTable({
       } else if (status === "IN_PROGRESS") {
         badgeClasses = "bg-amber-50 text-amber-700 border-amber-200/60";
       } else if (status === "QUALIFIED") {
-        badgeClasses = "bg-violet-50 text-violet-700 border-violet-200/60";
+        badgeClasses = "bg-navy-light/10 text-navy border-gold/20";
       } else if (status === "CONVERTED" || status === "COMPLETED") {
         badgeClasses = "bg-emerald-50 text-emerald-700 border-emerald-200/60";
       } else if (status === "REJECTED") {

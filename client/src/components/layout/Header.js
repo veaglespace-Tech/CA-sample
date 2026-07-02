@@ -431,11 +431,11 @@ export default function Header() {
       <div className="hidden lg:block bg-navy border-b border-navy-light text-slate-300 py-1.5">
         <div className="mx-auto flex w-full max-w-none items-center justify-between px-4 sm:px-6 lg:px-12">
           <div className="flex items-center gap-4 text-[0.8rem]">
-            <Link href="/about-us" className="hover:text-gold font-semibold transition-colors text-slate-200">About Us</Link>
+            <Link href="/about-us" className="hover:text-gold font-semibold transition-all hover:-translate-y-0.5 text-slate-200 inline-block">About Us</Link>
             <span className="text-white/20">|</span>
-            <Link href="/contact" className="hover:text-gold font-semibold transition-colors text-slate-200">Contact</Link>
+            <Link href="/contact" className="hover:text-gold font-semibold transition-all hover:-translate-y-0.5 text-slate-200 inline-block">Contact</Link>
             <span className="text-white/20">|</span>
-            <Link href="/resources" className="hover:text-gold font-semibold transition-colors text-slate-200">Blogs</Link>
+            <Link href="/resources" className="hover:text-gold font-semibold transition-all hover:-translate-y-0.5 text-slate-200 inline-block">Blogs</Link>
           </div>
           <div className="flex items-center gap-4 text-[0.8rem]">
             <a href={`tel:${siteMeta.phone}`} className="flex items-center font-bold text-gold hover:text-white transition-colors">
@@ -443,7 +443,12 @@ export default function Header() {
               {siteMeta.phone}
             </a>
             <span className="text-white/20">|</span>
-            <Link href="/talk-to-expert" className="hover:text-gold font-semibold transition-colors text-slate-200">Talk to an Expert</Link>
+            <a href={`tel:${siteMeta.phone2.replace(/[^0-9+]/g, '')}`} className="flex items-center font-bold text-gold hover:text-white transition-colors">
+              <Phone size={13} className="mr-1.5" />
+              {siteMeta.phone2}
+            </a>
+            <span className="text-white/20">|</span>
+            <Link href="/talk-to-expert" className="hover:text-gold font-semibold transition-all hover:-translate-y-0.5 text-slate-200 inline-block">Talk to an Expert</Link>
           </div>
         </div>
       </div>
@@ -463,13 +468,13 @@ export default function Header() {
               const isSimple = getMegaData(item.key)?.type === "simple";
               return (
                 <div key={item.key} className="relative" onMouseLeave={delayedClose}>
-                  <button
-                    type="button"
-                    className={`group flex h-9 items-center gap-1.5 whitespace-nowrap rounded-none px-4 text-xs font-bold transition-all duration-200 ${
-                      isCta
-                        ? "bg-gold text-white shadow-sm hover:bg-gold-dark hover:shadow-md active:scale-[0.98]"
-                        : `text-slate-700 hover:text-gold hover:bg-gold/10/40 ${activeMenu === item.key ? "bg-gold/10/60 text-gold shadow-sm ring-1 ring-indigo-100/30" : ""}`
-                    }`}
+                    <button
+                      type="button"
+                      className={`group flex h-9 items-center gap-1.5 whitespace-nowrap rounded-none px-4 text-xs font-bold transition-all duration-300 ${
+                        isCta
+                          ? "bg-gold text-white shadow-sm hover:bg-gold-dark hover:shadow-[0_5px_15px_rgba(212,175,55,0.4)] hover:-translate-y-0.5 active:scale-[0.98]"
+                          : `text-slate-700 hover:text-gold hover:bg-gold/10 hover:-translate-y-0.5 ${activeMenu === item.key ? "bg-gold/10 text-gold shadow-sm" : ""}`
+                      }`}
                     onClick={() => (activeMenu === item.key ? closeAll() : openMenu(item.key))}
                     onMouseEnter={() => openMenu(item.key)}
                   >
@@ -522,7 +527,7 @@ export default function Header() {
                 </Link>
                 <button 
                   type="button" 
-                  className="flex items-center justify-center w-8 h-8 rounded-full border border-slate-300 text-slate-700 hover:border-gold hover:bg-gold hover:text-white hover:shadow-md transition-all duration-300 !hidden sm:!inline-flex"
+                  className="flex items-center justify-center w-8 h-8 rounded-full border border-slate-300 text-slate-700 hover:border-gold hover:bg-gold hover:text-white hover:shadow-[0_5px_15px_rgba(212,175,55,0.4)] hover:-translate-y-0.5 transition-all duration-300 !hidden sm:!inline-flex"
                   onClick={handleLogout} 
                   disabled={isLoggingOut}
                   title="Logout"
@@ -533,7 +538,7 @@ export default function Header() {
             ) : (
               <Link 
                 href="/login" 
-                className="flex items-center justify-center w-8 h-8 rounded-full border border-slate-300 text-slate-700 hover:border-gold hover:bg-gold hover:text-white hover:shadow-md transition-all duration-300 !hidden sm:!inline-flex"
+                className="flex items-center justify-center w-8 h-8 rounded-full border border-slate-300 text-slate-700 hover:border-gold hover:bg-gold hover:text-white hover:shadow-[0_5px_15px_rgba(212,175,55,0.4)] hover:-translate-y-0.5 transition-all duration-300 !hidden sm:!inline-flex"
                 onClick={closeAll}
                 title="Login"
               >
@@ -613,9 +618,11 @@ export default function Header() {
       {mobileOpen && (
         <div className="fixed inset-x-0 top-[76px] z-[180] max-h-[calc(100vh-76px)] overflow-y-auto border-b border-indigo-55 bg-white/98 shadow-2xl backdrop-blur-xl xl:hidden transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
           <div className="mx-auto w-full max-w-[1288px] px-4 py-4 sm:px-6">
-            <div className="mb-3 flex items-center gap-2 rounded-none bg-gold/5 border border-primary/10 px-4 py-3 text-sm font-extrabold text-gold">
+            <div className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-none bg-gold/5 border border-primary/10 px-4 py-3 text-sm font-extrabold text-gold">
               <Phone size={15} />
-              <span>{siteMeta.phone}</span>
+              <a href={`tel:${siteMeta.phone.replace(/[^0-9+]/g, '')}`}>{siteMeta.phone}</a>
+              <span className="text-gold/50 px-1">|</span>
+              <a href={`tel:${siteMeta.phone2.replace(/[^0-9+]/g, '')}`}>{siteMeta.phone2}</a>
             </div>
 
             {mainNav.map((item) => {

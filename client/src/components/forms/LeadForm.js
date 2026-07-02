@@ -221,7 +221,7 @@ export default function LeadForm({ endpoint = "/api/contact", mode = "contact", 
               ? "bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/30 border-none" 
               : status === "loading" 
               ? "bg-slate-300 text-slate-500 border-none cursor-not-allowed" 
-              : "bg-gradient-to-r from-primary to-indigo-600 hover:from-primary hover:to-indigo-700 text-white shadow-lg shadow-primary/25 border-none group active:scale-[0.98]"
+              : "bg-gradient-to-r from-gold to-orange-500 hover:from-gold-dark hover:to-orange-600 text-white shadow-lg shadow-gold/25 border-none group active:scale-[0.98]"
           }`}
           disabled={status === "loading" || status === "success"}
         >

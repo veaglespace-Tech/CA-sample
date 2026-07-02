@@ -55,11 +55,11 @@ export default function Footer() {
                 <FacebookIcon />
               </a>
               <a href={siteMeta.social?.instagram} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/50 hover:bg-pink-500/20 hover:text-pink-500 hover:shadow-lg" aria-label="Instagram">
+                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/20 hover:text-gold hover:shadow-lg" aria-label="Instagram">
                 <InstagramIcon />
               </a>
               <a href={siteMeta.social?.linkedin} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/50 hover:bg-indigo-400/20 hover:text-indigo-400 hover:shadow-lg" aria-label="LinkedIn">
+                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/20 hover:text-gold hover:shadow-lg" aria-label="LinkedIn">
                 <LinkedinIcon />
               </a>
               <a href={siteMeta.social?.twitter} target="_blank" rel="noopener noreferrer"
@@ -105,10 +105,14 @@ export default function Footer() {
               CONTACT US
             </h4>
             <div className="flex flex-col items-start gap-3 text-[0.82rem] font-medium">
-              <a href={`tel:${siteMeta.phone.replace(/[^0-9+]/g, '')}`} className="flex items-start gap-2.5 group">
+              <div className="flex items-start gap-2.5 group">
                 <Phone size={15} className="mt-0.5 shrink-0 text-white/50 group-hover:text-gold transition-colors" />
-                <span className="text-white/80 transition-colors group-hover:text-white">{siteMeta.phone}</span>
-              </a>
+                <span className="text-white/80 transition-colors group-hover:text-white">
+                  <a href={`tel:${siteMeta.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-gold">{siteMeta.phone}</a>
+                  {", "}
+                  <a href={`tel:${siteMeta.phone2.replace(/[^0-9+]/g, '')}`} className="hover:text-gold">{siteMeta.phone2}</a>
+                </span>
+              </div>
               <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${siteMeta.email}`} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 group">
                 <Mail size={15} className="mt-0.5 shrink-0 text-white/50 group-hover:text-gold transition-colors" />
                 <span className="text-white/80 transition-colors group-hover:text-white">{siteMeta.email}</span>

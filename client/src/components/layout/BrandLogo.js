@@ -37,7 +37,7 @@ export default function BrandLogo({
           fill
           priority={priority}
           sizes={`${resolvedWidth}px`}
-          className={`${imageClassName} object-contain animate-[float_8s_ease-in-out_infinite]`}
+          className={`${imageClassName} object-contain filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.85)] drop-shadow-[0_5px_15px_rgba(0,0,0,1)] animate-flip-y`}
         />
       </span>
       {showText && (
@@ -47,6 +47,16 @@ export default function BrandLogo({
           </span>
         </span>
       )}
+      <style>{`
+        @keyframes flipY {
+          0% { transform: perspective(600px) rotateY(0deg); }
+          100% { transform: perspective(600px) rotateY(360deg); }
+        }
+        .animate-flip-y {
+          animation: flipY 6s linear infinite;
+          transform-style: preserve-3d;
+        }
+      `}</style>
     </Link>
   );
 }

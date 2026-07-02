@@ -8,10 +8,17 @@ import { siteMeta } from "../../../lib/navigation-data";
 const contactCards = [
   { 
     icon: <Phone size={20} className="text-gold" />, 
-    title: "Call Us", 
+    title: "Call Us (Primary)", 
     value: siteMeta.phone, 
     note: "Monday to Saturday, 10 AM to 7 PM",
     href: `tel:${siteMeta.phone.replace(/[^0-9+]/g, '')}`
+  },
+  { 
+    icon: <Phone size={20} className="text-gold" />, 
+    title: "Call Us (Secondary)", 
+    value: "+91 85306 00577", 
+    note: "Monday to Saturday, 10 AM to 7 PM",
+    href: "tel:+918530600577"
   },
   { 
     icon: <Mail size={20} className="text-gold" />, 
@@ -38,25 +45,25 @@ const contactCards = [
 
 export default function ContactContent() {
   return (
-    <div className="bg-white min-h-screen">
-      {/* Showbiz Hero Section */}
-      <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-white/10">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold text-white text-xs font-black uppercase tracking-widest mb-6 animate-fade-in-up border border-white/20">
-            <Mail size={16} /> Contact Support
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+      <section className="bg-navy pt-24 pb-48 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-up">
+          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-none border border-gold/30 bg-gold/10 text-gold text-xs font-black uppercase tracking-[0.15em] shadow-sm">
+            <Mail size={14} /> Contact Support
           </div>
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
             Get in Touch with <br className="sm:hidden" /><span className="text-gold">Veagle Space Technology Pvt. Ltd.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/80 font-light leading-relaxed animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+          <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
             Need help with online company registration, tax filing, or legal compliance? Send us an email or call between 10 AM and 7 PM. We are here to help.
           </p>
         </div>
       </section>
 
-      <section className="relative py-16 lg:py-8 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 w-full -mt-32 relative z-20 pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
             {/* Left Column: Form */}

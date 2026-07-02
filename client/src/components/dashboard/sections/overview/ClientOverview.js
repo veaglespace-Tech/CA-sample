@@ -101,7 +101,7 @@ export default function ClientOverview({
     const s = String(status || "NEW").toUpperCase();
     if (s === "NEW") return "bg-sky-50 text-sky-700 border-sky-200/60";
     if (s === "IN_PROGRESS") return "bg-amber-50 text-amber-700 border-amber-200/60";
-    if (s === "QUALIFIED") return "bg-violet-50 text-violet-700 border-violet-200/60";
+    if (s === "QUALIFIED") return "bg-navy-light/10 text-navy border-gold/20";
     if (s === "CONVERTED" || s === "COMPLETED") return "bg-emerald-50 text-emerald-700 border-emerald-200/60";
     if (s === "REJECTED") return "bg-rose-50 text-rose-700 border-rose-200/60";
     return "bg-navy-light text-slate-400 border-slate-700/60";
@@ -400,7 +400,7 @@ export default function ClientOverview({
                         {ref.status === "NEW" ? "Registered" : ref.status}
                       </span>
                     </td>
-                    <td className="py-4 pr-4 text-right text-xs font-extrabold text-indigo-900">{ref.serviceName || "Sign Up"}</td>
+                    <td className="py-4 pr-4 text-right text-xs font-extrabold text-navy">{ref.serviceName || "Sign Up"}</td>
                   </tr>
                 ))}
               </tbody>

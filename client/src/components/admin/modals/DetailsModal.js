@@ -346,15 +346,15 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
           {/* Header */}
           <div className="bg-gold px-6 py-5 text-white flex justify-between items-center shrink-0">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-gold/50 rounded-sm text-indigo-100">
+              <div className="p-2.5 bg-gold/50 rounded-sm text-white">
                 <Calendar size={20} />
               </div>
               <div>
                 <h3 className="text-lg font-black tracking-tight">{currentItem.title}</h3>
-                <p className="text-[11px] text-indigo-200 font-semibold uppercase tracking-wider mt-0.5">Event Registrations • {regs.length} Total</p>
+                <p className="text-[11px] text-gold font-semibold uppercase tracking-wider mt-0.5">Event Registrations • {regs.length} Total</p>
               </div>
             </div>
-            <button onClick={onClose} className="btn btn-circle btn-sm border-none bg-indigo-800/40 hover:bg-indigo-800 text-indigo-100 font-bold transition-all">✕</button>
+            <button onClick={onClose} className="btn btn-circle btn-sm border-none bg-navy/40 hover:bg-navy text-white font-bold transition-all">✕</button>
           </div>
 
           {/* Content */}
@@ -368,7 +368,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
                   ← Back to Registrations
                 </button>
                 <div className="bg-gold/10 border border-gold/20 rounded-none p-5">
-                  <h4 className="font-black text-indigo-900 text-lg">Send Event Materials & Message</h4>
+                  <h4 className="font-black text-navy text-lg">Send Event Materials & Message</h4>
                   <p className="text-sm font-semibold text-gold/70 mt-1">
                     To: {selectedRegForMsg.name} ({selectedRegForMsg.email})
                   </p>
@@ -441,7 +441,7 @@ export default function DetailsModal({ currentItem, onClose, onSwitchItem, onSen
           {/* Header */}
           <div className="bg-slate-900 px-6 py-5 text-white flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-violet-500/20 rounded-sm text-violet-300">
+              <div className="p-2.5 bg-gold/20 rounded-sm text-gold">
                 <MessageSquare size={20} />
               </div>
               <div>

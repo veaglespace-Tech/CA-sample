@@ -126,18 +126,18 @@ export default function ClientChatbot() {
           aria-label="Veagle Space Technology AI Assistant"
         >
           {/* Header */}
-          <div className="relative flex items-center justify-between gap-3 overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-700 to-blue-800 px-5 py-4 text-white">
+          <div className="relative flex items-center justify-between gap-3 overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy px-5 py-4 text-white">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_0%,rgba(255,255,255,0.1),transparent_50%)]"></div>
             <div className="relative z-10 flex min-w-0 items-center gap-3">
               <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-white/15 ring-1 ring-white/30 backdrop-blur-md shadow-inner">
                 <Sparkles size={18} className="text-blue-100" />
-                <div className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full border-2 border-indigo-700 bg-green-400"></div>
+                <div className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full border-2 border-navy bg-green-400"></div>
               </div>
               <div className="min-w-0">
                 <h2 className="truncate text-sm font-black tracking-tight flex items-center gap-1.5">
                   Veagle Space Technology AI <Zap size={12} className="text-amber-300 fill-amber-300" />
                 </h2>
-                <p className="truncate text-[11px] font-semibold text-indigo-200">Instant help & form finder</p>
+                <p className="truncate text-[11px] font-semibold text-gold">Instant help & form finder</p>
               </div>
             </div>
             <button
@@ -162,7 +162,7 @@ export default function ClientChatbot() {
                 <div
                   className={`max-w-[85%] rounded-none px-4 py-3 text-[13px] leading-relaxed shadow-sm ${
                     message.from === "user"
-                      ? "rounded-tr-sm bg-gradient-to-br from-gold to-[#d29052] text-white font-medium shadow-indigo-600/20"
+                      ? "rounded-tr-sm bg-gradient-to-br from-gold to-[#d29052] text-white font-medium shadow-gold/20"
                       : "rounded-tl-sm border border-slate-100 bg-white text-slate-700"
                   }`}
                 >
@@ -174,7 +174,7 @@ export default function ClientChatbot() {
                          <Link
                           key={link.href}
                           href={link.href}
-                          className="group inline-flex items-center justify-between gap-2 rounded-sm border border-indigo-50 bg-gold/10/50 px-3 py-2.5 text-[11px] font-black text-gold transition-all hover:border-gold/30 hover:bg-gold/20 hover:shadow-sm"
+                          className="group inline-flex items-center justify-between gap-2 rounded-sm border border-gold/20 bg-gold/10/50 px-3 py-2.5 text-[11px] font-black text-gold transition-all hover:border-gold/30 hover:bg-gold/20 hover:shadow-sm"
                           onClick={() => setOpen(false)}
                         >
                           <span className="truncate">{link.label}</span>
@@ -196,9 +196,9 @@ export default function ClientChatbot() {
                   <Bot size={14} />
                 </div>
                 <div className="rounded-none rounded-tl-sm border border-slate-100 bg-white px-4 py-3 shadow-sm flex items-center gap-1.5 h-[42px] transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold animate-bounce" style={{ animationDelay: '300ms' }}></span>
                 </div>
               </div>
             )}
@@ -216,7 +216,7 @@ export default function ClientChatbot() {
                     key={item.id}
                     type="button"
                     onClick={() => askAction(item.id)}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-gold/20 bg-white px-3 py-1.5 text-[11px] font-bold text-gold shadow-sm transition-all hover:border-indigo-300 hover:bg-gold/10 hover:shadow-md"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-gold/20 bg-white px-3 py-1.5 text-[11px] font-bold text-gold shadow-sm transition-all hover:border-gold/50 hover:bg-gold/10 hover:shadow-md"
                   >
                     {item.label}
                   </button>
@@ -229,12 +229,12 @@ export default function ClientChatbot() {
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask me anything..."
-                className="w-full rounded-none border border-slate-200 bg-slate-50 py-3.5 pl-4 pr-12 text-[13px] font-semibold text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-gold focus:bg-white focus:ring-4 focus:ring-gold/30/50"
+                className="w-full rounded-none border border-slate-200 bg-slate-50 py-3.5 pl-4 pr-12 text-[13px] font-semibold text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-gold focus:bg-white focus:ring-4 focus:ring-gold/30"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isTyping}
-                className="absolute right-1.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-sm bg-gold text-white shadow-md shadow-indigo-600/20 transition-all hover:bg-gold hover:scale-105 disabled:opacity-50 disabled:pointer-events-none"
+                className="absolute right-1.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-sm bg-gold text-white shadow-md shadow-gold/20 transition-all hover:bg-gold hover:scale-105 disabled:opacity-50 disabled:pointer-events-none"
                 aria-label="Send message"
               >
                 <Send size={15} className="ml-0.5" />
@@ -269,7 +269,7 @@ export default function ClientChatbot() {
       <div className="relative group mt-4">
         {/* Animated Glow Ring */}
         {!open && (
-          <div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 opacity-40 blur-lg transition duration-1000 group-hover:opacity-80 animate-pulse"></div>
+          <div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-gold via-yellow-500 to-orange-500 opacity-40 blur-lg transition duration-1000 group-hover:opacity-80 animate-pulse"></div>
         )}
         <button
           type="button"
@@ -277,7 +277,7 @@ export default function ClientChatbot() {
           className={`relative z-10 flex items-center justify-center rounded-full text-white shadow-2xl transition-all duration-500 overflow-hidden border border-white/20 backdrop-blur-md ${
             open 
               ? "bg-slate-900 shadow-slate-900/50 h-14 w-14 rotate-180" 
-              : "bg-gradient-to-tr from-indigo-600 via-purple-600 to-blue-600 h-14 w-14 hover:w-[130px] justify-start p-2 hover:shadow-[0_0_30px_rgba(79,70,229,0.6)]"
+              : "bg-gradient-to-tr from-gold via-yellow-500 to-orange-500 h-14 w-14 hover:w-[130px] justify-start p-2 hover:shadow-[0_0_30px_rgba(218,165,32,0.6)]"
           }`}
           aria-label={open ? "Close AI Assistant" : "Open AI Assistant"}
         >

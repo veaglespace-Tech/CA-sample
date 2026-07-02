@@ -52,8 +52,8 @@ export default function ReferralsSection({ user }) {
       {/* Refer & Earn Premium Console */}
       <div className="relative bg-navy p-8 md:p-4 md:p-10 rounded-none border border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden space-y-10 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
         {/* Subtle background gradients */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-indigo-50/80 to-purple-50/40 rounded-full blur-3xl opacity-70 -mr-48 -mt-48 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gradient-to-tr from-blue-50/80 to-sky-50/40 rounded-full blur-3xl opacity-70 -ml-20 -mb-20 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-gold/10 to-orange-50/40 rounded-full blur-3xl opacity-70 -mr-48 -mt-48 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gradient-to-tr from-navy-light/10 to-sky-50/40 rounded-full blur-3xl opacity-70 -ml-20 -mb-20 pointer-events-none"></div>
 
         <div className="relative z-10 space-y-8">
           {/* Top Section: Header & Referral Code */}
@@ -80,7 +80,7 @@ export default function ReferralsSection({ user }) {
                 className={`btn h-14 rounded-sm px-8 font-black uppercase text-[12px] tracking-wider border-none shadow-sm transition-all hover:-translate-y-0.5 flex items-center gap-2.5 shrink-0 ${
                   copiedKey === "code"
                     ? "bg-emerald-500 text-white shadow-emerald-500/20 hover:bg-emerald-600"
-                    : "bg-gold text-white shadow-indigo-600/20 hover:bg-gold hover:shadow-indigo-600/30"
+                    : "bg-gold text-white shadow-gold/20 hover:bg-gold hover:shadow-gold/30"
                 }`}
               >
                 {copiedKey === "code" ? <><Check size={18} strokeWidth={3} /> Copied!</> : <><Copy size={18} strokeWidth={3} /> Copy</>}
@@ -98,7 +98,7 @@ export default function ReferralsSection({ user }) {
                 </span>
               </div>
               <div className="flex flex-col justify-center h-full rounded-none border border-gold/20/60 bg-gold/10/40 p-6 shadow-sm hover:shadow-md transition-shadow">
-                <span className="block text-[11px] font-black uppercase tracking-widest text-indigo-400 mb-2">Total Signups</span>
+                <span className="block text-[11px] font-black uppercase tracking-widest text-gold mb-2">Total Signups</span>
                 <span className="text-3xl font-black text-gold leading-none">{myReferrals.length}</span>
               </div>
               <div className="flex flex-col justify-center h-full rounded-none border border-emerald-100/60 bg-emerald-50/40 p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -256,7 +256,7 @@ export default function ReferralsSection({ user }) {
                         {ref.status === "NEW" ? "Registered" : ref.status}
                       </span>
                     </td>
-                    <td className="py-5 pr-6 text-right text-[13px] font-extrabold text-indigo-900">{ref.serviceName || "Sign Up"}</td>
+                    <td className="py-5 pr-6 text-right text-[13px] font-extrabold text-navy">{ref.serviceName || "Sign Up"}</td>
                   </tr>
                 ))}
               </tbody>

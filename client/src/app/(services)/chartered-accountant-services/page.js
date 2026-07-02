@@ -96,43 +96,43 @@ const caServices = [
   {
     title: "Income Tax Filing & Planning",
     desc: "End-to-end ITR preparation for individuals, partnerships, startups, and enterprises with year-round tax-saving strategy alignment.",
-    icon: <Briefcase className="h-6 w-6 text-blue-500" />,
-    color: "blue",
+    icon: <Briefcase className="h-6 w-6 text-navy" />,
+    color: "navy",
     list: ["ITR 1 to 7 Filing", "Advance Tax Management", "Capital Gains Planning", "Tax Audits (Sec 44AB)"]
   },
   {
     title: "GST Compliance & Filings",
     desc: "Hassle-free GSTIN registrations, returns filing, input tax credit (ITC) reconciliation, and expert reply support for department notices.",
-    icon: <PieChart className="h-6 w-6 text-violet-500" />,
-    color: "violet",
+    icon: <PieChart className="h-6 w-6 text-gold" />,
+    color: "gold",
     list: ["GST Returns (1 & 3B)", "ITC Reconciliation", "Annual GSTR-9 filing", "Notice Response Assistance"]
   },
   {
     title: "Statutory & Tax Audit",
     desc: "Robust audits carried out by seasoned, independent CA practitioners that ensure regulatory compliance and verify control systems.",
-    icon: <Shield className="h-6 w-6 text-emerald-500" />,
-    color: "emerald",
+    icon: <Shield className="h-6 w-6 text-navy" />,
+    color: "navy",
     list: ["Statutory Company Audits", "Tax Audit U/S 44AB", "Internal Operations Audit", "ROC Financial Certifications"]
   },
   {
     title: "Virtual CFO Advisory",
     desc: "Scale your startup with full finance delegation: weekly MIS reporting, dynamic financial modeling, payroll setup, and cash flow projections.",
-    icon: <TrendingUp className="h-6 w-6 text-amber-500" />,
-    color: "orange",
+    icon: <TrendingUp className="h-6 w-6 text-gold" />,
+    color: "gold",
     list: ["Interactive MIS Dashboards", "Cash Flow Forecasts", "Pitch-deck Fin Modeling", "Payroll & Expense Controls"]
   },
   {
     title: "ROC & Corporate Compliance",
     desc: "Never miss a deadline. Complete annual filings, director changes, share allocations, and secretarial audit compliance handled digitally.",
-    icon: <Scale className="h-6 w-6 text-cyan-500" />,
-    color: "blue",
+    icon: <Scale className="h-6 w-6 text-navy" />,
+    color: "navy",
     list: ["ROC Forms AOC-4 & MGT-7", "DIR-3 KYC filings", "Board Meeting drafting", "Share Capital Increases"]
   },
   {
     title: "NRI & FEMA Taxation",
     desc: "Specialized consultancy for cross-border investments, DTAA benefits, repatriation assistance, and foreign assets disclosure compliance.",
-    icon: <DollarSign className="h-6 w-6 text-rose-500" />,
-    color: "violet",
+    icon: <DollarSign className="h-6 w-6 text-gold" />,
+    color: "gold",
     list: ["DTAA Benefit Optimization", "15CA/15CB Certifications", "Repatriation Strategy", "Foreign Assets ITR Filing"]
   }
 ];
@@ -194,7 +194,7 @@ export default function CharteredAccountantLanding() {
         {/* Animated Radial Glows */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
           <div className="absolute -left-[15%] top-[5%] h-[600px] w-[600px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-gold/100/10 blur-[130px]" />
-          <div className="absolute -bottom-[15%] -right-[10%] h-[700px] w-[700px] animate-[float_14s_ease-in-out_infinite_2s_reverse] rounded-full bg-violet-500/10 blur-[160px]" />
+          <div className="absolute -bottom-[15%] -right-[10%] h-[700px] w-[700px] animate-[float_14s_ease-in-out_infinite_2s_reverse] rounded-full bg-navy-light/10 blur-[160px]" />
           <div className="absolute left-[35%] top-[40%] h-[500px] w-[500px] animate-[float_9s_ease-in-out_infinite_1s] rounded-full bg-gold/10 blur-[120px]" />
           {/* Radial grid line background */}
           <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
@@ -221,7 +221,7 @@ export default function CharteredAccountantLanding() {
             Elite CA Network.
             <br />
             <span className="relative inline-block">
-              <span className="animate-[gradient-xy_6s_ease_infinite] bg-[length:300%_300%] bg-gradient-to-r from-blue-400 via-indigo-200 to-amber-300 bg-clip-text text-transparent">
+              <span className="animate-[gradient-xy_6s_ease_infinite] bg-[length:300%_300%] bg-gradient-to-r from-gold via-yellow-500 to-orange-400 bg-clip-text text-transparent">
                 Frictionless Finance.
               </span>
               <span className="absolute -bottom-2 left-1/2 h-3 w-3/4 -translate-x-1/2 rounded-full bg-gold/100/20 blur-xl" />
@@ -237,7 +237,7 @@ export default function CharteredAccountantLanding() {
           <div className="animate-fade-in-up mt-12 flex flex-col sm:flex-row gap-4 relative z-10" style={{ animationDelay: "200ms" }}>
             <Link
               href="#estimator"
-              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all hover:shadow-blue-500/25 duration-300"
+              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-to-r from-gold to-orange-500 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all hover:shadow-gold/25 duration-300"
             >
               Estimate Compliance Fee
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -284,7 +284,7 @@ export default function CharteredAccountantLanding() {
               {[...brandLogos, ...brandLogos].map((brand, i) => (
                 <span
                   key={i}
-                  className="font-heading text-lg font-black text-slate-400/80 transition-all duration-300 hover:text-blue-500 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.4)] cursor-default"
+                  className="font-heading text-lg font-black text-slate-400/80 transition-all duration-300 hover:text-gold hover:drop-shadow-[0_0_8px_rgba(197,160,89,0.4)] cursor-default"
                 >
                   {brand}
                 </span>
@@ -357,7 +357,7 @@ export default function CharteredAccountantLanding() {
         {/* Glow Effects */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute top-[20%] -left-[10%] h-[400px] w-[400px] rounded-full bg-gold/20/40 blur-[130px]" />
-          <div className="absolute bottom-[20%] -right-[10%] h-[400px] w-[400px] rounded-full bg-violet-100/40 blur-[130px]" />
+          <div className="absolute bottom-[20%] -right-[10%] h-[400px] w-[400px] rounded-full bg-navy-light/5 blur-[130px]" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -390,7 +390,7 @@ export default function CharteredAccountantLanding() {
                       onClick={() => setSelectedStructure(key)}
                       className={`flex flex-col items-start rounded-none border p-4 text-left transition-all duration-300 ${
                         selectedStructure === key
-                          ? "bg-white border-blue-500 shadow-lg shadow-blue-500/5 ring-1 ring-blue-500"
+                          ? "bg-white border-gold shadow-lg shadow-gold/5 ring-1 ring-gold"
                           : "bg-white border-slate-200 hover:border-slate-300 hover:bg-white"
                       }`}
                     >
@@ -467,7 +467,7 @@ export default function CharteredAccountantLanding() {
                 <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,#3b82f6_1px,transparent_1px)] [background-size:16px_16px]" />
                 <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-gold/100/25 blur-3xl" />
                 
-                <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">
+                <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.2em] text-gold">
                   Veagle Space Technology Retainer Plan
                 </span>
                 
@@ -497,7 +497,7 @@ export default function CharteredAccountantLanding() {
                     "Accuracy guaranteed: Penalty cover",
                   ].map((feat, i) => (
                     <div key={i} className="flex items-center gap-3 text-xs font-semibold text-slate-300">
-                      <CheckCircle className="h-4.5 w-4.5 text-blue-400 shrink-0" />
+                      <CheckCircle className="h-4.5 w-4.5 text-gold shrink-0" />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -542,22 +542,22 @@ export default function CharteredAccountantLanding() {
             {
               title: "Verified Top-Tier CAs",
               desc: "Every practitioner undergoes rigorous profile checks. Our specialists possess deep knowledge in multi-state audits, startup structures, and cross-border taxes.",
-              icon: <Users className="h-6 w-6 text-blue-500" />
+              icon: <Users className="h-6 w-6 text-navy" />
             },
             {
               title: "No Surprise RETS",
               desc: "Say goodbye to arbitrary consultation invoices. We implement completely transparent, flat retainer pricing schedules without hidden administrative surcharges.",
-              icon: <DollarSign className="h-6 w-6 text-violet-500" />
+              icon: <DollarSign className="h-6 w-6 text-gold" />
             },
             {
               title: "Digital Client Vaults",
               desc: "Securely upload bank records, ledgers, and trade documentation. Download finished reports and ITR acknowledgement filings instantly on your user dashboard.",
-              icon: <Shield className="h-6 w-6 text-emerald-500" />
+              icon: <Shield className="h-6 w-6 text-navy" />
             },
             {
               title: "Guaranteed Accuracy",
               desc: "Our rigorous cross-verification audits eliminate mathematical and format errors. If any filing errors result in penalty levies, we back our services with complete liability covers.",
-              icon: <Award className="h-6 w-6 text-amber-500" />
+              icon: <Award className="h-6 w-6 text-gold" />
             }
           ].map((item, idx) => (
             <div
@@ -600,7 +600,7 @@ export default function CharteredAccountantLanding() {
                 <div
                   key={index}
                   className={`rounded-none border transition-all duration-300 ${
-                    isOpen ? "border-blue-500 bg-slate-50/50 shadow-md shadow-blue-500/5" : "border-slate-200 bg-white hover:border-slate-300"
+                    isOpen ? "border-gold bg-slate-50/50 shadow-md shadow-gold/5" : "border-slate-200 bg-white hover:border-slate-300"
                   }`}
                 >
                   <button
@@ -611,7 +611,7 @@ export default function CharteredAccountantLanding() {
                       {faq.q}
                     </span>
                     <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border border-slate-200 bg-white text-slate-500 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 border-gold/30 text-blue-500" : ""
+                      isOpen ? "rotate-180 border-gold/30 text-gold" : ""
                     }`}>
                       <ChevronDown className="h-4 w-4" />
                     </div>
@@ -638,14 +638,14 @@ export default function CharteredAccountantLanding() {
           {/* Backdrop Glow Elements */}
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <div className="absolute -right-[15%] -top-[15%] h-[60%] w-[45%] animate-[float_12s_ease-in-out_infinite] rounded-full bg-gold/30 blur-[120px]" />
-            <div className="absolute -left-[10%] bottom-0 h-[50%] w-[40%] animate-[float_15s_ease-in-out_infinite_3s_reverse] rounded-full bg-violet-600/30 blur-[140px]" />
+            <div className="absolute -left-[10%] bottom-0 h-[50%] w-[40%] animate-[float_15s_ease-in-out_infinite_3s_reverse] rounded-full bg-navy-light/30 blur-[140px]" />
           </div>
 
           <div className="relative z-10 grid gap-14 lg:grid-cols-1 md:grid-cols-2 lg:items-center">
             
             {/* Left Content Column */}
             <div className="text-white">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gold">
                 Book a consultation
               </span>
               <h2 className="font-heading text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl mt-4 leading-tight">
@@ -671,7 +671,7 @@ export default function CharteredAccountantLanding() {
               </div>
 
               <div className="mt-8 border-t border-white/10 pt-8 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 border border-white/10 shadow-lg text-blue-400">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 border border-white/10 shadow-lg text-gold">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
@@ -684,7 +684,7 @@ export default function CharteredAccountantLanding() {
             {/* Right Form Column */}
             <div className="relative">
               {/* Animated surrounding borders glow */}
-              <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 blur-xl opacity-40 animate-[pulse-glow_4s_ease-in-out_infinite]" />
+              <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-gold via-yellow-500 to-orange-500 blur-xl opacity-40 animate-[pulse-glow_4s_ease-in-out_infinite]" />
               <div className="relative rounded-none bg-white p-8 shadow-2xl lg:p-4 md:p-10">
                 <h3 className="font-heading text-2xl font-black text-slate-900">Request Partner CA Callback</h3>
                 <p className="text-xs font-semibold text-slate-400 mt-2 mb-7">

@@ -41,9 +41,9 @@ const RISK_STYLE = {
 };
 
 const MODULE_META = {
-  leads:         { label: "Service Leads",    icon: ClipboardList,    color: "violet"  },
+  leads:         { label: "Service Leads",    icon: ClipboardList,    color: "navy"  },
   registrations: { label: "Registrations",    icon: CheckCircle,      color: "emerald" },
-  users:         { label: "User Management",  icon: Users,            color: "blue"    },
+  users:         { label: "User Management",  icon: Users,            color: "gold"    },
   contacts:      { label: "Contact Queries",  icon: MessageSquare,    color: "cyan"    },
   events:        { label: "Platform Events",  icon: Calendar,         color: "amber"   },
   plans:         { label: "Service Plans",    icon: LayoutGrid,       color: "orange"  },
@@ -55,9 +55,9 @@ const MODULE_META = {
 };
 
 const COLOR_MAP = {
-  violet:  { bg: "bg-violet-50",  text: "text-violet-600",  border: "border-violet-200"  },
+  navy:  { bg: "bg-navy-light/10",  text: "text-navy",  border: "border-gold/20"  },
   emerald: { bg: "bg-emerald-50", text: "text-emerald-600", border: "border-emerald-200" },
-  blue:    { bg: "bg-gold/10",    text: "text-gold",    border: "border-gold/30"    },
+  gold:    { bg: "bg-gold/10",    text: "text-gold",    border: "border-gold/30"    },
   cyan:    { bg: "bg-cyan-50",    text: "text-cyan-600",    border: "border-cyan-200"    },
   amber:   { bg: "bg-amber-50",   text: "text-amber-600",   border: "border-amber-200"   },
   orange:  { bg: "bg-orange-50",  text: "text-orange-600",  border: "border-orange-200"  },
@@ -231,10 +231,10 @@ function AdminCard({ admin, schema, isSaving, onSave }) {
   const pct = Math.round((grantedActions / totalActions) * 100);
 
   return (
-    <div className={`bg-white rounded-none border overflow-hidden transition-all duration-200 ${dirty ? "border-indigo-300 shadow-lg shadow-indigo-100" : "border-slate-100 shadow-sm"}`}>
+    <div className={`bg-white rounded-none border overflow-hidden transition-all duration-200 ${dirty ? "border-gold shadow-lg shadow-gold/20" : "border-slate-100 shadow-sm"}`}>
       {/* Header */}
       <div className="p-5 flex items-center gap-4">
-        <div className="w-12 h-12 rounded-sm bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-slate-900 font-black text-lg shadow-inner flex-shrink-0">
+        <div className="w-12 h-12 rounded-sm bg-gradient-to-br from-gold to-[#d29052] flex items-center justify-center text-slate-900 font-black text-lg shadow-inner flex-shrink-0">
           {admin.name?.charAt(0)?.toUpperCase() || "A"}
         </div>
         <div className="flex-1 min-w-0">
@@ -255,7 +255,7 @@ function AdminCard({ admin, schema, isSaving, onSave }) {
         <div className="flex items-center gap-2 flex-shrink-0">
           {dirty && (
             <button onClick={handleSave} disabled={isSaving}
-              className="flex items-center gap-1.5 px-3 py-2 bg-gold hover:bg-gold text-white rounded-sm text-xs font-black transition-all shadow-md shadow-indigo-200 disabled:opacity-50">
+              className="flex items-center gap-1.5 px-3 py-2 bg-gold hover:bg-gold text-white rounded-sm text-xs font-black transition-all shadow-md shadow-gold/30 disabled:opacity-50">
               <Save size={12} /> Save
             </button>
           )}
@@ -298,7 +298,7 @@ function AdminCard({ admin, schema, isSaving, onSave }) {
           {dirty && (
             <div className="mt-5 pt-4 border-t border-slate-100 flex justify-end">
               <button onClick={handleSave} disabled={isSaving}
-                className="flex items-center gap-2 px-5 py-2.5 bg-gold hover:bg-gold text-white rounded-sm text-xs font-black transition-all shadow-md shadow-indigo-200 disabled:opacity-50">
+                className="flex items-center gap-2 px-5 py-2.5 bg-gold hover:bg-gold text-white rounded-sm text-xs font-black transition-all shadow-md shadow-gold/30 disabled:opacity-50">
                 {isSaving ? <RefreshCw size={13} className="animate-spin" /> : <Save size={13} />}
                 {isSaving ? "Saving..." : "Save Permissions"}
               </button>
@@ -335,16 +335,16 @@ export default function AdminPermissionsView() {
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
 
       {/* Header */}
-      <div className="bg-gradient-to-tr from-slate-900 via-indigo-950 to-violet-950 text-slate-900 rounded-[2.5rem] p-8 shadow-xl relative border border-slate-100 overflow-hidden">
+      <div className="bg-gradient-to-tr from-navy via-navy to-navy text-slate-900 rounded-[2.5rem] p-8 shadow-xl relative border border-slate-100 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(139,92,246,0.15),transparent_60%)]" />
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-violet-500/10 rounded-full border border-violet-500/20">
-              <ShieldCheck size={14} className="text-violet-400" />
-              <span className="text-[10px] font-black uppercase tracking-wider text-violet-300">Super Admin Only</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 rounded-full border border-gold/20">
+              <ShieldCheck size={14} className="text-gold" />
+              <span className="text-[10px] font-black uppercase tracking-wider text-gold">Super Admin Only</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-none text-slate-900">Staff Permissions</h1>
-            <p className="text-indigo-100/70 text-xs md:text-sm font-medium max-w-xl">
+            <p className="text-white/70 text-xs md:text-sm font-medium max-w-xl">
               Control exactly what each CA employee (Admin) can view and do — per module, per action. Changes take effect on their next login.
             </p>
           </div>
@@ -406,7 +406,7 @@ export default function AdminPermissionsView() {
       {/* Loading */}
       {isLoading && (
         <div className="flex flex-col items-center justify-center py-8 md:py-20 gap-4">
-          <div className="w-10 h-10 border-4 border-gold/30 border-t-indigo-600 rounded-full animate-spin" />
+          <div className="w-10 h-10 border-4 border-gold/30 border-t-navy rounded-full animate-spin" />
           <p className="text-sm font-semibold text-slate-500">Loading admin accounts...</p>
         </div>
       )}

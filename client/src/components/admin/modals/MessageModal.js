@@ -94,7 +94,7 @@ export default function MessageModal({ messagingUser, onClose, onSendMessage, ca
 
           <div className="space-y-3">
             <div className="text-xs font-black uppercase tracking-wider text-slate-400">Attachments</div>
-            <label className={`flex cursor-pointer items-center gap-3 rounded-sm border border-dashed border-slate-700 bg-navy p-4 transition ${selectedRepoDocId ? "pointer-events-none opacity-50" : "hover:border-indigo-300 hover:bg-gold/10/30"}`}>
+            <label className={`flex cursor-pointer items-center gap-3 rounded-sm border border-dashed border-slate-700 bg-navy p-4 transition ${selectedRepoDocId ? "pointer-events-none opacity-50" : "hover:border-gold/50 hover:bg-gold/10/30"}`}>
               <span className="rounded-sm bg-navy-light p-2 text-slate-400">
                 <FileUp size={18} />
               </span>

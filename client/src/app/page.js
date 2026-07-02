@@ -92,32 +92,38 @@ const serviceGroups = [
   {
     title: "Business Registration",
     desc: "Private Limited, LLP, OPC registration with full legal compliance.",
-    icon: <Heart size={32} />
+    icon: <Heart size={32} />,
+    href: "/company-registration"
   },
   {
     title: "Tax & Payroll",
     desc: "GST registration, return filing, and complete accounting services.",
-    icon: <Lightbulb size={32} />
+    icon: <Lightbulb size={32} />,
+    href: "/gst-registration"
   },
   {
     title: "Trademark & IP",
     desc: "Trademark, copyright, and patent registration to secure your brand.",
-    icon: <Shield size={32} />
+    icon: <Shield size={32} />,
+    href: "/trademark-registration"
   },
   {
     title: "Compliances & Docs",
     desc: "Annual returns, director changes, and registered office updates.",
-    icon: <FileText size={32} />
+    icon: <FileText size={32} />,
+    href: "/services"
   },
   {
     title: "Wealth Management",
     desc: "Financial planning and risk analysis for steady business growth.",
-    icon: <Zap size={32} />
+    icon: <Zap size={32} />,
+    href: "/services"
   },
   {
     title: "Quick Support",
     desc: "Dedicated CA and lawyer support for all your queries.",
-    icon: <Phone size={32} />
+    icon: <Phone size={32} />,
+    href: "/talk-to-expert"
   }
 ];
 
@@ -166,20 +172,98 @@ export default function Home() {
   }, []);
   
   useGSAP(() => {
-    gsap.from('.gsap-hero-item', { y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out' });
-    gsap.from('.gsap-stat-card', { scrollTrigger: { trigger: '.gsap-stats-container', start: 'top 85%' }, y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'back.out(1.5)' });
-    gsap.from('.gsap-service-card', { scrollTrigger: { trigger: '.gsap-service-container', start: 'top 80%' }, y: 50, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power2.out' });
-    gsap.from('.gsap-contact-col', { scrollTrigger: { trigger: '.gsap-contact-container', start: 'top 75%' }, x: (i) => i === 0 ? -50 : 50, opacity: 0, duration: 1, stagger: 0.2, ease: 'power3.out' });
+    // Hero Entrance
+    gsap.fromTo('.gsap-hero-item', 
+      { y: 60, opacity: 0, scale: 0.95, filter: 'blur(10px)' },
+      { 
+        y: 0, 
+        opacity: 1, 
+        scale: 1,
+        filter: 'blur(0px)',
+        duration: 1.2, 
+        stagger: 0.15, 
+        ease: 'power4.out',
+        delay: 0.1
+      }
+    );
+
+    // Parallax background
+    gsap.to('.gsap-hero-bg', {
+      yPercent: 30,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.gsap-hero-section',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // Stats
+    gsap.fromTo('.gsap-stat-card', 
+      { y: 40, opacity: 0, scale: 0.9 },
+      { 
+        scrollTrigger: { trigger: '.gsap-stats-container', start: 'top 85%' }, 
+        y: 0, 
+        opacity: 1, 
+        scale: 1,
+        duration: 0.8, 
+        stagger: 0.15, 
+        ease: 'back.out(1.7)' 
+      }
+    );
+
+    // Services
+    gsap.fromTo('.gsap-service-card', 
+      { y: 60, opacity: 0, rotateX: -15, transformPerspective: 1000 },
+      { 
+        scrollTrigger: { trigger: '.gsap-service-container', start: 'top 80%' }, 
+        y: 0, 
+        opacity: 1, 
+        rotateX: 0,
+        duration: 1, 
+        stagger: 0.1, 
+        ease: 'power3.out' 
+      }
+    );
+
+    // Journey
+    gsap.fromTo('.gsap-journey-card', 
+      { y: 40, opacity: 0 },
+      {
+        scrollTrigger: { trigger: '.gsap-journey-container', start: 'top 80%' },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+      }
+    );
+
+    // Contact
+    gsap.fromTo('.gsap-contact-col', 
+      { opacity: 0 },
+      {
+        scrollTrigger: { trigger: '.gsap-contact-container', start: 'top 75%' }, 
+        x: 0, 
+        opacity: 1, 
+        duration: 1.2, 
+        stagger: 0.2, 
+        ease: 'expo.out' 
+      }
+    );
   }, { scope: container });
 
   return (
     <div ref={container} className="flex min-h-screen flex-col font-sans text-slate-600 bg-white">
       
       {/* 1. HERO / BANNER SECTION */}
-      <div className="relative min-h-[90vh] w-full bg-navy flex flex-col items-center justify-center overflow-hidden py-12 md:py-20">
+      <div className="gsap-hero-section relative min-h-[90vh] w-full bg-navy flex flex-col items-center justify-center py-12 md:py-20 z-40">
         {/* Particle JS Canvas Simulation & Background */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-25"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/80 to-navy"></div>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="gsap-hero-bg absolute -inset-y-1/4 inset-x-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-25"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/80 to-navy"></div>
+        </div>
         
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           <div className="gsap-hero-item mb-8">
@@ -204,7 +288,7 @@ export default function Home() {
               <Link
                 href={item.href}
                 key={item.label}
-                className="border border-white/30 bg-white/10 backdrop-blur-md px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:border-gold hover:bg-gold"
+                className="border border-white/30 bg-white/10 backdrop-blur-md px-5 py-2 text-sm font-semibold text-white transition-all duration-400 hover:-translate-y-1 hover:border-gold hover:bg-gold hover:shadow-[0_8px_20px_rgba(212,175,55,0.4)] hover:text-navy"
               >
                 {item.label}
               </Link>
@@ -240,8 +324,8 @@ export default function Home() {
             <div className="gsap-stat-card text-2xl font-light">99% Success Rate</div>
             <div className="gsap-stat-card text-lg text-slate-300 hidden md:block">India&apos;s Trusted Business Platform</div>
             <div className="gsap-stat-card">
-              <Link href="/services" className="inline-flex items-center gap-2 border border-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-gold hover:border-gold transition-colors duration-300">
-                Explore Services <ChevronRight size={16} />
+              <Link href="/services" className="inline-flex items-center gap-2 border border-white px-8 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-400 hover:-translate-y-1 hover:bg-gold hover:border-gold hover:text-navy hover:shadow-[0_0_25px_rgba(212,175,55,0.5)]">
+                Explore Services <ChevronRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
@@ -261,20 +345,20 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {serviceGroups.map((feature, i) => (
-              <div key={i} className="gsap-service-card text-center group cursor-pointer">
-                <div className="w-20 h-20 mx-auto rounded-full border-2 border-gold text-gold flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg">
+              <Link href={feature.href || "/services"} key={i} className="gsap-service-card card-hover text-center group cursor-pointer p-6 rounded-2xl border border-transparent hover:border-slate-100 hover:bg-slate-50/50 block">
+                <div className="w-20 h-20 mx-auto rounded-full border-2 border-gold text-gold flex items-center justify-center mb-6 transition-all duration-500 shadow-sm group-hover:scale-110 group-hover:bg-gold group-hover:text-white group-hover:shadow-[0_0_25px_rgba(212,175,55,0.4)]">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-4">{feature.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{feature.desc} <strong className="text-navy transition-colors group-hover:text-gold">..more</strong></p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </div>
 
       {/* 4. RECENT CASE / SHARE HOLDER (Journey Cards) */}
-      <div className="py-8 md:py-24 bg-[#f9f9f9]">
+      <div className="py-8 md:py-24 bg-[#f9f9f9] gsap-journey-container">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-navy mb-4">Your <strong> Growth Engine</strong></h2>
@@ -286,9 +370,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {journeyCards.map((item, i) => (
-              <div key={i} className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 cursor-pointer">
+              <div key={i} className="gsap-journey-card card-hover relative group overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-lg cursor-pointer">
                 {/* Glow Effect behind */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-gold/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 {/* Image Section */}
                 <div className="h-56 overflow-hidden relative bg-slate-50/50 flex items-center justify-center border-b border-slate-100 p-6">

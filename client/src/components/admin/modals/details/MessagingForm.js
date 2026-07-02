@@ -29,7 +29,7 @@ export default function MessagingForm({
               Secure Outreach
             </div>
             <h4 className="flex items-center gap-3 text-2xl font-black tracking-tight text-white">
-              <span className="flex h-11 w-11 items-center justify-center rounded-none bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-[0_10px_24px_rgba(79,70,229,0.22)]">
+              <span className="flex h-11 w-11 items-center justify-center rounded-none bg-gradient-to-br from-gold to-orange-500 text-white shadow-[0_10px_24px_rgba(218,165,32,0.22)]">
                 <MessageSquareText size={20} />
               </span>
               Dispatch To User
@@ -70,7 +70,7 @@ export default function MessagingForm({
                 <div
                 className={`rounded-[2rem] border p-5 transition-all sm:p-6 ${
                   isDocRequest
-                    ? "border-indigo-300 bg-gradient-to-br from-indigo-50 via-white to-violet-50 shadow-[0_18px_50px_-28px_rgba(79,70,229,0.45)]"
+                    ? "border-gold bg-gradient-to-br from-navy-light/10 via-white to-navy-light/5 shadow-[0_18px_50px_-28px_rgba(218,165,32,0.45)]"
                     : "border-slate-700 bg-navy-light/70"
                 }`}
               >
@@ -122,7 +122,7 @@ export default function MessagingForm({
                     Share From Repository
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div className="relative rounded-none border border-slate-700 bg-navy px-4 shadow-sm transition-all focus-within:border-indigo-400 focus-within:ring-4 focus-within:ring-indigo-100">
+                    <div className="relative rounded-none border border-slate-700 bg-navy px-4 shadow-sm transition-all focus-within:border-gold focus-within:ring-4 focus-within:ring-gold/30">
                       <select
                         className="h-14 w-full appearance-none bg-transparent pr-8 text-sm font-bold text-white outline-none"
                         value={repoCategoryFilter}
@@ -142,7 +142,7 @@ export default function MessagingForm({
                       </div>
                     </div>
 
-                    <div className="relative rounded-none border border-slate-700 bg-navy px-4 shadow-sm transition-all focus-within:border-indigo-400 focus-within:ring-4 focus-within:ring-indigo-100">
+                    <div className="relative rounded-none border border-slate-700 bg-navy px-4 shadow-sm transition-all focus-within:border-gold focus-within:ring-4 focus-within:ring-gold/30">
                       <select
                         className="h-14 w-full appearance-none bg-transparent pr-8 text-sm font-bold text-white outline-none"
                         value={selectedRepoDocId}
@@ -162,14 +162,14 @@ export default function MessagingForm({
                   
                   {selectedRepoDocId && (
                     <div className="animate-in fade-in slide-in-from-top-1 flex flex-wrap gap-2 pt-1">
-                      <div className="inline-flex items-center gap-2 rounded-sm border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-bold text-gold shadow-sm transition-all hover:border-indigo-300">
+                      <div className="inline-flex items-center gap-2 rounded-sm border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-bold text-gold shadow-sm transition-all hover:border-gold/50">
                         <FileSearch size={14} className="text-gold" />
                         <span className="truncate max-w-[200px]">
                           {repoDocs.find(d => d.id === selectedRepoDocId)?.fileName || "Document Selected"}
                         </span>
                         <button 
                           onClick={() => setSelectedRepoDocId("")}
-                          className="ml-1 rounded-full p-0.5 text-indigo-400 hover:bg-gold hover:text-white transition-colors"
+                          className="ml-1 rounded-full p-0.5 text-navy hover:bg-gold hover:text-white transition-colors"
                           title="Remove selection"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -184,9 +184,9 @@ export default function MessagingForm({
                     <Upload className="text-gold" size={16} />
                     Upload New File
                   </div>
-                  <label className="flex min-h-[88px] cursor-pointer items-center justify-between gap-4 rounded-[1.4rem] border border-dashed border-slate-300 bg-navy px-5 py-4 shadow-sm transition-all hover:border-indigo-300 hover:bg-gold/10/40">
+                  <label className="flex min-h-[88px] cursor-pointer items-center justify-between gap-4 rounded-[1.4rem] border border-dashed border-slate-300 bg-navy px-5 py-4 shadow-sm transition-all hover:border-gold/50 hover:bg-gold/10/40">
                     <div className="flex min-w-0 items-center gap-4">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-none bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-[0_10px_24px_rgba(79,70,229,0.22)]">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-none bg-gradient-to-br from-gold to-orange-500 text-white shadow-[0_10px_24px_rgba(218,165,32,0.22)]">
                         <Upload size={18} />
                       </span>
                       <div className="min-w-0">
@@ -215,7 +215,7 @@ export default function MessagingForm({
 
         <div className="flex justify-end border-t border-slate-800 pt-8">
           <button
-            className="group inline-flex h-14 items-center gap-3 rounded-[1.25rem] bg-gradient-to-r from-indigo-600 to-violet-600 px-8 text-[13px] font-black uppercase tracking-[0.22em] text-white shadow-[0_18px_40px_rgba(79,70,229,0.28)] transition-all hover:-translate-y-0.5 hover:shadow-[0_22px_44px_rgba(79,70,229,0.34)] disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400 disabled:shadow-none"
+            className="group inline-flex h-14 items-center gap-3 rounded-[1.25rem] bg-gradient-to-r from-gold to-orange-500 px-8 text-[13px] font-black uppercase tracking-[0.22em] text-white shadow-[0_18px_40px_rgba(218,165,32,0.28)] transition-all hover:-translate-y-0.5 hover:shadow-[0_22px_44px_rgba(218,165,32,0.34)] disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400 disabled:shadow-none"
             onClick={handleSend}
             disabled={isUploading || (!messageText && !attachment && !selectedRepoDocId && !isDocRequest)}
           >

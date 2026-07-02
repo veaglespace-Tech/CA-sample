@@ -26,7 +26,7 @@ function PagerButton({ disabled, active, onClick, children }) {
       onClick={onClick}
       className={`inline-flex h-10 min-w-10 items-center justify-center rounded-sm border px-3 text-sm font-black transition-all ${
         active
-          ? "border-indigo-500 bg-gold text-white shadow-[0_12px_28px_rgba(79,70,229,0.25)]"
+          ? "border-gold bg-gold text-white shadow-[0_12px_28px_rgba(218,165,32,0.25)]"
           : disabled
             ? "cursor-not-allowed border-slate-200 bg-slate-50 text-slate-600"
             : "border-slate-200 bg-white text-slate-800 hover:border-slate-300 hover:bg-slate-50"
@@ -141,7 +141,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
   }, [users, userSearch]);
 
   const controlShellClass =
-    "group relative overflow-hidden rounded-[1.15rem] border border-slate-200/80 bg-gradient-to-b from-white to-slate-50 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-[0_18px_45px_rgba(15,23,42,0.10)]";
+    "group relative overflow-hidden rounded-[1.15rem] border border-slate-200/80 bg-gradient-to-b from-white to-slate-50 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/30 hover:shadow-[0_18px_45px_rgba(15,23,42,0.10)]";
   const controlFieldClass =
     "h-[3.25rem] w-full appearance-none bg-transparent px-4 py-3 pr-11 text-sm font-semibold text-slate-900 outline-none placeholder:text-slate-400";
   const selectFieldClass =
@@ -226,7 +226,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
             <label className="space-y-2 xl:col-span-4">
               <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-500">Search Plans</span>
               <div className={controlShellClass}>
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-amber-400/0 to-indigo-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-gold/0 via-yellow-400/0 to-gold/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="relative flex items-center">
                   <Search size={16} className="pointer-events-none absolute left-4 text-slate-400 transition-colors duration-300 group-hover:text-gold" />
                   <input
@@ -288,7 +288,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
 
             <label className="space-y-2 xl:col-span-3">
               <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-500">Target Service</span>
-              <div className={`${controlShellClass} ring-1 ring-transparent transition-all duration-300 focus-within:ring-indigo-200`}>
+              <div className={`${controlShellClass} ring-1 ring-transparent transition-all duration-300 focus-within:ring-gold/30`}>
                 <select
                   className={`${selectFieldClass} focus:ring-0 disabled:cursor-not-allowed disabled:text-slate-500`}
                   value={serviceFilter}
@@ -433,7 +433,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                         <button
                           type="button"
                           onClick={() => onEdit(plan)}
-                          className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-slate-200 text-slate-500 transition-all hover:border-indigo-300 hover:bg-gold/10 hover:text-gold"
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-slate-200 text-slate-500 transition-all hover:border-gold/50 hover:bg-gold/10 hover:text-gold"
                           aria-label="Edit plan"
                         >
                           <Pencil size={14} />

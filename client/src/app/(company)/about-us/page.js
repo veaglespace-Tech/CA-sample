@@ -35,27 +35,28 @@ const pillars = [
 
 export default function AboutUsPage() {
   return (
-    <div className="bg-white min-h-screen">
-      {/* Showbiz Hero Section */}
-      <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-white/10">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold text-white text-xs font-black uppercase tracking-widest mb-6 animate-fade-in-up border border-white/20">
-            <Users size={16} /> Who We Are
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+      <section className="bg-navy pt-24 pb-48 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-up">
+          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-none border border-gold/30 bg-gold/10 text-gold text-xs font-black uppercase tracking-[0.15em] shadow-sm">
+            <Users size={14} /> Who We Are
           </div>
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
             About <span className="text-gold">Veagle Space Technology Pvt. Ltd.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/80 font-light leading-relaxed animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+          <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
             We offer legal wings to let your dreams soar higher.
           </p>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="relative py-12 lg:py-8 md:py-16 bg-white border-b border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8 divide-x divide-slate-100">
+      <section className="max-w-7xl mx-auto px-4 w-full -mt-32 relative z-20 pb-12">
+        <div className="bg-white p-8 md:p-12 shadow-xl rounded-none border border-slate-100">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 divide-x divide-slate-100">
             {stats.map((item, i) => (
               <div key={item.label} className="text-center px-4 animate-fade-in-up" style={{ animationDelay: `${200 + i * 100}ms` }}>
                 <div className="text-3xl lg:text-4xl font-black text-slate-900 mb-2">{item.value}</div>
@@ -153,7 +154,7 @@ export default function AboutUsPage() {
       <section className="relative py-16 lg:py-8 md:py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading text-3xl md:text-4xl font-black text-slate-900 mb-4">Start Your Business with Veagle Space Technology Pvt. Ltd.</h2>
-          <p className="text-xl text-slate-600 font-medium mb-10">Call {siteMeta.phone} or email {siteMeta.email}. We would be delighted to speak.</p>
+          <p className="text-xl text-slate-600 font-medium mb-10">Call {siteMeta.phone} or {siteMeta.phone2} or email {siteMeta.email}. We would be delighted to speak.</p>
           <Link href="/talk-to-expert" className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-gold hover:bg-gold-600 rounded-full shadow-[0_4px_20px_rgb(59,130,246,0.4)] hover:shadow-[0_8px_30px_rgb(59,130,246,0.6)] transition-all duration-300 hover:-translate-y-1">
             Talk to an Expert
           </Link>

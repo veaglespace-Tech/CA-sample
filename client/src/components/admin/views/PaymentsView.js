@@ -84,7 +84,7 @@ function PaymentRow({ payment, onEmail, onMessage }) {
             </button>
             <button 
               onClick={() => onMessage && onMessage(payment)}
-              className="px-3 py-1 bg-gold/20 text-gold hover:bg-indigo-200 text-[10px] font-bold rounded-sm transition-colors flex items-center gap-1"
+              className="px-3 py-1 bg-gold/20 text-gold hover:bg-gold/30 text-[10px] font-bold rounded-sm transition-colors flex items-center gap-1"
             >
               <MessageSquare size={12} /> System Message
             </button>

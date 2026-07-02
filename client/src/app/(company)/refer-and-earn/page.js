@@ -19,19 +19,26 @@ export default function ReferEarnPage() {
   const myRefCode = user?.referralCode || `VX-${user?.name?.slice(0, 4).toUpperCase().replace(/[^A-Z]/g, "") || "USER"}-${user?.id?.slice(-4).toUpperCase() || "ABCD"}`;
 
   return (
-    <>
-      <section className="vs-page-hero vx-page-hero">
-        <div className="vs-container">
-          <div className="vs-breadcrumb">
-            <Link href="/">Home</Link><span className="sep">&gt;</span><span>Refer and Earn</span>
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+      <section className="bg-navy pt-24 pb-48 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-up">
+          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-none border border-gold/30 bg-gold/10 text-gold text-xs font-black uppercase tracking-[0.15em] shadow-sm">
+            <Gift size={14} /> Refer and Earn
           </div>
-          <h1>Refer and Earn with Veagle Space Technology Pvt. Ltd.</h1>
-          <p className="vs-hero-sub">Help another business get reliable professional support and earn when the referral becomes a successful client.</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+            Refer and Earn with <span className="text-gold">Veagle Space</span>
+          </h1>
+          <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
+            Help another business get reliable professional support and earn when the referral becomes a successful client.
+          </p>
         </div>
       </section>
 
-      <section className="vs-section">
-        <div className="vs-container">
+      <section className="max-w-7xl mx-auto px-4 w-full -mt-32 relative z-20 pb-24">
+        <div className="bg-white p-8 md:p-12 shadow-xl rounded-none border border-slate-100 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
           <div className="vx-card-grid vx-card-grid-3">
             {steps.map((step) => (
               <article key={step.title} className="vx-info-card">
@@ -209,7 +216,9 @@ export default function ReferEarnPage() {
           )}
         </div>
       </section>
-    </>
+        </div>
+      </section>
+    </div>
   );
 }
 

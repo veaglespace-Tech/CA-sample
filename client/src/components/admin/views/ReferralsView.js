@@ -144,7 +144,7 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
       {activeRewards.length > 0 && (
         <div className="flex flex-col gap-3 bg-gold/10 border border-gold/20 rounded-none px-5 py-4">
           <div>
-            <p className="text-sm font-black text-indigo-900">Active reward tiers</p>
+            <p className="text-sm font-black text-navy">Active reward tiers</p>
             <p className="text-xs text-gold font-semibold mt-0.5">
               Each non-rejected referral signup counts toward rewards. Checkout uses the best unlocked unused tier.
             </p>
@@ -178,7 +178,7 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
 
       {/* Admin Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-gradient-to-br from-indigo-50 to-indigo-100/50 p-6 rounded-[2rem] border border-gold/20 flex items-center gap-5 shadow-sm">
+        <div className="bg-gradient-to-br from-navy-light/10 to-navy-light/5 p-6 rounded-[2rem] border border-gold/20 flex items-center gap-5 shadow-sm">
           <span className="p-4 bg-gold text-white rounded-none text-2xl"><Users /></span>
           <div>
             <span className="text-[10px] font-black uppercase text-gold tracking-wider block">Total Sign-up Leads</span>
@@ -234,7 +234,7 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
                         <span className="flex items-center gap-1"><Phone /> {referrer.phone}</span>
                       </div>
                     </td>
-                    <td className="py-3.5 text-center font-extrabold text-indigo-900 text-base">
+                    <td className="py-3.5 text-center font-extrabold text-navy text-base">
                       {referrer.totalReferred}
                     </td>
                     <td className="py-3.5 pr-4 text-right">
@@ -332,7 +332,7 @@ export default function ReferralsView({ referrals = [], referrers = [], rewardSe
                         disabled={isUpdating}
                         className={`select select-xs select-bordered rounded-sm font-black tracking-wide text-[9px] uppercase border ${
                           ref.status === "NEW" ? "bg-emerald-50 text-emerald-800 border-emerald-200" :
-                          ref.status === "CONVERTED" ? "bg-gold/10 text-indigo-800 border-gold/30" :
+                          ref.status === "CONVERTED" ? "bg-gold/10 text-navy border-gold/30" :
                           ref.status === "REJECTED" ? "bg-rose-50 text-rose-800 border-rose-200" :
                           "bg-slate-50 text-slate-900 border-slate-200"
                         }`}

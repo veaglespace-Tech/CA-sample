@@ -149,18 +149,18 @@ export default function HomeSearch() {
       >
         
         {/* Magic Glow Border */}
-        <div className={`absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500 blur opacity-30 transition-opacity duration-500 ${active ? "animate-[pulse-glow_3s_ease-in-out_infinite] opacity-70 blur-md" : "opacity-0"}`} />
+        <div className={`absolute -inset-1 rounded-full bg-gradient-to-r from-gold via-yellow-500 to-orange-500 blur opacity-30 transition-opacity duration-500 ${active ? "animate-[pulse-glow_3s_ease-in-out_infinite] opacity-70 blur-md" : "opacity-0"}`} />
 
         <form
           className={`vx-search-form relative flex items-center gap-2 sm:gap-3 overflow-hidden bg-white p-1.5 pl-4 sm:pl-7 transition-all duration-300 ${
             active
               ? "rounded-[1.5rem] sm:rounded-full border border-gold/30 shadow-2xl shadow-gold/20"
-              : "rounded-[1.5rem] sm:rounded-full border border-slate-200/80 shadow-lg hover:border-blue-300/50 hover:shadow-xl"
+              : "rounded-[1.5rem] sm:rounded-full border border-slate-200/80 shadow-lg hover:border-gold/50 hover:shadow-xl"
           }`}
           role="search"
           onSubmit={handleSubmit}
         >
-          <div className="flex shrink-0 items-center text-blue-500">
+          <div className="flex shrink-0 items-center text-gold">
             {active ? <Sparkles size={22} className="animate-pulse text-gold" /> : <Search size={22} className="text-slate-400" />}
           </div>
           
@@ -193,7 +193,7 @@ export default function HomeSearch() {
 
           <button
             type="submit"
-            className="grid h-12 w-12 sm:h-14 shrink-0 place-items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105 active:scale-95 sm:w-auto sm:px-8"
+            className="grid h-12 w-12 sm:h-14 shrink-0 place-items-center rounded-full bg-gradient-to-r from-gold to-orange-500 text-white shadow-lg shadow-gold/25 transition-all hover:scale-105 active:scale-95 sm:w-auto sm:px-8"
           >
             <Search className="sm:hidden" size={18} />
             <span className="hidden text-sm font-black uppercase tracking-wide sm:inline">Search</span>
@@ -219,7 +219,7 @@ export default function HomeSearch() {
                 }`}
               >
                 <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-sm transition-colors ${
-                  selectedIndex === index ? "bg-gradient-to-br from-blue-500 to-indigo-500 text-white shadow-md shadow-gold/20" : "bg-slate-100 text-slate-500"
+                  selectedIndex === index ? "bg-gradient-to-br from-gold to-orange-500 text-white shadow-md shadow-gold/20" : "bg-slate-100 text-slate-500"
                 }`}>
                   {item.icon ? (
                     <img src={item.icon} alt="" className={`h-5 w-5 ${selectedIndex === index ? "brightness-0 invert" : ""}`} />
@@ -248,7 +248,7 @@ export default function HomeSearch() {
               <p className="font-black text-slate-900 mt-1">&quot;{query}&quot;</p>
               <button 
                 onMouseDown={(e) => { e.preventDefault(); router.push(`/services?search=${encodeURIComponent(query)}`); setActive(false); }}
-                className="mt-6 rounded-full bg-slate-900 px-6 py-2.5 text-xs font-black uppercase tracking-wide text-white transition-all hover:bg-gold hover:shadow-lg hover:shadow-blue-500/25"
+                className="mt-6 rounded-full bg-slate-900 px-6 py-2.5 text-xs font-black uppercase tracking-wide text-white transition-all hover:bg-gold hover:shadow-lg hover:shadow-gold/25"
               >
                 View all results
               </button>

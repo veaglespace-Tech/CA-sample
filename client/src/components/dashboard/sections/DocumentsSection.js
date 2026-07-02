@@ -95,7 +95,7 @@ export default function DocumentsSection({ myServicesList = [], myMessages = [] 
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       
       {/* Header Block with glowing accent */}
-      <div className="bg-gradient-to-br from-indigo-50 via-white to-blue-50/30 text-white rounded-[2.5rem] p-8 shadow-[0_10px_35px_rgba(99,102,241,0.03)] relative border border-gold/20/70 overflow-hidden">
+      <div className="bg-gradient-to-br from-navy-light/10 via-white to-navy-light/5 text-white rounded-[2.5rem] p-8 shadow-[0_10px_35px_rgba(99,102,241,0.03)] relative border border-gold/20/70 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(99,102,241,0.06),transparent_50%)]"></div>
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="space-y-2">
@@ -168,7 +168,7 @@ export default function DocumentsSection({ myServicesList = [], myMessages = [] 
                         href={matchedDoc.fileUrl.startsWith("http") ? matchedDoc.fileUrl : `${process.env.NEXT_PUBLIC_API_URL || ""}${matchedDoc.fileUrl}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="btn btn-sm bg-gold hover:bg-gold text-white border-none rounded-sm h-10 w-10 px-0 shadow-lg shadow-indigo-600/20 transition-all duration-300 flex items-center justify-center"
+                        className="btn btn-sm bg-gold hover:bg-gold text-white border-none rounded-sm h-10 w-10 px-0 shadow-lg shadow-gold/20 transition-all duration-300 flex items-center justify-center"
                         title="Preview file"
                       >
                         <Eye size={18} />
@@ -198,7 +198,7 @@ export default function DocumentsSection({ myServicesList = [], myMessages = [] 
                 ) : (
                   /* Document is missing - Show beautiful Drag/Upload block */
                   <div className="w-full md:w-auto self-stretch md:self-auto shrink-0">
-                    <label className="relative flex flex-col items-center justify-center border-[1.5px] border-dashed border-slate-300 hover:border-indigo-400 bg-navy-light hover:bg-gold/10/40 rounded-none p-6 cursor-pointer text-center group transition-all duration-300 w-full md:min-w-[280px] shadow-sm hover:shadow-md">
+                    <label className="relative flex flex-col items-center justify-center border-[1.5px] border-dashed border-slate-300 hover:border-gold bg-navy-light hover:bg-gold/10 rounded-none p-6 cursor-pointer text-center group transition-all duration-300 w-full md:min-w-[280px] shadow-sm hover:shadow-md">
                       <input 
                         type="file"
                         accept=".pdf,.png,.jpg,.jpeg"

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Check, Shield, ChevronDown, Phone, Users, Star } from "lucide-react";
+import { Check, Shield, ChevronDown, Phone, Users, Star, Mail, MapPin } from "lucide-react";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import {
@@ -16,6 +16,7 @@ import toast from "react-hot-toast";
 import FormFeedback from "../../../components/forms/FormFeedback";
 import useLiveValidation from "../../../hooks/useLiveValidation";
 import ReviewBadge from "../../../components/common/ReviewBadge";
+import { siteMeta } from "../../../lib/navigation-data";
 
 const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/api\/?$/, "");
 
@@ -314,160 +315,105 @@ export default function TalkToLawyerPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex flex-col">
-      {/* ═══════════════════════════════════════════
-          1. HERO SECTION WITH MESH GRADIENTS
-      ═══════════════════════════════════════════ */}
-      <section className="relative flex flex-col overflow-hidden bg-white z-20 px-4 pb-16 pt-8 lg:pt-12 sm:px-6 lg:px-8">
-        {/* Animated Radial Glows */}
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute -left-[15%] top-[5%] h-[600px] w-[600px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-gold/100/10 blur-[130px]" />
-          <div className="absolute -bottom-[15%] -right-[10%] h-[700px] w-[700px] animate-[float_14s_ease-in-out_infinite_2s_reverse] rounded-full bg-violet-500/10 blur-[160px]" />
-          <div className="absolute left-[35%] top-[40%] h-[500px] w-[500px] animate-[float_9s_ease-in-out_infinite_1s] rounded-full bg-gold/10 blur-[120px]" />
-          <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+      {/* 1. Header Hero Banner - Solid Navy */}
+      <section className="bg-navy pt-24 pb-48 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-up">
+           <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-none border border-gold/30 bg-gold/10 text-gold text-xs font-black uppercase tracking-[0.15em] shadow-sm">
+             <Shield size={14} /> 100% Confidential Consultation
+           </div>
+           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+             Online Lawyer Consultation. <br/><span className="text-gold">Anytime, Anywhere.</span>
+           </h1>
+           <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
+             Get personalized guidance from verified senior lawyers. Available 24/7. Satisfaction Guaranteed.
+           </p>
         </div>
+      </section>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto grid gap-14 lg:grid-cols-[1.2fr_1fr] items-center">
-          {/* Left Column */}
-          <div className="text-left">
-            <div className="mb-6 animate-fade-in-up">
-              <Link href="/" className="text-slate-500 hover:text-slate-900 text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-1">
-                <span>Home</span> <span className="text-slate-600">/</span> <span>Talk To A Lawyer</span>
-              </Link>
-            </div>
-            
-            <div className="mb-6 animate-fade-in-up">
-              <ReviewBadge />
-            </div>
-            
-            <div className="mb-6 animate-fade-in-up">
-              <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white shadow-sm border-slate-200 px-3 py-1.5 text-xs font-semibold text-emerald-400 shadow-xl backdrop-blur-md">
-                <Shield size={14} />
-                Only ISO 27001 Certified Platform in India 🇮🇳
-              </span>
-            </div>
-
-            <h1 className="animate-fade-in-up font-heading text-4xl font-black leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl mb-6">
-              Online Lawyer Consultation.
-              <br />
-              <span className="relative inline-block mt-2">
-                <span className="animate-[gradient-xy_6s_ease_infinite] bg-[length:300%_300%] bg-gradient-to-r from-blue-400 via-indigo-200 to-amber-300 bg-clip-text text-transparent">
-                  Anytime, Anywhere.
-                </span>
-              </span>
-            </h1>
-
-            <ul className="space-y-4 mb-10 animate-fade-in-up" style={{ animationDelay: "150ms" }}>
-              {[
-                "Get personalized guidance from verified senior lawyers anytime, 24/7",
-                "Confidential and Secure Consultations – Your Peace of Mind Guaranteed",
-                "Satisfaction Guaranteed or Your Money Back."
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-gold/100/20 text-blue-400 shrink-0 border border-blue-500/30">
-                    <Check size={12} strokeWidth={3} />
-                  </div>
-                  <span className="text-sm sm:text-base font-semibold text-slate-600 leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-wrap gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-              <div className="flex items-center gap-3 bg-white shadow-sm border-slate-200 border border-slate-200 px-4 py-2.5 rounded-sm backdrop-blur-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+      {/* 2. Overlapping Content */}
+      <section className="max-w-7xl mx-auto px-4 w-full -mt-32 relative z-20 pb-24">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-8 xl:gap-12 items-start">
+          
+          {/* Left: Contact Info & Value Props */}
+          <div className="flex flex-col gap-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            {/* Stats Card */}
+            <div className="bg-white p-6 border border-slate-100 shadow-xl rounded-none flex flex-wrap gap-4 items-center justify-between">
+              <div className="flex items-center gap-3">
                 <div className="relative">
-                  <Users size={18} className="text-emerald-400" />
+                  <Users size={20} className="text-emerald-500" />
                   <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
-                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full"></span>
                 </div>
-                <span className="text-sm text-slate-900 font-semibold"><strong>220</strong> lawyers online</span>
+                <span className="text-sm text-slate-900 font-semibold"><strong>220+</strong> online</span>
               </div>
-              <div className="flex items-center gap-3 bg-white shadow-sm border-slate-200 border border-slate-200 px-4 py-2.5 rounded-sm backdrop-blur-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+              <div className="flex items-center gap-3">
                 <div className="relative">
-                  <Phone size={18} className="text-amber-400" />
+                  <Phone size={20} className="text-amber-500" />
                   <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full animate-ping"></span>
-                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full"></span>
                 </div>
-                <span className="text-sm text-slate-900 font-semibold"><strong>92</strong> live ongoing calls</span>
+                <span className="text-sm text-slate-900 font-semibold"><strong>92</strong> live calls</span>
               </div>
             </div>
 
             {/* Testimonial Card */}
-            <div className="relative rounded-none bg-white shadow-sm border-slate-200 border border-slate-200 p-6 backdrop-blur-md animate-fade-in-up transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50" style={{ animationDelay: "300ms" }}>
-              <div className="text-amber-400 mb-3 flex gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+            <div className="relative rounded-none bg-white shadow-xl border-slate-100 border p-8 hover:border-gold/30 transition-colors">
+              <div className="text-amber-400 mb-4 flex gap-1">
+                {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
               </div>
-              <p className="text-slate-600 font-medium italic text-sm leading-relaxed mb-4 min-h-[60px]">
+              <p className="text-slate-600 font-medium italic text-sm leading-relaxed mb-6 min-h-[60px]">
                 &quot;{TESTIMONIALS[activeTestimonial].text}&quot;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs shadow-inner">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-navy to-navy-light flex items-center justify-center text-white font-bold text-sm shadow-inner">
                   {TESTIMONIALS[activeTestimonial].name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-slate-900 text-xs font-bold">{TESTIMONIALS[activeTestimonial].name}</p>
+                  <p className="text-slate-900 text-sm font-bold">{TESTIMONIALS[activeTestimonial].name}</p>
                   {TESTIMONIALS[activeTestimonial].verified && (
-                    <p className="text-emerald-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 mt-0.5"><Check size={10} /> Verified Client</p>
+                    <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 mt-0.5"><Check size={12} /> Verified Client</p>
                   )}
                 </div>
               </div>
               
               {/* Pagination Dots */}
-              <div className="absolute bottom-6 right-6 flex gap-1.5">
+              <div className="absolute bottom-8 right-8 flex gap-1.5">
                 {TESTIMONIALS.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveTestimonial(i)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all ${i === activeTestimonial ? "bg-white w-3" : "bg-white/30 hover:bg-white shadow-sm border-slate-2000"}`}
+                    className={`w-2 h-2 rounded-full transition-all ${i === activeTestimonial ? "bg-navy w-4" : "bg-slate-200 hover:bg-slate-300"}`}
                   />
                 ))}
               </div>
             </div>
+
+            {/* Value Props Card */}
+            <div className="bg-gradient-to-br from-gold to-orange-500 p-8 text-white shadow-xl rounded-none relative overflow-hidden">
+               <div className="absolute top-0 right-0 opacity-10">
+                 <Shield size={140} className="-mr-8 -mt-8" />
+               </div>
+               <h3 className="text-xl font-black mb-2 relative z-10">Why Talk to Us?</h3>
+               <p className="text-sm font-medium text-white/80 mb-6 relative z-10 leading-relaxed">
+                 We ensure you are connected with the right legal professional who understands your specific legal needs.
+               </p>
+               <ul className="space-y-4 relative z-10">
+                 <li className="flex items-center gap-3 text-sm font-bold"><Check size={16} /> Instant Lawyer Allocation</li>
+                 <li className="flex items-center gap-3 text-sm font-bold"><Check size={16} /> Transparent Pricing Models</li>
+                 <li className="flex items-center gap-3 text-sm font-bold"><Check size={16} /> Multi-lingual Support Staff</li>
+                 <li className="flex items-center gap-3 text-sm font-bold"><Check size={16} /> Secure & Confidential</li>
+               </ul>
+            </div>
           </div>
 
-          {/* Right Column — Form */}
-          <div className="relative lg:mt-0 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-            <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-violet-500/20 blur-xl"></div>
+          {/* Right: The Form */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             <LawyerConsultForm />
           </div>
-        </div>
 
-        {/* Diagonal Wave Bottom Decor */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50/50 to-transparent" />
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          2. TRUST BAR
-      ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-slate-200/60 py-8 md:py-12 relative z-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-bold text-slate-500 mb-8 uppercase tracking-widest">
-            Trusted on Google and Trustpilot - Veagle Space Technology Pvt. Ltd., India leading legal-tech platform
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
-            <div className="flex flex-col items-center">
-              <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Google Reviews</span>
-              <div className="flex gap-1 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={18} fill="#FFB703" className="text-[#FFB703]" />
-                ))}
-              </div>
-              <p className="text-xl font-black text-slate-900">4.5/5</p>
-              <p className="text-xs font-semibold text-slate-500 mt-1">20k+ Happy Reviews</p>
-            </div>
-            
-            <div className="hidden sm:block w-px h-16 bg-slate-200"></div>
-            
-            <div className="flex flex-col items-center">
-              <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Trustpilot</span>
-              <div className="flex gap-1 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={18} fill="#FFB703" className="text-[#FFB703]" />
-                ))}
-              </div>
-              <p className="text-xl font-black text-slate-900">4.5/5</p>
-              <p className="text-xs font-semibold text-slate-500 mt-1">7500+ Happy Reviews</p>
-            </div>
-          </div>
         </div>
       </section>
     </div>

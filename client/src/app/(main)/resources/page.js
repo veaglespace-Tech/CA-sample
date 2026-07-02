@@ -27,36 +27,29 @@ export default function ResourcesPage() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col selection:bg-gold/100/20 selection:text-gold">
+    <div className="flex min-h-screen flex-col font-sans bg-slate-50">
       
       {/* ── HERO SECTION ── */}
-      <section className="relative flex min-h-[40vh] flex-col items-center justify-center bg-white px-4 py-8 md:py-20 sm:px-6 lg:px-8 z-20 overflow-hidden">
-        {/* Animated Mesh Background */}
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute -left-[10%] top-[10%] h-[400px] w-[400px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-gold/100/10 blur-[100px]" />
-          <div className="absolute right-[10%] top-[30%] h-[500px] w-[500px] animate-[float_14s_ease-in-out_infinite_2s_reverse] rounded-full bg-violet-500/10 blur-[120px]" />
-        </div>
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center">
-          {/* Breadcrumb */}
-          <div className="mb-8 flex items-center gap-2 text-sm font-bold text-slate-500 animate-fade-in-up">
-            <Link href="/" className="hover:text-gold transition-colors">Home</Link>
-            <ChevronRight size={14} />
-            <span className="text-slate-900">Resources</span>
+      <section className="bg-navy pt-24 pb-48 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-up">
+          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-none border border-gold/30 bg-gold/10 text-gold text-xs font-black uppercase tracking-[0.15em] shadow-sm">
+            <BookOpen size={14} /> Knowledge Base
           </div>
-
-          <h1 className="animate-fade-in-up font-heading text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-tight" style={{ animationDelay: "100ms" }}>
-            Articles & <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">Regulatory Updates</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+            Articles & <span className="text-gold">Regulatory Updates</span>
           </h1>
-          <p className="animate-fade-in-up mt-6 max-w-2xl text-lg font-medium text-slate-600 leading-relaxed" style={{ animationDelay: "200ms" }}>
+          <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
             Stay informed with expert guides, compliance updates, and practical business insights to help you navigate India&apos;s regulatory landscape.
           </p>
         </div>
       </section>
 
       {/* ── ARTICLES SECTION ── */}
-      <section className="relative z-10 border-t border-slate-100 bg-slate-50/50 py-8 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 w-full -mt-32 relative z-20 pb-24">
+        <div className="bg-white p-8 md:p-12 shadow-xl rounded-none border border-slate-100 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
           
           <div className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div>

@@ -38,10 +38,10 @@ export function getPasswordStrength(password) {
   if (/[\W_]/.test(password)) score++;
 
   const levels = [
-    { score: 0, label: "Too short", color: "bg-red-400" },
-    { score: 1, label: "Weak",      color: "bg-red-400" },
+    { score: 0, label: "Too short", color: "bg-rose-500" },
+    { score: 1, label: "Weak",      color: "bg-rose-400" },
     { score: 2, label: "Fair",      color: "bg-amber-400" },
-    { score: 3, label: "Good",      color: "bg-blue-400" },
+    { score: 3, label: "Good",      color: "bg-gold" },
     { score: 4, label: "Strong",    color: "bg-emerald-500" },
   ];
 

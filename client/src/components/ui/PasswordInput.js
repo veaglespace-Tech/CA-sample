@@ -46,7 +46,7 @@ export default function PasswordInput({
       {label && (
         <label htmlFor={id} className="text-sm font-semibold text-slate-700">
           {label}
-          {required && <span className="ml-0.5 text-red-500">*</span>}
+          {required && <span className="ml-0.5 text-rose-500">*</span>}
         </label>
       )}
 
@@ -95,9 +95,9 @@ export default function PasswordInput({
             ))}
           </div>
           <p className={`mt-1 text-[0.7rem] font-bold ${
-            strength.score <= 1 ? "text-red-500"
+            strength.score <= 1 ? "text-rose-500"
             : strength.score === 2 ? "text-amber-500"
-            : strength.score === 3 ? "text-blue-500"
+            : strength.score === 3 ? "text-gold"
             : "text-emerald-600"
           }`}>
             {strength.label}
@@ -107,7 +107,7 @@ export default function PasswordInput({
 
       {/* Error / hint */}
       {error ? (
-        <p className="text-[0.72rem] font-semibold text-red-500">{error}</p>
+        <p className="text-[0.72rem] font-semibold text-rose-500">{error}</p>
       ) : showStrength && !touched ? (
         <p className="text-[0.7rem] text-slate-400">
           Min 8 chars · uppercase · lowercase · number · special char

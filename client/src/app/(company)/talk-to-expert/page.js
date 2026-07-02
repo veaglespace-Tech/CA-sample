@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Check, ChevronDown, Phone, Shield, Star, Users } from "lucide-react";
+import { Check, ChevronDown, Phone, Shield, Star, Mail, MapPin, MessageSquareText } from "lucide-react";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import ProblemCategoryModal from "../../../components/ui/ProblemCategoryModal";
@@ -12,37 +12,13 @@ import {
   validateEmail,
   validateRequired,
 } from "../../../lib/validators";
-import toast from "react-hot-toast";
 import FormFeedback from "../../../components/forms/FormFeedback";
 import useLiveValidation from "../../../hooks/useLiveValidation";
-import ReviewBadge from "../../../components/common/ReviewBadge";
+import { siteMeta } from "../../../lib/navigation-data";
 
 const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/api\/?$/, "");
 
 const LANGUAGES = ["English", "Hindi", "Tamil", "Telugu", "Marathi", "Bengali", "Kannada", "Malayalam", "Gujarati"];
-
-const TESTIMONIALS = [
-  {
-    text: "The Veagle Space Technology team helped me resolve my property dispute efficiently and professionally.",
-    name: "Kalpesh Salunke",
-    verified: true,
-  },
-  {
-    text: "Received a clear consultation for my civil matter at an affordable cost. Highly recommended.",
-    name: "Jasveer Singh",
-    verified: true,
-  },
-  {
-    text: "Their team helped me resolve my GST issue smoothly and guided me through the process.",
-    name: "Sumit Kumar",
-    verified: true,
-  },
-  {
-    text: "As an entrepreneur, I value efficiency and clarity, and Veagle Space Technology delivered both.",
-    name: "Rishabh Parihaar",
-    verified: true,
-  },
-];
 
 function LawyerConsultForm() {
   const [form, setForm] = useState({
@@ -135,18 +111,20 @@ function LawyerConsultForm() {
 
   if (submitted) {
     return (
-      <div className="bg-white p-4 md:p-10 rounded-none shadow-xl border border-slate-100 text-center relative z-10 w-full max-w-md mx-auto transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
-        <div className="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-          <Check size={40} strokeWidth={3} />
+      <div className="bg-white p-8 md:p-14 rounded-none shadow-xl border border-slate-100 text-center relative z-10 w-full animate-fade-in-up">
+        <div className="w-24 h-24 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8">
+          <Check size={48} strokeWidth={3} />
         </div>
-        <h3 className="text-2xl font-black text-slate-900 mb-2">Appointment Booked!</h3>
-        <p className="text-slate-500 font-medium leading-relaxed">Our verified expert will call you shortly on +91 {form.phone}.</p>
+        <h3 className="text-3xl font-black text-navy mb-4 tracking-tight">Appointment Booked!</h3>
+        <p className="text-slate-600 font-medium leading-relaxed text-lg">
+          Our verified expert will call you shortly on <br/><strong className="text-navy text-xl mt-2 block">+91 {form.phone}</strong>
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white p-6 sm:p-8 rounded-none shadow-2xl border border-slate-100 relative z-10 w-full transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+    <div className="bg-white p-6 sm:p-10 rounded-none shadow-2xl border border-slate-100 relative z-10 w-full animate-fade-in-up">
       {showProblemModal && (
         <ProblemCategoryModal
           onSelect={handleProblemSelect}
@@ -154,35 +132,37 @@ function LawyerConsultForm() {
         />
       )}
 
-      <div className="mb-6">
-        <h3 className="font-heading text-2xl font-black text-slate-900">Get Expert Consultation</h3>
-        <p className="text-xs font-semibold text-slate-400 mt-2">
-          Complete the details below, and an expert will contact you shortly.
+      <div className="mb-8 border-b border-slate-100 pb-6">
+        <h3 className="font-heading text-2xl sm:text-3xl font-black text-navy tracking-tight">Request a Callback</h3>
+        <p className="text-sm font-semibold text-slate-500 mt-2 leading-relaxed">
+          Fill in your details and select a problem type. We'll instantly assign the right expert to assist you.
         </p>
       </div>
 
-      <form onSubmit={handleFormSubmit} className="space-y-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30" noValidate>
-        <div>
-          <input
-            type="text"
-            placeholder="Full Name *"
-            value={form.fullName}
-            onChange={(event) => handleFieldChange("fullName", event.target.value)}
-            className={`w-full px-4 py-3.5 bg-slate-50 border rounded-sm outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.fullName ? "border-red-400 focus:border-red-500" : getFieldSuccess("fullName", form.fullName) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
-            maxLength={50}
-          />
-          <FormFeedback error={errors.fullName} success={getFieldSuccess("fullName", form.fullName)} />
-        </div>
+      <form onSubmit={handleFormSubmit} className="space-y-5" noValidate>
+        <div className="grid sm:grid-cols-2 gap-5">
+          <div>
+            <input
+              type="text"
+              placeholder="Full Name *"
+              value={form.fullName}
+              onChange={(event) => handleFieldChange("fullName", event.target.value)}
+              className={`w-full px-5 py-4 bg-slate-50 border rounded-none outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-gold/30 ${errors.fullName ? "border-rose-400 focus:border-rose-500" : getFieldSuccess("fullName", form.fullName) ? "border-emerald-400 focus:border-emerald-500 bg-emerald-50/50" : "border-slate-200 focus:border-gold"}`}
+              maxLength={50}
+            />
+            <FormFeedback error={errors.fullName} success={getFieldSuccess("fullName", form.fullName)} />
+          </div>
 
-        <div>
-          <input
-            type="email"
-            placeholder="Email *"
-            value={form.email}
-            onChange={(event) => handleFieldChange("email", event.target.value)}
-            className={`w-full px-4 py-3.5 bg-slate-50 border rounded-sm outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.email ? "border-red-400 focus:border-red-500" : getFieldSuccess("email", form.email) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
-          />
-          <FormFeedback error={errors.email} success={getFieldSuccess("email", form.email)} />
+          <div>
+            <input
+              type="email"
+              placeholder="Email *"
+              value={form.email}
+              onChange={(event) => handleFieldChange("email", event.target.value)}
+              className={`w-full px-5 py-4 bg-slate-50 border rounded-none outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-gold/30 ${errors.email ? "border-rose-400 focus:border-rose-500" : getFieldSuccess("email", form.email) ? "border-emerald-400 focus:border-emerald-500 bg-emerald-50/50" : "border-slate-200 focus:border-gold"}`}
+            />
+            <FormFeedback error={errors.email} success={getFieldSuccess("email", form.email)} />
+          </div>
         </div>
 
         <div>
@@ -197,11 +177,11 @@ function LawyerConsultForm() {
               }}
               inputStyle={{
                 width: '100%',
-                height: '3.25rem',
+                height: '3.5rem',
                 paddingLeft: '3.5rem',
-                borderRadius: '0.75rem',
-                border: errors.phone ? '1px solid #f87171' : getFieldSuccess("phone", form.phone) ? '1px solid #4ade80' : '1px solid #e2e8f0',
-                backgroundColor: errors.phone ? '#fef2f2' : getFieldSuccess("phone", form.phone) ? '#f0fdf4' : '#f8fafc',
+                borderRadius: '0',
+                border: errors.phone ? '1px solid #fb7185' : getFieldSuccess("phone", form.phone) ? '1px solid #34d399' : '1px solid #e2e8f0',
+                backgroundColor: errors.phone ? '#fff1f2' : getFieldSuccess("phone", form.phone) ? '#ecfdf5' : '#f8fafc',
                 fontSize: '0.875rem',
                 fontWeight: '600',
                 color: '#0f172a',
@@ -209,7 +189,7 @@ function LawyerConsultForm() {
               buttonStyle={{
                 border: 'none',
                 backgroundColor: 'transparent',
-                borderRadius: '0.75rem 0 0 0.75rem',
+                borderRadius: '0',
                 paddingLeft: '0.5rem'
               }}
               containerStyle={{
@@ -220,47 +200,49 @@ function LawyerConsultForm() {
           <FormFeedback error={errors.phone} success={getFieldSuccess("phone", form.phone)} />
         </div>
 
-        <div className="relative">
-          <button
-            type="button"
-            className={`w-full flex items-center justify-between px-4 py-3.5 bg-slate-50 border rounded-sm outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.language ? "border-red-400 focus:border-red-500" : getFieldSuccess("language", form.language) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
-            onClick={() => setShowLangDropdown((current) => !current)}
-          >
-            <span className={form.language ? "text-slate-900" : "text-slate-400"}>{form.language || "Language *"}</span>
-            <ChevronDown size={18} className="text-slate-400" />
-          </button>
-          <FormFeedback error={errors.language} success={getFieldSuccess("language", form.language)} />
-          {showLangDropdown && (
-            <div className="absolute z-50 mt-1 w-full bg-white border border-slate-200 rounded-sm shadow-xl max-h-60 overflow-y-auto py-1">
-              {LANGUAGES.map((language) => (
-                <button
-                  key={language}
-                  type="button"
-                  className={`w-full text-left px-4 py-2 text-sm font-medium hover:bg-slate-50 transition-colors ${form.language === language ? "text-gold bg-gold/10/50 font-bold" : "text-slate-700"}`}
-                  onClick={() => handleLanguageSelect(language)}
-                >
-                  {language}
-                </button>
-              ))}
-            </div>
-          )}
+        <div className="grid sm:grid-cols-2 gap-5">
+          <div className="relative">
+            <button
+              type="button"
+              className={`w-full flex items-center justify-between px-5 py-4 bg-slate-50 border rounded-none outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-gold/30 ${errors.language ? "border-rose-400 focus:border-rose-500" : getFieldSuccess("language", form.language) ? "border-emerald-400 focus:border-emerald-500 bg-emerald-50/50" : "border-slate-200 focus:border-gold"}`}
+              onClick={() => setShowLangDropdown((current) => !current)}
+            >
+              <span className={form.language ? "text-slate-900" : "text-slate-400"}>{form.language || "Language *"}</span>
+              <ChevronDown size={18} className="text-slate-400" />
+            </button>
+            <FormFeedback error={errors.language} success={getFieldSuccess("language", form.language)} />
+            {showLangDropdown && (
+              <div className="absolute z-50 mt-1 w-full bg-white border border-slate-200 rounded-none shadow-xl max-h-60 overflow-y-auto py-1">
+                {LANGUAGES.map((language) => (
+                  <button
+                    key={language}
+                    type="button"
+                    className={`w-full text-left px-5 py-3 text-sm font-medium hover:bg-slate-50 transition-colors ${form.language === language ? "text-gold bg-gold/5 font-bold border-l-2 border-gold" : "text-slate-700 border-l-2 border-transparent"}`}
+                    onClick={() => handleLanguageSelect(language)}
+                  >
+                    {language}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="relative">
+            <button
+              type="button"
+              className={`w-full flex items-center justify-between px-5 py-4 bg-slate-50 border rounded-none outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-gold/30 ${errors.problemType ? "border-rose-400 focus:border-rose-500" : getFieldSuccess("problemType", form.problemType) ? "border-emerald-400 focus:border-emerald-500 bg-emerald-50/50" : "border-slate-200 focus:border-gold"}`}
+              onClick={() => setShowProblemModal(true)}
+            >
+              <span className={form.problemType ? "text-slate-900 truncate" : "text-slate-400"}>{form.problemType || "Problem Type *"}</span>
+              <ChevronDown size={18} className="text-slate-400 shrink-0" />
+            </button>
+            <FormFeedback error={errors.problemType} success={getFieldSuccess("problemType", form.problemType)} />
+          </div>
         </div>
 
-        <div className="relative">
-          <button
-            type="button"
-            className={`w-full flex items-center justify-between px-4 py-3.5 bg-slate-50 border rounded-sm outline-none transition-all text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-blue-500/20 ${errors.problemType ? "border-red-400 focus:border-red-500" : getFieldSuccess("problemType", form.problemType) ? "border-green-400 focus:border-green-500 bg-green-50/50" : "border-slate-200 focus:border-blue-500"}`}
-            onClick={() => setShowProblemModal(true)}
-          >
-            <span className={form.problemType ? "text-slate-900 truncate" : "text-slate-400"}>{form.problemType || "Problem Type *"}</span>
-            <ChevronDown size={18} className="text-slate-400 shrink-0" />
-          </button>
-          <FormFeedback error={errors.problemType} success={getFieldSuccess("problemType", form.problemType)} />
-        </div>
+        {saveError && <p className="text-rose-500 text-xs font-bold mt-1">{saveError}</p>}
 
-        {saveError && <p className="text-red-500 text-xs font-bold mt-1">{saveError}</p>}
-
-        <label className="flex flex-wrap sm:flex-nowrap items-center gap-2 text-xs font-semibold text-slate-500 p-2 border border-green-100 bg-green-50/30 rounded-sm cursor-pointer">
+        <label className="flex flex-wrap sm:flex-nowrap items-center gap-2 text-xs font-semibold text-slate-600 p-4 border border-emerald-100 bg-emerald-50/30 rounded-none cursor-pointer mt-2">
           <div className="flex-1 flex items-center gap-2">
             <span>Get easy updates through</span>
             <span className="flex items-center justify-center w-5 h-5 bg-[#25D366] text-white rounded-full text-[10px]">💬</span>
@@ -277,7 +259,7 @@ function LawyerConsultForm() {
           </div>
         </label>
 
-        <button type="submit" className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-4 rounded-sm font-bold hover:shadow-lg hover:shadow-gold/30 transition-all active:scale-[0.98] mt-2" disabled={saving}>
+        <button type="submit" className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gold to-orange-500 text-white px-6 py-4 rounded-none font-black tracking-wider uppercase text-sm hover:shadow-lg hover:shadow-gold/30 transition-all active:scale-[0.98] mt-4" disabled={saving}>
           {saving ? "Processing..." : "Book An Appointment Now"}
         </button>
       </form>
@@ -286,200 +268,96 @@ function LawyerConsultForm() {
 }
 
 export default function TalkToExpertPage() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveTestimonial((current) => (current + 1) % TESTIMONIALS.length);
-    }, 5000);
-    return () => window.clearInterval(timer);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-slate-50/50 flex flex-col">
-      {/* ═══════════════════════════════════════════
-          1. HERO SECTION WITH MESH GRADIENTS
-      ═══════════════════════════════════════════ */}
-      <section className="relative flex flex-col overflow-hidden bg-white z-20 px-4 pb-16 pt-8 lg:pt-12 sm:px-6 lg:px-8">
-        {/* Animated Radial Glows */}
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute -left-[15%] top-[5%] h-[600px] w-[600px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-gold/100/10 blur-[130px]" />
-          <div className="absolute -bottom-[15%] -right-[10%] h-[700px] w-[700px] animate-[float_14s_ease-in-out_infinite_2s_reverse] rounded-full bg-violet-500/10 blur-[160px]" />
-          <div className="absolute left-[35%] top-[40%] h-[500px] w-[500px] animate-[float_9s_ease-in-out_infinite_1s] rounded-full bg-gold/10 blur-[120px]" />
-          <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+      
+      {/* 1. Header Hero Banner - Solid Navy */}
+      <section className="bg-navy pt-24 pb-48 px-4 relative overflow-hidden">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        {/* Glowing Orbs */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-up">
+           <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-none border border-gold/30 bg-gold/10 text-gold text-xs font-black uppercase tracking-[0.15em] shadow-sm">
+             <Shield size={14} /> 100% Confidential Consultation
+           </div>
+           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+             Expert Guidance for <br/><span className="text-gold">Your Business Growth.</span>
+           </h1>
+           <p className="text-lg md:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
+             Get clear, actionable advice from verified CA, CS, and Legal professionals. Available whenever you need.
+           </p>
         </div>
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto grid gap-14 lg:grid-cols-[1.2fr_1fr] items-center">
-          {/* Left Column */}
-          <div className="text-left">
-            <div className="mb-6 animate-fade-in-up">
-              <Link href="/" className="text-slate-500 hover:text-slate-900 text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-1">
-                <span>Home</span> <span className="text-slate-600">/</span> <span>Talk To An Expert</span>
-              </Link>
-            </div>
-            
-            <div className="mb-6 animate-fade-in-up">
-              <ReviewBadge />
-            </div>
-            
-            <div className="mb-6 animate-fade-in-up">
-              <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white shadow-sm border-slate-200 px-3 py-1.5 text-xs font-semibold text-emerald-400 shadow-xl backdrop-blur-md">
-                <Shield size={14} />
-                Secure expert consultation platform for India
-              </span>
-            </div>
-
-            <h1 className="animate-fade-in-up font-heading text-4xl font-black leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl mb-6">
-              Online Expert Consultation.
-              <br />
-              <span className="relative inline-block mt-2">
-                <span className="animate-[gradient-xy_6s_ease_infinite] bg-[length:300%_300%] bg-gradient-to-r from-blue-400 via-indigo-200 to-amber-300 bg-clip-text text-transparent">
-                  Anytime, Anywhere.
-                </span>
-              </span>
-            </h1>
-
-            <ul className="space-y-4 mb-10 animate-fade-in-up" style={{ animationDelay: "150ms" }}>
-              {[
-                "Get guidance from verified legal, tax, and compliance professionals.",
-                "Confidential consultation with a practical next-step plan.",
-                "Pick language and issue type before the expert callback."
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-gold/100/20 text-blue-400 shrink-0 border border-blue-500/30">
-                    <Check size={12} strokeWidth={3} />
-                  </div>
-                  <span className="text-sm sm:text-base font-semibold text-slate-600 leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-wrap gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-              <div className="flex items-center gap-3 bg-white shadow-sm border-slate-200 border border-slate-200 px-4 py-2.5 rounded-sm backdrop-blur-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
-                <div className="relative">
-                  <Users size={18} className="text-emerald-400" />
-                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
-                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full"></span>
-                </div>
-                <span className="text-sm text-slate-900 font-semibold"><strong>220</strong> experts online</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white shadow-sm border-slate-200 border border-slate-200 px-4 py-2.5 rounded-sm backdrop-blur-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
-                <div className="relative">
-                  <Phone size={18} className="text-amber-400" />
-                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full animate-ping"></span>
-                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full"></span>
-                </div>
-                <span className="text-sm text-slate-900 font-semibold"><strong>92</strong> live ongoing calls</span>
-              </div>
-            </div>
-
-            {/* Testimonial Card */}
-            <div className="relative rounded-none bg-white shadow-sm border-slate-200 border border-slate-200 p-6 backdrop-blur-md animate-fade-in-up transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50" style={{ animationDelay: "300ms" }}>
-              <div className="text-amber-400 mb-3 flex gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
-              </div>
-              <p className="text-slate-600 font-medium italic text-sm leading-relaxed mb-4 min-h-[60px]">
-                &quot;{TESTIMONIALS[activeTestimonial].text}&quot;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs shadow-inner">
-                  {TESTIMONIALS[activeTestimonial].name.charAt(0)}
-                </div>
-                <div>
-                  <p className="text-slate-900 text-xs font-bold">{TESTIMONIALS[activeTestimonial].name}</p>
-                  {TESTIMONIALS[activeTestimonial].verified && (
-                    <p className="text-emerald-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 mt-0.5"><Check size={10} /> Verified Client</p>
-                  )}
-                </div>
-              </div>
-              
-              {/* Pagination Dots */}
-              <div className="absolute bottom-6 right-6 flex gap-1.5">
-                {TESTIMONIALS.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveTestimonial(i)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all ${i === activeTestimonial ? "bg-white w-3" : "bg-white/30 hover:bg-white shadow-sm border-slate-2000"}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column — Form */}
-          <div className="relative lg:mt-0 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-            <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-violet-500/20 blur-xl"></div>
-            <LawyerConsultForm />
-          </div>
-        </div>
-
-        {/* Diagonal Wave Bottom Decor */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50/50 to-transparent" />
       </section>
 
-      {/* ═══════════════════════════════════════════
-          2. TRUST BAR & CONTACT INFO
-      ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-slate-200/60 py-8 md:py-16 relative z-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-sm font-bold text-slate-500 mb-8 uppercase tracking-widest">
-              Trusted by founders, professionals, and families for legal, tax, and compliance support.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
-              <div className="flex flex-col items-center">
-                <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Google Reviews</span>
-                <div className="flex gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={18} fill="#FFB703" className="text-[#FFB703]" />
-                  ))}
-                </div>
-                <p className="text-xl font-black text-slate-900">4.7/5</p>
-                <p className="text-xs font-semibold text-slate-500 mt-1">1.2k+ Happy Reviews</p>
-              </div>
-              
-              <div className="hidden sm:block w-px h-16 bg-slate-200"></div>
-              
-              <div className="flex flex-col items-center">
-                <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Direct Support</span>
-                <div className="flex items-center gap-2 mb-2 text-slate-900 mt-1">
-                  <Phone size={18} className="text-gold" />
-                </div>
-                <p className="whitespace-nowrap text-lg sm:text-xl font-black leading-none text-slate-900">+91 82379 99101</p>
-                <p className="text-xs font-semibold text-slate-500 mt-1">Mon-Sat, 10 AM - 7 PM IST</p>
-              </div>
+      {/* 2. Overlapping Content */}
+      <section className="max-w-7xl mx-auto px-4 w-full -mt-32 relative z-20 pb-24">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-8 xl:gap-12 items-start">
+          
+          {/* Left: Contact Info & Value Props */}
+          <div className="flex flex-col gap-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            {/* Contact Details Card */}
+            <div className="bg-white p-8 border border-slate-100 shadow-xl rounded-none hover:border-gold/30 transition-colors">
+               <h3 className="text-xl font-black text-navy mb-8">Direct Support</h3>
+               <div className="space-y-8">
+                 <div className="flex items-start gap-5">
+                   <div className="w-12 h-12 bg-navy-light/5 flex items-center justify-center text-navy shrink-0 border border-slate-100">
+                     <Phone size={20} />
+                   </div>
+                   <div>
+                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Call Us</p>
+                     <p className="text-lg font-black text-slate-900">{siteMeta.phone}</p>
+                     <p className="text-lg font-black text-slate-900">{siteMeta.phone2}</p>
+                   </div>
+                 </div>
+                 <div className="flex items-start gap-5">
+                   <div className="w-12 h-12 bg-navy-light/5 flex items-center justify-center text-navy shrink-0 border border-slate-100">
+                     <Mail size={20} />
+                   </div>
+                   <div>
+                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Email Us</p>
+                     <p className="text-lg font-black text-slate-900">{siteMeta.email}</p>
+                   </div>
+                 </div>
+                 <div className="flex items-start gap-5">
+                   <div className="w-12 h-12 bg-navy-light/5 flex items-center justify-center text-navy shrink-0 border border-slate-100">
+                     <MapPin size={20} />
+                   </div>
+                   <div>
+                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Visit Us</p>
+                     <p className="text-sm font-bold text-slate-900 leading-relaxed max-w-[250px]">{siteMeta.address}</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+
+            {/* Value Props Card */}
+            <div className="bg-gradient-to-br from-gold to-orange-500 p-8 text-white shadow-xl rounded-none relative overflow-hidden">
+               <div className="absolute top-0 right-0 opacity-10">
+                 <MessageSquareText size={140} className="-mr-8 -mt-8" />
+               </div>
+               <h3 className="text-xl font-black mb-2 relative z-10">Why Talk to Us?</h3>
+               <p className="text-sm font-medium text-white/80 mb-6 relative z-10 leading-relaxed">
+                 We ensure you are connected with the right professional who understands your specific industry needs.
+               </p>
+               <ul className="space-y-4 relative z-10">
+                 <li className="flex items-center gap-3 text-sm font-bold"><Check size={16} /> Instant Expert Allocation</li>
+                 <li className="flex items-center gap-3 text-sm font-bold"><Check size={16} /> Transparent Pricing Models</li>
+                 <li className="flex items-center gap-3 text-sm font-bold"><Check size={16} /> Multi-lingual Support Staff</li>
+                 <li className="flex items-center gap-3 text-sm font-bold"><Check size={16} /> Secure & Confidential</li>
+               </ul>
             </div>
           </div>
 
-          {/* Contact Cards Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a href="tel:+918237999101" className="group bg-white border border-slate-100 rounded-none p-6 shadow-sm hover:shadow-lg hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 block">
-              <h3 className="font-bold text-slate-900 group-hover:text-gold transition-colors mb-2">Call Us Directly</h3>
-              <p className="whitespace-nowrap text-sm font-black text-slate-800 mb-1">+91 82379 99101</p>
-              <p className="text-xs text-slate-500 font-medium">Mon-Sat, 10 AM to 7 PM</p>
-            </a>
-            
-            <a href="mailto:info@veaglespace.com" className="group bg-white border border-slate-100 rounded-none p-6 shadow-sm hover:shadow-lg hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 block">
-              <h3 className="font-bold text-slate-900 group-hover:text-gold transition-colors mb-2">Email Us</h3>
-              <p className="text-sm font-black text-slate-800 mb-1">info@veaglespace.com</p>
-              <p className="text-xs text-slate-500 font-medium">Send your requirement and our team will respond shortly.</p>
-            </a>
-            
-            <a href="https://www.google.com/maps/place/Veagle+Space+Technology+Pvt.+Ltd." target="_blank" rel="noopener noreferrer" className="group bg-white border border-slate-100 rounded-none p-6 shadow-sm hover:shadow-lg hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 block">
-              <h3 className="font-bold text-slate-900 group-hover:text-gold transition-colors mb-2">Office Address</h3>
-              <p className="text-sm font-black text-slate-800 mb-1">Veagle Space Technology Pvt. Ltd.</p>
-              <p className="text-xs text-slate-500 font-medium">Business consulting & online service support across India.</p>
-            </a>
-            
-            <a href="#talk-to-expert-form" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); const firstInput = document.querySelector("input"); if (firstInput) firstInput.focus(); }} className="group bg-white border border-slate-100 rounded-none p-6 shadow-sm hover:shadow-lg hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 block">
-              <h3 className="font-bold text-slate-900 group-hover:text-gold transition-colors mb-2">Why Talk to Our Expert?</h3>
-              <p className="text-sm font-black text-slate-800 mb-1">Quick callback</p>
-              <p className="text-xs text-slate-500 font-medium">Free first consultation, verified professionals, and clear next steps.</p>
-            </a>
+          {/* Right: The Form */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <LawyerConsultForm />
           </div>
+
         </div>
       </section>
     </div>
   );
 }
-
