@@ -106,13 +106,13 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
   };
 
   return (
-    <div className="modal modal-open bg-slate-900/40 backdrop-blur-xs z-50">
-      <div className="modal-box max-w-xl rounded-sm p-0 overflow-hidden shadow-xl border border-slate-700 flex flex-col max-h-[90vh] bg-navy transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+    <div className="modal modal-open bg-slate-900/60 backdrop-blur-sm z-50">
+      <div className="modal-box max-w-2xl rounded-2xl p-0 overflow-hidden shadow-2xl border border-slate-700 flex flex-col max-h-[90vh] bg-slate-900">
         
         {/* Simple & Clean Professional Header */}
-        <div className="bg-slate-55 px-6 py-4 border-b border-slate-700 flex justify-between items-center shrink-0">
+        <div className="bg-slate-800/80 px-6 py-5 border-b border-slate-700/60 flex justify-between items-center shrink-0">
           <div className="flex items-center gap-3">
-            <h3 className="text-base font-bold text-white">{editingPlan ? "Edit Service Plan" : "Create New Service Plan"}</h3>
+            <h3 className="text-lg font-bold text-slate-100">{editingPlan ? "Edit Service Plan" : "Create New Service Plan"}</h3>
             {!editingPlan && (
               <button 
                 type="button" 
@@ -128,7 +128,7 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
                     isHighlighted: false
                   }));
                 }}
-                className="btn btn-xs bg-gold/10 text-gold border-gold/30 hover:bg-gold/20 hover:border-gold/50 rounded-md"
+                className="btn btn-xs bg-gold/10 text-gold border-gold/30 hover:bg-gold/20 hover:border-gold/50 rounded-lg ml-2"
               >
                 + Auto-fill Custom Plan
               </button>
@@ -137,22 +137,22 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
           <button 
             type="button"
             onClick={onClose} 
-            className="text-slate-400 hover:text-slate-300 transition-colors p-1 rounded-md hover:bg-slate-200/50"
+            className="text-slate-400 hover:text-slate-200 transition-colors p-1.5 rounded-lg hover:bg-slate-700"
           >
             <X size={20} />
           </button>
         </div>
 
         {/* Form Body */}
-        <div className="flex-1 overflow-y-auto bg-navy">
-          <form onSubmit={handleSubmit} className="p-6 space-y-4 transition-all duration-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] hover:border-gold/30">
+        <div className="flex-1 overflow-y-auto bg-slate-900">
+          <form onSubmit={handleSubmit} className="p-6 md:p-8 space-y-6">
             
             {/* Target Service Selection */}
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4 bg-navy-light p-4 rounded-sm border border-slate-800 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 bg-slate-800/40 p-5 rounded-xl border border-slate-700/50 shadow-inner">
               {/* Category */}
               <div>
-                <label className="block mb-1">
-                  <span className="text-xs font-bold text-slate-200">Category</span>
+                <label className="block mb-2">
+                  <span className="text-xs font-bold text-slate-300 tracking-wide uppercase">Category</span>
                 </label>
                 <select
                   value={selectedCategory}
@@ -161,7 +161,7 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
                     setSelectedSubcategory("");
                     handleFieldChange("serviceSlug", "");
                   }}
-                  className="select select-bordered w-full h-10 px-3 rounded-sm text-sm bg-navy font-medium"
+                  className="select select-bordered w-full rounded-lg bg-slate-800 border-slate-600 text-slate-200 focus:border-gold focus:ring-1 focus:ring-gold/30 shadow-sm"
                 >
                   <option value="">Select Category</option>
                   {serviceCategories.map(cat => (
@@ -172,8 +172,8 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
 
               {/* Subcategory */}
               <div>
-                <label className="block mb-1">
-                  <span className="text-xs font-bold text-slate-200">Subcategory (Optional)</span>
+                <label className="block mb-2">
+                  <span className="text-xs font-bold text-slate-300 tracking-wide uppercase">Subcategory</span>
                 </label>
                 <select
                   value={selectedSubcategory}
@@ -182,7 +182,7 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
                     handleFieldChange("serviceSlug", "");
                   }}
                   disabled={!selectedCategory}
-                  className="select select-bordered w-full h-10 px-3 rounded-sm text-sm bg-navy font-medium disabled:opacity-50"
+                  className="select select-bordered w-full rounded-lg bg-slate-800 border-slate-600 text-slate-200 focus:border-gold focus:ring-1 focus:ring-gold/30 disabled:opacity-50 shadow-sm"
                 >
                   <option value="">All Subcategories</option>
                   {serviceCategories.find(c => c.id === selectedCategory)?.subcategories?.map(sub => (
@@ -193,16 +193,16 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
 
               {/* Service */}
               <div>
-                <label className="block mb-1">
-                  <span className="text-xs font-bold text-slate-200">Target Service *</span>
+                <label className="block mb-2">
+                  <span className="text-xs font-bold text-slate-300 tracking-wide uppercase">Target Service *</span>
                 </label>
                 <select
                   value={planForm.serviceSlug}
                   onChange={(e) => handleFieldChange("serviceSlug", e.target.value)}
                   disabled={!selectedCategory}
-                  className={`select select-bordered w-full h-10 px-3 rounded-sm text-sm bg-navy font-medium disabled:opacity-50 ${errors.serviceSlug ? "border-rose-500" : ""}`}
+                  className={`select select-bordered w-full rounded-lg bg-slate-800 border-slate-600 text-slate-200 focus:border-gold focus:ring-1 focus:ring-gold/30 disabled:opacity-50 shadow-sm ${errors.serviceSlug ? "border-rose-500 focus:border-rose-500 focus:ring-rose-500/30" : ""}`}
                 >
-                  <option value="">Select Target Service</option>
+                  <option value="">Select Service</option>
                   {!selectedSubcategory ? (
                     <>
                       {/* Direct services without subcategory */}
@@ -232,28 +232,28 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
             </div>
 
             {/* Plan Name & Tag */}
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="block mb-1">
-                  <span className="text-xs font-bold text-slate-200">Plan Name *</span>
+                <label className="block mb-2">
+                  <span className="text-sm font-semibold text-slate-200">Plan Name *</span>
                 </label>
                 <input 
                   type="text" 
                   placeholder="e.g. Basic Package" 
-                  className={`input input-bordered w-full h-10 px-3 rounded-sm text-sm bg-navy text-white border-slate-350 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all font-medium shadow-xs ${errors.name ? "border-rose-500 focus:border-rose-500" : getFieldSuccess("name", planForm.name) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+                  className={`input input-bordered w-full rounded-lg bg-slate-800 text-slate-100 border-slate-600 focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all shadow-sm ${errors.name ? "border-rose-500 focus:border-rose-500 focus:ring-rose-500/30" : getFieldSuccess("name", planForm.name) ? "border-emerald-500/50 bg-emerald-500/5" : ""}`}
                   value={planForm.name} 
                   onChange={(e) => handleFieldChange("name", e.target.value)} 
                 />
                 <FormFeedback error={errors.name} success={getFieldSuccess("name", planForm.name)} className="mt-1" />
               </div>
               <div>
-                <label className="block mb-1">
-                  <span className="text-xs font-bold text-slate-200">Visual Badge / Ribbon</span>
+                <label className="block mb-2">
+                  <span className="text-sm font-semibold text-slate-200">Visual Badge / Ribbon</span>
                 </label>
                 <input 
                   type="text" 
                   placeholder="e.g. Best Seller" 
-                  className="input input-bordered w-full h-10 px-3 rounded-sm text-sm bg-navy text-white border-slate-350 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all font-medium shadow-xs"
+                  className="input input-bordered w-full rounded-lg bg-slate-800 text-slate-100 border-slate-600 focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all shadow-sm"
                   value={planForm.tag} 
                   onChange={(e) => handleFieldChange("tag", e.target.value)} 
                 />
@@ -262,12 +262,12 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
 
             {/* Plan Description */}
             <div>
-              <label className="block mb-1">
-                <span className="text-xs font-bold text-slate-200">Plan Description *</span>
+              <label className="block mb-2">
+                <span className="text-sm font-semibold text-slate-200">Plan Description *</span>
               </label>
               <textarea 
                 placeholder="Briefly describe what is unique about this plan..."
-                className={`textarea textarea-bordered w-full p-3 rounded-sm text-sm bg-navy text-white border-slate-350 focus:border-primary focus:ring-1 focus:ring-primary/20 min-h-[70px] transition-all font-medium leading-relaxed shadow-xs ${errors.description ? "border-rose-500 focus:border-rose-500" : getFieldSuccess("description", planForm.description) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+                className={`textarea textarea-bordered w-full p-4 rounded-lg bg-slate-800 text-slate-100 border-slate-600 focus:border-gold focus:ring-1 focus:ring-gold/30 min-h-[80px] transition-all leading-relaxed shadow-sm ${errors.description ? "border-rose-500 focus:border-rose-500 focus:ring-rose-500/30" : getFieldSuccess("description", planForm.description) ? "border-emerald-500/50 bg-emerald-500/5" : ""}`}
                 value={planForm.description} 
                 onChange={(e) => handleFieldChange("description", e.target.value)} 
               />
@@ -275,43 +275,49 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
             </div>
 
             {/* Price Configurations */}
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="block mb-1">
-                  <span className="text-xs font-bold text-slate-200">Final Price (INR) *</span>
+                <label className="block mb-2">
+                  <span className="text-sm font-semibold text-slate-200">Final Price (INR) *</span>
                 </label>
-                <input 
-                  type="number" 
-                  placeholder="e.g. 2999"
-                  className={`input input-bordered w-full h-10 px-3 rounded-sm text-sm bg-navy text-white border-slate-350 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all font-semibold shadow-xs ${errors.price ? "border-rose-500 focus:border-rose-500" : getFieldSuccess("price", planForm.price) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
-                  value={planForm.price} 
-                  onChange={(e) => handleFieldChange("price", e.target.value)} 
-                />
+                <div className="relative">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
+                  <input 
+                    type="number" 
+                    placeholder="2999"
+                    className={`input input-bordered w-full pl-8 rounded-lg bg-slate-800 text-slate-100 border-slate-600 focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all font-semibold shadow-sm ${errors.price ? "border-rose-500 focus:border-rose-500 focus:ring-rose-500/30" : getFieldSuccess("price", planForm.price) ? "border-emerald-500/50 bg-emerald-500/5" : ""}`}
+                    value={planForm.price} 
+                    onChange={(e) => handleFieldChange("price", e.target.value)} 
+                  />
+                </div>
                 <FormFeedback error={errors.price} success={getFieldSuccess("price", planForm.price)} className="mt-1" />
               </div>
               <div>
-                <label className="block mb-1">
-                  <span className="text-xs font-bold text-slate-200">Original Strike-through Price (INR)</span>
+                <label className="block mb-2">
+                  <span className="text-sm font-semibold text-slate-200">Original Strike-through Price</span>
                 </label>
-                <input 
-                  type="number" 
-                  placeholder="e.g. 4999"
-                  className={`input input-bordered w-full h-10 px-3 rounded-sm text-sm bg-navy text-slate-400 border-slate-350 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all font-medium shadow-xs ${errors.oldPrice ? "border-rose-500 focus:border-rose-500" : getFieldSuccess("oldPrice", planForm.oldPrice) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
-                  value={planForm.oldPrice} 
-                  onChange={(e) => handleFieldChange("oldPrice", e.target.value)} 
-                />
+                <div className="relative">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
+                  <input 
+                    type="number" 
+                    placeholder="4999"
+                    className={`input input-bordered w-full pl-8 rounded-lg bg-slate-800 text-slate-400 border-slate-600 focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all font-medium shadow-sm ${errors.oldPrice ? "border-rose-500 focus:border-rose-500 focus:ring-rose-500/30" : getFieldSuccess("oldPrice", planForm.oldPrice) ? "border-emerald-500/50 bg-emerald-500/5" : ""}`}
+                    value={planForm.oldPrice} 
+                    onChange={(e) => handleFieldChange("oldPrice", e.target.value)} 
+                  />
+                </div>
                 <FormFeedback error={errors.oldPrice} success={getFieldSuccess("oldPrice", planForm.oldPrice)} className="mt-1" />
               </div>
             </div>
 
             {/* Included Features List */}
             <div>
-              <label className="block mb-1">
-                <span className="text-xs font-bold text-slate-200">Included Features (One per line) *</span>
+              <label className="block mb-2">
+                <span className="text-sm font-semibold text-slate-200">Included Features (One per line) *</span>
               </label>
               <textarea 
                 placeholder="GST Registration application&#10;Dedicated manager&#10;Error-free document checklist..."
-                className={`textarea textarea-bordered w-full p-3 rounded-sm text-sm bg-navy text-white border-slate-350 focus:border-primary focus:ring-1 focus:ring-primary/20 min-h-[110px] transition-all font-medium leading-relaxed shadow-xs ${errors.features ? "border-rose-500 focus:border-rose-500" : getFieldSuccess("features", planForm.features) ? "border-emerald-500 bg-emerald-50/40" : ""}`}
+                className={`textarea textarea-bordered w-full p-4 rounded-lg bg-slate-800 text-slate-100 border-slate-600 focus:border-gold focus:ring-1 focus:ring-gold/30 min-h-[120px] transition-all leading-relaxed shadow-sm ${errors.features ? "border-rose-500 focus:border-rose-500 focus:ring-rose-500/30" : getFieldSuccess("features", planForm.features) ? "border-emerald-500/50 bg-emerald-500/5" : ""}`}
                 value={planForm.features} 
                 onChange={(e) => handleFieldChange("features", e.target.value)} 
               />
@@ -319,40 +325,40 @@ export default function PlanFormModal({ editingPlan, onClose, onSubmit, serviceC
             </div>
 
             {/* Highlight & Sort Order */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800 mt-6">
-              <div className="flex items-center gap-4">
-                <label className="flex items-center gap-2 cursor-pointer select-none">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 pt-6 border-t border-slate-700/60 mt-8">
+              <div className="flex flex-wrap items-center gap-6">
+                <label className="flex items-center gap-3 cursor-pointer select-none group">
                   <input 
                     type="checkbox" 
-                    className="checkbox checkbox-primary rounded-md w-4 h-4 border-slate-300 bg-navy"
+                    className="checkbox checkbox-primary rounded bg-slate-800 border-slate-500 group-hover:border-gold transition-colors"
                     checked={planForm.isHighlighted} 
                     onChange={(e) => setPlanForm({ ...planForm, isHighlighted: e.target.checked })} 
                   />
-                  <span className="text-xs font-semibold text-slate-200">Highlight Plan (Recommended)</span>
+                  <span className="text-sm font-semibold text-slate-300 group-hover:text-slate-100 transition-colors">Highlight Plan (Recommended)</span>
                 </label>
 
-                <div className="flex items-center gap-1.5">
-                  <span className="text-xs font-semibold text-slate-400">Display Order:</span>
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-semibold text-slate-400">Display Order:</span>
                   <input 
                     type="number" 
-                    className="input input-bordered h-8 w-12 p-1 rounded-md text-center font-bold bg-navy text-white border-slate-350 text-xs"
+                    className="input input-bordered h-10 w-20 px-3 rounded-lg text-center font-semibold bg-slate-800 text-slate-100 border-slate-600 focus:border-gold"
                     value={planForm.sortOrder} 
                     onChange={(e) => setPlanForm({ ...planForm, sortOrder: e.target.value })} 
                   />
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+              <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
                 <button 
                   type="button" 
                   onClick={onClose} 
-                  className="btn btn-sm btn-ghost hover:bg-navy-light text-slate-400 font-medium px-4 h-9 rounded-sm"
+                  className="btn btn-ghost hover:bg-slate-800 text-slate-300 font-medium px-6 rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit" 
-                  className="btn btn-sm btn-primary px-6 h-9 rounded-sm font-bold text-white border-none"
+                  className="btn btn-primary px-8 rounded-lg font-bold text-white shadow-lg shadow-primary/20 hover:shadow-primary/40 border-none transition-all"
                 >
                   Save Plan
                 </button>
