@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Check, ChevronDown, Phone, Shield, Star, Mail, MapPin, MessageSquareText } from "lucide-react";
-import PhoneInput from 'react-phone-input-2';
+import dynamic from 'next/dynamic';
+const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
 import 'react-phone-input-2/lib/style.css';
 import ProblemCategoryModal from "../../../components/ui/ProblemCategoryModal";
 import {

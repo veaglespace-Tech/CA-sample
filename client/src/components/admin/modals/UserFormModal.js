@@ -4,7 +4,8 @@ import { validateName, validatePhone, validateEmail, validatePassword } from "..
 import useLiveValidation from "../../../hooks/useLiveValidation";
 import FormFeedback from "../../forms/FormFeedback";
 import PasswordStrength from "../../forms/PasswordStrength";
-import PhoneInput from 'react-phone-input-2';
+import dynamic from 'next/dynamic';
+const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
 import 'react-phone-input-2/lib/style.css';
 
 function createInitialUserForm(editingUser) {

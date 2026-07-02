@@ -4,7 +4,8 @@ import { useState } from "react";
 import { validatePassword } from "../../../lib/passwordValidation";
 import PasswordInput from "../../ui/PasswordInput";
 import { User, ShieldCheck, Lock } from "lucide-react";
-import PhoneInput from 'react-phone-input-2';
+import dynamic from 'next/dynamic';
+const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
 import 'react-phone-input-2/lib/style.css';
 
 export default function ProfileSection({
