@@ -134,6 +134,8 @@ export default function StaffOverview({ user, summary, onNavigateToSection }) {
     violet: { gradient: "from-navy-light/10 to-fuchsia-50", border: "border-navy/10", text: "text-navy", iconBg: "bg-navy" },
     blue: { gradient: "from-gold/10 to-cyan-50", border: "border-gold/20", text: "text-gold", iconBg: "bg-gold" },
     rose: { gradient: "from-rose-50 to-pink-50", border: "border-rose-100", text: "text-gold", iconBg: "bg-gold/100" },
+    amber: { gradient: "from-amber-50 to-yellow-50", border: "border-amber-200", text: "text-amber-600", iconBg: "bg-amber-500" },
+    emerald: { gradient: "from-emerald-50 to-green-50", border: "border-emerald-200", text: "text-emerald-600", iconBg: "bg-emerald-500" },
   };
 
   return (
