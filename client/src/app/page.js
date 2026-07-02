@@ -1,3 +1,4 @@
+// Triggered update for git push testing
 "use client";
 import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
