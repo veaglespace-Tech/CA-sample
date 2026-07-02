@@ -216,8 +216,6 @@ export default function ReferEarnPage() {
           )}
         </div>
       </section>
-        </div>
-      </section>
     </div>
   );
 }

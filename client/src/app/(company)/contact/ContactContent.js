@@ -138,7 +138,6 @@ export default function ContactContent() {
             </div>
 
           </div>
-        </div>
       </section>
     </div>
   );

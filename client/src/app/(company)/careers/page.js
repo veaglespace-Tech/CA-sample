@@ -60,7 +60,8 @@ export default function CareersPage() {
             ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       <section className="vs-section vs-section-alt">
         <div className="vs-container">
@@ -87,8 +88,6 @@ export default function CareersPage() {
             </div>
             <Link href="/contact" className="vs-refer-btn">Send Profile</Link>
           </div>
-        </div>
-      </section>
         </div>
       </section>
     </div>

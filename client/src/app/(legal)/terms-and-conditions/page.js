@@ -47,7 +47,6 @@ export default function TermsPage() {
                 <h2 className="font-heading text-2xl font-black text-slate-900 mb-4">5. Limitation of Liability</h2>
                 <p>The information on this website is for knowledge purposes only and should not be relied upon as legal advice or opinion.</p>
               </div>
-            </div>
           </div>
         </div>
       </section>

@@ -55,7 +55,6 @@ export default function RefundPolicyPage() {
                 <p>For refund queries: <a href="mailto:info@veaglespace.com" className="text-gold hover:underline font-bold">info@veaglespace.com</a> or call <span className="font-bold">+91 82379 99101</span>.</p>
               </div>
             </div>
-          </div>
         </div>
       </section>
     </div>
