@@ -1,3 +1,5 @@
+"use client";
+
 import { useDeferredValue, useMemo, useState } from "react";
 import {
   AlertCircle,

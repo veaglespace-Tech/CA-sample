@@ -421,6 +421,12 @@ export default function ServicePageClient({ slug }) {
       }
       return priceStr;
     }
+
+    // If service was loaded from DB and has explicitly 0 plans, return null
+    if (!plansLoading && plans && plans.length === 0) {
+      return null;
+    }
+    
     return service.price;
   }, [plans, service, plansLoading, selectedPlan]);
 
@@ -478,15 +484,19 @@ export default function ServicePageClient({ slug }) {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8 w-fit">
-                <div className="flex flex-col gap-1">
-                  <span className="text-[0.65rem] font-black text-slate-500 uppercase tracking-widest">Professional Fees</span>
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-2xl font-black text-[#d29052]">{displayPrice}</span>
-                    <span className="text-xs font-semibold text-slate-500">{service.govtFees}</span>
-                  </div>
-                </div>
-                <div className="hidden sm:block w-px h-10 bg-slate-100 mx-2"></div>
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 sm:items-center mb-8 w-fit">
+                {displayPrice && (
+                  <>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[0.65rem] font-black text-slate-500 uppercase tracking-widest">Professional Fees</span>
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-2xl font-black text-[#d29052]">{displayPrice}</span>
+                        <span className="text-xs font-semibold text-slate-500">{service.govtFees}</span>
+                      </div>
+                    </div>
+                    <div className="hidden sm:block w-px h-10 bg-slate-100 mx-2"></div>
+                  </>
+                )}
                 <div className="flex flex-col gap-1">
                   <span className="text-[0.65rem] font-black text-slate-500 uppercase tracking-widest">Estimated Time</span>
                   <div className="flex items-baseline gap-1.5">
@@ -635,10 +645,12 @@ export default function ServicePageClient({ slug }) {
             <article id="fees" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-3">Fees</h2>
               <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between bg-slate-50 p-4 rounded-none border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
-                  <span className="text-sm font-semibold text-slate-600">Professional fee starts at</span>
-                  <strong className="text-lg font-black text-[#d29052]">{displayPrice}</strong>
-                </div>
+                {displayPrice && (
+                  <div className="flex items-center justify-between bg-slate-50 p-4 rounded-none border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                    <span className="text-sm font-semibold text-slate-600">Professional fee starts at</span>
+                    <strong className="text-lg font-black text-[#d29052]">{displayPrice}</strong>
+                  </div>
+                )}
                 <div className="flex items-center justify-between bg-slate-50 p-4 rounded-none border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
                   <span className="text-sm font-semibold text-slate-600">Government fees</span>
                   <strong className="text-base font-bold text-slate-900">{service.govtFees}</strong>
