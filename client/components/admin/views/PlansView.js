@@ -374,7 +374,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
             <thead>
               <tr className="border-b border-slate-100 bg-slate-50/80">
                 <th className="px-6 py-4 text-left text-[11px] font-black uppercase tracking-[0.16em] text-slate-500">Name</th>
-                <th className="px-6 py-4 text-left text-[11px] font-black uppercase tracking-[0.16em] text-slate-500">Service Slug</th>
+                <th className="px-6 py-4 text-left text-[11px] font-black uppercase tracking-[0.16em] text-slate-500">Service</th>
                 <th className="px-6 py-4 text-left text-[11px] font-black uppercase tracking-[0.16em] text-slate-500">Price</th>
                 <th className="px-6 py-4 text-left text-[11px] font-black uppercase tracking-[0.16em] text-slate-500">Tag</th>
                 <th className="px-6 py-4 text-right text-[11px] font-black uppercase tracking-[0.16em] text-slate-500">Actions</th>
@@ -410,7 +410,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                   <td className="px-6 py-4 text-sm font-bold text-slate-900">{plan.name}</td>
                   <td className="px-6 py-4">
                     <span className="inline-flex rounded-sm border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-bold text-slate-600">
-                      {plan.serviceSlug}
+                      {plan.serviceName || plan.serviceSlug}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-sm font-bold text-slate-900">{plan.price}</td>
