@@ -37,7 +37,7 @@ export default function BrandLogo({
           fill
           priority={priority}
           sizes={`${resolvedWidth}px`}
-          className={`${imageClassName} object-contain filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.85)] drop-shadow-[0_5px_15px_rgba(0,0,0,1)] animate-flip-y`}
+          className={`${imageClassName} object-contain filter drop-shadow-[0_0_15px_rgba(14,165,233,0.8)] drop-shadow-[0_0_30px_rgba(14,165,233,0.6)] animate-flip-y`}
         />
       </span>
       {showText && (

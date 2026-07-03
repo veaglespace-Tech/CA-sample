@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/api\/?$/, "");
+import { getApiUrl } from "@/lib/api/client";
 
 export default function ReviewBadge({ className = "" }) {
   const [stats, setStats] = useState({ count: 0, rating: "0" });
@@ -12,7 +12,7 @@ export default function ReviewBadge({ className = "" }) {
   useEffect(() => {
     async function fetchStats() {
       try {
-        const res = await fetch(`${API_URL}/api/reviews`);
+        const res = await fetch(getApiUrl("/api/reviews"));
         if (!res.ok) return;
         const data = await res.json();
         const reviews = data?.data || [];
