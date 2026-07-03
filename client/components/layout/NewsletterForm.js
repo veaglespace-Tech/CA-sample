@@ -16,8 +16,8 @@ export default function NewsletterForm() {
     setMessage("");
 
     try {
-      const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/api\/?$/, "");
-      const res = await fetch(`${API_URL}/api/newsletter/subscribe`, {
+      const { getApiUrl } = await import("@/lib/api/client");
+      const res = await fetch(getApiUrl("/api/newsletter/subscribe"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

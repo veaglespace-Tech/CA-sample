@@ -1,5 +1,5 @@
-import "./src/config/env.js";
-import { prisma } from "./src/config/db.js";
+import "./config/env.js";
+import { prisma } from "./config/db.js";
 
 function getISTDate() {
   const IST_OFFSET = 5.5 * 60 * 60 * 1000;

@@ -78,7 +78,7 @@ export async function replyToContact(req, res) {
       const repoDoc = await prisma.adminRepositoryDocument.findUnique({ where: { id: repositoryDocId } });
       if (repoDoc) {
         // Resolve absolute path from this controller's directory back to the project root
-        const rootDir = path.resolve(__dirname, "../../../");
+        const rootDir = path.resolve(__dirname, "../../");
         const filePath = path.join(rootDir, repoDoc.fileUrl);
         
         if (fs.existsSync(filePath)) {

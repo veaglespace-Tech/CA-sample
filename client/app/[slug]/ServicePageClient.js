@@ -380,13 +380,22 @@ export default function ServicePageClient({ slug }) {
       try {
         const res = await fetch(`${API_URL}/api/plans/service/${slug}`);
         const json = await res.json();
-        if (json.ok && json.data && json.data.length > 0) {
-          setPlans(json.data);
-          setSelectedPlan(json.data.find(p => p.name === "Premium" || p.isHighlighted) || json.data[0]);
+        if (json.ok) {
+          if (json.data && json.data.length > 0) {
+            setPlans(json.data);
+            setSelectedPlan(json.data.find(p => p.name === "Premium" || p.isHighlighted) || json.data[0]);
+          } else if (json.serviceExists) {
+            // Service is configured in DB but has 0 plans intentionally
+            setPlans([]);
+            setSelectedPlan(null);
+          } else {
+            // Service not yet migrated to DB, use legacy fallback
+            const defaultPlans = buildPackages(service);
+            setPlans(defaultPlans);
+            setSelectedPlan(defaultPlans.find(p => p.name === "Premium" || p.isHighlighted) || defaultPlans[0]);
+          }
         } else {
-          const defaultPlans = buildPackages(service);
-          setPlans(defaultPlans);
-          setSelectedPlan(defaultPlans.find(p => p.name === "Premium" || p.isHighlighted) || defaultPlans[0]);
+          throw new Error("API returned not ok");
         }
       } catch (error) {
         console.warn("Using fallback plans (API not available or failed to fetch).");

@@ -1,6 +1,6 @@
 import "dotenv/config";
-import { prisma } from "../src/db.js";
-import { slugify } from "../src/utils.js";
+import { prisma } from "../db.js";
+import { slugify } from "../utils.js";
 
 async function testCreate() {
   try {

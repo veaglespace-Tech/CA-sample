@@ -1,7 +1,7 @@
 import "dotenv/config";
-import { prisma } from "../../src/config/db.js";
-import { addLeadNote } from "../../src/services/leads.js";
-import { fetchAllPlatformData } from "../../src/services/admin.js";
+import { prisma } from "../../config/db.js";
+import { addLeadNote } from "../../services/leads.js";
+import { fetchAllPlatformData } from "../../services/admin.js";
 
 async function verifyFlows() {
   console.log("Starting Backend Flow Verification...");

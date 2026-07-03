@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { prisma } from "../src/db.js";
+import { prisma } from "../db.js";
 
 async function checkFailedResolutions() {
   console.log("Checking for leads where serviceId could not be resolved...");

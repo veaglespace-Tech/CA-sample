@@ -1,5 +1,5 @@
-import "./src/config/env.js";
-import { prisma } from "./src/config/db.js";
+import "./config/env.js";
+import { prisma } from "./config/db.js";
 
 // Helper to get current time in IST (UTC + 5:30) for database storage
 function getISTDate() {

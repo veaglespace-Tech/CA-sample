@@ -1,4 +1,4 @@
-import { serviceData } from "../../client/src/data/services.js";
+import { serviceData } from "../../client/data/services.js";
 import { normalizeSlug } from "./seed_service_plans.js";
 
 const TAB_ORDER = [

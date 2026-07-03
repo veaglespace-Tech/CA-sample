@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { prisma } from "./src/config/db.js";
+import { prisma } from "./config/db.js";
 
 async function main() {
   try {

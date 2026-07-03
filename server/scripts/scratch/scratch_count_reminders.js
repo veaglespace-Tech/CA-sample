@@ -1,5 +1,5 @@
-import "./src/config/env.js";
-import { prisma } from "./src/config/db.js";
+import "./config/env.js";
+import { prisma } from "./config/db.js";
 
 async function run() {
   const reminders = await prisma.message.findMany({

@@ -1,4 +1,4 @@
-import { prisma } from './src/db.js'; 
+import { prisma } from './db.js'; 
 async function test() { 
   try { 
     const plans = await prisma.purchasePlan.findMany({ 

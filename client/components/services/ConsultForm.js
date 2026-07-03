@@ -121,7 +121,7 @@ export default function ConsultForm({ formTitle, serviceName, isRegistration, sl
       else if (slug?.includes("msme")) registrationType = "MSME_REGISTRATION";
       else if (slug?.includes("llp")) registrationType = "LLP_REGISTRATION";
 
-      const response = await fetch(`${API_URL}${endpoint}`, {
+      const response = await fetch(getApiUrl(endpoint), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

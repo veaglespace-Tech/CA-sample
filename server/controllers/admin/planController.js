@@ -16,6 +16,10 @@ export const getPlansByService = async (req, res) => {
     .replace(/^-+|-+$/g, "");
 
   try {
+    const serviceExists = await prisma.service.findFirst({
+      where: { slug: { in: [formattedSlug, slug] } }
+    });
+
     const plans = await prisma.servicePricingPlan.findMany({
       where: {
         service: {
@@ -37,7 +41,11 @@ export const getPlansByService = async (req, res) => {
       }
     });
 
-    res.status(200).json({ ok: true, data: plans.map(formatPlanRecord) });
+    res.status(200).json({ 
+      ok: true, 
+      data: plans.map(formatPlanRecord),
+      serviceExists: !!serviceExists
+    });
   } catch (error) {
     console.error("[planController] Error fetching plans:", error);
     res.status(500).json({ ok: false, error: "Internal server error" });

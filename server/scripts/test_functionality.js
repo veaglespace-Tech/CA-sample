@@ -4,7 +4,7 @@ async function testSearch() {
   
   // We'll test the findLeads logic directly by importing the module 
   // since we don't want to deal with auth tokens in a scratch script
-  const { findLeads, findUsers } = await import('./src/modules/admin.js');
+  const { findLeads, findUsers } = await import('./modules/admin.js');
   
   try {
     console.log("\n1. Testing User Search ('Akshay'):");

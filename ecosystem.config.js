@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'caproject-backend',
-      script: './server/src/index.js',
+      script: './server/index.js',
       env: {
         NODE_ENV: 'production',
         PORT: 5003

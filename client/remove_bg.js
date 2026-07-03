@@ -20,7 +20,7 @@ Jimp.read('public/temp-logo.png')
       }
     });
 
-    image.writeAsync('src/app/icon.png');
+    image.writeAsync('app/icon.png');
     image.writeAsync('public/veagle-logo-transparent.png');
     console.log("Image background removed and saved to icon.png and veagle-logo-transparent.png");
   })
