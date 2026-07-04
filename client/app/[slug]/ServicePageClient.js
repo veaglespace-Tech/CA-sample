@@ -523,7 +523,7 @@ export default function ServicePageClient({ slug }) {
             </div>
           </section>
 
-          <div className="block lg:hidden mb-10 -mt-2">
+          <div id="consult-form-mobile" className="block lg:hidden mb-10 -mt-2 scroll-mt-[80px]">
             <Suspense fallback={<div className="h-96 w-full bg-white animate-pulse rounded-none border border-slate-200 flex items-center justify-center text-slate-500 font-semibold">Loading form...</div>}>
               <ConsultForm
                 formTitle={service.formTitle}
@@ -537,7 +537,7 @@ export default function ServicePageClient({ slug }) {
           </div>
         </div>
 
-        <aside className="hidden lg:block w-full lg:w-[380px] lg:shrink-0 sticky top-[100px] z-20">
+        <aside id="consult-form-desktop" className="hidden lg:block w-full lg:w-[380px] lg:shrink-0 sticky top-[100px] z-20 scroll-mt-[100px]">
           <Suspense fallback={<div className="h-[500px] w-full bg-white animate-pulse rounded-none border border-slate-200 flex items-center justify-center text-slate-500 font-semibold">Loading form...</div>}>
             <ConsultForm
               formTitle={service.formTitle}

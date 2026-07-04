@@ -22,7 +22,14 @@ export default function PackageCards({ service, plans, onSelectPlan }) {
                 key={pack.name} 
                 onClick={() => {
                   if (onSelectPlan) onSelectPlan(pack);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  // Find mobile or desktop form container
+                  const mobileForm = document.getElementById("consult-form-mobile");
+                  
+                  if (window.innerWidth < 1024 && mobileForm) {
+                    mobileForm.scrollIntoView({ behavior: "smooth", block: "start" });
+                  } else {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
                 }}
                 className={`group relative flex flex-col md:grid md:grid-rows-subgrid md:row-span-7 h-full rounded-none p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer ${
                   isHighlight 
