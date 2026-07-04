@@ -16,7 +16,7 @@ import useLiveValidation from "../../hooks/useLiveValidation";
 import FormField from "../forms/FormField";
 import PasswordStrength from "../forms/PasswordStrength";
 import dynamic from 'next/dynamic';
-const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
+const PhoneInput = dynamic(() => import('react-phone-input-2').then(m => m.default || m), { ssr: false });
 import 'react-phone-input-2/lib/style.css';
 
 function AuthFormInner({

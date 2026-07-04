@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Check, Shield, ChevronDown, Phone, Users, Star, Mail, MapPin } from "lucide-react";
 import dynamic from 'next/dynamic';
-const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
+const PhoneInput = dynamic(() => import('react-phone-input-2').then(m => m.default || m), { ssr: false });
 import 'react-phone-input-2/lib/style.css';
 import {
   validateName,

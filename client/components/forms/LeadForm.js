@@ -5,7 +5,7 @@ import {
   User, Phone, Mail, Briefcase, Clock, MessageSquare, ArrowRight
 } from "lucide-react";
 import dynamic from 'next/dynamic';
-const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
+const PhoneInput = dynamic(() => import('react-phone-input-2').then(m => m.default || m), { ssr: false });
 import 'react-phone-input-2/lib/style.css';
 import {
   validateName,

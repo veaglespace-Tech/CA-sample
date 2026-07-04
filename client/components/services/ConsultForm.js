@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { Check, FileText, Star } from "lucide-react";
 import dynamic from 'next/dynamic';
-const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
+const PhoneInput = dynamic(() => import('react-phone-input-2').then(m => m.default || m), { ssr: false });
 import 'react-phone-input-2/lib/style.css';
 import {
   validateName,
