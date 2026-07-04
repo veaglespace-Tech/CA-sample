@@ -143,13 +143,13 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
   }, [users, userSearch]);
 
   const controlShellClass =
-    "group relative overflow-hidden rounded-[1.15rem] border border-slate-200/80 bg-gradient-to-b from-white to-slate-50 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/30 hover:shadow-[0_18px_45px_rgba(15,23,42,0.10)]";
+    "group relative overflow-hidden rounded-full border border-slate-200 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:border-gold/50 focus-within:border-gold focus-within:bg-white focus-within:shadow-[0_0_30px_rgba(210,144,82,0.15)]";
   const controlFieldClass =
-    "h-[3.25rem] w-full appearance-none bg-transparent px-4 py-3 pr-11 text-sm font-semibold text-slate-900 outline-none placeholder:text-slate-400";
+    "h-[3.25rem] w-full appearance-none bg-transparent px-4 py-3 pr-11 text-sm font-semibold text-slate-900 outline-none";
   const selectFieldClass =
     "h-[3.25rem] w-full appearance-none bg-transparent px-4 py-3 pr-11 text-sm font-semibold text-slate-900 outline-none";
   const controlIconClass =
-    "pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 transition-colors duration-300 group-hover:text-slate-600";
+    "pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition-colors duration-300 group-hover:text-slate-600";
 
   const clearFilters = () => {
     setSearchTerm("");
@@ -223,29 +223,9 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
           </div>
         </div>
 
-        <div className="border-t border-slate-100 px-6 py-6">
-          <div className="grid gap-4 xl:grid-cols-12">
-            <label className="space-y-2 xl:col-span-4">
-              <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-500">Search Plans</span>
-              <div className={controlShellClass}>
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-gold/0 via-yellow-400/0 to-gold/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="relative flex items-center">
-                  <Search size={16} className="pointer-events-none absolute left-4 text-slate-400 transition-colors duration-300 group-hover:text-gold" />
-                  <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(e) => {
-                      setSearchTerm(e.target.value);
-                      setPage(1);
-                    }}
-                    placeholder="Name, service slug, tag, price..."
-                    className={`${controlFieldClass} pl-11`}
-                  />
-                </div>
-              </div>
-            </label>
-
-            <label className="space-y-2 xl:col-span-2">
+        <div className="border-t border-slate-100 px-6 py-6 space-y-6">
+          <div className="grid gap-4 xl:grid-cols-3">
+            <label className="space-y-2">
               <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-500">Main Service</span>
               <div className={controlShellClass}>
                 <select
@@ -267,7 +247,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
               </div>
             </label>
 
-            <label className="space-y-2 xl:col-span-2">
+            <label className="space-y-2">
               <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-500">Sub Service</span>
               <div className={controlShellClass}>
                 <select
@@ -288,7 +268,7 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
               </div>
             </label>
 
-            <label className="space-y-2 xl:col-span-3">
+            <label className="space-y-2">
               <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-500">Target Service</span>
               <div className={`${controlShellClass} ring-1 ring-transparent transition-all duration-300 focus-within:ring-gold/30`}>
                 <select
@@ -324,26 +304,48 @@ export default function PlansView({ serviceCategories = [], users = [], onAdd, o
                 <ChevronDown size={15} className={controlIconClass} />
               </div>
             </label>
+          </div>
 
-            <div className="xl:col-span-1 xl:flex xl:items-end">
-              <button
-                type="button"
-                onClick={clearFilters}
-                className="inline-flex h-[3.25rem] w-full items-center justify-center gap-2 rounded-[1.15rem] border border-slate-200 bg-white px-4 text-sm font-black text-slate-600 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700 hover:shadow-[0_18px_45px_rgba(15,23,42,0.10)]"
-              >
-                <FilterX size={15} />
-                Clear
-              </button>
-            </div>
+          <div>
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="inline-flex h-[2.5rem] items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-5 text-sm font-black text-slate-700 shadow-sm transition-all duration-300 hover:bg-slate-50"
+            >
+              <FilterX size={15} />
+              Clear Filters
+            </button>
+          </div>
+
+          <div className="pt-2">
+            <label className="space-y-2 block">
+              <span className="text-[11px] font-black uppercase tracking-[0.18em] text-slate-500">Search Plans</span>
+              <div className={controlShellClass}>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-gold/0 via-yellow-400/0 to-gold/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="relative flex items-center">
+                  <Search size={16} className="pointer-events-none absolute left-4 text-slate-400 transition-colors duration-300 group-hover:text-gold" />
+                  <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                      setPage(1);
+                    }}
+                    placeholder="Plan name, service name, category, or tag..."
+                    className={`${controlFieldClass} pl-11`}
+                  />
+                </div>
+              </div>
+            </label>
           </div>
         </div>
 
         {activeChips.length > 0 && (
-          <div className="flex flex-wrap items-center gap-2 border-t border-slate-100 px-6 pb-6">
+          <div className="flex flex-wrap items-center gap-2 border-t border-slate-100 px-6 py-4">
             {activeChips.map((chip) => (
               <span
                 key={chip}
-                className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[11px] font-black tracking-wide text-gold"
+                className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-[12px] font-black tracking-wide text-indigo-700"
               >
                 {chip}
               </span>
