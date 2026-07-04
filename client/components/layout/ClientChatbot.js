@@ -117,12 +117,11 @@ export default function ClientChatbot() {
     handleBotResponse(answerId);
   }
 
-  return (
-    <div className={`fixed bottom-8 right-6 z-[1000] flex flex-col items-end transition-all duration-500 ${isAtBottom && !open ? 'translate-x-full opacity-0 pointer-events-none' : 'translate-x-0 opacity-100'}`}>
+    <div className={`fixed bottom-8 right-0 z-[1000] flex flex-col items-end transition-all duration-500 ${isAtBottom && !open ? 'translate-x-full opacity-0 pointer-events-none' : 'translate-x-0 opacity-100'}`}>
       {/* Chat Window */}
       {open && (
         <section
-          className="mb-4 mr-4 sm:mr-8 flex h-[min(600px,calc(100vh-8rem))] w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-[2rem] border border-gold/20 bg-white/95 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(79,70,229,0.2)] animate-in slide-in-from-bottom-8 fade-in duration-500"
+          className="mb-4 mr-4 sm:mr-6 flex h-[min(600px,calc(100vh-8rem))] w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-[2rem] border border-gold/20 bg-white/95 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(79,70,229,0.2)] animate-in slide-in-from-bottom-8 fade-in duration-500"
           aria-label="Veagle Space Technology AI Assistant"
         >
           {/* Header */}
@@ -265,36 +264,30 @@ export default function ClientChatbot() {
         </section>
       )}
 
-      {/* Modern Floating Action Button */}
-      <div className="relative group mt-4">
-        {/* Animated Glow Ring */}
-        {!open && (
-          <div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-gold via-yellow-500 to-orange-500 opacity-40 blur-lg transition duration-1000 group-hover:opacity-80 animate-pulse"></div>
-        )}
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          className={`relative z-10 flex items-center justify-center rounded-full text-white shadow-2xl transition-all duration-500 overflow-hidden border border-white/20 backdrop-blur-md ${
-            open 
-              ? "bg-slate-900 shadow-slate-900/50 h-14 w-14 rotate-180" 
-              : "bg-gradient-to-tr from-gold via-yellow-500 to-orange-500 h-14 w-14 hover:w-[130px] justify-start p-2 hover:shadow-[0_0_30px_rgba(218,165,32,0.6)]"
-          }`}
-          aria-label={open ? "Close AI Assistant" : "Open AI Assistant"}
-        >
-          <div className="shrink-0 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 shadow-inner transition-transform duration-500 group-hover:scale-110">
-            {open ? (
-               <X size={22} className="text-white transition-transform duration-500" />
-            ) : (
-               <Bot size={22} className="text-white transition-transform duration-500 group-hover:-rotate-12" />
-            )}
-          </div>
-          {!open && (
-             <span className="overflow-hidden whitespace-nowrap text-[14px] font-bold tracking-wide opacity-0 max-w-0 transition-all duration-500 group-hover:max-w-xs group-hover:opacity-100 group-hover:ml-2">
-               Ask AI
-             </span>
+      {/* Modern Floating Action Button (Refer & Earn style pill) */}
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        className={`group flex items-center p-2 rounded-l-full text-white shadow-lg shadow-navy/30 transition-all duration-500 overflow-hidden ${
+          open 
+            ? "bg-slate-900 h-14 w-14 justify-center" 
+            : "bg-navy h-14 w-14 hover:w-[130px] justify-start"
+        }`}
+        aria-label={open ? "Close AI Assistant" : "Open AI Assistant"}
+      >
+        <div className={`shrink-0 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-transform duration-500 ${!open && "group-hover:scale-110"}`}>
+          {open ? (
+             <X size={22} className="text-white transition-transform duration-500 rotate-90 group-hover:rotate-180" />
+          ) : (
+             <Bot size={22} className="text-white transition-transform duration-500 group-hover:-rotate-12" />
           )}
-        </button>
-      </div>
+        </div>
+        {!open && (
+           <span className="overflow-hidden whitespace-nowrap text-[13px] font-extrabold tracking-wide opacity-0 max-w-0 transition-all duration-500 group-hover:max-w-xs group-hover:opacity-100 group-hover:ml-2">
+             Ask AI
+           </span>
+        )}
+      </button>
     </div>
   );
 }
