@@ -16,7 +16,7 @@ async function main() {
     },
     create: {
       name: 'Ritesh Veaglespace',
-      email: email,
+        email: email,
       passwordHash: hashedPassword,
       role: 'SUPER_ADMIN',
     },
