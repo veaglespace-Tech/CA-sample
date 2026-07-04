@@ -53,8 +53,14 @@ function buildPackages(service) {
     ];
   }
 
-  const numericPrice = price.replace(/[^0-9.]/g, "");
-  const numericOldPrice = oldPrice ? oldPrice.replace(/[^0-9.]/g, "") : null;
+  const cleanStr = (str) => {
+    if (!str) return null;
+    const match = str.match(/[0-9,]+(?:\.[0-9]+)?/);
+    return match ? match[0].replace(/,/g, "") : null;
+  };
+
+  const numericPrice = cleanStr(price);
+  const numericOldPrice = oldPrice ? cleanStr(oldPrice) : null;
   const resolvedPrice = numericPrice || "1499";
   const resolvedOldPrice = numericOldPrice || (numericPrice ? String(Math.round(Number(numericPrice) * 1.5)) : null);
 
