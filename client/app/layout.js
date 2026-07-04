@@ -1,4 +1,4 @@
-import { Lexend } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "../styles/globals.css";
 import SiteHeader from "../components/layout/SiteHeader";
 import SiteFooter from "../components/layout/SiteFooter";
@@ -6,10 +6,10 @@ import MainContentWrapper from "../components/layout/MainContentWrapper";
 import Providers from "./providers";
 import { Toaster } from "react-hot-toast";
 
-const lexend = Lexend({
-  variable: "--font-lexend",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -89,7 +89,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${lexend.variable}`}
+      className={`${jakarta.variable}`}
       data-theme="light"
       data-scroll-behavior="smooth"
     >
