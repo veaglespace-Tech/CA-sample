@@ -285,12 +285,6 @@ export async function seedServiceCatalog(prisma) {
     ...catalogEntries.map(([slug]) => slug),
     ...DOCUMENTATION_SERVICE_SEED.map((service) => service.slug),
   ]);
-  const targetSubcategorySlugs = new Set([
-    ...catalogEntries.map(([, service]) => normalizeSlug(service.subcategory || service.category || "General")),
-    normalizeSlug("Document Drafting"),
-  ]);
-  const seededCategories = new Set();
-  const allowedCategorySlugs = new Set(TAB_ORDER.map((tab) => normalizeSlug(tab)));
 
   const navCategories = {
     "Business Registration": businessRegistration,
@@ -298,8 +292,27 @@ export async function seedServiceCatalog(prisma) {
     "Compliances": compliances,
     "Trademark & IP": trademarkIP,
     "Documentation": documentation,
-    "Others": { sections: [{ title: "Consult an Expert" }] }
+    "Others": { sections: [{ title: "Consult an Expert", links: [{ label: "Talk to a Lawyer", href: "/talk-to-a-lawyer" }] }] }
   };
+
+  for (const catData of Object.values(navCategories)) {
+    if (catData && catData.sections) {
+      for (const section of catData.sections) {
+        if (section.links) {
+          for (const link of section.links) {
+            const slug = link.href.startsWith("/") ? link.href.substring(1) : link.href;
+            targetServiceSlugs.add(slug);
+          }
+        }
+      }
+    }
+  }
+  const targetSubcategorySlugs = new Set([
+    ...catalogEntries.map(([, service]) => normalizeSlug(service.subcategory || service.category || "General")),
+    normalizeSlug("Document Drafting"),
+  ]);
+  const seededCategories = new Set();
+  const allowedCategorySlugs = new Set(TAB_ORDER.map((tab) => normalizeSlug(tab)));
 
   // Pre-seed all categories and subcategories from UI navigation
   for (const [catName, catData] of Object.entries(navCategories)) {
@@ -385,6 +398,36 @@ export async function seedServiceCatalog(prisma) {
     });
   }
 
+  // Pre-seed placeholder services for all links in navigation
+  const existingServiceSlugs = new Set([
+    ...catalogEntries.map(([slug]) => slug),
+    ...DOCUMENTATION_SERVICE_SEED.map((service) => service.slug),
+  ]);
+
+  let extraServiceCount = 0;
+  for (const [catName, catData] of Object.entries(navCategories)) {
+    if (catData && catData.sections) {
+      for (const section of catData.sections) {
+        const subcatName = section.title;
+        if (section.links) {
+          for (const link of section.links) {
+            const slug = link.href.startsWith("/") ? link.href.substring(1) : link.href;
+            if (!existingServiceSlugs.has(slug)) {
+              await upsertRichService(prisma, {
+                categoryName: catName,
+                subcategoryName: subcatName,
+                service: { title: link.label, slug, placeholder: true },
+                sortOrder: 100 + extraServiceCount,
+              });
+              existingServiceSlugs.add(slug);
+              extraServiceCount++;
+            }
+          }
+        }
+      }
+    }
+  }
+
   const extraCategories = await prisma.serviceCategory.findMany({
     where: {
       slug: {
@@ -434,7 +477,7 @@ export async function seedServiceCatalog(prisma) {
   }
 
   return {
-    services: catalogEntries.length + DOCUMENTATION_SERVICE_SEED.length,
+    services: existingServiceSlugs.size,
     categories: TAB_ORDER.length,
   };
 }
