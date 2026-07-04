@@ -24,10 +24,21 @@
   --font-sans: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
   --font-serif: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
   
-  /* Soft elegant corners */
-  --radius-xl: 0.5rem;
-  --radius-2xl: 0.75rem;
-  --radius-3xl: 1rem;
+  /* Soft elegant corners - MODERNIZED */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.5rem;
+  --radius-full: 9999px;
+
+  /* Premium soft shadows */
+  --shadow-soft: 0 10px 40px -10px rgba(15, 23, 42, 0.08);
+  --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.2);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
 :root {
@@ -273,13 +284,13 @@
               0 20px 48px rgba(0,0,0,0.3);
 }
 
-/* ── Floating card elevation levels ── */
+/* ── Floating card elevation levels (MODERNIZED) ── */
 .elevation-0 { box-shadow: none; }
-.elevation-1 { box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); }
-.elevation-2 { box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04); }
-.elevation-3 { box-shadow: 0 8px 24px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.06); }
-.elevation-4 { box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.08); }
-.elevation-5 { box-shadow: 0 32px 80px rgba(0,0,0,0.16), 0 16px 32px rgba(0,0,0,0.10); }
+.elevation-1 { box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); }
+.elevation-2 { box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06); }
+.elevation-3 { box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08); }
+.elevation-4 { box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.10); }
+.elevation-5 { box-shadow: 0 40px 80px -20px rgba(15, 23, 42, 0.12); }
 
 /* ── Hover lift animation with shadow depth ── */
 .lift {
