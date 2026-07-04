@@ -6,6 +6,7 @@ import {
   compliances,
   trademarkIP,
   documentation,
+  othersMenu,
 } from "../../client/lib/navigation-data.js";
 const TAB_ORDER = [
   "Business Registration",
@@ -292,7 +293,7 @@ export async function seedServiceCatalog(prisma) {
     "Compliances": compliances,
     "Trademark & IP": trademarkIP,
     "Documentation": documentation,
-    "Others": { sections: [{ title: "Consult an Expert", links: [{ label: "Talk to a Lawyer", href: "/talk-to-a-lawyer" }] }] }
+    "Others": othersMenu
   };
 
   for (const catData of Object.values(navCategories)) {
