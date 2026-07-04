@@ -346,8 +346,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {serviceGroups.map((feature, i) => (
-              <Link href={feature.href || "/services"} key={i} className="gsap-service-card card-hover text-center group cursor-pointer p-6 rounded-2xl border border-transparent hover:border-slate-100 hover:bg-slate-50/50 block">
-                <div className="w-20 h-20 mx-auto rounded-full border-2 border-gold text-gold flex items-center justify-center mb-6 transition-all duration-500 shadow-sm group-hover:scale-110 group-hover:bg-gold group-hover:text-white group-hover:shadow-[0_0_25px_rgba(212,175,55,0.4)]">
+              <Link href={feature.href || "/services"} key={i} className="gsap-service-card card-hover text-center group cursor-pointer p-8 rounded-3xl border border-transparent hover:border-slate-100 hover:bg-white hover:shadow-soft block transition-all duration-500">
+                <div className="w-20 h-20 mx-auto rounded-full border border-gold/30 bg-gold/5 text-gold flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-gold group-hover:text-white group-hover:shadow-glow">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-4">{feature.title}</h3>
@@ -371,15 +371,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {journeyCards.map((item, i) => (
-              <div key={i} className="gsap-journey-card card-hover relative group overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-lg cursor-pointer">
+              <div key={i} className="gsap-journey-card card-hover relative group overflow-hidden rounded-3xl bg-white border border-slate-100 shadow-soft cursor-pointer transition-all duration-500">
                 {/* Glow Effect behind */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-gold/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 {/* Image Section */}
-                <div className="h-56 overflow-hidden relative bg-slate-50/50 flex items-center justify-center border-b border-slate-100 p-6">
+                <div className="h-56 overflow-hidden relative bg-slate-50/50 flex items-center justify-center border-b border-slate-50 p-6">
                   {/* Subtle abstract blobs in background */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-3xl group-hover:bg-gold/20 transition-colors duration-500"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gold/100/10 rounded-full blur-2xl group-hover:bg-gold/100/20 transition-colors duration-500"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/10 transition-colors duration-500"></div>
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gold/10 rounded-full blur-2xl group-hover:bg-gold/20 transition-colors duration-500"></div>
                   
                   <img 
                     src={item.image} 
@@ -388,7 +388,7 @@ export default function Home() {
                   />
                   
                   {/* Percent Badge */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm p-2 rounded-2xl w-14 h-14 flex flex-col items-center justify-center font-bold text-gold border border-gold/30 shadow-lg z-20 transition-all duration-500 group-hover:border-gold group-hover:scale-110 group-hover:-translate-y-1">
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm p-2 rounded-2xl w-14 h-14 flex flex-col items-center justify-center font-bold text-gold border border-gold/20 shadow-sm z-20 transition-all duration-500 group-hover:border-gold/50 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-glow">
                     <span className="text-lg leading-none">{item.percent}%</span>
                   </div>
                 </div>
@@ -405,7 +405,7 @@ export default function Home() {
                   <div className="mt-auto">
                     <Link href={item.href} className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-gold transition-colors relative">
                       <span className="relative z-10 group-hover:text-[#b07842] transition-colors duration-300">Read More</span>
-                      <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
+                      <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold transition-colors duration-300 group-hover:shadow-glow">
                         <ChevronRight size={16} className="text-gold group-hover:text-white transform group-hover:translate-x-1 transition-transform duration-300" />
                       </div>
                     </Link>
@@ -560,23 +560,23 @@ export default function Home() {
       {/* 8. CALL US / TOLL FREE */}
       <div className="bg-navy-light text-white py-16 md:py-8 md:py-24 gsap-contact-container overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            <div className="md:w-1/2 p-8 md:p-12 lg:p-16 bg-white border border-slate-200 gsap-contact-col relative overflow-hidden group shadow-2xl z-10">
+          <div className="flex flex-col md:flex-row shadow-soft rounded-3xl overflow-hidden bg-white border border-slate-100">
+            <div className="md:w-1/2 p-8 md:p-12 lg:p-16 bg-white border-r border-slate-100 gsap-contact-col relative overflow-hidden group z-10">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-gold"></div>
               <h2 className="text-3xl lg:text-4xl font-black mb-3 text-slate-900 tracking-tight">Leave a <span className="text-gold">Message</span></h2>
               <p className="text-slate-500 mb-8 font-medium">Fill out the form below and our experts will get back to you shortly.</p>
               <form className="flex flex-col gap-4 relative z-10">
-                <input type="text" placeholder="Full Name *" className="bg-slate-50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-sm placeholder:text-slate-400 font-medium" />
-                <input type="email" placeholder="Email Address *" className="bg-slate-50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-sm placeholder:text-slate-400 font-medium" />
-                <textarea placeholder="How can we help you? *" rows="4" className="bg-slate-50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-sm placeholder:text-slate-400 resize-none font-medium"></textarea>
-                <button type="submit" className="bg-gold text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-navy transition-all duration-300 shadow-md hover:shadow-lg w-full mt-2 rounded-sm border-2 border-transparent hover:border-navy">Send Message</button>
+                <input type="text" placeholder="Full Name *" className="bg-slate-50/50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-xl placeholder:text-slate-400 font-medium" />
+                <input type="email" placeholder="Email Address *" className="bg-slate-50/50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-xl placeholder:text-slate-400 font-medium" />
+                <textarea placeholder="How can we help you? *" rows="4" className="bg-slate-50/50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-xl placeholder:text-slate-400 resize-none font-medium"></textarea>
+                <button type="submit" className="bg-gold text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-navy transition-all duration-300 shadow-md hover:shadow-glow w-full mt-2 rounded-xl border-2 border-transparent hover:border-navy">Send Message</button>
               </form>
             </div>
             <div className="w-full md:w-1/2 p-8 sm:p-12 md:p-16 lg:p-20 flex flex-col justify-center items-center md:text-left md:items-start text-center bg-[url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center relative gsap-contact-col overflow-hidden">
               <div className="absolute inset-0 bg-gold/90 mix-blend-multiply transition-opacity duration-500 hover:opacity-80"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-transparent"></div>
               <div className="relative z-10 w-full transform transition-transform duration-500 hover:scale-105">
-                <div className="inline-flex items-center gap-3 mb-6 bg-white/10 px-4 py-2 rounded-none backdrop-blur-sm border border-white/20 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+                <div className="inline-flex items-center gap-3 mb-6 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-glow hover:border-gold/50">
                   <Phone size={18} className="text-white" />
                   <span className="text-white font-bold uppercase tracking-widest text-sm">Toll Free</span>
                 </div>
@@ -586,7 +586,7 @@ export default function Home() {
                 <p className="text-white/90 text-lg leading-relaxed mb-10 max-w-md font-medium">
                   Reach out to us for immediate assistance regarding your business registration and compliance needs.
                 </p>
-                <Link href="/talk-to-expert" className="inline-flex items-center gap-3 border-2 border-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-white hover:text-gold transition-all duration-300">
+                <Link href="/talk-to-expert" className="inline-flex items-center gap-3 bg-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-navy shadow-lg hover:bg-navy hover:text-white transition-all duration-300 hover:shadow-glow">
                   Call an Expert <ArrowRight size={20} />
                 </Link>
               </div>
