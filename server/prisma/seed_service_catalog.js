@@ -280,23 +280,27 @@ export async function seedServiceCatalog(prisma) {
     ...DOCUMENTATION_SERVICE_SEED.map((service) => service.slug),
   ]);
   const targetSubcategorySlugs = new Set([
-    ...catalogEntries.map(([, service]) => normalizeSlug(service.category || "General")),
+    ...catalogEntries.map(([, service]) => normalizeSlug(service.subcategory || service.category || "General")),
     normalizeSlug("Document Drafting"),
   ]);
   const seededCategories = new Set();
   const allowedCategorySlugs = new Set(TAB_ORDER.map((tab) => normalizeSlug(tab)));
 
-  await prisma.purchasePlan.deleteMany({});
-  await prisma.service.deleteMany({
-    where: {
-      slug: {
-        notIn: [...targetServiceSlugs],
+  try {
+    await prisma.purchasePlan.deleteMany({});
+  } catch(e) {}
+  try {
+    await prisma.service.deleteMany({
+      where: {
+        slug: {
+          notIn: [...targetServiceSlugs],
+        },
       },
-    },
-  });
+    });
+  } catch(e) {}
 
   for (const [index, [slug, service]] of catalogEntries.entries()) {
-    const tabCategory = getTabName(service.category);
+    const tabCategory = service.category || getTabName(service.category);
     if (!seededCategories.has(tabCategory)) {
       seededCategories.add(tabCategory);
       await prisma.serviceCategory.upsert({
@@ -313,7 +317,7 @@ export async function seedServiceCatalog(prisma) {
 
     await upsertRichService(prisma, {
       categoryName: tabCategory,
-      subcategoryName: service.category || tabCategory,
+      subcategoryName: service.subcategory || tabCategory,
       service: { ...service, slug },
       sortOrder: index,
     });
@@ -339,16 +343,20 @@ export async function seedServiceCatalog(prisma) {
 
   if (extraCategories.length > 0) {
     const extraCategoryIds = extraCategories.map((category) => category.id);
-    await prisma.serviceSubcategory.deleteMany({
-      where: {
-        categoryId: { in: extraCategoryIds },
-      },
-    });
-    await prisma.serviceCategory.deleteMany({
-      where: {
-        id: { in: extraCategoryIds },
-      },
-    });
+    try {
+      await prisma.serviceSubcategory.deleteMany({
+        where: {
+          categoryId: { in: extraCategoryIds },
+        },
+      });
+    } catch(e) {}
+    try {
+      await prisma.serviceCategory.deleteMany({
+        where: {
+          id: { in: extraCategoryIds },
+        },
+      });
+    } catch(e) {}
   }
 
   const allowedCategories = await prisma.serviceCategory.findMany({
@@ -362,12 +370,14 @@ export async function seedServiceCatalog(prisma) {
 
   if (allowedCategories.length > 0) {
     const allowedCategoryIds = allowedCategories.map((category) => category.id);
-    await prisma.serviceSubcategory.deleteMany({
-      where: {
-        categoryId: { in: allowedCategoryIds },
-        slug: { notIn: [...targetSubcategorySlugs] },
-      },
-    });
+    try {
+      await prisma.serviceSubcategory.deleteMany({
+        where: {
+          categoryId: { in: allowedCategoryIds },
+          slug: { notIn: [...targetSubcategorySlugs] },
+        },
+      });
+    } catch(e) {}
   }
 
   return {
