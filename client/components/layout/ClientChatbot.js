@@ -117,6 +117,7 @@ export default function ClientChatbot() {
     handleBotResponse(answerId);
   }
 
+  return (
     <div className={`fixed bottom-8 right-0 z-[1000] flex flex-col items-end transition-all duration-500 ${isAtBottom && !open ? 'translate-x-full opacity-0 pointer-events-none' : 'translate-x-0 opacity-100'}`}>
       {/* Chat Window */}
       {open && (
