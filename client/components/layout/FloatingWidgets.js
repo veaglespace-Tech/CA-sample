@@ -128,59 +128,27 @@ export default function FloatingWidgets() {
 
   return (
     <>
-      {/* ── Modern Bottom-Left Speed Dial ── */}
+      {/* ── Sticky Left Social Bar ── */}
       <div 
-        className={`fixed bottom-8 left-6 z-[999] transition-all duration-500 ${isAtBottom ? 'translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'}`}
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
+        className={`fixed top-1/2 left-0 -translate-y-1/2 z-[999] flex flex-col gap-3 p-3 transition-all duration-500 ${isAtBottom ? '-translate-x-full opacity-0 pointer-events-none' : 'translate-x-0 opacity-100'}`}
       >
-        {/* Expandable Social Links */}
-        <div className={`absolute bottom-full left-0 flex origin-bottom flex-col-reverse items-start gap-3 pb-3 transition-all duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-          {socialLinks.map((item, index) => (
-            <a
-              key={item.id}
-              href={item.href}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label={item.label}
-              className={`flex items-center gap-3 rounded-full py-2 px-2.5 text-white shadow-lg transition-all duration-300 hover:scale-105 ${item.bg} hover:shadow-${item.id}-500/40`}
-              style={{
-                transform: isOpen ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.9)',
-                opacity: isOpen ? 1 : 0,
-                transitionDelay: isOpen ? `${index * 40}ms` : '0ms',
-              }}
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                {item.icon}
-              </span>
-              <span className="pr-3 text-[0.8rem] font-bold tracking-wide">
-                {item.label}
-              </span>
-            </a>
-          ))}
-        </div>
-
-        {/* Main Floating Button */}
-        <div className="relative group">
-          {/* Animated Glow Ring */}
-          {!isOpen && (
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 opacity-30 blur-md transition duration-1000 group-hover:opacity-70 group-hover:duration-200 animate-pulse"></div>
-          )}
-          <div 
-            className={`relative z-10 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full text-white shadow-2xl transition-all duration-500 hover:scale-110 active:scale-95 ${
-              isOpen 
-                ? 'bg-slate-900 shadow-slate-900/40 rotate-180' 
-                : 'bg-gradient-to-tr from-indigo-600 via-purple-600 to-blue-500 shadow-indigo-500/50'
-            }`}
-            onClick={() => setIsOpen(!isOpen)}
+        {socialLinks.map((item, index) => (
+          <a
+            key={item.id}
+            href={item.href}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={item.label}
+            className={`group flex items-center h-11 w-11 rounded-r-2xl rounded-l-md text-white shadow-md shadow-slate-900/10 transition-all duration-300 hover:w-[130px] hover:rounded-r-3xl ${item.bg}`}
           >
-            {isOpen ? (
-              <X size={26} className="transition-transform duration-500" />
-            ) : (
-              <MessageCircle size={26} className="transition-transform duration-500 group-hover:-rotate-12" />
-            )}
-          </div>
-        </div>
+            <span className="flex-shrink-0 flex h-11 w-11 items-center justify-center">
+              {item.icon}
+            </span>
+            <span className="whitespace-nowrap text-[13px] font-bold tracking-wide opacity-0 max-w-0 transition-all duration-300 group-hover:opacity-100 group-hover:max-w-[100px] group-hover:ml-1">
+              {item.label}
+            </span>
+          </a>
+        ))}
       </div>
 
       {/* ── Refer & Earn Pill ── */}
