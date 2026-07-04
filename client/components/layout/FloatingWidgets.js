@@ -130,7 +130,7 @@ export default function FloatingWidgets() {
     <>
       {/* ── Sticky Left Social Bar ── */}
       <div 
-        className={`fixed top-1/2 left-0 -translate-y-1/2 z-[999] flex flex-col gap-3 p-3 transition-all duration-500 ${isAtBottom ? '-translate-x-full opacity-0 pointer-events-none' : 'translate-x-0 opacity-100'}`}
+        className={`fixed top-1/2 left-0 -translate-y-1/2 z-[999] flex flex-col gap-2 py-3 transition-all duration-500 ${isAtBottom ? '-translate-x-full opacity-0 pointer-events-none' : 'translate-x-0 opacity-100'}`}
       >
         {socialLinks.map((item, index) => (
           <a
@@ -139,9 +139,9 @@ export default function FloatingWidgets() {
             target="_blank"
             rel="noreferrer noopener"
             aria-label={item.label}
-            className={`group flex items-center h-11 w-11 rounded-r-2xl rounded-l-md text-white shadow-md shadow-slate-900/10 transition-all duration-300 hover:w-[130px] hover:rounded-r-3xl ${item.bg}`}
+            className={`group flex items-center h-12 w-12 rounded-r-[20px] text-white shadow-md shadow-slate-900/10 transition-all duration-300 hover:w-[130px] hover:rounded-r-full ${item.bg}`}
           >
-            <span className="flex-shrink-0 flex h-11 w-11 items-center justify-center">
+            <span className="flex-shrink-0 flex h-12 w-12 items-center justify-center">
               {item.icon}
             </span>
             <span className="whitespace-nowrap text-[13px] font-bold tracking-wide opacity-0 max-w-0 transition-all duration-300 group-hover:opacity-100 group-hover:max-w-[100px] group-hover:ml-1">
