@@ -1,6 +1,12 @@
 import { serviceData } from "../../client/data/services.js";
 import { normalizeSlug } from "./seed_service_plans.js";
-
+import {
+  businessRegistration,
+  taxPayroll,
+  compliances,
+  trademarkIP,
+  documentation,
+} from "../../client/lib/navigation-data.js";
 const TAB_ORDER = [
   "Business Registration",
   "Tax & Payroll",
@@ -285,6 +291,53 @@ export async function seedServiceCatalog(prisma) {
   ]);
   const seededCategories = new Set();
   const allowedCategorySlugs = new Set(TAB_ORDER.map((tab) => normalizeSlug(tab)));
+
+  const navCategories = {
+    "Business Registration": businessRegistration,
+    "Tax & Payroll": taxPayroll,
+    "Compliances": compliances,
+    "Trademark & IP": trademarkIP,
+    "Documentation": documentation,
+    "Others": { sections: [{ title: "Consult an Expert" }] }
+  };
+
+  // Pre-seed all categories and subcategories from UI navigation
+  for (const [catName, catData] of Object.entries(navCategories)) {
+    const tabCategory = await prisma.serviceCategory.upsert({
+      where: { slug: normalizeSlug(catName) },
+      update: { name: catName, sortOrder: TAB_ORDER.indexOf(catName), isActive: true },
+      create: {
+        name: catName,
+        slug: normalizeSlug(catName),
+        sortOrder: TAB_ORDER.indexOf(catName),
+        isActive: true,
+      },
+    });
+    seededCategories.add(catName);
+
+    if (catData && catData.sections) {
+      for (const [subIndex, section] of catData.sections.entries()) {
+        const subcatName = section.title;
+        await prisma.serviceSubcategory.upsert({
+          where: {
+            categoryId_slug: {
+              categoryId: tabCategory.id,
+              slug: normalizeSlug(subcatName),
+            },
+          },
+          update: { name: subcatName, sortOrder: subIndex, isActive: true },
+          create: {
+            categoryId: tabCategory.id,
+            name: subcatName,
+            slug: normalizeSlug(subcatName),
+            sortOrder: subIndex,
+            isActive: true,
+          },
+        });
+        targetSubcategorySlugs.add(normalizeSlug(subcatName));
+      }
+    }
+  }
 
   try {
     await prisma.purchasePlan.deleteMany({});
