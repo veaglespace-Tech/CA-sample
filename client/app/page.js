@@ -259,7 +259,7 @@ export default function Home() {
     <div ref={container} className="flex min-h-screen flex-col font-sans text-slate-600 bg-white">
       
       {/* 1. HERO / BANNER SECTION */}
-      <div className="gsap-hero-section relative min-h-[85vh] md:min-h-[90vh] w-full bg-navy flex flex-col items-center justify-center py-12 md:py-20 z-40">
+      <div className="gsap-hero-section relative w-full bg-navy flex flex-col items-center justify-center pt-32 pb-12 md:pt-40 md:pb-20 z-40">
         {/* Particle JS Canvas Simulation & Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="gsap-hero-bg absolute -inset-y-1/4 inset-x-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-25"></div>
