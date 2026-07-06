@@ -115,21 +115,21 @@ function TwoPanelMenu({ data, onClose }) {
   const [activeSection, setActiveSection] = useState(data.sections[0]);
 
   return (
-    <div className="grid w-full max-w-6xl max-h-[calc(100vh-120px)] overflow-hidden rounded-none border border-gold/20/50 bg-white shadow-[0_45px_90px_-15px_rgba(11,25,44,0.15)] ring-1 ring-white/80 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <div className="grid w-full max-w-6xl max-h-[calc(100vh-120px)] overflow-hidden rounded-2xl border border-gold/20 bg-white shadow-xl ring-1 ring-white/80 lg:grid-cols-[320px_minmax(0,1fr)]">
       <div className="flex min-h-[360px] max-h-[calc(100vh-120px)] overflow-y-auto flex-col bg-gold/10/20 p-3.5 scrollbar-hide">
         {data.sections.map((section) => (
           <button
             key={section.title}
             type="button"
-            className={`group flex w-full items-center gap-3 rounded-none px-3.5 py-3 text-left text-sm font-extrabold transition-all duration-200 ${
+            className={`group flex w-full items-center gap-3 rounded-xl px-3.5 py-3 text-left text-sm font-extrabold transition-all duration-200 ${
               activeSection?.title === section.title
-                ? "bg-white text-gold border-l-4 border-secondary shadow-sm ring-1 ring-indigo-100/10 pl-2.5"
+                ? "bg-white text-gold border-l-4 border-gold shadow-sm ring-1 ring-gold/10 pl-2.5"
                 : "text-slate-600 hover:bg-white/80 hover:text-gold hover:pl-4"
             }`}
             onClick={() => setActiveSection(section)}
             onMouseEnter={() => setActiveSection(section)}
           >
-            <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-none transition-colors ${
+            <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg transition-colors ${
               activeSection?.title === section.title ? "bg-gold/10" : "bg-white/80"
             }`}>
               <img src={section.icon || sectionIcons.business} alt="" className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
@@ -141,8 +141,8 @@ function TwoPanelMenu({ data, onClose }) {
           </button>
         ))}
 
-        <div className="mt-auto rounded-none border border-gold/20/40 bg-white p-4 shadow-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
-          <div className="mb-3 grid h-11 w-11 place-items-center rounded-none bg-secondary/10 text-gold">
+        <div className="mt-auto rounded-2xl border border-gold/30 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-gold/50">
+          <div className="mb-3 grid h-11 w-11 place-items-center rounded-xl bg-secondary/10 text-gold">
             <Phone size={18} />
           </div>
           <div className="text-sm font-bold leading-6 text-slate-600">
@@ -158,7 +158,7 @@ function TwoPanelMenu({ data, onClose }) {
         {activeSection && (
           <>
             <div className="mb-5 flex items-center gap-3 border-b border-gold/20/40 pb-5">
-              <span className="grid h-12 w-12 place-items-center rounded-none bg-gold/10">
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-gold/10">
                 <img src={activeSection.icon || sectionIcons.business} alt="" className="h-7 w-7 object-contain" loading="lazy" decoding="async" />
               </span>
               <span className="font-serif text-xl font-black text-slate-950">{activeSection.title}</span>
@@ -168,7 +168,7 @@ function TwoPanelMenu({ data, onClose }) {
                 <Link
                   key={`${activeSection.title}-${item.label}-${item.href}`}
                   href={item.href}
-                  className={`group flex min-h-11 items-center justify-between gap-3 rounded-none px-3 text-sm font-semibold text-slate-600 transition-all hover:bg-gold/5 hover:text-gold hover:translate-x-1.5 duration-200 ${
+                  className={`group flex min-h-11 items-center justify-between gap-3 rounded-xl px-3 text-sm font-semibold text-slate-600 transition-all hover:bg-gold/5 hover:text-gold hover:translate-x-1 duration-200 ${
                     item.isNew ? "text-gold" : ""
                   }`}
                   onClick={onClose}
@@ -184,15 +184,15 @@ function TwoPanelMenu({ data, onClose }) {
             </div>
             
             {activeSection.title === "Web Development" && (
-              <div className="col-span-full mt-6 rounded-none overflow-hidden bg-gradient-to-br from-primary via-indigo-500 to-secondary p-6 shadow-xl border border-gold/30/30 relative isolate group">
+              <div className="col-span-full mt-6 rounded-2xl overflow-hidden bg-gradient-to-br from-primary via-indigo-500 to-secondary p-6 shadow-xl border border-gold/30/30 relative isolate group">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-none bg-white/20 blur-3xl group-hover:bg-white/30 transition-all duration-700"></div>
+                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/20 blur-3xl group-hover:bg-white/30 transition-all duration-700"></div>
                 <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-none bg-white/10 ring-1 ring-white/20 backdrop-blur-md overflow-hidden shadow-lg">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur-md overflow-hidden shadow-lg">
                     <img src="/veaglespace-logo.png" alt="Veaglespace" className="h-full w-full object-cover scale-110" onError={(e) => { e.target.onerror = null; e.target.src = "https://ui-avatars.com/api/?name=V&background=0D8ABC&color=fff"; }} />
                   </div>
                   <div className="text-center sm:text-left flex-1">
-                    <div className="inline-flex items-center gap-1.5 rounded-none bg-white/20 px-2.5 py-0.5 text-[0.65rem] font-black tracking-widest text-white uppercase mb-2 ring-1 ring-white/30 shadow-sm">
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-2.5 py-0.5 text-[0.65rem] font-black tracking-widest text-white uppercase mb-2 ring-1 ring-white/30 shadow-sm">
                       Technology Partner
                     </div>
                     <h4 className="text-lg font-black text-white tracking-tight">Veaglespace Tech</h4>
@@ -200,7 +200,7 @@ function TwoPanelMenu({ data, onClose }) {
                       Elevate your business with state-of-the-art Web & E-Commerce solutions designed for maximum scale and conversion.
                     </p>
                   </div>
-                  <a href="https://veaglespace.com" target="_blank" rel="noopener noreferrer" className="shrink-0 rounded-none bg-white px-5 py-2.5 text-sm font-extrabold text-gold shadow-lg shadow-black/5 transition-all hover:scale-105 hover:bg-gold/10 focus:outline-none focus:ring-2 focus:ring-white/50 w-full sm:w-auto text-center">
+                  <a href="https://veaglespace.com" target="_blank" rel="noopener noreferrer" className="shrink-0 rounded-xl bg-white px-5 py-2.5 text-sm font-extrabold text-gold shadow-lg shadow-black/5 transition-all hover:scale-105 hover:bg-gold/10 focus:outline-none focus:ring-2 focus:ring-white/50 w-full sm:w-auto text-center">
                     Visit Website
                   </a>
                 </div>
@@ -457,7 +457,7 @@ export default function Header() {
         <div className="mx-auto flex h-[80px] w-full max-w-none items-center justify-between gap-4 px-4 sm:px-6 lg:px-12">
           <BrandLogo 
             href="/" 
-            className="group flex shrink-0 items-center rounded-none p-1.5 transition-all duration-200" 
+            className="group flex shrink-0 items-center rounded-xl p-1.5 transition-all duration-200" 
             onClick={closeAll} 
             height={50} 
           />
@@ -470,9 +470,9 @@ export default function Header() {
                 <div key={item.key} className="relative" onMouseLeave={delayedClose}>
                     <button
                       type="button"
-                      className={`group flex h-9 items-center gap-1.5 whitespace-nowrap rounded-none px-4 text-xs font-bold transition-all duration-300 ${
+                      className={`group flex h-9 items-center gap-1.5 whitespace-nowrap rounded-xl px-4 text-xs font-bold transition-all duration-300 ${
                         isCta
-                          ? "bg-gold text-white shadow-sm hover:bg-gold-dark hover:shadow-[0_5px_15px_rgba(212,175,55,0.4)] hover:-translate-y-0.5 active:scale-[0.98]"
+                          ? "bg-gold text-white shadow-sm hover:bg-gold-dark hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]"
                           : `text-slate-700 hover:text-gold hover:bg-gold/10 hover:-translate-y-0.5 ${activeMenu === item.key ? "bg-gold/10 text-gold shadow-sm" : ""}`
                       }`}
                     onClick={() => (activeMenu === item.key ? closeAll() : openMenu(item.key))}
@@ -493,12 +493,12 @@ export default function Header() {
                       className="absolute left-0 top-full -mt-2 pt-4 z-[250]"
                       onMouseEnter={() => openMenu(item.key)}
                     >
-                      <div className="grid min-w-72 gap-1 rounded-none border border-gold/20/30 bg-white/98 backdrop-blur-xl p-3 shadow-[0_20px_48px_-10px_rgba(11,25,44,0.12)] transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+                      <div className="grid min-w-72 gap-1 rounded-2xl border border-gold/30 bg-white/98 backdrop-blur-xl p-3 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-gold/50">
                         {getMegaData(item.key).data.map((itemLink, idx) => (
                           <Link 
                             key={`${itemLink.label}-${itemLink.href}-${idx}`} 
                             href={itemLink.href} 
-                            className="group/link flex items-center gap-2 rounded-none px-4 py-2.5 text-xs font-bold text-black transition-all hover:bg-gold/5 hover:text-gold hover:translate-x-1 whitespace-nowrap duration-200" 
+                            className="group/link flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold text-black transition-all hover:bg-gold/5 hover:text-gold hover:translate-x-1 whitespace-nowrap duration-200" 
                             onClick={closeAll}
                           >
                             <ChevronRight size={14} className="text-slate-400 shrink-0 group-hover/link:text-gold transition-colors" />
@@ -575,9 +575,9 @@ export default function Header() {
                   className="absolute right-0 top-full -mt-2 pt-5 z-[250]"
                   onMouseEnter={() => setDesktopMoreOpen(true)}
                 >
-                  <div className="w-64 overflow-hidden rounded-none border border-gold/20/30 bg-white/98 backdrop-blur-xl p-2 shadow-[0_20px_48px_-10px_rgba(11,25,44,0.12)] transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+                  <div className="w-64 overflow-hidden rounded-2xl border border-gold/30 bg-white/98 backdrop-blur-xl p-2 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-gold/50">
                     {moreMenu.map((item, idx) => (
-                      <Link key={`${item.label}-${idx}`} href={item.href} className="block rounded-none px-4 py-2.5 text-xs font-bold text-black hover:bg-gold/5 hover:text-gold hover:translate-x-1.5 transition-all duration-200" onClick={closeAll}>
+                      <Link key={`${item.label}-${idx}`} href={item.href} className="block rounded-lg px-4 py-2.5 text-xs font-bold text-black hover:bg-gold/5 hover:text-gold hover:translate-x-1 transition-all duration-200" onClick={closeAll}>
                         {item.label}
                       </Link>
                     ))}
@@ -616,9 +616,9 @@ export default function Header() {
       )}
 
       {mobileOpen && (
-        <div className="fixed inset-x-0 top-[76px] z-[180] max-h-[calc(100vh-76px)] overflow-y-auto border-b border-indigo-55 bg-white/98 shadow-2xl backdrop-blur-xl xl:hidden transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+        <div className="fixed inset-x-0 top-[76px] z-[180] max-h-[calc(100vh-76px)] overflow-y-auto border-b border-indigo-55 bg-white/98 shadow-2xl backdrop-blur-xl xl:hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-gold/50">
           <div className="mx-auto w-full max-w-[1288px] px-4 py-4 sm:px-6">
-            <div className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-none bg-gold/5 border border-primary/10 px-4 py-3 text-sm font-extrabold text-gold">
+            <div className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-xl bg-gold/5 border border-primary/10 px-4 py-3 text-sm font-extrabold text-gold">
               <Phone size={15} />
               <a href={`tel:${siteMeta.phone.replace(/[^0-9+]/g, '')}`}>{siteMeta.phone}</a>
               <span className="text-gold/50 px-1">|</span>
@@ -631,7 +631,7 @@ export default function Header() {
                 <div key={item.key} className="border-b border-slate-100/60 py-1">
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between rounded-none px-3 py-3 text-left text-sm font-extrabold text-slate-800 transition-colors hover:bg-gold/5 hover:text-gold"
+                    className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-extrabold text-slate-800 transition-colors hover:bg-gold/5 hover:text-gold"
                     onClick={() => setMobileExpanded(mobileExpanded === item.key ? null : item.key)}
                   >
                     <span className="flex items-center gap-3">
@@ -644,7 +644,7 @@ export default function Header() {
                     <div className="grid gap-1 px-3 pb-3">
                       {data.type === "simple" &&
                         data.data.map((itemLink) => (
-                          <Link key={`${itemLink.label}-${itemLink.href}`} href={itemLink.href} className="rounded-none px-3 py-2 text-sm font-bold text-slate-600 hover:bg-gold/5 hover:text-gold hover:pl-5 transition-all duration-200" onClick={() => setMobileOpen(false)}>
+                          <Link key={`${itemLink.label}-${itemLink.href}`} href={itemLink.href} className="rounded-lg px-3 py-2 text-sm font-bold text-slate-600 hover:bg-gold/5 hover:text-gold hover:pl-5 transition-all duration-200" onClick={() => setMobileOpen(false)}>
                             {itemLink.label}
                           </Link>
                         ))}
@@ -653,7 +653,7 @@ export default function Header() {
                           <div key={section.title}>
                             <p className="px-3 pb-1 pt-3 text-xs font-black uppercase tracking-[0.16em] text-gold border-b border-slate-100/50">{section.title}</p>
                             {section.links.map((itemLink) => (
-                              <Link key={`${section.title}-${itemLink.label}-${itemLink.href}`} href={itemLink.href} className="block rounded-none px-3 py-2.5 text-sm font-bold text-slate-600 hover:bg-gold/5 hover:text-gold hover:pl-5 transition-all duration-200" onClick={() => setMobileOpen(false)}>
+                              <Link key={`${section.title}-${itemLink.label}-${itemLink.href}`} href={itemLink.href} className="block rounded-lg px-3 py-2.5 text-sm font-bold text-slate-600 hover:bg-gold/5 hover:text-gold hover:pl-5 transition-all duration-200" onClick={() => setMobileOpen(false)}>
                                 {itemLink.label}
                               </Link>
                             ))}
@@ -668,7 +668,7 @@ export default function Header() {
             <div className="border-b border-slate-100/60 py-1">
               <button
                 type="button"
-                className="flex w-full items-center justify-between rounded-none px-3 py-3 text-left text-sm font-extrabold text-slate-800 transition-colors hover:bg-gold/5 hover:text-gold"
+                className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-extrabold text-slate-800 transition-colors hover:bg-gold/5 hover:text-gold"
                 onClick={() => setMobileExpanded(mobileExpanded === "more" ? null : "more")}
               >
                 <span className="flex items-center gap-3">
@@ -680,7 +680,7 @@ export default function Header() {
               {mobileExpanded === "more" && (
                 <div className="grid gap-1 px-3 pb-3">
                   {moreMenu.map((item) => (
-                    <Link key={item.label} href={item.href} className="rounded-none px-3 py-2 text-sm font-bold text-slate-600 hover:bg-gold/5 hover:text-gold hover:pl-5 transition-all duration-200" onClick={() => setMobileOpen(false)}>
+                    <Link key={item.label} href={item.href} className="rounded-lg px-3 py-2 text-sm font-bold text-slate-600 hover:bg-gold/5 hover:text-gold hover:pl-5 transition-all duration-200" onClick={() => setMobileOpen(false)}>
                       {item.label}
                     </Link>
                   ))}
@@ -691,19 +691,19 @@ export default function Header() {
             <div className="grid gap-3 pt-4">
               {user ? (
                 <>
-                  <Link href={dashboardHref} className="btn btn-primary bg-gold text-white border-0 rounded-none flex items-center justify-center shadow-md hover:bg-gold-dark" onClick={() => setMobileOpen(false)} title="Dashboard">
+                  <Link href={dashboardHref} className="btn btn-primary bg-gold text-white border-0 rounded-xl flex items-center justify-center shadow-md hover:bg-gold-dark" onClick={() => setMobileOpen(false)} title="Dashboard">
                     <User size={20} />
                   </Link>
-                  <button type="button" className="btn btn-outline rounded-none border-slate-200 text-black flex items-center justify-center hover:border-primary hover:bg-gold hover:text-white" onClick={handleLogout} disabled={isLoggingOut} title="Logout">
+                  <button type="button" className="btn btn-outline rounded-xl border-slate-200 text-black flex items-center justify-center hover:border-primary hover:bg-gold hover:text-white" onClick={handleLogout} disabled={isLoggingOut} title="Logout">
                     {isLoggingOut ? <span className="loading loading-spinner"></span> : <LogOut size={20} />}
                   </button>
                 </>
               ) : (
-                <Link href="/login" className="btn btn-outline rounded-none border-slate-200 text-black flex items-center justify-center hover:border-primary hover:bg-gold hover:text-white" onClick={() => setMobileOpen(false)} title="Login">
+                <Link href="/login" className="btn btn-outline rounded-xl border-slate-200 text-black flex items-center justify-center hover:border-primary hover:bg-gold hover:text-white" onClick={() => setMobileOpen(false)} title="Login">
                   <LogIn size={20} />
                 </Link>
               )}
-              <Link href="/talk-to-expert" className="btn btn-primary bg-gold border-0 rounded-none shadow-lg shadow-indigo-500/15 text-white hover:bg-gold-dark" onClick={() => setMobileOpen(false)}>
+              <Link href="/talk-to-expert" className="btn btn-primary bg-gold border-0 rounded-xl shadow-lg shadow-indigo-500/15 text-white hover:bg-gold-dark" onClick={() => setMobileOpen(false)}>
                 Talk to an Expert
               </Link>
             </div>

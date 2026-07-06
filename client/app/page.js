@@ -259,7 +259,7 @@ export default function Home() {
     <div ref={container} className="flex min-h-screen flex-col font-sans text-slate-600 bg-white">
       
       {/* 1. HERO / BANNER SECTION */}
-      <div className="gsap-hero-section relative min-h-[90vh] w-full bg-navy flex flex-col items-center justify-center py-12 md:py-20 z-40">
+      <div className="gsap-hero-section relative min-h-[85vh] md:min-h-[90vh] w-full bg-navy flex flex-col items-center justify-center py-12 md:py-20 z-40">
         {/* Particle JS Canvas Simulation & Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="gsap-hero-bg absolute -inset-y-1/4 inset-x-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-25"></div>
@@ -284,12 +284,12 @@ export default function Home() {
             <HomeSearch />
           </div>
 
-          <div className="gsap-hero-item flex flex-wrap items-center justify-center gap-3">
+          <div className="gsap-hero-item grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-3 w-full max-w-2xl px-2 sm:px-0">
             {heroQuickLinks.map((item) => (
               <Link
                 href={item.href}
                 key={item.label}
-                className="border border-white/30 bg-white/10 backdrop-blur-md px-5 py-2 text-sm font-semibold text-white transition-all duration-400 hover:-translate-y-1 hover:border-gold hover:bg-gold hover:shadow-[0_8px_20px_rgba(212,175,55,0.4)] hover:text-navy"
+                className="border border-white/30 bg-white/10 backdrop-blur-md px-3 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-sm leading-tight font-medium text-center flex items-center justify-center text-white transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:bg-gold/90 hover:shadow-[0_8px_20px_rgba(212,175,55,0.4)] hover:text-navy rounded-xl"
               >
                 {item.label}
               </Link>
@@ -318,27 +318,52 @@ export default function Home() {
       </section>
 
       {/* 2. DEMO HEADING / TOP DOWNLOAD */}
-      <div className="bg-navy text-white py-6 border-t border-white/10 gsap-stats-container transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50">
+      <div className="bg-navy text-white py-6 border-t border-white/10 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-gold/50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
-            <div className="gsap-stat-card text-2xl font-light text-gold">15,000+ Clients</div>
-            <div className="gsap-stat-card text-2xl font-light">99% Success Rate</div>
-            <div className="gsap-stat-card text-lg text-slate-300 hidden md:block">India&apos;s Trusted Business Platform</div>
-            <div className="gsap-stat-card">
-              <Link href="/services" className="inline-flex items-center gap-2 border border-white px-8 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-400 hover:-translate-y-1 hover:bg-gold hover:border-gold hover:text-navy hover:shadow-[0_0_25px_rgba(212,175,55,0.5)]">
+          
+          {/* Desktop Static View */}
+          <div className="hidden lg:flex flex-row items-center justify-between text-left gap-6 gsap-stats-container">
+            <div className="gsap-stat-card text-2xl font-light text-gold shrink-0">15,000+ Clients</div>
+            <div className="gsap-stat-card text-2xl font-light shrink-0">99% Success Rate</div>
+            <div className="gsap-stat-card text-lg text-slate-300 shrink-0">India&apos;s Trusted Business Platform</div>
+            <div className="gsap-stat-card shrink-0">
+              <Link href="/services" className="inline-flex items-center gap-2 border border-white px-8 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-400 hover:-translate-y-1 hover:bg-gold hover:border-gold hover:text-navy hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] group">
                 Explore Services <ChevronRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
+
+          {/* Mobile & Tablet Marquee View */}
+          <div className="flex lg:hidden w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] gsap-stats-container">
+            <div className="flex animate-[slide-left_40s_linear_infinite] gap-12 whitespace-nowrap items-center w-max">
+              {[1, 2].map((_, i) => (
+                <div key={i} className="flex gap-12 items-center shrink-0">
+                  <div className="gsap-stat-card text-2xl font-light text-gold shrink-0">15,000+ Clients</div>
+                  <div className="gsap-stat-card text-2xl font-light shrink-0">99% Success Rate</div>
+                  <div className="gsap-stat-card text-lg text-slate-300 shrink-0">India&apos;s Trusted Business Platform</div>
+                  <div className="gsap-stat-card shrink-0">
+                    <Link href="/services" className="inline-flex items-center gap-2 border border-white px-8 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-400 hover:-translate-y-1 hover:bg-gold hover:border-gold hover:text-navy hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] group">
+                      Explore Services <ChevronRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
 
       {/* 3. MAIN FEATURES */}
       <div className="py-8 md:py-24 bg-white gsap-service-container">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">Welcome to <strong className="font-black">Veagle Space</strong><br/><span className="text-gold">experience &amp; </span> best solutions</h2>
-            <div className="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
+          <div className="text-center mb-16 flex flex-col items-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 text-gold text-xs font-bold uppercase tracking-widest mb-4 border border-gold/20">
+              Welcome to Veagle Space
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-navy mb-6 leading-tight tracking-tight max-w-2xl mx-auto">
+              Experience the Best <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-500">Business Solutions</span>
+            </h2>
             <p className="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
               We deliver top-tier CA and legal services across India. <strong>Our streamlined portal is the preferred choice</strong> for seamless business setup, tax management, and legal compliance.
             </p>
@@ -346,12 +371,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {serviceGroups.map((feature, i) => (
-              <Link href={feature.href || "/services"} key={i} className="gsap-service-card card-hover text-center group cursor-pointer p-8 rounded-3xl border border-transparent hover:border-slate-100 hover:bg-white hover:shadow-soft block transition-all duration-500">
-                <div className="w-20 h-20 mx-auto rounded-full border border-gold/30 bg-gold/5 text-gold flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-gold group-hover:text-white group-hover:shadow-glow">
+              <Link href={feature.href || "/services"} key={i} className="gsap-service-card card-hover text-center group cursor-pointer p-8 rounded-2xl border border-slate-200 hover:border-gold/30 hover:bg-white bg-slate-50/50 hover:shadow-xl block transition-all duration-300">
+                <div className="w-16 h-16 mx-auto rounded-xl border border-gold/30 bg-gold/5 text-gold flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-gold group-hover:text-white group-hover:shadow-glow">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-4">{feature.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{feature.desc} <strong className="text-navy transition-colors group-hover:text-gold">..more</strong></p>
+                <h3 className="text-xl font-bold text-navy mb-3">{feature.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{feature.desc} <strong className="text-gold transition-colors group-hover:text-navy">..more</strong></p>
               </Link>
             ))}
           </div>
@@ -359,11 +384,15 @@ export default function Home() {
       </div>
 
       {/* 4. RECENT CASE / SHARE HOLDER (Journey Cards) */}
-      <div className="py-8 md:py-24 bg-[#f9f9f9] gsap-journey-container">
+      <div className="py-8 md:py-16 bg-[#f9f9f9] gsap-journey-container">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">Your <strong> Growth Engine</strong></h2>
-            <div className="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
+          <div className="text-center mb-16 flex flex-col items-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 text-gold text-xs font-bold uppercase tracking-widest mb-4 border border-gold/20">
+              Our Capabilities
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-navy mb-6 leading-tight tracking-tight max-w-2xl mx-auto">
+              Your Ultimate <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-500">Growth Engine</span>
+            </h2>
             <p className="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
               Comprehensive solutions to launch, manage, and secure your enterprise—from expert CA advisory to digital IP protection.
             </p>
@@ -371,12 +400,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {journeyCards.map((item, i) => (
-              <div key={i} className="gsap-journey-card card-hover relative group overflow-hidden rounded-3xl bg-white border border-slate-100 shadow-soft cursor-pointer transition-all duration-500">
+              <div key={i} className="gsap-journey-card card-hover relative group overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-gold/30">
                 {/* Glow Effect behind */}
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 {/* Image Section */}
-                <div className="h-56 overflow-hidden relative bg-slate-50/50 flex items-center justify-center border-b border-slate-50 p-6">
+                <div className="h-56 overflow-hidden relative bg-slate-50/50 flex items-center justify-center border-b border-slate-100 p-6">
                   {/* Subtle abstract blobs in background */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/10 transition-colors duration-500"></div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-gold/10 rounded-full blur-2xl group-hover:bg-gold/20 transition-colors duration-500"></div>
@@ -388,14 +417,14 @@ export default function Home() {
                   />
                   
                   {/* Percent Badge */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm p-2 rounded-2xl w-14 h-14 flex flex-col items-center justify-center font-bold text-gold border border-gold/20 shadow-sm z-20 transition-all duration-500 group-hover:border-gold/50 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-glow">
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm p-2 rounded-xl w-14 h-14 flex flex-col items-center justify-center font-bold text-gold border border-gold/20 shadow-sm z-20 transition-all duration-300 group-hover:border-gold/50 group-hover:scale-110 group-hover:-translate-y-1 hover:shadow-glow">
                     <span className="text-lg leading-none">{item.percent}%</span>
                   </div>
                 </div>
 
                 {/* Content Section */}
                 <div className="p-8 relative z-20 bg-white group-hover:bg-transparent transition-colors duration-500 h-[220px] flex flex-col">
-                  <h3 className="text-2xl font-extrabold text-slate-800 mb-3 transition-colors duration-300 group-hover:text-gold">
+                  <h3 className="text-xl font-extrabold text-slate-800 mb-3 transition-colors duration-300 group-hover:text-gold">
                     {item.title}
                   </h3>
                   <p className="text-slate-500 text-sm mb-6 leading-relaxed flex-grow">
@@ -403,7 +432,7 @@ export default function Home() {
                   </p>
                   
                   <div className="mt-auto">
-                    <Link href={item.href} className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-gold transition-colors relative">
+                    <Link href={item.href} className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold transition-colors relative">
                       <span className="relative z-10 group-hover:text-[#b07842] transition-colors duration-300">Read More</span>
                       <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold transition-colors duration-300 group-hover:shadow-glow">
                         <ChevronRight size={16} className="text-gold group-hover:text-white transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -430,8 +459,13 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full md:w-1/2 bg-navy text-white p-6 sm:p-12 md:p-16 lg:p-20 flex flex-col justify-center">
-          <h3 className="text-4xl font-light mb-6">Simple <br/><span className="text-gold font-bold">4-Step Process</span></h3>
-          <div className="text-lg text-slate-300 font-light mb-6">From Search to Done.</div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-gold text-xs font-bold uppercase tracking-widest mb-4 border border-white/20 w-max">
+            How It Works
+          </div>
+          <h3 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
+            Simple <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-500">4-Step Process</span>
+          </h3>
+          <div className="text-lg text-slate-300 font-light mb-8">From Search to Done.</div>
           
           <div className="space-y-6 mb-10">
              <div className="flex gap-4">
@@ -464,8 +498,8 @@ export default function Home() {
              </div>
           </div>
 
-          <div className="flex gap-4">
-            <Link href="/services" className="bg-gold text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-navy transition-colors duration-300">
+          <div className="flex gap-4 mt-4">
+            <Link href="/services" className="bg-gold text-white px-8 py-3.5 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-navy transition-all shadow-md hover:shadow-xl hover:shadow-white/20 duration-300">
               Browse Services
             </Link>
           </div>
@@ -490,9 +524,13 @@ export default function Home() {
       {/* 7. TESTIMONIALS */}
       <div className="py-8 md:py-24 bg-white text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">Loved by <strong>Founders</strong></h2>
-            <div className="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
+          <div className="mb-16 flex flex-col items-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 text-gold text-xs font-bold uppercase tracking-widest mb-4 border border-gold/20">
+              Testimonials
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-navy mb-6 leading-tight tracking-tight max-w-2xl mx-auto">
+              Loved by <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-500">Founders</span>
+            </h2>
             <p className="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
               Real results for real businesses across India.
             </p>
@@ -530,7 +568,7 @@ export default function Home() {
           )}
 
           <div className="mt-12 flex flex-col items-center justify-center gap-6">
-            <div className="group flex items-center gap-5 rounded-[2.5rem] border border-slate-200 bg-gradient-to-br from-white to-slate-50 px-8 py-5 shadow-lg shadow-slate-100/80 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/15 hover:-translate-y-1 hover:border-gold/30 relative overflow-hidden">
+            <div className="group flex items-center gap-5 rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 px-8 py-5 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-gold/15 hover:-translate-y-1 hover:border-gold/30 relative overflow-hidden">
               {/* Rotating background glow on hover */}
               <div className="absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(197,160,89,0.3)_360deg)] animate-[spin_3s_linear_infinite]" />
 
@@ -548,7 +586,7 @@ export default function Home() {
 
             <Link 
               href="/reviews"
-              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-gold to-yellow-600 px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all hover:shadow-gold/25 duration-300"
+              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-gold to-yellow-600 px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all hover:shadow-lg hover:shadow-gold/25 duration-300"
             >
               Show All Reviews
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -560,23 +598,28 @@ export default function Home() {
       {/* 8. CALL US / TOLL FREE */}
       <div className="bg-navy-light text-white py-16 md:py-8 md:py-24 gsap-contact-container overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row shadow-soft rounded-3xl overflow-hidden bg-white border border-slate-100">
+          <div className="flex flex-col md:flex-row shadow-lg rounded-2xl overflow-hidden bg-white border border-slate-200">
             <div className="md:w-1/2 p-8 md:p-12 lg:p-16 bg-white border-r border-slate-100 gsap-contact-col relative overflow-hidden group z-10">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-gold"></div>
-              <h2 className="text-3xl lg:text-4xl font-black mb-3 text-slate-900 tracking-tight">Leave a <span className="text-gold">Message</span></h2>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 text-gold text-xs font-bold uppercase tracking-widest mb-4 border border-gold/20 w-max">
+                Contact Us
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-black mb-4 text-slate-900 tracking-tight">
+                Leave a <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-500">Message</span>
+              </h2>
               <p className="text-slate-500 mb-8 font-medium">Fill out the form below and our experts will get back to you shortly.</p>
               <form className="flex flex-col gap-4 relative z-10">
-                <input type="text" placeholder="Full Name *" className="bg-slate-50/50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-xl placeholder:text-slate-400 font-medium" />
-                <input type="email" placeholder="Email Address *" className="bg-slate-50/50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-xl placeholder:text-slate-400 font-medium" />
-                <textarea placeholder="How can we help you? *" rows="4" className="bg-slate-50/50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-xl placeholder:text-slate-400 resize-none font-medium"></textarea>
-                <button type="submit" className="bg-gold text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-navy transition-all duration-300 shadow-md hover:shadow-glow w-full mt-2 rounded-xl border-2 border-transparent hover:border-navy">Send Message</button>
+                <input type="text" placeholder="Full Name *" className="bg-slate-50/50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-xl placeholder:text-slate-400 font-medium shadow-sm" />
+                <input type="email" placeholder="Email Address *" className="bg-slate-50/50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-xl placeholder:text-slate-400 font-medium shadow-sm" />
+                <textarea placeholder="How can we help you? *" rows="4" className="bg-slate-50/50 border border-slate-200 px-5 py-4 text-slate-800 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all rounded-xl placeholder:text-slate-400 resize-none font-medium shadow-sm"></textarea>
+                <button type="submit" className="bg-gold text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-navy transition-all duration-300 shadow-md hover:shadow-xl w-full mt-2 rounded-xl">Send Message</button>
               </form>
             </div>
             <div className="w-full md:w-1/2 p-8 sm:p-12 md:p-16 lg:p-20 flex flex-col justify-center items-center md:text-left md:items-start text-center bg-[url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center relative gsap-contact-col overflow-hidden">
               <div className="absolute inset-0 bg-gold/90 mix-blend-multiply transition-opacity duration-500 hover:opacity-80"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-transparent"></div>
               <div className="relative z-10 w-full transform transition-transform duration-500 hover:scale-105">
-                <div className="inline-flex items-center gap-3 mb-6 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-glow hover:border-gold/50">
+                <div className="inline-flex items-center gap-3 mb-6 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-400 hover:-translate-y-1 hover:shadow-lg hover:border-gold/50">
                   <Phone size={18} className="text-white" />
                   <span className="text-white font-bold uppercase tracking-widest text-sm">Toll Free</span>
                 </div>
@@ -586,7 +629,7 @@ export default function Home() {
                 <p className="text-white/90 text-lg leading-relaxed mb-10 max-w-md font-medium">
                   Reach out to us for immediate assistance regarding your business registration and compliance needs.
                 </p>
-                <Link href="/talk-to-expert" className="inline-flex items-center gap-3 bg-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-navy shadow-lg hover:bg-navy hover:text-white transition-all duration-300 hover:shadow-glow">
+                <Link href="/talk-to-expert" className="inline-flex items-center gap-3 bg-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-navy shadow-lg hover:bg-navy hover:text-white transition-all duration-300 hover:shadow-xl">
                   Call an Expert <ArrowRight size={20} />
                 </Link>
               </div>

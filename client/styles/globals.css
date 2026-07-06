@@ -21,8 +21,8 @@
   --color-gold: #D4AF37;
   --color-gold-dark: #AA8B2C;
 
-  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
-  --font-serif: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  --font-sans: var(--font-inter), "Inter", sans-serif;
+  --font-serif: var(--font-inter), "Inter", sans-serif;
   
   /* Soft elegant corners - MODERNIZED */
   --radius-xs: 0.25rem;
@@ -42,8 +42,8 @@
 }
 
 :root {
-  --font-heading: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
-  --font-body: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  --font-heading: var(--font-inter), "Inter", sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
   
   --white: #ffffff;
   --bg: #FAFAFA;    
@@ -356,7 +356,7 @@
     text-align: left;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading), "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-heading), "Inter", sans-serif;
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.2;

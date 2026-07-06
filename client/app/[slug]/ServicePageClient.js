@@ -292,8 +292,13 @@ function TestimonialsSection({ slug }) {
   const reviews = combined.length > 0 ? combined : fallback;
 
   return (
-    <section className="mb-12" id="testimonials">
-      <h2 className="text-2xl font-black text-slate-900 mb-6 text-center">What our customers say</h2>
+    <section className="mb-12 flex flex-col items-center" id="testimonials">
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#d29052]/10 text-[#d29052] text-xs font-bold uppercase tracking-widest mb-4 border border-[#d29052]/20">
+        Testimonials
+      </div>
+      <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 text-center leading-tight tracking-tight">
+        What our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d29052] to-amber-500">Customers Say</span>
+      </h2>
       {isLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
@@ -332,8 +337,13 @@ function RelatedSections({ service }) {
   return (
     <section className="space-y-10 pb-16">
 
-      <div className="bg-white rounded-none p-6 md:p-8 border border-slate-200 shadow-sm transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
-        <h2 className="text-xl font-bold text-slate-900 mb-6 text-center">Other Important Pages Related to {service.category}</h2>
+      <div className="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[#d29052]/50 flex flex-col items-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#d29052]/10 text-[#d29052] text-xs font-bold uppercase tracking-widest mb-4 border border-[#d29052]/20">
+          Related Links
+        </div>
+        <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-8 text-center leading-tight tracking-tight">
+          Other Important Pages Related to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d29052] to-amber-500">{service.category}</span>
+        </h2>
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
           {displayedPages.map((page) => (
             <Link key={page} href={`/${page.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="text-[0.75rem] md:text-[0.8rem] font-semibold text-slate-600 hover:text-[#d29052] bg-slate-50 hover:bg-slate-50 px-3 md:px-4 py-2 rounded-full transition-colors border border-slate-200">
@@ -439,7 +449,7 @@ export default function ServicePageClient({ slug }) {
 
   return (
     <div className="bg-slate-50 min-h-screen">
-      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-8 md:py-12 flex flex-col lg:flex-row gap-8 items-start">
+      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8 flex flex-col lg:flex-row gap-8 items-start">
 
         {/* ── LEFT: all scrollable content ── */}
         <div className="w-full lg:flex-1 min-w-0">
@@ -524,7 +534,7 @@ export default function ServicePageClient({ slug }) {
           </section>
 
           <div id="consult-form-mobile" className="block lg:hidden mb-10 -mt-2 scroll-mt-[80px]">
-            <Suspense fallback={<div className="h-96 w-full bg-white animate-pulse rounded-none border border-slate-200 flex items-center justify-center text-slate-500 font-semibold">Loading form...</div>}>
+            <Suspense fallback={<div className="h-96 w-full bg-white animate-pulse rounded-2xl border border-slate-200 flex items-center justify-center text-slate-500 font-semibold">Loading form...</div>}>
               <ConsultForm
                 formTitle={service.formTitle}
                 serviceName={service.title}
@@ -538,7 +548,7 @@ export default function ServicePageClient({ slug }) {
         </div>
 
         <aside id="consult-form-desktop" className="hidden lg:block w-full lg:w-[380px] lg:shrink-0 sticky top-[100px] z-20 scroll-mt-[100px]">
-          <Suspense fallback={<div className="h-[500px] w-full bg-white animate-pulse rounded-none border border-slate-200 flex items-center justify-center text-slate-500 font-semibold">Loading form...</div>}>
+          <Suspense fallback={<div className="h-[500px] w-full bg-white animate-pulse rounded-2xl border border-slate-200 flex items-center justify-center text-slate-500 font-semibold">Loading form...</div>}>
             <ConsultForm
               formTitle={service.formTitle}
               serviceName={service.title}
@@ -568,20 +578,20 @@ export default function ServicePageClient({ slug }) {
 
             {/* Detail content sections */}
             <div className="space-y-6 mb-12">
-            <article id="overview" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="overview" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-4 border-b border-slate-200 pb-3">{service.shortTitle} Overview</h2>
               <p className="text-slate-600 text-[0.95rem] leading-relaxed mb-4">{service.intro}</p>
-              <p className="text-slate-600 text-[0.95rem] leading-relaxed bg-[#d29052]/10 p-4 rounded-none border border-[#d29052]/30">
+              <p className="text-slate-600 text-[0.95rem] leading-relaxed bg-[#d29052]/5 p-4 rounded-xl border border-[#d29052]/20">
                 Our team helps with eligibility checks, document collection, application preparation, filing, and follow-up support so the process stays clear from start to finish.
               </p>
             </article>
 
-            <article id="eligibility" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="eligibility" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-4 border-b border-slate-200 pb-3">Eligibility & Requirements</h2>
               {service.eligibility ? (
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
                   {service.eligibility.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 bg-slate-50 rounded-none p-4 border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                    <div key={i} className="flex items-start gap-3 bg-slate-50 rounded-xl p-4 border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/30">
                       <CheckCircle2 className="text-[#d29052] shrink-0 mt-0.5" size={18} />
                       <span className="text-sm font-medium text-slate-700 leading-relaxed">{item}</span>
                     </div>
@@ -594,7 +604,7 @@ export default function ServicePageClient({ slug }) {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                     {[ "Businesses", "Professionals", "Startups", "Existing firms" ].map((item) => (
-                      <div key={item} className="flex items-center gap-2.5 bg-slate-50 rounded-none px-4 py-3 border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                      <div key={item} className="flex items-center gap-2.5 bg-slate-50 rounded-xl px-4 py-3 border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/30">
                         <CheckCircle2 size={16} className="text-[#d29052] shrink-0" />
                         <span className="text-sm font-bold text-slate-900">{item}</span>
                       </div>
@@ -604,14 +614,14 @@ export default function ServicePageClient({ slug }) {
               )}
             </article>
 
-            <article id="types" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="types" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-4 border-b border-slate-200 pb-3">Types and Coverage</h2>
               {service.types ? (
                 <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-4">
                   {service.types.map((type, i) => (
-                    <div key={i} className="bg-slate-50 rounded-none p-4 border border-slate-100 flex flex-col transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                    <div key={i} className="bg-slate-50 rounded-xl p-4 border border-slate-100 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/30">
                       <div className="flex items-center gap-2 mb-2">
-                        <div className="w-8 h-8 rounded-none bg-[#d29052]/20 text-[#d29052] flex items-center justify-center font-bold shrink-0">{i + 1}</div>
+                        <div className="w-8 h-8 rounded-lg bg-[#d29052]/20 text-[#d29052] flex items-center justify-center font-bold shrink-0">{i + 1}</div>
                         <h3 className="font-bold text-slate-900">{type.title}</h3>
                       </div>
                       <p className="text-sm text-slate-600 leading-relaxed">{type.desc}</p>
@@ -625,12 +635,12 @@ export default function ServicePageClient({ slug }) {
               )}
             </article>
 
-            <article id="benefits" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="benefits" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-3">Benefits</h2>
               <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-6">
                 {service.benefits.map((benefit, i) => (
                   <div key={benefit.title} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-none bg-[#d29052]/20 text-[#d29052] flex items-center justify-center font-black shrink-0 border border-[#d29052]/30">
+                    <div className="w-10 h-10 rounded-lg bg-[#d29052]/20 text-[#d29052] flex items-center justify-center font-black shrink-0 border border-[#d29052]/30">
                       {i + 1}
                     </div>
                     <div>
@@ -642,37 +652,37 @@ export default function ServicePageClient({ slug }) {
               </div>
             </article>
 
-            <article id="fees" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="fees" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-3">Fees</h2>
               <div className="flex flex-col gap-4">
                 {displayPrice && (
-                  <div className="flex items-center justify-between bg-slate-50 p-4 rounded-none border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                  <div className="flex items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/30">
                     <span className="text-sm font-semibold text-slate-600">Professional fee starts at</span>
                     <strong className="text-lg font-black text-[#d29052]">{displayPrice}</strong>
                   </div>
                 )}
-                <div className="flex items-center justify-between bg-slate-50 p-4 rounded-none border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                <div className="flex items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/30">
                   <span className="text-sm font-semibold text-slate-600">Government fees</span>
                   <strong className="text-base font-bold text-slate-900">{service.govtFees}</strong>
                 </div>
               </div>
             </article>
 
-            <article id="timeline" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="timeline" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-3">Timeline</h2>
               <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between bg-[#d29052]/10 p-4 rounded-none border border-[#d29052]/30">
+                <div className="flex items-center justify-between bg-[#d29052]/10 p-4 rounded-xl border border-[#d29052]/30">
                   <span className="text-sm font-semibold text-[#d29052]">Estimated completion</span>
                   <strong className="text-base font-bold text-[#d29052]">{service.timeframe}</strong>
                 </div>
               </div>
             </article>
 
-            <article id="documents" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="documents" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-3">Documents Required</h2>
               <ul className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-4">
                 {service.documents.map((document) => (
-                  <li key={document} className="flex items-center gap-3 bg-slate-50 px-4 py-3 rounded-none border border-slate-100">
+                  <li key={document} className="flex items-center gap-3 bg-slate-50 px-4 py-3 rounded-xl border border-slate-100">
                     <FileText size={16} className="text-[#d29052] shrink-0" />
                     <span className="text-sm font-medium text-slate-700">{document}</span>
                   </li>
@@ -680,15 +690,15 @@ export default function ServicePageClient({ slug }) {
               </ul>
             </article>
 
-            <article id="process" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="process" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-8 border-b border-slate-200 pb-3">Process</h2>
               <div className="relative border-l-2 border-[#d29052]/30 ml-4 space-y-8">
                 {service.process.map((step, index) => (
                   <div key={step} className="relative pl-8">
-                    <div className="absolute -left-[17px] top-0 w-8 h-8 rounded-none bg-slate-50 border-4 border-[#d29052]/20 flex items-center justify-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
-                      <div className="w-2.5 h-2.5 rounded-none bg-[#d29052]"></div>
+                    <div className="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-slate-50 border-4 border-[#d29052]/20 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/50">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#d29052]"></div>
                     </div>
-                    <div className="bg-slate-50 border border-slate-100 p-4 rounded-none transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                    <div className="bg-slate-50 border border-slate-100 p-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/50">
                       <span className="text-xs font-black text-[#d29052] uppercase tracking-widest mb-1 block">Step {index + 1}</span>
                       <h3 className="text-sm font-bold text-slate-900">{step}</h3>
                     </div>
@@ -697,29 +707,29 @@ export default function ServicePageClient({ slug }) {
               </div>
             </article>
 
-            <article id="why-us" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="why-us" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-3">Why Veagle Space?</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div className="bg-slate-50 rounded-none p-4 border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                <div className="bg-slate-50 rounded-xl p-4 border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/50">
                   <Shield className="mx-auto mb-3 text-[#d29052]" size={24} />
                   <span className="text-xs font-bold text-slate-700">Verified<br/>Professionals</span>
                 </div>
-                <div className="bg-slate-50 rounded-none p-4 border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                <div className="bg-slate-50 rounded-xl p-4 border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/50">
                   <Clock className="mx-auto mb-3 text-[#d29052]" size={24} />
                   <span className="text-xs font-bold text-slate-700">Clear<br/>Timelines</span>
                 </div>
-                <div className="bg-slate-50 rounded-none p-4 border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                <div className="bg-slate-50 rounded-xl p-4 border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/50">
                   <Award className="mx-auto mb-3 text-[#d29052]" size={24} />
                   <span className="text-xs font-bold text-slate-700">Transparent<br/>Pricing</span>
                 </div>
-                <div className="bg-slate-50 rounded-none p-4 border border-slate-100 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),0_0_20px_rgba(210,144,82,0.1)] hover:border-[#d29052]/50">
+                <div className="bg-slate-50 rounded-xl p-4 border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#d29052]/50">
                   <FileText className="mx-auto mb-3 text-[#d29052]" size={24} />
                   <span className="text-xs font-bold text-slate-700">Document-led<br/>Process</span>
                 </div>
               </div>
             </article>
 
-            <article id="faqs" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-none p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <article id="faqs" className="scroll-mt-[150px] md:scroll-mt-[180px] bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-3">Frequently Asked Questions</h2>
               <FAQ faqs={service.faqs || standardFaqs} />
             </article>

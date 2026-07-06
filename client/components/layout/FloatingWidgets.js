@@ -113,7 +113,7 @@ export default function FloatingWidgets() {
     <>
       {/* ── Modern Premium Glass Dock ── */}
       <div 
-        className={`fixed top-1/2 left-4 -translate-y-1/2 z-[999] flex flex-col gap-2 p-2.5 rounded-full backdrop-blur-xl bg-white/70 border border-white/80 shadow-[0_8px_32px_rgba(15,23,42,0.12)] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isAtBottom ? '-translate-x-[150%] opacity-0' : 'translate-x-0 opacity-100'}`}
+        className={`fixed top-1/2 left-4 -translate-y-1/2 z-[999] hidden md:flex flex-col gap-2 p-2.5 rounded-full backdrop-blur-xl bg-white/70 border border-white/80 shadow-[0_8px_32px_rgba(15,23,42,0.12)] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isAtBottom ? '-translate-x-[150%] opacity-0' : 'translate-x-0 opacity-100'}`}
       >
         {socialLinks.map((item) => (
           <a

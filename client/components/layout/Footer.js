@@ -51,19 +51,19 @@ export default function Footer() {
             </p>
             <div className="flex gap-2.5">
               <a href={siteMeta.social?.facebook} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/20 hover:text-gold hover:shadow-lg" aria-label="Facebook">
+                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/20 hover:text-gold hover:shadow-lg" aria-label="Facebook">
                 <FacebookIcon />
               </a>
               <a href={siteMeta.social?.instagram} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/20 hover:text-gold hover:shadow-lg" aria-label="Instagram">
+                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/20 hover:text-gold hover:shadow-lg" aria-label="Instagram">
                 <InstagramIcon />
               </a>
               <a href={siteMeta.social?.linkedin} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/20 hover:text-gold hover:shadow-lg" aria-label="LinkedIn">
+                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/20 hover:text-gold hover:shadow-lg" aria-label="LinkedIn">
                 <LinkedinIcon />
               </a>
               <a href={siteMeta.social?.twitter} target="_blank" rel="noopener noreferrer"
-                 className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:bg-white/10 hover:text-white hover:shadow-lg" aria-label="Twitter">
+                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-navy-light text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:bg-white/10 hover:text-white hover:shadow-lg" aria-label="Twitter">
                 <TwitterIcon />
               </a>
             </div>

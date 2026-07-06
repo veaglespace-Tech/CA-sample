@@ -7,7 +7,7 @@ export default function MainContentWrapper({ children }) {
   const isDashboard = pathname?.startsWith("/dashboard") || pathname?.startsWith("/admin");
 
   return (
-    <main className={isDashboard ? "min-h-screen" : "pt-[80px] lg:pt-[112px] min-h-screen"}>
+    <main className={isDashboard ? "min-h-screen" : "pt-[70px] lg:pt-[105px] min-h-screen"}>
       {children}
     </main>
   );
