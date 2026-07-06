@@ -31,15 +31,15 @@ export default function AdminTable({
       let badgeClasses = "bg-slate-50 text-slate-500 border-slate-200";
       
       if (role === "SUPER_ADMIN") {
-        badgeClasses = "bg-gold/10 text-gold border-gold/30/60";
+        badgeClasses = "bg-navy text-white border-transparent";
       } else if (role === "ADMIN") {
-        badgeClasses = "bg-sky-50 text-sky-700 border-sky-200/60";
+        badgeClasses = "bg-sky-100 text-sky-800 border-transparent";
       } else if (role === "STAFF") {
-        badgeClasses = "bg-teal-50 text-teal-700 border-teal-200/60";
+        badgeClasses = "bg-teal-100 text-teal-800 border-transparent";
       }
       
       return (
-        <div className={`badge badge-outline badge-sm py-2.5 px-2.5 rounded-sm font-black tracking-wide text-[9px] uppercase border whitespace-nowrap ${badgeClasses}`}>
+        <div className={`badge badge-outline badge-sm py-2.5 px-3 rounded-full font-black tracking-wide text-[9px] uppercase border whitespace-nowrap ${badgeClasses}`}>
           {formatRole(item.role)}
         </div>
       );
@@ -68,25 +68,25 @@ export default function AdminTable({
       let badgeClasses = "bg-slate-50 text-slate-800 border-slate-200";
       
       if (status === "NEW") {
-        badgeClasses = "bg-sky-50 text-sky-700 border-sky-200/60";
+        badgeClasses = "bg-sky-100 text-sky-800 border-transparent";
       } else if (status === "IN_PROGRESS") {
-        badgeClasses = "bg-amber-50 text-amber-700 border-amber-200/60";
+        badgeClasses = "bg-amber-100 text-amber-800 border-transparent";
       } else if (status === "QUALIFIED") {
-        badgeClasses = "bg-navy-light/10 text-navy border-gold/20";
+        badgeClasses = "bg-indigo-100 text-indigo-800 border-transparent";
       } else if (status === "CONVERTED" || status === "COMPLETED") {
-        badgeClasses = "bg-emerald-50 text-emerald-700 border-emerald-200/60";
+        badgeClasses = "bg-emerald-100 text-emerald-800 border-transparent";
       } else if (status === "REJECTED") {
-        badgeClasses = "bg-rose-50 text-rose-700 border-rose-200/60";
+        badgeClasses = "bg-rose-100 text-rose-800 border-transparent";
       } else if (status === "CLOSED" || status === "PAST") {
-        badgeClasses = "bg-slate-50 text-slate-500 border-slate-200";
+        badgeClasses = "bg-slate-100 text-slate-600 border-transparent";
       } else if (status === "UPCOMING" || status === "PUBLISHED") {
-        badgeClasses = "bg-gold/10 text-gold border-gold/30/60";
+        badgeClasses = "bg-navy text-white border-transparent";
       } else if (status === "DRAFT") {
-        badgeClasses = "bg-slate-50 text-slate-500 border-slate-200";
+        badgeClasses = "bg-slate-100 text-slate-600 border-transparent";
       }
       
       return (
-        <div className={`badge badge-outline badge-sm py-2 px-2.5 rounded-sm font-black tracking-wide text-[10px] uppercase border ${badgeClasses}`}>
+        <div className={`badge badge-outline badge-sm py-2.5 px-3 rounded-full font-black tracking-wide text-[9px] uppercase border ${badgeClasses}`}>
           {status.replace("_", " ")}
         </div>
       );
@@ -161,7 +161,7 @@ export default function AdminTable({
   };
 
   return (
-    <div className="card bg-white shadow-[0_4px_30px_rgba(0,0,0,0.03)] border border-slate-100 rounded-[2rem] overflow-hidden">
+    <div className="card bg-white shadow-sm border border-slate-200 rounded-xl overflow-hidden">
       <div className="card-body p-6 md:p-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <h2 className="card-title text-2xl font-black text-slate-900">{title}</h2>
@@ -173,23 +173,23 @@ export default function AdminTable({
                   placeholder={`Search ${type}s...`}
                   value={searchTerm}
                   onChange={(e) => onSearchChange(e.target.value)}
-                  className="input input-bordered input-sm h-10 rounded-lg bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 w-48 md:w-64 focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                  className="input input-bordered input-sm h-10 rounded-lg bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 w-48 md:w-64 focus:border-navy focus:ring-1 focus:ring-navy transition-all"
                 />
-                {isSearching && <span className="loading loading-spinner loading-xs absolute right-3 top-3 text-gold"></span>}
+                {isSearching && <span className="loading loading-spinner loading-xs absolute right-3 top-3 text-navy"></span>}
               </div>
             )}
             {onAdd && (
-              <button className="btn btn-sm h-10 rounded-lg px-4 gap-2 border-none bg-gold/10 text-gold hover:bg-gold hover:text-slate-900 transition-all shadow-sm" onClick={onAdd}>
+              <button className="btn btn-sm h-10 rounded-lg px-4 gap-2 border-none bg-navy text-white hover:bg-navy-light transition-all shadow-sm" onClick={onAdd}>
                 <Plus size={16} /> Add {type.charAt(0).toUpperCase() + type.slice(1)}
               </button>
             )}
           </div>
         </div>
 
-        <div className="overflow-x-auto rounded-[1.5rem] border border-slate-100/60 shadow-sm">
+        <div className="overflow-x-auto rounded-lg border border-slate-200 shadow-sm">
           <table className="table w-full text-slate-800">
             <thead>
-              <tr className="bg-slate-50/50 border-b border-slate-100">
+              <tr className="bg-slate-50 border-b border-slate-200">
                 {columns.map(col => <th key={col} className="text-[11px] font-black uppercase tracking-[0.15em] text-slate-500 py-5">{col}</th>)}
                 <th className="text-[11px] font-black uppercase tracking-[0.15em] text-slate-500 py-5 text-right">Actions</th>
               </tr>

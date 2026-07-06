@@ -33,19 +33,19 @@ export default function DashboardSidebar({ menuItems, activeSection, onSectionCh
                 const el = document.getElementById("dashboard-drawer");
                 if (el) el.checked = false;
               }}
-              className={`group relative flex w-full items-center gap-3.5 rounded-xl border px-4 py-3.5 text-left transition-all duration-500 overflow-hidden ${
+              className={`group relative flex w-full items-center gap-3.5 rounded-lg border px-4 py-3.5 text-left transition-all duration-300 overflow-hidden ${
                 isActive
-                  ? "border-transparent bg-gold/5 text-navy font-bold shadow-[0_4px_20px_rgba(197,160,89,0.08)]"
-                  : "border-transparent bg-transparent text-slate-500 font-medium hover:bg-slate-50 hover:text-navy hover:-translate-y-0.5 hover:shadow-sm"
+                  ? "border-transparent bg-slate-100 text-navy font-bold shadow-sm"
+                  : "border-transparent bg-transparent text-slate-500 font-medium hover:bg-slate-50 hover:text-navy"
               }`}
             >
-              {isActive && <div className="absolute left-0 top-0 h-full w-1 bg-gold rounded-r-full shadow-[0_0_8px_rgba(197,160,89,0.8)]"></div>}
-              <span className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xl transition-all duration-500 ${
+              {isActive && <div className="absolute left-0 top-0 h-full w-1 bg-gold rounded-r-full shadow-sm"></div>}
+              <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-[1.1rem] transition-all duration-300 ${
                 isActive
-                  ? "bg-gold text-white shadow-md shadow-gold/20"
+                  ? "bg-navy text-white shadow-sm"
                   : isSuperOnly
-                    ? "bg-amber-50 text-amber-500 group-hover:scale-110 group-hover:bg-amber-100"
-                    : "bg-slate-50 text-slate-400 group-hover:scale-110 group-hover:bg-gold/10 group-hover:text-gold"
+                    ? "bg-amber-50 text-amber-500 group-hover:bg-amber-100"
+                    : "bg-slate-50 text-slate-400 group-hover:bg-slate-200 group-hover:text-navy"
               }`}>
                 {item.icon}
               </span>
@@ -76,10 +76,10 @@ export default function DashboardSidebar({ menuItems, activeSection, onSectionCh
       <div className="mt-auto border-t border-slate-200 pt-6">
         <button 
           onClick={onLogout} 
-          className="group flex w-full items-center gap-3.5 rounded-xl border border-transparent px-4 py-3 text-rose-500 transition-all duration-300 hover:bg-rose-500/10 hover:border-rose-500/20"
+          className="group flex w-full items-center gap-3.5 rounded-lg border border-transparent px-4 py-3 text-slate-500 transition-all duration-300 hover:bg-rose-50 hover:text-rose-600"
         >
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-rose-500/10 text-xl text-rose-500 transition-all duration-300 group-hover:bg-rose-500 group-hover:text-white">
-            <LogOut size={20} />
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-slate-50 text-[1.1rem] text-slate-400 transition-all duration-300 group-hover:bg-rose-100 group-hover:text-rose-600">
+            <LogOut size={18} />
           </span>
           <span className="flex-1 text-left text-sm font-semibold tracking-wide">Sign Out</span>
         </button>

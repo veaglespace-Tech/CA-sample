@@ -13,7 +13,7 @@ export default function DashboardHeader({
   onNavigateToSection 
 }) {
   return (
-    <header className="navbar sticky top-0 z-40 h-20 shrink-0 border-b border-white/40 bg-white/70 px-4 shadow-[0_4px_30px_rgba(0,0,0,0.03)] backdrop-blur-3xl md:px-6 transition-all duration-500">
+    <header className="navbar sticky top-0 z-40 h-20 shrink-0 border-b border-slate-200 bg-white px-4 shadow-sm md:px-6 transition-all duration-300">
       
       <div className="flex-1 px-4">
         {/* Mobile: Show Brand Logo */}
@@ -22,7 +22,7 @@ export default function DashboardHeader({
         </div>
         
         {/* Desktop: Show Active Section */}
-        <h2 className="hidden lg:block text-xl md:text-2xl font-bold tracking-tight text-slate-900 drop-shadow-sm">
+        <h2 className="hidden lg:block text-xl md:text-2xl font-bold tracking-tight text-slate-800">
           {activeSection.charAt(0).toUpperCase() + activeSection.slice(1).replace("_", " ")}
         </h2>
       </div>
@@ -37,18 +37,18 @@ export default function DashboardHeader({
 
         {/* Profile Dropdown */}
         <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="group flex cursor-pointer items-center gap-3.5 rounded-full border border-white/60 bg-white/50 px-2 py-1.5 pr-4 shadow-sm backdrop-blur-xl transition-all duration-500 ease-out hover:border-gold/30 hover:bg-white hover:shadow-md md:px-2 md:pr-5 hover:-translate-y-0.5">
-            <div className="avatar placeholder rounded-full shadow-inner ring-2 ring-transparent transition-all duration-500 group-hover:ring-gold/40">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-gold/80 to-gold text-sm font-bold text-navy shadow-md">
+          <div tabIndex={0} role="button" className="group flex cursor-pointer items-center gap-3.5 rounded-full border border-slate-200 bg-white px-2 py-1.5 pr-4 transition-all duration-300 hover:bg-slate-50 hover:shadow-sm md:px-2 md:pr-5">
+            <div className="avatar placeholder rounded-full transition-all duration-300 group-hover:ring-2 group-hover:ring-slate-200">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-sm font-bold text-white shadow-sm">
                 {user?.name?.charAt(0).toUpperCase()}
               </div>
             </div>
             <div className="hidden md:block text-left">
               <div className="text-[13px] font-bold leading-tight text-slate-800 transition-colors duration-300 group-hover:text-navy">{user?.name}</div>
-              <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.15em] leading-tight mt-0.5 group-hover:text-gold transition-colors">{formatRole(user?.role)}</div>
+              <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.15em] leading-tight mt-0.5">{formatRole(user?.role)}</div>
             </div>
           </div>
-          <ul tabIndex={0} className="menu menu-md dropdown-content z-[50] mt-4 w-64 rounded-2xl border border-white/60 bg-white/90 p-3 shadow-[0_8px_40px_rgba(0,0,0,0.08)] backdrop-blur-2xl animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-300">
+          <ul tabIndex={0} className="menu menu-md dropdown-content z-[50] mt-4 w-64 rounded-xl border border-slate-200 bg-white p-3 shadow-lg animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200">
             <div className="px-4 py-3 text-[10px] uppercase font-bold tracking-[0.15em] text-slate-400 select-none">
               Account Control
             </div>
@@ -72,7 +72,7 @@ export default function DashboardHeader({
         <div className="lg:hidden ml-1 flex items-center">
           <label 
             htmlFor="dashboard-drawer" 
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200/60 bg-white/50 text-slate-700 shadow-sm backdrop-blur-md transition-all hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-gold/50 drawer-button"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition-all hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-navy/20 drawer-button"
           >
             <Menu size={22} className="pointer-events-none" />
           </label>
