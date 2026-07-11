@@ -19,13 +19,13 @@ export default function ArticleCard({ article, apiUrl }) {
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-none border border-slate-200 bg-white shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-gold/30 h-full">
       {/* Image Section */}
-      <div className="relative h-48 w-full overflow-hidden shrink-0">
-        <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+      <div className="relative h-48 w-full overflow-hidden shrink-0 bg-slate-50 flex items-center justify-center p-2">
+        <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
         <img 
           src={imageUrl} 
           alt={article.title} 
           crossOrigin="anonymous"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
+          className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" 
         />
         {/* Category Badge */}
         <div className="absolute top-4 left-4 z-20">
@@ -45,7 +45,7 @@ export default function ArticleCard({ article, apiUrl }) {
             <div className="absolute inset-0 flex flex-col animate-fade-in-up">
               <div 
                 dangerouslySetInnerHTML={{ __html: article.content }} 
-                className="prose prose-sm prose-slate max-w-none flex-1 overflow-y-auto overflow-x-hidden break-words pr-2 pb-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 [&::-webkit-scrollbar-track]:bg-transparent" 
+                className="prose prose-sm prose-slate max-w-none flex-1 overflow-y-auto overflow-x-hidden pr-2 pb-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 [&::-webkit-scrollbar-track]:bg-transparent" 
               />
               <button 
                 onClick={toggleExpand} 
@@ -56,7 +56,7 @@ export default function ArticleCard({ article, apiUrl }) {
             </div>
           ) : (
             <div className="absolute inset-0 flex flex-col animate-fade-in-up">
-              <p className="flex-1 overflow-hidden break-words text-ellipsis">
+              <p className="flex-1 overflow-hidden text-ellipsis">
                 {article.excerpt || (article.content.replace(/<[^>]*>/g, '').substring(0, 120))}...
               </p>
               <button 
