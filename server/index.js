@@ -53,4 +53,7 @@ if (process.env.NODE_ENV !== "test") {
 // trigger update
 // restart
 // again
+// forcing restart for .env changes
+// forcing restart for new SMTP credentials
+// forcing restart for Hostinger mailer
 

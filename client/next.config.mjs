@@ -13,3 +13,4 @@ const nextConfig = {
 };
 
 export default nextConfig;
+// forcing restart to load new .env file

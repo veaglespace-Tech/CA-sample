@@ -1,15 +1,17 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: process.env.SMTP_HOST || "smtp.hostinger.com",
+  port: Number(process.env.SMTP_PORT) || 465,
+  secure: true,        // true for 465, false for other ports
   pool: true,          // Reuse connections instead of reconnecting each time
   maxConnections: 3,   // Keep up to 3 concurrent connections
   maxMessages: 100,    // Reuse connection for up to 100 messages
-  rateDelta: 1000,     // Throttle to avoid Gmail rate limits
+  rateDelta: 1000,     // Throttle to avoid rate limits
   rateLimit: 5,        // Max 5 messages per rateDelta window
   auth: {
-    user: process.env.SMTP_USER || "singareakshay937@gmail.com",
-    pass: (process.env.SMTP_PASS || "fhql wslt tflu tzly").replace(/\s/g, ""),
+    user: process.env.SMTP_USER || "br@info.veaglespace.com",
+    pass: (process.env.SMTP_PASS || "Veagle@12345").replace(/\s/g, ""),
   },
 });
 
