@@ -13,7 +13,7 @@ export default function AdminLoginPage() {
     <PublicOnlyRoute>
       <section className="vs-auth-shell">
         <div className="vs-auth-card">
-          <BrandLogo href="/" className="mb-5 justify-center" height={42} />
+          <BrandLogo href="/" className="mb-5 justify-center" height={42} priority={true} />
           <h1 className="mb-6">Admin Login</h1>
 
           <AuthForm

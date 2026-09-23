@@ -13,7 +13,7 @@ export default function SuperAdminLoginPage() {
     <PublicOnlyRoute>
       <section className="vs-auth-shell">
         <div className="vs-auth-card">
-          <BrandLogo href="/" className="mb-5 justify-center" height={42} />
+          <BrandLogo href="/" className="mb-5 justify-center" height={42} priority={true} />
           <h1>Login as Super Admin</h1>
           <p>This page is reserved for super admin accounts only.</p>
           <AuthForm
