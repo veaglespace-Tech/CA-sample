@@ -39,10 +39,10 @@ jobs:
             npm install
 
             echo "Restarting frontend..."
-            pm2 restart ca-sample-client 
+            pm2 restart br-client 
 
             echo "Restarting backend..."
-            pm2 restart ca-sample-server
+            pm2 restart br-server
 
             echo "Saving PM2..."
             pm2 save
