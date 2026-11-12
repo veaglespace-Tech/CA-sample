@@ -40,11 +40,32 @@ jobs:
             cd ../server
             npm install
 
+            echo "Current PM2 processes:"
+            pm2 list || true
+
             echo "Restarting frontend..."
-            pm2 restart br-client 
+            if pm2 describe br-client > /dev/null 2>&1; then
+              pm2 restart br-client --update-env
+            elif pm2 describe ca-sample-client > /dev/null 2>&1; then
+              pm2 restart ca-sample-client --update-env
+            elif pm2 describe caproject-frontend > /dev/null 2>&1; then
+              pm2 restart caproject-frontend --update-env
+            else
+              cd /root/CA-sample/client
+              pm2 start npm --name br-client -- start
+            fi
 
             echo "Restarting backend..."
-            pm2 restart br-server
+            if pm2 describe br-server > /dev/null 2>&1; then
+              pm2 restart br-server --update-env
+            elif pm2 describe ca-sample-server > /dev/null 2>&1; then
+              pm2 restart ca-sample-server --update-env
+            elif pm2 describe caproject-backend > /dev/null 2>&1; then
+              pm2 restart caproject-backend --update-env
+            else
+              cd /root/CA-sample/server
+              pm2 start npm --name br-server -- start
+            fi
 
             echo "Saving PM2..."
             pm2 save
