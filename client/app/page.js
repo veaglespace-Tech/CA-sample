@@ -624,7 +624,7 @@ export default function Home() {
                   <span className="text-white font-bold uppercase tracking-widest text-sm">Toll Free</span>
                 </div>
                 <strong className="block max-w-full whitespace-nowrap text-3xl sm:text-4xl lg:text-5xl font-black leading-none tracking-tight mb-6 text-white drop-shadow-lg">
-                  +91 82379 99101
+                  +91 92252 41608
                 </strong>
                 <p className="text-white/90 text-lg leading-relaxed mb-10 max-w-md font-medium">
                   Reach out to us for immediate assistance regarding your business registration and compliance needs.

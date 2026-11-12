@@ -1,6 +1,6 @@
 export const siteMeta = {
   name: "Veagle Space Technology",
-  phone: "+91 82379 99101",
+  phone: "+91 92252 41608",
   email: "info@veaglespace.com",
   address: "Veagle Space Technology Pvt. Ltd.",
 };

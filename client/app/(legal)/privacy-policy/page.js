@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
               </div>
               <div>
                 <h2 className="font-heading text-2xl font-black text-slate-900 mb-4">5. Contact Us</h2>
-                <p>For privacy-related queries, contact us at <a href="mailto:info@veaglespace.com" className="text-gold hover:underline font-bold">info@veaglespace.com</a> or call <span className="font-bold">+91 82379 99101</span>.</p>
+                <p>For privacy-related queries, contact us at <a href="mailto:info@veaglespace.com" className="text-gold hover:underline font-bold">info@veaglespace.com</a> or call <span className="font-bold">+91 92252 41608</span>.</p>
               </div>
           </div>
         </div>

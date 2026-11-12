@@ -16,9 +16,9 @@ const contactCards = [
   { 
     icon: <Phone size={20} className="text-gold" />, 
     title: "Call Us (Secondary)", 
-    value: "+91 85306 00577", 
+    value: siteMeta.phone2, 
     note: "Monday to Saturday, 10 AM to 7 PM",
-    href: "tel:+918530600577"
+    href: `tel:${siteMeta.phone2.replace(/[^0-9+]/g, '')}`
   },
   { 
     icon: <Mail size={20} className="text-gold" />, 

@@ -20,14 +20,14 @@ async function main() {
     where: { key: "site_contact" },
     update: {
       value: {
-        phone: "+91 82379 99101",
+        phone: "+91 92252 41608",
         email: "info@veaglespace.com",
       },
     },
     create: {
       key: "site_contact",
       value: {
-        phone: "+91 82379 99101",
+        phone: "+91 92252 41608",
         email: "info@veaglespace.com",
       },
     },

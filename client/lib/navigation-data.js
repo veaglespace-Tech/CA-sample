@@ -173,9 +173,9 @@ function uniqueLinks(links) {
 export const siteMeta = {
   name: "Veagle Space Technology",
   tagline: "Legal wings to let your dreams soar higher.",
-  phone: "+91 82379 99101",
+  phone: "+91 92252 41608",
   phone2: "+91 85306 00577",
-  whatsapp: "+918237999101",
+  whatsapp: "+919225241608",
   email: "info@veaglespace.com",
   address: "Office no 207, Kudale Patil Chambers, Heritage, near Bhairavnath Temple, Jadhav Nagar, Vadgaon Budruk, Pune, Maharashtra 411041",
   companyName: "Veagle Space Technology Pvt. Ltd.",

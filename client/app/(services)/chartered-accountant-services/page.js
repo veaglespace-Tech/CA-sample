@@ -676,7 +676,7 @@ export default function CharteredAccountantLanding() {
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Hotline Number</p>
-                  <p className="font-heading text-base font-extrabold text-white mt-0.5">+91 82379 99101</p>
+                  <p className="font-heading text-base font-extrabold text-white mt-0.5">+91 92252 41608</p>
                 </div>
               </div>
             </div>
